@@ -1,0 +1,9 @@
+# Site settings
+title: Jacob Liljehult Neurologi
+author: 
+  name: Jacob Liljehult
+  email: jacob.mesot.liljehult@regionh.dk
+description: ""
+
+# Build Setting
+# remote_theme: jekyll/minima
