@@ -64,6 +64,7 @@ body {
     margin-bottom: 0px;
     text-align: right;
     text-transform: uppercase;
+    font-size: 16px;
 }
 
 .card1 {
@@ -92,8 +93,34 @@ body {
   float: left;
   width: 80%;
   background-color: rgb(245,245,245);
-  padding-left: 20px;
+  padding-left: 20px; 
 }
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.maintext {	
+    color: black;    
+    font-size: 18px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.maintext p, li {font-family: times;}
+
+/* Reference lists */
+.references {
+	font-family: times;
+    color: black;    
+    font-size: 14px;
+}
+
+.references h3, h4 {font-size: 18px;}
+
+.references ul {list-style-type: none; margin-left: -40px}
 
 /* Fake image */
 .fakeimg {
@@ -102,14 +129,6 @@ body {
   padding: 20px;
 }
 
-/* Add a card effect for articles */
-
-
-.card {
-  background-color: white;
-  padding: 20px;
-  margin-top: 10px;
-}
 
 /* Clear floats after the columns */
 .row:after {
@@ -172,10 +191,10 @@ body {
       <a href="#">Link</a><br>
       <a href="#">Link</a><br>
       <a href="#">Link</a><br>
-      <h3 class="h3sidenav">Sygdomslære</h3>
+      <h3 class="h3sidenav">Apopleksi</h3>
       <hr style="margin-top: 1px;margin-bottom:1px;">
-      <a href="#">Link</a><br>
-      <a href="#">Link</a><br>
+      <a href="#">Patologi</a><br>
+      <a href="#">Epidemiologi</a><br>
       <a href="#">Link</a><br>
       <a href="#">Link</a><br>
       <a href="#">Link</a><br>
@@ -199,7 +218,7 @@ body {
      
       <div style="border: 1px gray;">
        <br><br><br>
-      <img src="/neuro/images/JacobLiljehult.jpg" style="height: 100px; width: 100px; display: block; margin-left: auto;
+      <img src="https://i1.rgstatic.net/ii/profile.image/565284258156544-1511785677233_Q64/Jacob-Liljehult.jpg" style="height: 100px; width: 100px; display: block; margin-left: auto;
   margin-right: auto; border-radius: 50%;border: 0px solid darkgray;">
       <p style="font-size: 12px;text-align: center; color: rgb(234,234,234)">
       <b style="font-size: 16px; color: white">Jacob Liljehult</b><br>
@@ -211,13 +230,16 @@ body {
       
     </div></div></div>
   <div class="rightcolumn">
-    <center>
+    
   <div class="card">
-  	{{ content }}
+  <div class="maintext">
+
+{{ content }}
+
   </div>
-</center>
+
   </div>
-</div>
+</div></div>
 
 <div class="footer">
 <div class="p11">
@@ -229,4 +251,3 @@ body {
 </div>
 </body>
 </html>
-
