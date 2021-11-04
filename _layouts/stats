@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: rgb(163,219,246);
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 10px;
+  text-align: center;
+  background: red;
+  color: white;
+}
+.header h1 {
+  font-size: 50px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: rgb(35,35,35);
+}
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}	
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 20%;
+  max-width: 200px;
+  height: 100%;
+  background-color: rgb(245,245,245);
+}
+
+.sidenav {
+  background-color: rgb(87,87,87);
+  padding: 20px;
+  margin-top: 10px;
+  height: 100%;
+}
+.sidenav h3 {
+  color:rgb(220,220,220);
+  margin-bottom: 0px;
+  text-align: right;
+  text-transform: uppercase;
+}
+.sidenav a {
+  float: right;
+  display: block;
+  color: rgb(220,220,220);
+  margin-bottom: 0px;
+  text-align: right;
+  text-decoration: none;
+	font-size: 12px;
+}
+.sidenav a:hover {
+  background-color: rgb(220,220,220);
+  color: black;
+  width: 100%;
+}
+	
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 80%;
+  background-color: rgb(245,245,245);
+  padding-left: 20px;
+}
+
+.maintext {	
+    color: black;    
+    font-size: 18px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.maintext p, li {font-family: times;}	
+
+/* Image table */
+#imgtable {width:80%;font-family:times;}
+#imgtable table, tr, th {border:0px solid;}
+#imgtable th {width:50%;padding:10px;vertical-align: top;min-width:200px;max-width:300px;}
+#imgtable tr:hover {background-color: rgb(255,255,220);}
+#imgtable h2 {font-size:20px;color:black;margin-top: 1px;}
+#imgtable p {font-size:14px;color:gray;}
+#imgtable a {text-decoration: none;}
+#imgtable img {width:100%;height:100%;border: 1px solid gray;min-width:300px;}
+	
+/* Reference lists */
+.references {
+	font-family: times;
+    color: black;    
+    font-size: 14px;
+}
+.references h3, h4 {font-size: 18px;}
+.references ul {list-style-type: none; margin-left: -40px}	
+	
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: rgb(245,245,245);
+  margin-top: 20px;
+  font-size: 11px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1 style="margin-bottom: 0px;">Statistik</h1>
+  <h2 style="margin-top: 0px;">eksempler i R</h2>
+  
+</div>
+
+<div class="topnav">
+  <a href="http://jacobliljehult.github.io/neuro/">Apopleksi</a>
+  <a href="http://jacobliljehult.github.io/">Statistik</a>
+  <a href="http://jacobliljehult.github.io/" style="float:right">Home</a> 
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="sidenav">
+      <h3>Deskriptiv</h3>
+      <hr style="margin-top: 1px;margin-bottom:1px;">
+      <a href="">link</a><br>
+
+      <h3>Analytisk</h3>
+      <hr style="margin-top: 1px;margin-bottom:1px;">
+      <a href="">link</a><br>
+
+      <h3>Slides</h3>
+      <hr style="margin-top: 1px;margin-bottom:1px;">
+      <a href="">link</a><br>
+      
+      <div style="border: 1px gray;">
+        <br><br><br>
+        <img src="/neuro/images/JacobLiljehult.jpg" style="height: 100px; width: 100px; display: block; margin-left: auto;
+ 	margin-right: auto; border-radius: 50%;border: 0px solid darkgray;">
+        <p style="font-size: 12px;text-align: center; color: rgb(234,234,234)">
+        <b style="font-size: 16px; color: white">Jacob Liljehult</b><br>
+        Klinisk sygeplejespecialist<br>
+        cand.scient.san<br><br>
+        <b style="font-size: 14px">Neurologisk afdeling<br>
+        Nordsjællands Hospital</b></p>
+      </div>  
+    </div></div>
+  
+<div class="rightcolumn"> 
+  <div class="card"><div class="maintext">
+  	{{ content }}
+  </div>
+</div>
+
+  </div>
+</div>
+
+<div class="footer">
+	<p>Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
+    Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - <a href="https://www.researchgate.net/profile/Jacob-Liljehult">ResearchGate</a> - <a href="https://orcid.org/0000-0002-9928-1097">OCID</a></p> 
+	<p>Tekst og illustrationer er tilgængelig under Creative Commons <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)</a>; yderligere betingelser kan være gældende.
+	</p> <p>Denne side blev senest ændret den </p>
+</div>
+</body>
+</html>
