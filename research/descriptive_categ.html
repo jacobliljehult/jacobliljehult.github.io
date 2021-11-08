@@ -1,0 +1,63 @@
+---
+layout: stats
+---
+
+<h1>Deskriptiv statistik for kategoriske data</h1>
+
+<p>Som eksempel laver vi først et simuleret datasæt med to kategoriske variable: den ene variabel angiver en eksponering, hvor der er omtrent lige mange eksponerede og ikke-eksponerede; mens den anden variabel angiver forekomsten af en sygdom, hvor der er en højere forekomst af syge blandt de eksponerede. De to variable samles i en dataframe med navnet <i>data1</i></p>
+
+<p class="rcode">
+set.seed(123)<br>
+dataFunktion <- function(n) {<br>
+  eksponering <- factor(rbinom(n,1,0.5), levels = c(0,1), labels = c("Nej","Ja"))<br>
+  sygdom <- factor(ifelse(eksponering == "Ja", rbinom(n,1,0.65), <br>
+  &emsp; &emsp; &emsp;                           rbinom(n,1,0.4)), levels = c(0,1), labels = c("Rask","Syg"))<br>
+  return(data.frame(eksponering,sygdom))<br>
+}<br>
+data1 <- dataFunktion(100)
+</p>
+
+<p>Hvis man derefter ønsker at tælle hvor mange der er i hver gruppe kan man bruge funktionen <b>table</b>() eller <b>summary</b>() (de giver samme output):</p>
+<p class="rcode">
+table(data1$eksponering)<br>
+table(data1$sygdom)
+</p>
+<p class="routput">
+Nej  Ja <br>
+ 53  47 <br>
+<br>
+Rask  Syg <br>
+  41   59 
+</p>
+
+<p>Man kan også lave en 2x2 table:</p>
+<p class="rcode">
+with(data1, table(eksponering,sygdom))</p>
+<p class="routput">
+ &emsp; &emsp; &nbsp;           sygdom<br>
+eksponering Rask Syg<br>
+&emsp;  &emsp; &emsp;     Nej  28  25<br>
+&emsp;  &emsp; &emsp;     Ja &nbsp; 13  34<br>
+</p>
+
+<p>For at få procenter bruges funktionen <b>prop.table</b>()</p>
+<p class="rcode">
+with(data1, prop.table(table(eksponering,sygdom)))</p>
+<p class="routput">
+ &emsp; &emsp; &nbsp;           sygdom<br>
+eksponering Rask Syg<br>
+&emsp;  &emsp; &emsp;     Nej  0.28  0.25<br>
+&emsp;  &emsp; &emsp;     Ja &nbsp; 0.13  0.34<br>
+</p>
+<p class="rcode">with(data1, prop.table(table(eksponering,sygdom),1)) # Procent for rækker<br>
+with(data1, prop.table(table(eksponering,sygdom),2)) # Procent for koloner</p>
+<p class="routput">
+ &emsp; &emsp; &nbsp;           sygdom<br>
+eksponering Rask Syg<br>
+&emsp;  &emsp; &emsp;     Nej  0.5283019  0.4716981<br>
+&emsp;  &emsp; &emsp;     Ja &nbsp; 0.2765957 0.7234043<br>
+ &emsp; &emsp; &nbsp;           sygdom<br>
+eksponering Rask Syg<br>
+&emsp;  &emsp; &emsp;     Nej  0.6829268 0.4237288<br>
+&emsp;  &emsp; &emsp;     Ja &nbsp; 0.3170732 0.5762712<br>
+</p>
