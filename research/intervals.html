@@ -1,0 +1,61 @@
+---
+layout: stats
+---
+
+<h1>Intervaller</h1>
+
+<p>I mange tilfælde kan konfidensintervaller udregnes ved hjælp af andre funktioner og kan derefter hentes fra deres output:</p>
+
+<h2>KONFIDENSINTERVALLER</h2>
+<h3>Kontinuerte data</h3>
+<p>Konfidensintervallet for en kontinuert variabel kan udregnes fra en t-test, hvor funktionen <b>t.test</b>() bruges til at lave en one-sample t-test imod variables eget gennemsnit. Selve konfidensintervallet ekstraheres fra funktionen ved at sætte post-fixet <i>$conf.int[1:2]</i> efter funktionen - således at syntaksen bliver <b>t.test</b>(x, mu = <b><i>mean</i></b>(x))$conf.int[1:2]
+</p>
+<p class="rcode"> 
+var1 <- round(rnorm(100, 10, 2),0) emsp; # Tilfældigt genereret variable<br>
+mean(var1)<br>
+t.test(var1, mu = mean(var1))$conf.int[1:2]</p>
+<p class="routput">
+[1] 10.03<br>
+[1]  9.682921 10.377079
+ </p>
+
+<h3>Proportion</h3>
+<p>For at udregne konfidensintervallet for en proportion kan man både bruge funktionerne <b>binom.test</b>() og <b>prop.test</b>(). Resultaterne vil ikke være helt ens, men vil oftest være meget til på hinanden, så det gør ikke den store forskel hvilken funktion man bruger. Til forskel fra Wald konfidensintervaller risikerer man ikke med nogle af metoderne at intervallet strækker sig under 0 eller over 1.</p>
+<p>Hvis 75 ud af 100 personer (75%) er mænd kan proportion og konfidensinterval udregnes således:</p>
+<b><i>Exact konfidensinterval</i></b>
+<p><b>&emsp; binom.test</b>(x, n, conf.level = 0.95)$estimat <br>
+<p><b>&emsp; binom.test</b>(x, n, conf.level = 0.95)$conf.int[1:2] </p>
+ 
+<p class="rcode"> 
+binom.test(75, 100, conf.level = 0.95)$estimat<br>
+binom.test(75, 100, conf.level = 0.95)$conf.int[1:2]
+</p>
+<p class="routput"> 
+probability of success <br>
+  &emsp; &emsp; &emsp;  &emsp; &emsp;               0.75 <br>
+[1] 0.6534475 0.8312203
+</p>
+
+
+<b><i>Wilson konfidensinterval</i></b>
+<p><b>&emsp; prop.test</b>(x, n, conf.level = 0.95)$estimat <br>
+<p><b>&emsp; prop.test</b>(x, n, conf.level = 0.95)$conf.int[1:2] </p>
+<p class="rcode"> 
+prop.test(75, 100, conf.level = 0.95)$estimat<br>
+prop.test(75, 100, conf.level = 0.95)$conf.int[1:2]
+</p>
+<p class="routput"> 
+   p <br>
+0.75 <br>
+[1] 0.6516159 0.8288245
+</p>
+
+<h2>REFERENCE INTERVAL</h2>
+
+<p>Referenceintervaller for normalværdier kan udregnes på baggrund af en variabel med funktionen <b>qnorm</b>(c( 0.5&plusmn;( (1-&alpha;<sub>z</sub>)/2) ), <b><i>mean</i></b>(x), <b><i>sd</i></b>(x)), hvor x er variablen<p>
+ 
+<p>Eksempel med 95% (&alpha; = 0.05) referenceinterval for variabel 1 (0.5&plusmn;( 95/2) ) = 0.025 - 0.975 )</p>
+<p class="rcode">
+qnorm(c(0.025, 0.975), mean(var1), sd(var1))
+ </p>
+<p class="routput">[1]  6.601633 13.458367 </p>
