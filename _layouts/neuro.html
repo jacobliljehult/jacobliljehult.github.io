@@ -1,183 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="/neuro/images/brainicon.png">
+	<link rel="icon" href="/neuro/images/brainicon.png">
+	<link rel="stylesheet" href="https://jacobliljehult.github.io/css/style.css">
 	{% seo %}
-<style>
-* {
-  box-sizing: border-box;
-}
 
-body {
-  font-family: Arial;
-  padding: 10px;
-  background: rgb(245,245,245);
-}
-
-/* Header/Blog Title */
-.header {
-  padding: 10px;
-  text-align: center;
-  background: rgb(192,0,0);
-  background-image: url(/neuro/images/headerhjerne.png);
-  background-repeat: no-repeat;
-  color: white;
-}
-.header h1 {
-  font-size: 50px;
-}
-
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: rgb(35,35,35);
-}
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}	
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Create two unequal columns that floats next to each other */
-/* Left column */
-.leftcolumn {   
-  float: left;
-  width: 20%;
-  max-width: 200px;
-  height: 100%;
-  background-color: rgb(245,245,245);
-}
-
-.sidenav {
-  background-color: rgb(87,87,87);
-  padding: 20px;
-  margin-top: 10px;
-  height: 100%;
-}
-.sidenav h3 {
-  color:rgb(220,220,220);
-  margin-bottom: 0px;
-  text-align: right;
-  text-transform: uppercase;
-}
-.sidenav a {
-  float: right;
-  display: block;
-  color: rgb(220,220,220);
-  margin-bottom: 0px;
-  text-align: right;
-  text-decoration: none;
-	font-size: 12px;
-}
-.sidenav a:hover {
-  background-color: rgb(220,220,220);
-  color: black;
-  width: 100%;
-}
-	
-/* Right column */
-.rightcolumn {
-  float: left;
-  width: 80%;
-  background-color: rgb(245,245,245);
-  padding-left: 20px;
-}
-
-.maintext {	
-    color: black;    
-    font-size: 18px;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-.maintext p, ul, li {font-family: times;}
-.maintext h1 {text-align: center; letter-spacing: 1px;}
-.centerimg img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-}
-	
-/* Image table */
-#imgtable {width:80%;font-family:times;}
-#imgtable table, tr, th {border:0px solid;}
-#imgtable th {width:50%;padding:10px;vertical-align: top;min-width:200px;max-width:300px;}
-#imgtable tr:hover {background-color: rgb(255,255,220);}
-#imgtable h2 {font-size:20px;color:black;margin-top: 1px;letter-spacing: 2px;}
-#imgtable p {font-size:18px;color:gray;letter-spacing: 2px;}
-#imgtable a {text-decoration: none;}
-#imgtable img {width:100%;height:100%;border: 1px solid gray;min-width:300px;}
-	
-/* Reference lists */
-.references {
-	font-family: times;
-    color: black;    
-    font-size: 14px;
-}
-.references h3, h4 {font-size: 18px;}
-.references ul, li {list-style-type: none; margin-left: 0px; margin-bottom: 6px;}	
-	
-/* Fake image */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
-
-/* Add a card effect for articles */
-
-
-.card {
-  background-color: white;
-  padding: 20px;
-  margin-top: 10px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: rgb(245,245,245);
-  margin-top: 20px;
-  font-size: 11px;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {   
-    width: 100%;
-    padding: 0;
-  }
-}
-
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .topnav a {
-    float: none;
-    width: 100%;
-  }
-}
-</style>
 </head>
 <body>
 
-<div class="header">
+<div class="headerstroke">
   <h1 style="margin-bottom: 0px;">Apopleksi</h1>
   <h2 style="margin-top: 0px;">og andre cerebrovaskulære sygdomme</h2>
   
@@ -209,6 +40,10 @@ body {
       <hr style="margin-top: 1px;margin-bottom:1px;">
       <a href="/neuro/slides/">Slides</a><br>
       
+	    <h3>Litteratur</h3>
+      <hr style="margin-top: 1px;margin-bottom:1px;">
+      <a href="/neuro/content/references.html">Litteratur</a><br>
+      
       <div style="border: 1px gray;">
         <br><br><br>
         <img src="/neuro/images/JacobLiljehult.jpg" style="height: 100px; width: 100px; display: block; margin-left: auto;
@@ -235,7 +70,7 @@ body {
 	<p>Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
     Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - <a href="https://www.researchgate.net/profile/Jacob-Liljehult">ResearchGate</a> - <a href="https://orcid.org/0000-0002-9928-1097">OCID</a></p> 
 	<p>Tekst og illustrationer er tilgængelig under Creative Commons <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)</a>; yderligere betingelser kan være gældende.
-	</p> <p>Denne side blev senest ændret den </p>
+	</p>
 </div>
 </body>
 </html>
