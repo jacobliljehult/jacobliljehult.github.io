@@ -3,9 +3,11 @@ layout: stats
 title: "Sandsynligheder" 
 --- 
 <h1>Sandsynligheder</h1> 
-<p> Man kan omregne fra Z og T fordelinger med funktionerne <b>pnorm</b>(-<b><i>abs</i></b>(<i>z</i>))</p> og <b>pt</b>(-<b><i>abs</i></b>(<i>t</i>), df = ( <i>n</i>-1 ))</p> 
+<p> Man kan omregne fra Z og T fordelinger med funktionerne <b>pnorm</b>(-<b><i>abs</i></b>(<i>z</i>)) og <b>pt</b>(-<b><i>abs</i></b>(<i>t</i>), df = ( <i>n</i>-1 ))</p> 
 <p>Som eksempel kan man bruge Z og T-fordelinger til at udregne andelen af patienter over eller under en given grænseværdi ud fra <b>mean</b> og <b>standard deviation</b> <i>(antaget at data er normalfordelt)</i>:</p>  
-<p class="rcode"> apodata %>% <br> 
+<p class="rcode">
+require("dplyr")<br>
+apodata %>% <br> 
  &emsp; mutate(variable = age) %>%<br> 
 &emsp;  filter(!is.na(variable)) %>%<br> 
 &emsp; &emsp;    summarise(<br> 
@@ -44,12 +46,12 @@ title: "Sandsynligheder"
     t <- (50 - 71.85063)/12.42<br> 
     t<br> 
     pt(-abs(t), df = (1031-1))</p> 
-  <p class="routput>[1] -1.75931<br>[1] 0.03941087</p> 
+<p class="routput">[1] -1.75931<br>[1] 0.03941087</p> 
   <p class="rcode"> 
     t <- (90 - 71.85063)/12.42<br> 
     t<br> 
     pt(-abs(t), df = (1031-1))</p> 
-<p class="routput>[1] 1.461302<br>[1] 0.0721188</p> 
+<p class="routput">[1] 1.461302<br>[1] 0.0721188</p> 
 <p>Samme funktioner kan bruges til at lave henholdsvis ensidige (one-sample) Z og T-test. Her bruges dog <i>standard error</i> fremfor <i>standard deviation</i></p> 
 <p class="rcode"> 
   z <- (71 - 71.85063)/(12.42/sqrt(1031))<br> 
@@ -60,7 +62,7 @@ title: "Sandsynligheder"
   t<br> 
   pt(-abs(t), df = (1031-1))  
 </p> 
-<p class="routput>[1] -2.199117<br>[1] 0.01404562</p> 
+<p class="routput">[1] -2.199117<br>[1] 0.01404562</p> 
 <p>Der er altså 1.4% sandsynlighed for at vi ved en ny stikprøve ville få et gennemsnit på 71 år eller lavere</p> 
 
 <h2>Opslag af Z og T værdier fra sandsynlighed</h2> 
