@@ -1,7 +1,8 @@
 ---
 layout: stats
+title: "Deskriptiv - Kvantitative data"
 ---
-
+<h1>Deskriptiv statistik for kvantitative data</h1>
 <p>Tilfældigt genereret talvariabel </p>
 <p class="rcode">set.seed(123)<br>
 var1 <- round(rnorm(20, 10, 2),0)<br>
@@ -11,10 +12,12 @@ var1</p>
 
 <p>En hurtig måde at lave deskriptiv statistik er med funktionen <b>summary</b>(x): </p>
 <p class="rcode">summary(var1)</p>
-<p class="routput">
-Min.&emsp; 1st Qu.&emsp;  Median &emsp;   Mean&emsp; 3rd Qu.&emsp;    Max. <br>
-   6.00 &emsp;   9.00  &emsp; 10.00 &emsp;  10.25  &emsp; 11.00 &emsp;  14.00 
- </p>
+<div class="routput"><table>
+  <tr><th>Min.</th><th>1st Qu.</th><th> Median</th><th>Mean</th><th>3rd Qu.</th><th>Max.</tr>
+  <tr><th>6.00</th><th>9.00 </th><th>10.00</th><th>10.25</th><th>11.00</th><th>14.00 </tr>
+</table>
+   
+ </div>
 <p><b>summary</b>(x) ignorerer per default NA-værdier, men vil fortælle hvor mange NA-værdier den har ignoreret</p>
 <br>
 <p>Hvis man ønsker de enkelte beregninger kan de udregnes med følgende funktioner:</p>
