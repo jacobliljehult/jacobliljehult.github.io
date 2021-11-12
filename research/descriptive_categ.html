@@ -1,5 +1,6 @@
 ---
 layout: stats
+title: "Deskriptiv - Kategorisk data"
 ---
 
 <h1>Deskriptiv statistik for kategoriske data</h1>
@@ -22,42 +23,45 @@ data1 <- dataFunktion(100)
 table(data1$eksponering)<br>
 table(data1$sygdom)
 </p>
-<p class="routput">
-Nej  Ja <br>
- 53  47 <br>
-<br>
-Rask  Syg <br>
-  41   59 
-</p>
+<div class="routput">
+<table>  
+<tr><th>Nej</th><th>Ja</th></tr>
+<tr><th>53</th><th>47</th></tr>
+<tr><th></th><th></th></tr>
+<tr><th>Rask</th><th>Syg</th></tr>
+<tr><th>41</th><th>59</th></tr>
+</table></div>
 
 <p>Man kan også lave en 2x2 table:</p>
 <p class="rcode">
 with(data1, table(eksponering,sygdom))</p>
-<p class="routput">
- &emsp; &emsp; &nbsp;           sygdom<br>
-eksponering Rask Syg<br>
-&emsp;  &emsp; &emsp;     Nej  28  25<br>
-&emsp;  &emsp; &emsp;     Ja &nbsp; 13  34<br>
-</p>
+<div class="routput"><table>
+  <tr> <th></th><th>sygdom</th><th></th> </tr>
+  <tr> <th>eksponering</th><th>Rask</th><th>Syg</th> </tr>
+  <tr> <th>Nej</th><th>28</th><th>25</th> </tr>
+  <tr> <th>Ja</th><th>13</th><th>34</th> </tr>
+</table></div>
 
 <p>For at få procenter bruges funktionen <b>prop.table</b>()</p>
 <p class="rcode">
 with(data1, prop.table(table(eksponering,sygdom)))</p>
-<p class="routput">
- &emsp; &emsp; &nbsp;           sygdom<br>
-eksponering Rask Syg<br>
-&emsp;  &emsp; &emsp;     Nej  0.28  0.25<br>
-&emsp;  &emsp; &emsp;     Ja &nbsp; 0.13  0.34<br>
-</p>
+<div class="routput"><table>
+  <tr> <th></th><th>sygdom</th><th></th> </tr>
+  <tr> <th>eksponering</th><th>Rask</th><th>Syg</th> </tr>
+  <tr> <th>Nej</th><th>0.28</th><th>0.25</th> </tr>
+  <tr> <th>Ja</th><th>0.13</th><th>0.34</th> </tr>
+</table></div>
 <p class="rcode">with(data1, prop.table(table(eksponering,sygdom),1)) # Procent for rækker<br>
 with(data1, prop.table(table(eksponering,sygdom),2)) # Procent for koloner</p>
-<p class="routput">
- &emsp; &emsp; &nbsp;           sygdom<br>
-eksponering Rask Syg<br>
-&emsp;  &emsp; &emsp;     Nej  0.5283019  0.4716981<br>
-&emsp;  &emsp; &emsp;     Ja &nbsp; 0.2765957 0.7234043<br>
- &emsp; &emsp; &nbsp;           sygdom<br>
-eksponering Rask Syg<br>
-&emsp;  &emsp; &emsp;     Nej  0.6829268 0.4237288<br>
-&emsp;  &emsp; &emsp;     Ja &nbsp; 0.3170732 0.5762712<br>
-</p>
+<div class="routput"><table>
+  <tr> <th></th><th>sygdom</th><th></th> </tr>
+  <tr> <th>eksponering</th><th>Rask</th><th>Syg</th> </tr>
+  <tr> <th>Nej</th><th>0.5283019</th><th>0.4716981</th> </tr>
+  <tr> <th>Ja</th><th>0.2765957</th><th>0.7234043</th> </tr>
+</table></div>
+<div class="routput"><table>
+  <tr> <th></th><th>sygdom</th><th></th> </tr>
+  <tr> <th>eksponering</th><th>Rask</th><th>Syg</th> </tr>
+  <tr> <th>Nej</th><th>0.6829268</th><th>0.4237288</th> </tr>
+  <tr> <th>Ja</th><th>0.3170732</th><th>0.5762712</th> </tr>
+</table></div>
