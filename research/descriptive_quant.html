@@ -51,10 +51,10 @@ var1</p>
 <p class="routput">25% <br>  9  </p>
 
 <p class="rcode">quantile(var1, c(0.025,0.975)) </p>
-<p class="routput">
- 2.5% &emsp; 97.5% <br>
- 6.475 &emsp; 13.525 
- </p>
+<div class="routput"><table>
+  <tr><th>2.5%</th><th>97.5%</th></tr>
+  <tr><th>6.475</th><th>13.525</th></tr>
+  </table></div>
 
 <p>Mange af de deskriptive funktioner ignorerer ikke NA-værdier per default og vil i så fald returnere NA, men mindre man fortæller funktionen at den skal ignorere NA-værdier med argumentet <b>na.rm=TRUE</b> </p>
 <p class="rcode"> 
