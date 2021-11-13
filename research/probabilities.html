@@ -6,8 +6,9 @@ title: "Sandsynligheder"
 <p> Man kan omregne fra Z og T fordelinger med funktionerne <b>pnorm</b>(-<b><i>abs</i></b>(<i>z</i>)) og <b>pt</b>(-<b><i>abs</i></b>(<i>t</i>), df = ( <i>n</i>-1 ))</p> 
 <p>Som eksempel kan man bruge Z og T-fordelinger til at udregne andelen af patienter over eller under en given grænseværdi ud fra <b>mean</b> og <b>standard deviation</b> <i>(antaget at data er normalfordelt)</i>:</p>  
 <p class="rcode">
-require("dplyr")<br>
-apodata %>% <br> 
+strokedata <- read.csv("https://jacobliljehult.github.io/research/strokedata.csv", sep=",", header=T)<br>
+library("dplyr")<br>
+strokedata %>% <br> 
  &emsp; mutate(variable = age) %>%<br> 
 &emsp;  filter(!is.na(variable)) %>%<br> 
 &emsp; &emsp;    summarise(<br> 
