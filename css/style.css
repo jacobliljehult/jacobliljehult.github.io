@@ -126,6 +126,8 @@ body {
   font-family: courier;
   font-size: 14px; 
 }
+.rcode a {color: "#0066ff"}
+.rcode a:hover { background-color: "#f2f2f2"}
 .routput {
   border: 1px solid gray;
   margin: 20px;
