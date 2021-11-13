@@ -1,0 +1,186 @@
+--- 
+layout: stats 
+title: "Kategoriske data" 
+--- 
+<h1>Kategoriske data</h1> 
+<h2>Test når både eksponering og udfald er kategorisk</h2> 
+<p> </p> 
+<p class="rcode"> 
+strokedata <- read.csv("<a href="https://jacobliljehult.github.io/research/strokedata.csv">https://jacobliljehult.github.io/research/strokedata.csv</a>",<br> sep=",", header = TRUE)<br> 
+with(strokedata, table(diagdict, inhospdead)) </p> 
+<p class="routput> 
+  <div class="routput"><table> 
+  <tr> <th></th><th colspan="2">inhospdead</th> </tr> 
+  <tr> <th>diagdict</th><th>Alive</th><th>Dead</th> </tr> 
+  <tr> <th>ICH</th><th>88</th><th>22</th> </tr> 
+  <tr> <th>IS</th><th>883</th><th>38</th> </tr> 
+  </table></div>   
+</p> 
+
+<h3>Chi<sup>2</sup>-test</h3> 
+<p>Chi<sup>2</sup>-test  laves med funktionen <b>chisq.test</b>( <b><i>table</i></b>( x, y )). Kategoriske data vil oftest være kodes som <i>factors</i>, men det er ikke nødvendigt for at lave testen.<br> 
+Testen kan enten laves med marginale data eller med summerede data fra et datasæt: 
+</p> 
+
+<h4>Marginal model</h4> 
+<p class="rcode> 
+  table1 <- matrix( c(88,22,883,38),  
+  &emsp; &emsp; nrow = 2, byrow = T) 
+  chisq.test(table1) 
+</p> 
+
+<p class="routput"> 
+  &emsp; &emsp; Pearson's Chi-squared test with Yates' continuity correction<br><br> 
+  data:  table1<br> 
+  X-squared = 42.327, df = 1, p-value = 7.722e-11 
+</p> 
+
+<h4>Summerede data</h4> 
+<p class="rcode> 
+  chisq.test( with(strokedata, table(diagdict, inhospdead)) ) 
+</p> 
+<p class="routput"> 
+  &emsp; &emsp; Pearson's Chi-squared test with Yates' continuity correction<br><br> 
+  data:  chisq.test( with(strokedata, table(diagdict, inhospdead)) )<br> 
+  X-squared = 42.327, df = 1, p-value = 7.722e-11 
+</p> 
+<p>Chi<sup>2</sup>-testet har en modelantagelse om at alle celler i tabellen har en forventet værdi på mindst fem. Denne antagelse kan testes således: 
+</p> 
+
+<p class="rcode"> 
+  chisq.test(chisq.test( with(strokedata, table(diagdict, inhospdead)) ))$expected</p> 
+<div class="routput"><table> 
+  <tr> <th></th><th colspan="2">inhospdead</th> </tr> 
+  <tr> <th>diagdict</th><th>Alive</th><th>Dead</th> </tr> 
+  <tr> <th>ICH</th><th>103.5984</th><th>6.401552</th> </tr> 
+  <tr> <th>IS</th><th>867.4016</th><th>53.598448</th> </tr> 
+</table></div>   
+
+<h3>Fisher exact test<h3> 
+<p>Med samme data kan vi lave en Fisher exact test, som ikke kræver samme antagelse angående forventede værdier: </p> 
+<p class="rcode">table2 <- matrix(c(88,22,883,38), <br> 
+  &emsp; &emsp; nrow = 2, byrow = T)<br> 
+  fisher.test(table2) 
+</p> 
+<p>eller</p> 
+<p class="rcode">fisher.test( with(strokedata, table(diagdict, inhospdead)) )</p> 
+<p class="routput> 
+  <br> 
+  &emsp; &emsp; Fisher's Exact Test for Count Data<br><br> 
+  data:  with(strokedata, table(diagdict, inhospdead))<br> 
+  p-value = 2.697e-08<br> 
+  alternative hypothesis: true odds ratio is not equal to 1<br> 
+  95 percent confidence interval:<br> 
+  &emsp; 0.09457859 0.32094882<br> 
+  sample estimates:<br> 
+  odds ratio <br> 
+  &emsp; 0.1726745  
+</p> 
+
+<h2>Test når eksponeringen er enten kategorisk eller kvantitativ og udfald er binomialt</h2> 
+
+<h3>Logistisk regression</h3> 
+<p>Logistisk regression kan laves med den generelle funktion <b>glm</b>() (generalised lineary model), hvor <I>family</i>-argumentet angives som <I>"binomial"</i>, således: <br><br>&emsp; <b>glm</b>(<I>y</i> ~ <I>x</i>, data=<I>df</i>, family=<I>"binomial"</i>)<br><br> 
+Resultatet af modellen hentes med funktionen: <b>summary</b>(<I>model2</i>)  
+</p> 
+
+<p class="rcode"> 
+  model2 <- glm(morsdic1y ~ smoking, data=strokedata, family="binomial") <br> 
+  summary(model2) </p> 
+<div class="routput"> 
+  Call:<br> 
+  glm(formula = morsdic1y ~ smoking, family = "binomial", data = strokedata)<br><br> 
+  Deviance Residuals: <br> 
+  <table> 
+    <tr><th>Min</th><th>1Q</th><th>Median</th><th>3Q</th><th>Max</th></tr> 
+    <tr><th>-0.6641</th><th>-0.6641</th><th>-0.6246</th><th>-0.4990</th><th>2.0713</th></tr></table><br> 
+  Coefficients:<br> 
+  <table> 
+    <tr><th></th><th>Estimate</th><th> Std.Error</th><th> z value</th><th> Pr(>|z|) </th><th></th>   </tr> 
+    <tr><th>(Intercept)</th><th>-2.0206</th><th>0.1799</th><th>-11.233</th><th>&lt;2e-16</th><th> ***</th></tr> 
+    <tr><th>smokingNever</th><th>0.6212</th><th>0.2208</th><th>2.813</th><th>0.0049</th><th> **</th> </tr> 
+    <tr><th>smokingPrevious</th><th>0.4853</th><th>0.2325</th><th>2.087</th><th>0.0369</th><th> *</th>  </tr></table> 
+  ---<br> 
+  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
+  (Dispersion parameter for binomial family taken to be 1)<br><br> 
+   <table><tr><th>    Null deviance: 901.83  on 998  degrees of freedom</th></tr> 
+    <tr><th>Residual deviance: 893.21  on 996  degrees of freedom</th></tr></table> 
+   &emsp;  (32 observations deleted due to missingness)<br> 
+   AIC: 899.21<br><br> 
+   Number of Fisher Scoring iterations: 4</div>   
+<p>Resultaterne returneres på en logaritmisk skala og hvis man skal bruge odds ratio'er skal de transformeres med funktionen <b>exp</b>(). Alternativt kan man bruge funktionen <b>publish</b>() fra pakken <b>Publish</b>, som yderligere også udregner konfidensintervaller for odds ratio'erne: 
+<p class="rcode">Publish::publish(model2) </p> 
+
+<div class="routput"> 
+  <table> 
+    <tr><th>Variable</th><th>Units</th><th>OddsRatio</th><th>CI.95</th><th>p-value</th></tr>  
+    <tr><th>smoking</th><th>Current</th><th>Ref </th></tr>                        
+    <tr><th></th><th>Never</th><th>1.86</th><th>[1.21;2.87]</th><th>0.004904 </th></tr> 
+    <tr><th></th><th>Previous</th><th>1.62</th><th>[1.03;2.56]</th><th>0.036881 </th></tr> 
+  </table> 
+</div>   
+
+<h4>Ændring af reference-kategorier</h4> 
+<p>I eksemplet er nuværende rygere (Current) brugt som reference, men fortolkningsmæssigt er det mere intuitivt at bruge de ueksponerede som reference, hvilket her er dem der aldrig har røget (Never). For at ændre referencen med funktionen <b>relevel</b>( <I>x</i>, ref = <I>r</i>):</p> 
+<p class="rcode">
+  model3 <- morsdic1y ~ relevel(smoking, ref = "Never"), <br> 
+  &emsp; &emsp;              data = strokedata, family = "binomial") <br> 
+  Publish::publish(model3)</p> 
+<div class="routput"> 
+  <table> 
+  <tr><th>Variable</th><th>Units</th><th>OddsRatio</th><th>CI.95</th><th>p-value</th></tr>  
+  <tr><th>relevel(smoking, ref = "Never")</th><th>Never</th><th>Ref </th></tr>                        
+  <tr><th></th><th>Current</th><th> 0.54</th><th>[0.35;0.83]</th><th> 0.004904 </th></tr> 
+  <tr><th></th><th>Previous</th><th>0.87</th><th> [0.60;1.28]</th><th>0.486122 </th></tr> 
+  </table> 
+</div>   
+<p>Tilsvarende kan man bruge <b>relevel()</b>-funktionen til at styre referencen for udfaldet, hvilket I dette eksempel ville være <code>relevel(morsdic1y, ref = "Alive")</code>.</p> 
+
+<h4>Justerede modeller</h4> 
+<p>I eksemplet med rygning og risikoen for at dø ser det ud til at der er lavere risiko for nuværende rygere end for patienter der aldrig har røget. Dette resultat virker umiddelbart ikke rimeligt og kan muligvis forklares med en fælles association til en confounding faktor, som der bør justeres for. <br> 
+Modellen kan justeres for kovariate ved at indsætte dem med et plus på <I>x</i>-siden af regressionsformlen, således <b>glm</b>(<I>y</i> ~ <I>x</i> + <I>a</i>, data = <i>df</i>, family="<I>binomial</i>").<br><br> 
+En mulig confounder kunne være alder, hvorfor modellen kan justeres for dette: 
+<p class="rcode">
+  model3 <- glm(morsdic1y ~ relevel(smoking, ref = "Never") + age, <br> 
+  &emsp; &emsp;                data = strokedata, family = "binomial") <br> 
+  summary(model3)
+</p> 
+<p class="routput"> 
+ <div class="routput"> 
+  Call:<br> 
+ 	glm(formula = morsdic1y ~ relevel(smoking, ref = "Never") + age, <br>
+    family = "binomial", data = strokedata)<br><br> 
+  Deviance Residuals: <br> 
+  <table> 
+    <tr><th>Min</th><th>1Q</th><th>Median</th><th>3Q</th><th>Max</th></tr> 
+    <tr><th>-1.4425</th><th>-0.6108</th><th>-0.3881</th><th>-0.1964</th><th>3.0407</th></tr></table><br> 
+  Coefficients:<br> 
+  <table> 
+    <tr><th></th><th>Estimate</th><th> Std.Error</th><th> z value</th><th> Pr(>|z|) </th><th></th>   </tr> 
+    <tr><th style="text-align: left">(Intercept)</th><th>-9.913524</th><th>0.884039</th><th>-11.214</th><th>&lt;2e-16</th><th> ***</th></tr> 
+    <tr><th style="text-align: left">relevel(smoking, ref = "Never")Current</th><th>0.241836</th><th>0.250483</th><th>0.965</th><th>0.334</th><th> </th> </tr> 
+    <tr><th style="text-align: left">relevel(smoking, ref = "Never")Previous</th><th>0.009786</th><th>0.213097</th><th>0.046</th><th>0.963</th><th> </th>  </tr>
+    <tr><th style="text-align: left">age</th><th>0.108171</th><th>0.010673</th><th>10.135</th><th>&lt;2e-16</th><th> ***</th>  </tr>
+    </table> 
+  ---<br> 
+  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
+  (Dispersion parameter for binomial family taken to be 1)<br><br> 
+   <table><tr><th>    Null deviance: 901.83  on 998  degrees of freedom</th></tr> 
+    <tr><th>Residual deviance: 751.16  on 996  degrees of freedom</th></tr></table> 
+   &emsp;  (32 observations deleted due to missingness)<br> 
+   AIC: 759.16<br><br> 
+   Number of Fisher Scoring iterations: 5</div>  
+</p> 
+
+<p class="rcode"> 
+  Publish::publish(model3)</p> 
+<div class="routput">
+  <table> 
+  <tr><th>Variable </th><th> Units</th><th> OddsRatio</th><th>       CI.95</th><th>  p-value </th></tr> 
+  <tr><th>relevel(smoking, ref = "Never")</th><th>    Never</th><th>       Ref  </th><th>  </th><th></th><th>                  </th></tr> 
+  <tr><th>  </th><th>                                Current </th><th>     1.27</th><th> [0.78;2.08] </th><th>  0.3343 </th></tr> 
+  <tr><th> </th><th>                                Previous</th><th>      1.01</th><th> [0.67;1.53]  </th><th> 0.9634 </th></tr> 
+  <tr><th>age </th><th></th><th>             1.11</th><th> [1.09;1.14]</th><th>   <1e-04 </th></tr> 
+</table></div> 
+
+<p>Efter justering for alder ses det at der ikke længere er statistisk signifikant forskel mellem kategorierne i rygningsvariablen, og den tilsyneladende gavnlige effekt af rygning kan derfor forklares med at rygerne er yngre.</p> 
