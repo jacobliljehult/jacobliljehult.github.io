@@ -35,7 +35,7 @@ Testen kan enten laves med marginale data eller med summerede data fra et datas�
 </p> 
 
 <h4>Summerede data</h4> 
-<p class="rcode> 
+<p class="rcode"> 
   chisq.test( with(strokedata, table(diagdict, inhospdead)) ) 
 </p> 
 <p class="routput"> 
@@ -84,8 +84,8 @@ Resultatet af modellen hentes med funktionen: <b>summary</b>(<I>model2</i>)
 </p> 
 
 <p class="rcode"> 
-  model2 <- glm(morsdic1y ~ smoking, data=strokedata, family="binomial") <br> 
-  summary(model2) </p> 
+  model1 &lt;- glm(morsdic1y ~ smoking, data=strokedata, family="binomial") <br> 
+  summary(model1) </p> 
 <div class="routput"> 
   Call:<br> 
   glm(formula = morsdic1y ~ smoking, family = "binomial", data = strokedata)<br><br> 
@@ -122,7 +122,7 @@ Resultatet af modellen hentes med funktionen: <b>summary</b>(<I>model2</i>)
 <h4>Ændring af reference-kategorier</h4> 
 <p>I eksemplet er nuværende rygere (Current) brugt som reference, men fortolkningsmæssigt er det mere intuitivt at bruge de ueksponerede som reference, hvilket her er dem der aldrig har røget (Never). For at ændre referencen med funktionen <b>relevel</b>( <I>x</i>, ref = <I>r</i>):</p> 
 <p class="rcode">
-  model3 <- morsdic1y ~ relevel(smoking, ref = "Never"), <br> 
+  model2 &lt;- morsdic1y ~ relevel(smoking, ref = "Never"), <br> 
   &emsp; &emsp;              data = strokedata, family = "binomial") <br> 
   Publish::publish(model3)</p> 
 <div class="routput"> 
@@ -140,11 +140,11 @@ Resultatet af modellen hentes med funktionen: <b>summary</b>(<I>model2</i>)
 Modellen kan justeres for kovariate ved at indsætte dem med et plus på <I>x</i>-siden af regressionsformlen, således <b>glm</b>(<I>y</i> ~ <I>x</i> + <I>a</i>, data = <i>df</i>, family="<I>binomial</i>").<br><br> 
 En mulig confounder kunne være alder, hvorfor modellen kan justeres for dette: 
 <p class="rcode">
-  model3 <- glm(morsdic1y ~ relevel(smoking, ref = "Never") + age, <br> 
+  model3 &lt;- glm(morsdic1y ~ relevel(smoking, ref = "Never") + age, <br> 
   &emsp; &emsp;                data = strokedata, family = "binomial") <br> 
   summary(model3)
 </p> 
-<p class="routput"> 
+
  <div class="routput"> 
   Call:<br> 
  	glm(formula = morsdic1y ~ relevel(smoking, ref = "Never") + age, <br>
@@ -169,7 +169,7 @@ En mulig confounder kunne være alder, hvorfor modellen kan justeres for dette:
    &emsp;  (32 observations deleted due to missingness)<br> 
    AIC: 759.16<br><br> 
    Number of Fisher Scoring iterations: 5</div>  
-</p> 
+ 
 
 <p class="rcode"> 
   Publish::publish(model3)</p> 
