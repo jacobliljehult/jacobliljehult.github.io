@@ -4,18 +4,17 @@ title: "Kategoriske data"
 --- 
 <h1>Kategoriske data</h1> 
 <h2>Test når både eksponering og udfald er kategorisk</h2> 
-<p> </p> 
+<p>Som eksempel bruges data for dødsfald under indlæggelsen mellem patienter indlagt med henholdsvis <i>ishæmisk stroke</i> og <i>intracerebral blødning</i> </p> 
 <p class="rcode"> 
 strokedata <- read.csv("<a href="https://jacobliljehult.github.io/research/strokedata.csv">https://jacobliljehult.github.io/research/strokedata.csv</a>",<br> sep=",", header = TRUE)<br> 
 with(strokedata, table(diagdict, inhospdead)) </p> 
-<p class="routput> 
+
   <div class="routput"><table> 
-  <tr> <th></th><th colspan="2">inhospdead</th> </tr> 
+  <tr> <th></th><th colspan="2" style="text-align: left;">inhospdead</th> </tr> 
   <tr> <th>diagdict</th><th>Alive</th><th>Dead</th> </tr> 
   <tr> <th>ICH</th><th>88</th><th>22</th> </tr> 
   <tr> <th>IS</th><th>883</th><th>38</th> </tr> 
   </table></div>   
-</p> 
 
 <h3>Chi<sup>2</sup>-test</h3> 
 <p>Chi<sup>2</sup>-test  laves med funktionen <b>chisq.test</b>( <b><i>table</i></b>( x, y )). Kategoriske data vil oftest være kodes som <i>factors</i>, men det er ikke nødvendigt for at lave testen.<br> 
@@ -23,9 +22,9 @@ Testen kan enten laves med marginale data eller med summerede data fra et datas�
 </p> 
 
 <h4>Marginal model</h4> 
-<p class="rcode> 
-  table1 <- matrix( c(88,22,883,38),  
-  &emsp; &emsp; nrow = 2, byrow = T) 
+<p class="rcode"> 
+  table1 &lt;- matrix( c(88,22,883,38),<br> 
+  &emsp; &emsp; nrow = 2, byrow = T) <br>
   chisq.test(table1) 
 </p> 
 
@@ -50,13 +49,13 @@ Testen kan enten laves med marginale data eller med summerede data fra et datas�
 <p class="rcode"> 
   chisq.test(chisq.test( with(strokedata, table(diagdict, inhospdead)) ))$expected</p> 
 <div class="routput"><table> 
-  <tr> <th></th><th colspan="2">inhospdead</th> </tr> 
+  <tr> <th></th><th colspan="2" style="text-align: left;">inhospdead</th> </tr> 
   <tr> <th>diagdict</th><th>Alive</th><th>Dead</th> </tr> 
   <tr> <th>ICH</th><th>103.5984</th><th>6.401552</th> </tr> 
   <tr> <th>IS</th><th>867.4016</th><th>53.598448</th> </tr> 
 </table></div>   
 
-<h3>Fisher exact test<h3> 
+<h3>Fisher exact test</h3> 
 <p>Med samme data kan vi lave en Fisher exact test, som ikke kræver samme antagelse angående forventede værdier: </p> 
 <p class="rcode">table2 <- matrix(c(88,22,883,38), <br> 
   &emsp; &emsp; nrow = 2, byrow = T)<br> 
@@ -64,7 +63,7 @@ Testen kan enten laves med marginale data eller med summerede data fra et datas�
 </p> 
 <p>eller</p> 
 <p class="rcode">fisher.test( with(strokedata, table(diagdict, inhospdead)) )</p> 
-<p class="routput> 
+<p class="routput"> 
   <br> 
   &emsp; &emsp; Fisher's Exact Test for Count Data<br><br> 
   data:  with(strokedata, table(diagdict, inhospdead))<br> 
