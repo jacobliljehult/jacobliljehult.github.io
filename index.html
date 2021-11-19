@@ -2,15 +2,16 @@
 layout: stats
 title: "Home"
 ---
-  <h1>Index</h1>
-      <hr class="solid">
-<h2>Introduktion</h2>
+<h1>Introduktion</h1>
 <p>I flere af eksemplerne bruges et test datasæt med navnet "strokedata". Datasættet kan hentes med koden:
   <p class="rcode">strokedata <- read.csv("<a href="https://jacobliljehult.github.io/research/strokedata.csv" >https://jacobliljehult.github.io/research/strokedata.csv</a>",
              sep=",", header=T, stringsAsFactors = TRUE)
 </p>
 <p>Datasættet indeholder 19 variable med hver 1031 observationer:<br>
-  <table style="text-align: left; text-decoration: none; font-size: 12px;">
+  <table style="text-align: left; 
+                font-weight: normal; 
+                font-size: 12px;
+                padding-left: 30px;">
     <tr><th>diagdict:</th><th>Diagnosen angivet på niveauer ICH (hjerneblødning) og IS (blodprop i hjernen)</th></tr>
     <tr><th>gender:</th><th>Køn</th></tr>
     <tr><th>age:</th><th>Alder ved indlæggelsestidspunktet</th></tr>
@@ -37,10 +38,10 @@ title: "Home"
 <h3><a href="/research/descriptive_quant.html">Kvantitative variable</a></h3>
 <p>Beskrivende statistik af kvantitative variable</p>
 
-<h3><a href="/research/descriptive_categ.html"></a></h3>
+<h3><a href="/research/descriptive_categ.html">Kategoriske variabke</a></h3>
 <p>Beskivende statistik af kategoriske variable</p>
 
-<h3><a href="/research/intervals.html"></a></h3>
+<h3><a href="/research/intervals.html"></a>Intervaller</h3>
 <p>Konfidensintervaller for både kvantitative og kategoriske variable, referenceintervaller for normalfordelte data</p>
 <hr>
 <br>
