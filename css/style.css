@@ -9,6 +9,13 @@ body {
   background: rgb(245,245,245);
 }
 
+h1 {font-size: 32px;}
+h2 {font-size: 28px;}
+h3 {font-size: 24px;}
+h4 {font-size: 20px;}
+h5 {font-size: 18px;}
+p {font-size: 16px;}
+
 /* ===== Headers ===== */
 .headerstroke {
   padding: 10px;
@@ -109,6 +116,41 @@ body {
   margin-right: auto;
   width: 80%;
 }
+/* ----- Index boxes ----- */
+/* Bruges til at skabe box-struktur på forsiderne */
+.index {margin: auto; width: 80%;}
+.index h2, h3 {text-align:center;}
+.indexbox {border: 1px solid lightgray; 
+			width: 45%; height: 200px;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin: 10px;
+            float: left;
+            overflow: hidden;
+}
+.indexbox h3, h4 { text-align:center; color: black; letter-spacing: 2px;}
+.indexbox p {color: black; text-align: justify;padding-left: 20px;
+            padding-right: 20px;}
+.indexbox a {color: black;}
+.indexbox a:visited {color: black;}
+.indexbox:hover {background: rgb(255,255,220); border: 1px solid black;}
+/* ::::: Særlige boxe til billeder ::::: */
+.imgbox {border: 1px solid lightgray; 
+			width: 45%; height: 500px;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin: 10px;
+            float: left;
+            overflow: hidden;
+}
+.imgbox h3, h4 { text-align:center; color: black; font-size: 24px;letter-spacing: 2px;}
+.imgbox p {color: black; text-align: justify;padding-left: 20px;
+            padding-right: 20px;}
+.imgbox a {color: black;}
+.imgbox a:visited {color: black;}
+.imgbox:hover {background: rgb(255,255,220); border: 1px solid black;}
+.imgbox img {width: 100%;  height: auto;}
+
 /* ---- Illustration med billedlegend ---- */
 .illustration {
 	float: center;
