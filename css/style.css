@@ -118,41 +118,48 @@ p {font-size: 16px;}
 }
 /* ----- Index boxes ----- */
 /* Bruges til at skabe box-struktur på forsiderne */
-.index {margin-left: 10%; margin-right: 10%; outline: 1px solid lightgray; 
-	width: 80%;
-	display:grid; grid-template-columns: auto auto
+.index {outline: 0px solid lightgray; 
+	max-width: 730px; width: 80%; 
+	margin: auto;
+	display:grid; 
+	grid-template-columns: auto auto
     }
-.index h2 {text-align:center;}
+.index h2 {text-align:center;color: black; }
+.index a {text-decoration: none;}
 .indexbox {border: 1px solid lightgray; 
-			width: 88%; height: 200px;
-            padding-left: 5px;
-            padding-right: 5px;
-            margin: 10px;
-            float: left;
-            overflow: hidden;    
-}
+		width: 350px; height: 200px;
+            	padding-left: 5px;
+            	padding-right: 5px;
+            	margin: 10px;
+            	overflow: hidden;       
+	}
 .indexbox h3, h4 { text-align:center; color: black; letter-spacing: 2px;}
 .indexbox p {color: black; text-align: justify;padding-left: 20px;
             padding-right: 20px;}
-.indexbox a {color: black;}
-.indexbox a:visited {color: black;}
+.indexbox a:visited {color: black; }
 .indexbox:hover {background: rgb(255,255,220); border: 1px solid black;}
 /* ::::: Særlige boxe til billeder ::::: */
 .imgbox {border: 1px solid lightgray; 
-			width: 88%; height: 500px;
-            padding-left: 5px;
-            padding-right: 5px;
-            margin: 10px;
-            float: left;
-            overflow: hidden;
+		width: 350px; height: 500px;
+            	padding-left: 5px;
+            	padding-right: 5px;
+            	margin: 10px;
+            	overflow: hidden;    
 }
-.imgbox h3, h4 { text-align:center; color: black; font-size: 24px;letter-spacing: 2px;}
+.imgbox h3, h4 { text-align:center; color: black;letter-spacing: 2px;}
 .imgbox p {color: black; text-align: justify;padding-left: 20px;
             padding-right: 20px;}
 .imgbox a {color: black;}
 .imgbox a:visited {color: black;}
 .imgbox:hover {background: rgb(255,255,220); border: 1px solid black;}
 .imgbox img {width: 100%;  height: auto;}
+@media screen and (max-width: 800px) {
+  .index {     
+    padding: 0;
+
+    grid-template-columns: auto
+  }
+}
 
 /* ---- Illustration med billedlegend ---- */
 .illustration {
