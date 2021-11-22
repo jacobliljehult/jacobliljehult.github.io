@@ -17,7 +17,8 @@ with(strokedata, table(diagdict, inhospdead)) </p>
   </table></div>   
 
 <h3>Chi<sup>2</sup>-test</h3> 
-<p>Chi<sup>2</sup>-test  laves med funktionen <b>chisq.test</b>( <b><i>table</i></b>( x, y )). Kategoriske data vil oftest være kodes som <i>factors</i>, men det er ikke nødvendigt for at lave testen.<br> 
+<p>Chi<sup>2</sup>-test  laves med funktionen <code><b>chisq.test</b>( <b><i>table</i></b>( x, y ))</code>. Kategoriske data vil oftest være kodes som <i>factors</i>, 
+  men det er ikke nødvendigt for at lave testen.<br> 
 Testen kan enten laves med marginale data eller med summerede data fra et datasæt: 
 </p> 
 
@@ -79,8 +80,9 @@ Testen kan enten laves med marginale data eller med summerede data fra et datas�
 <h2>Test når eksponeringen er enten kategorisk eller kvantitativ og udfald er binomialt</h2> 
 
 <h3>Logistisk regression</h3> 
-<p>Logistisk regression kan laves med den generelle funktion <b>glm</b>() (generalised lineary model), hvor <I>family</i>-argumentet angives som <I>"binomial"</i>, således: <br><br>&emsp; <b>glm</b>(<I>y</i> ~ <I>x</i>, data=<I>df</i>, family=<I>"binomial"</i>)<br><br> 
-Resultatet af modellen hentes med funktionen: <b>summary</b>(<I>model2</i>)  
+<p>Logistisk regression kan laves med den generelle funktion <code><b>glm</b>()</code> (generalised lineary model), hvor <i>family</i>-argumentet angives som <I>"binomial"</i>, 
+  således: <br><br>&emsp; <code><b>glm</b>(<I>y</i> ~ <I>x</i>, data=<I>df</i>, family=<I>"binomial"</i>)</code><br><br> 
+Resultatet af modellen hentes med funktionen: <code><b>summary</b>(<I>model2</i>)<code>  
 </p> 
 
 <p class="rcode"> 
@@ -107,7 +109,8 @@ Resultatet af modellen hentes med funktionen: <b>summary</b>(<I>model2</i>)
    &emsp;  (32 observations deleted due to missingness)<br> 
    AIC: 899.21<br><br> 
    Number of Fisher Scoring iterations: 4</div>   
-<p>Resultaterne returneres på en logaritmisk skala og hvis man skal bruge odds ratio'er skal de transformeres med funktionen <b>exp</b>(). Alternativt kan man bruge funktionen <b>publish</b>() fra pakken <b>Publish</b>, som yderligere også udregner konfidensintervaller for odds ratio'erne: 
+<p>Resultaterne returneres på en logaritmisk skala og hvis man skal bruge odds ratio'er skal de transformeres med funktionen <code><b>exp</b>()</code>. Alternativt kan man 
+  bruge funktionen <code><b>publish</b>()</code> fra pakken <b>{Publish}</b>, som yderligere også udregner konfidensintervaller for odds ratio'erne: 
 <p class="rcode">Publish::publish(model2) </p> 
 
 <div class="routput"> 
@@ -120,7 +123,8 @@ Resultatet af modellen hentes med funktionen: <b>summary</b>(<I>model2</i>)
 </div>   
 
 <h4>Ændring af reference-kategorier</h4> 
-<p>I eksemplet er nuværende rygere (Current) brugt som reference, men fortolkningsmæssigt er det mere intuitivt at bruge de ueksponerede som reference, hvilket her er dem der aldrig har røget (Never). For at ændre referencen med funktionen <b>relevel</b>( <I>x</i>, ref = <I>r</i>):</p> 
+<p>I eksemplet er nuværende rygere (Current) brugt som reference, men fortolkningsmæssigt er det mere intuitivt at bruge de ueksponerede som reference, hvilket her er dem der 
+  aldrig har røget (Never). For at ændre referencen med funktionen <code><b>relevel</b>( <I>x</i>, ref = <I>r</i>)</code>:</p> 
 <p class="rcode">
   model2 &lt;- morsdic1y ~ relevel(smoking, ref = "Never"), <br> 
   &emsp; &emsp;              data = strokedata, family = "binomial") <br> 
@@ -133,11 +137,13 @@ Resultatet af modellen hentes med funktionen: <b>summary</b>(<I>model2</i>)
   <tr><th></th><th>Previous</th><th>0.87</th><th> [0.60;1.28]</th><th>0.486122 </th></tr> 
   </table> 
 </div>   
-<p>Tilsvarende kan man bruge <b>relevel()</b>-funktionen til at styre referencen for udfaldet, hvilket I dette eksempel ville være <code>relevel(morsdic1y, ref = "Alive")</code>.</p> 
+<p>Tilsvarende kan man bruge <code><b>relevel()</b></code>-funktionen til at styre referencen for udfaldet, hvilket I dette eksempel ville være 
+  <code>relevel(morsdic1y, ref = "Alive")</code>.</p> 
 
 <h4>Justerede modeller</h4> 
-<p>I eksemplet med rygning og risikoen for at dø ser det ud til at der er lavere risiko for nuværende rygere end for patienter der aldrig har røget. Dette resultat virker umiddelbart ikke rimeligt og kan muligvis forklares med en fælles association til en confounding faktor, som der bør justeres for. <br> 
-Modellen kan justeres for kovariate ved at indsætte dem med et plus på <I>x</i>-siden af regressionsformlen, således <b>glm</b>(<I>y</i> ~ <I>x</i> + <I>a</i>, data = <i>df</i>, family="<I>binomial</i>").<br><br> 
+<p>I eksemplet med rygning og risikoen for at dø ser det ud til at der er lavere risiko for nuværende rygere end for patienter der aldrig har røget. Dette resultat virker 
+  umiddelbart ikke rimeligt og kan muligvis forklares med en fælles association til en confounding faktor, som der bør justeres for. <br> 
+Modellen kan justeres for kovariate ved at indsætte dem med et plus på <I>x</i>-siden af regressionsformlen, således <code><b>glm</b>(<I>y</i> ~ <I>x</i> + <I>a</i>, data = <i>df</i>, family="<I>binomial</i>")</code>.<br><br> 
 En mulig confounder kunne være alder, hvorfor modellen kan justeres for dette: 
 <p class="rcode">
   model3 &lt;- glm(morsdic1y ~ relevel(smoking, ref = "Never") + age, <br> 
@@ -182,4 +188,5 @@ En mulig confounder kunne være alder, hvorfor modellen kan justeres for dette:
   <tr><th>age </th><th></th><th>             1.11</th><th> [1.09;1.14]</th><th>   <1e-04 </th></tr> 
 </table></div> 
 
-<p>Efter justering for alder ses det at der ikke længere er statistisk signifikant forskel mellem kategorierne i rygningsvariablen, og den tilsyneladende gavnlige effekt af rygning kan derfor forklares med at rygerne er yngre.</p> 
+<p>Efter justering for alder ses det at der ikke længere er statistisk signifikant forskel mellem kategorierne i rygningsvariablen, og den tilsyneladende gavnlige effekt af 
+  rygning kan derfor forklares med at rygerne er yngre.</p> 
