@@ -18,7 +18,7 @@ dataFunktion <- function(n) {<br>
 data1 <- dataFunktion(100)
 </p>
 
-<p>Hvis man derefter ønsker at tælle hvor mange der er i hver gruppe kan man bruge funktionen <b>table</b>() eller <b>summary</b>() (de giver samme output):</p>
+<p>Hvis man derefter ønsker at tælle hvor mange der er i hver gruppe kan man bruge funktionen <code><b>table</b>()</code> eller <code><b>summary</b>()</code> (de giver samme output):</p>
 <p class="rcode">
 table(data1$eksponering)<br>
 table(data1$sygdom)
@@ -42,7 +42,7 @@ with(data1, table(eksponering,sygdom))</p>
   <tr> <th>Ja</th><th>13</th><th>34</th> </tr>
 </table></div>
 
-<p>For at få procenter bruges funktionen <b>prop.table</b>()</p>
+<p>For at få procenter bruges funktionen <code><b>prop.table</b>()</code></p>
 <p class="rcode">
 with(data1, prop.table(table(eksponering,sygdom)))</p>
 <div class="routput"><table>
