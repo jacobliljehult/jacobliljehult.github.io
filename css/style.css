@@ -118,15 +118,18 @@ p {font-size: 16px;}
 }
 /* ----- Index boxes ----- */
 /* Bruges til at skabe box-struktur på forsiderne */
-.index {margin: auto; width: 80%;}
-.index h2, h3 {text-align:center;}
+.index {margin-left: 10%; margin-right: 10%; outline: 1px solid lightgray; 
+	width: 80%;
+	display:grid; grid-template-columns: auto auto
+    }
+.index h2 {text-align:center;}
 .indexbox {border: 1px solid lightgray; 
-			width: 45%; height: 200px;
+			width: 88%; height: 200px;
             padding-left: 5px;
             padding-right: 5px;
             margin: 10px;
             float: left;
-            overflow: hidden;
+            overflow: hidden;    
 }
 .indexbox h3, h4 { text-align:center; color: black; letter-spacing: 2px;}
 .indexbox p {color: black; text-align: justify;padding-left: 20px;
@@ -136,7 +139,7 @@ p {font-size: 16px;}
 .indexbox:hover {background: rgb(255,255,220); border: 1px solid black;}
 /* ::::: Særlige boxe til billeder ::::: */
 .imgbox {border: 1px solid lightgray; 
-			width: 45%; height: 500px;
+			width: 88%; height: 500px;
             padding-left: 5px;
             padding-right: 5px;
             margin: 10px;
