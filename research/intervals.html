@@ -8,7 +8,9 @@ title: "Intervaller"
 
 <h2>KONFIDENSINTERVALLER</h2>
 <h3>Kontinuerte data</h3>
-<p>Konfidensintervallet for en kontinuert variabel kan udregnes fra en t-test, hvor funktionen <code><b>t.test</b>()<code> bruges til at lave en one-sample t-test imod variables eget gennemsnit. Selve konfidensintervallet ekstraheres fra funktionen ved at sætte post-fixet <i>$conf.int[1:2]</i> efter funktionen - således at syntaksen bliver <code><b>t.test</b>(x, mu = <b><i>mean</i></b>(x))$conf.int[1:2]</code>
+<p>Konfidensintervallet for en kontinuert variabel kan udregnes fra en t-test, hvor funktionen <code><b>t.test</b>()</code> bruges til at lave en one-sample t-test 
+ imod variables eget gennemsnit. Selve konfidensintervallet ekstraheres fra funktionen ved at sætte post-fixet <code><i>$conf.int[1:2]</i></code> efter funktionen - 
+ således at syntaksen bliver <code><b>t.test</b>(x, mu = <b><i>mean</i></b>(x))$conf.int[1:2]</code>
 </p>
 <p class="rcode"> 
 var1 <- round(rnorm(100, 10, 2),0) &emsp; &emsp; # Tilfældigt genereret variable<br>
