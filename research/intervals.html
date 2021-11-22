@@ -8,7 +8,7 @@ title: "Intervaller"
 
 <h2>KONFIDENSINTERVALLER</h2>
 <h3>Kontinuerte data</h3>
-<p>Konfidensintervallet for en kontinuert variabel kan udregnes fra en t-test, hvor funktionen <b>t.test</b>() bruges til at lave en one-sample t-test imod variables eget gennemsnit. Selve konfidensintervallet ekstraheres fra funktionen ved at sætte post-fixet <i>$conf.int[1:2]</i> efter funktionen - således at syntaksen bliver <b>t.test</b>(x, mu = <b><i>mean</i></b>(x))$conf.int[1:2]
+<p>Konfidensintervallet for en kontinuert variabel kan udregnes fra en t-test, hvor funktionen <code><b>t.test</b>()<code> bruges til at lave en one-sample t-test imod variables eget gennemsnit. Selve konfidensintervallet ekstraheres fra funktionen ved at sætte post-fixet <i>$conf.int[1:2]</i> efter funktionen - således at syntaksen bliver <code><b>t.test</b>(x, mu = <b><i>mean</i></b>(x))$conf.int[1:2]</code>
 </p>
 <p class="rcode"> 
 var1 <- round(rnorm(100, 10, 2),0) &emsp; &emsp; # Tilfældigt genereret variable<br>
@@ -20,7 +20,9 @@ t.test(var1, mu = mean(var1))$conf.int[1:2]</p>
  </p>
 
 <h3>Proportion</h3>
-<p>For at udregne konfidensintervallet for en proportion kan man både bruge funktionerne <b>binom.test</b>() og <b>prop.test</b>(). Resultaterne vil ikke være helt ens, men vil oftest være meget til på hinanden, så det gør ikke den store forskel hvilken funktion man bruger. Til forskel fra Wald konfidensintervaller risikerer man ikke med nogle af metoderne at intervallet strækker sig under 0 eller over 1.</p>
+<p>For at udregne konfidensintervallet for en proportion kan man både bruge funktionerne <code><b>binom.test</b>()</code> og <code><b>prop.test</b>()</code>. 
+ Resultaterne vil ikke være helt ens, men vil oftest være meget til på hinanden, så det gør ikke den store forskel hvilken funktion man bruger. 
+ Til forskel fra Wald konfidensintervaller risikerer man ikke med nogle af metoderne at intervallet strækker sig under 0 eller over 1.</p>
 <p>Hvis 75 ud af 100 personer (75%) er mænd kan proportion og konfidensinterval udregnes således:</p>
 <b><i>Exact konfidensinterval</i></b>
 <p><b>&emsp; binom.test</b>(x, n, conf.level = 0.95)$estimat <br>
@@ -80,35 +82,7 @@ d.smoke</p>
 <tr><th style="text-align:left;">NA </th><th>32 </th><th> 1031	</th><th> 3.103783</th><th>			2.132472	 </th><th>4.353531 </th> </tr>
 </table>
 </div>
-<h2>Forskel på Exact og Wilson konfidensintervaller</h2>
-<p class="rcode">p.funk = function(z){<br>
-&emsp; &emsp;  x = 1:z<br>
- &emsp; &emsp;  n = rep(z,z)<br>
-&emsp; &emsp;   p = x/n<br>
-&emsp; &emsp;   library(dplyr)<br>
-&emsp; &emsp;   df = tibble(x,n,p)<br>
-&emsp; &emsp;   df$e.lwr <- apply(X = df,MARGIN = 1,FUN = function(t){<br>
-&emsp; &emsp;  &emsp; &emsp;  ci <- binom.test(x = t[1],n = t[2],conf.level = 0.95)$conf.int[1]})<br>
-&emsp; &emsp;    df$e.upr <- apply(X = df,MARGIN = 1,FUN = function(t){<br>
-&emsp; &emsp;  &emsp; &emsp;  ci <- binom.test(x = t[1],n = t[2],conf.level = 0.95)$conf.int[2]})<br>
-&emsp; &emsp;    df$w.lwr <- apply(X = df,MARGIN = 1,FUN = function(t){<br>
-&emsp; &emsp;  &emsp; &emsp;  ci <- prop.test(x = t[1],n = t[2],conf.level = 0.95)$conf.int[1]})<br>
-&emsp; &emsp;    df$w.upr <- apply(X = df,MARGIN = 1,FUN = function(t){<br>
-&emsp; &emsp;  &emsp; &emsp;  ci <- prop.test(x = t[1],n = t[2],conf.level = 0.95)$conf.int[2]})<br>
-&emsp; &emsp;    library(ggplot2)<br>
-&emsp; &emsp;    plot = ggplot(aes(), data = df) + geom_path(aes(x = p, y = p)) + geom_point(aes(x = p, y = p)) + <br>
-&emsp; &emsp;      geom_line(aes(x = p, y = e.lwr), color = "red") + geom_point(aes(x = p, y = e.lwr), color = "red") +<br>
-&emsp; &emsp;      geom_line(aes(x = p, y = e.upr), color = "red") + geom_point(aes(x = p, y = e.upr), color = "red") +<br>
-&emsp; &emsp;      geom_line(aes(x = p, y = w.lwr), color = "blue") + geom_point(aes(x = p, y = w.lwr), color = "blue") +<br>
-&emsp; &emsp;      geom_line(aes(x = p, y = w.upr), color = "blue") + geom_point(aes(x = p, y = w.upr), color = "blue") +<br>
-&emsp; &emsp;      theme_minimal() + <br>
-&emsp; &emsp;      annotate(geom = "label", x = 0.4, y = 0.75, label = "Exact", fill = "red", color = "white", fontface = "bold") +<br>
-&emsp; &emsp;      annotate(geom = "label", x = 0.6, y = 0.25, label = "Wilson", fill = "blue", color = "white", fontface = "bold")<br>
- <br> 
-&emsp; &emsp;    return( plot )<br>
-}<br>
-p.funk(30)</p>
-
+<h3>Forskel på Exact og Wilson konfidensintervaller</h3>
 <div class="illustration">
  <img src="/research/images/propci.png">
  <p>Konfidensgrænser for henholdsvis Exact og Wilson konfidensintervaller for proportioner ved populationsstørrelserne 10, 20 og 40. 
