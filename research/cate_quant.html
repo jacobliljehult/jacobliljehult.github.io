@@ -1,0 +1,121 @@
+---
+layout: stats
+title: kategorisk/kvantitativ
+---
+
+<h1>Grupperede kvantitative data</h1>
+
+<p>På denne side gives eksempler på hvordan man kan analysere data hvor eksponeringen er kategorisk men udfaldet er kvantitativt. Den kan enten være en sample, der testes mod en given grænseværdi; to grupper der testes mod hinanden eller tre (eller flere) grupper der testes mod hinanden.</p>
+<h2>One-sample tests</h2>
+<p>Hypotese test for mean imod en given grænseværdi</p>
+
+<h3>One-sample z-test</h3>
+<p class="rcode">
+gn = 72<br>
+x = strokedata$age<br>
+z = (gn-mean(x)) / (sd(x)/sqrt(length(x)))<br>
+pnorm(abs(-z), lower.tail = FALSE)*2
+</p>
+<p class="routput">
+[1] 0.6994493
+</p>
+
+<h3>One-sample t-test</h3>
+<p class="rcode">
+t.test(x, mu = gn)
+</p>
+<p class="routput">
+One Sample t-test<br><br>
+
+data:  x<br>
+t = -0.38606, df = 1030, p-value = 0.6995<br>
+alternative hypothesis: true mean is not equal to 72<br>
+95 percent confidence interval:<br>
+&emsp; 71.09142 72.60984<br>
+sample estimates:<br>
+mean of x <br>
+&emsp;  71.85063 
+</p>
+
+<h3>Visualisering</h3>
+<p class="rcode">
+library(ggplot2)<br>
+ggplot(aes(x = age), data = strokedata) + geom_boxplot() +<br>
+  geom_vline(xintercept = gn, color = "orange", size = 1)
+</p>
+<div class="illustration">
+<img src="https://jacobliljehult.github.io/research/images/onesampleboxplot.png">
+<p>Boxplot for alder; den orange streg angiver grænseværdien der tests imod</p>
+</div>
+<hr>
+<br>
+
+<h2>To grupper</h2>
+
+<h3>Student's t-test</h3>
+<p>Parametrisk test forskel mellem to grupper</p>
+<p class="rcode">
+t.test(age ~ gender, data = strokedata)
+</p>
+<p class="routput">
+Welch Two Sample t-test<br><br>
+
+data:  age by gender<br>
+t = 5.4993, df = 991.93, p-value = 4.851e-08<br>
+alternative hypothesis: true difference in means between group F and group M is not equal to 0<br>
+95 percent confidence interval:<br>
+ 2.714512 5.726636<br>
+sample estimates:<br>
+mean in group F mean in group M <br>
+       74.06531        69.84473 
+</p>
+
+<h3>Wilcoxon rank sum test</h3>
+<p>Non-parametrisk test for forskel mellem to grupper</p>
+<p class="rcode">
+wilcox.test(age ~ gender, data = strokedata)
+</p>
+<p class="routput">
+Wilcoxon rank sum test with continuity correction<br><br>
+
+data:  age by gender<br>
+W = 160684, p-value = 3.742e-09<br>
+alternative hypothesis: true location shift is not equal to 0
+</p>
+
+<p class="rcode">
+ggplot(aes(x = age, fill = gender), data = strokedata) + geom_boxplot() +<br>
+  geom_vline(xintercept = median(strokedata$age), color = "orange", size = 1)
+</p>
+<div class="illustration">
+<img src="https://jacobliljehult.github.io/research/images/twosampleboxplot.png">
+<p>Boxplot for alder fordelt på køn. Den orange streg angiver gennemsnitsalderen for hele populationen.</p>
+</div>
+<hr>
+<br>
+<h2>Tre eller flere grupper</h2>
+
+<h3>ANOVA</h3>
+<p class="rcode">
+anova( lm(age ~ smoking, data = strokedata) )
+</p>
+<div class="routput">
+Analysis of Variance Table<br><br>
+
+Response: age<br>
+<table>
+<tr><th></th><th>Df</th><th> Sum Sq</th><th> Mean Sq</th><th> F value </th><th>   Pr(>F) </th><th></th>   </tr>
+<tr><th>smoking</th><th>2</th><th>12322</th><th>6161.2</th><th>43.724</th><th> &lt; 2.2e-16</th><th>***</th></tr>
+<tr><th>Residuals </th><th>996</th><th> 140346</th><th>   140.9 </th><th></th><th></th><th></th>                 </tr>
+</table>
+---<br>
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+</div>
+
+<p class="rcode">
+ggplot(aes(x = age, fill = smoking), data = strokedata) + geom_boxplot() +
+  geom_vline(xintercept = median(strokedata$age), color = "orange", size = 1)
+</p>
+<div class="illustration">
+<img src="https://jacobliljehult.github.io/research/images/multiplesampleboxplot.png">
+<p>Boxplot for alder fordelt på rygning. Den orange streg angiver gennemsnitsalderen for hele populationen.</p>
