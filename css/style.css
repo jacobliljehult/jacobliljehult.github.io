@@ -9,13 +9,6 @@ body {
   background: rgb(245,245,245);
 }
 
-h1 {font-size: 38px;}
-h2 {font-size: 28px;}
-h3 {font-size: 24px;}
-h4 {font-size: 20px;}
-h5 {font-size: 18px;}
-p {font-size: 18px;}
-
 /* ===== Headers ===== */
 .headerstroke {
   padding: 10px;
@@ -109,13 +102,19 @@ p {font-size: 18px;}
     margin-right: 10%;
 }
 .maintext p, ul, li {font-family: times;}
-.maintext h1 {text-align: center; letter-spacing: 1px;}
+.maintext h1 {text-align: center; letter-spacing: 1px;font-size: 38px;}
+.maintext h2 {font-size: 28px;}
+.maintext h3 {font-size: 24px;}
+.maintext h4 {font-size: 20px;}
+.maintext h5 {font-size: 18px;}
+
 .centerimg img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
 }
+
 /* ----- Index boxes ----- */
 /* Bruges til at skabe box-struktur på forsiderne */
 .index {outline: 0px solid lightgray; 
@@ -199,6 +198,12 @@ p {font-size: 18px;}
     margin-left: 10%;
     margin-right: 10%;
 }
+.rmaintext h1 {font-size: 38px;}
+.rmaintext h2 {font-size: 28px;}
+.rmaintext h3 {font-size: 24px;}
+.rmaintext h4 {font-size: 20px;}
+.rmaintext h5 {font-size: 18px;}
+.rmaintext p {font-size: 18px;}
 /* --- r code --- */	
 .rcode {
   border: 1px solid gray;
@@ -265,6 +270,7 @@ p {font-size: 18px;}
   margin-top: 20px;
   font-size: 11px;
 }
+.footer p, a {font-size: 11px;}
 /* ===================== */
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
