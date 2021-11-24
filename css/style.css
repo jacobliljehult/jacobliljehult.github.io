@@ -1,4 +1,4 @@
-/* ===== Overordnet ===== */
+/* ===== Overordnet ======================================== */
 * {
   box-sizing: border-box;
 }
@@ -9,7 +9,7 @@ body {
   background: rgb(245,245,245);
 }
 
-/* ===== Headers ===== */
+/* ===== Headers ============================================= */
 .headerstroke {
   padding: 10px;
   text-align: center;
@@ -29,7 +29,7 @@ body {
   background-size: auto 200px;}
 .headerstat h1 {  font-size: 50px;}
 
-/* ===== Top navigation bar ===== */
+/* ===== Top navigation bar ================================== */
 .topnav {
   overflow: hidden;
   background-color: rgb(35,35,35);
@@ -48,7 +48,7 @@ body {
   background-color: #ddd;
   color: black;
 }
-/* =============== */
+/* ============================================================ */
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 .leftcolumn {   
@@ -58,7 +58,7 @@ body {
   height: 100%;
   background-color: rgb(245,245,245);
 }
-/* ===== Navigation i venstre side ====== */
+/* ===== Navigation i venstre side ============================= */
 .sidenav {
   background-color: rgb(87,87,87);
   padding: 20px;
@@ -86,7 +86,7 @@ body {
   width: 100%;
 }
 	
-/* ===== Right column ===== */
+/* ===== Right column ============================================= */
 .rightcolumn {
   float: left;
   width: 80%;
@@ -94,7 +94,7 @@ body {
   padding-left: 20px;
 }
 
-/* ===== Maintexts ===== */
+/* ===== Maintexts ================================================= */
 .maintext {	
     color: black;    
     font-size: 18px;
@@ -115,7 +115,7 @@ body {
   width: 80%;
 }
 
-/* ----- Index boxes ----- */
+/* ----- Index boxes -------------------------------------------------- */
 /* Bruges til at skabe box-struktur på forsiderne */
 .index {outline: 0px solid lightgray; 
 	max-width: 730px; width: 80%; 
@@ -137,7 +137,7 @@ body {
             padding-right: 20px;}
 .indexbox a:visited {color: black; }
 .indexbox:hover {background: rgb(255,255,220); border: 1px solid black;}
-/* ::::: Særlige boxe til billeder ::::: */
+/* ::::: Særlige boxe til billeder ::::::::::::::::::::::::::::::::::::: */
 .imgbox {border: 1px solid lightgray; 
 		width: 350px; height: 500px;
             	padding-left: 5px;
@@ -155,11 +155,10 @@ body {
 @media screen and (max-width: 800px) {
   .index {     
     padding: 0;
-
     grid-template-columns: auto
   }
 }
-/* ::::: Tekst box ::::: */
+/* ::::: Tekst box :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 .textbox {margin-left: 10%; 
 	  margin-right: 10%;
           padding: 20px; padding-left: 20px;
@@ -191,7 +190,8 @@ body {
   margin-right: auto;
   width: 100%;
 }
-/* ----- Maintext for R ----- */ 
+/* ============================================================= */
+/* ----- Maintext for R -------------------------------------------------- */ 
 .rmaintext {	
     color: black;    
     font-size: 16px;
@@ -203,7 +203,6 @@ body {
 .rmaintext h3 {font-size: 24px;}
 .rmaintext h4 {font-size: 20px;}
 .rmaintext h5 {font-size: 18px;}
-.rmaintext p {font-size: 18px;}
 /* --- r code --- */	
 .rcode {
   border: 1px solid gray;
@@ -230,7 +229,7 @@ body {
 .routput table { text-align: right;}
 .routput th { padding-right:10px; font-weight: normal;}
 	
-/* --- Image table --- */
+/* --- Image table ------------------------------------------------ */
 #imgtable {width:80%;font-family:times;}
 #imgtable table, tr, th {border:0px solid;}
 #imgtable th {width:50%;padding:10px;vertical-align: top;min-width:200px;max-width:300px;}
@@ -240,29 +239,28 @@ body {
 #imgtable a {text-decoration: none;}
 #imgtable img {width:100%;height:100%;border: 1px solid gray;min-width:300px;}
 	
-/* --- Reference lists --- */
+/* --- Reference lists ---------------------------------------------- */
 .ref {font-family: times;
     color: black;    
     font-size: 14px;
 }
 .ref h3, h4 {font-size: 18px;}
 .ref ul, li {list-style-type: none; margin-left: -10px; margin-bottom: 6px; font-size: 14px;}	
-	
+
+/* ============================================================= */
 /* --- Add a card effect for articles --- */
 .card {
   background-color: white;
   padding: 20px;
   margin-top: 10px;
 }
-
 /* --- Clear floats after the columns --- */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
-/* ====== Footer ====== */
+/* ====== Footer ============================================== */
 .footer {
   padding: 20px;
   text-align: center;
@@ -270,8 +268,8 @@ body {
   margin-top: 20px;
   font-size: 11px;
 }
-.footer p, a {font-size: 11px;}
-/* ===================== */
+
+/* ============================================================= */
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {   
