@@ -123,7 +123,7 @@ body {
 	display:grid; 
 	grid-template-columns: auto auto
     }
-.index h2 {text-align:center;color: black; }
+.index h2 {text-align:center; color: black; margin-top: 10px;}
 .index a {text-decoration: none;}
 .indexbox {border: 0px solid lightgray; 
 		width: 350px; height: 200px;
@@ -132,11 +132,11 @@ body {
             	margin: 10px;
             	overflow: hidden;       
 	}
-.indexbox h3, h4 { text-align:center; color: black; letter-spacing: 2px;}
+.indexbox h3, h4 { text-align:center; color: black; letter-spacing: 2px; margin-top: 10px;}
 .indexbox p {color: black; text-align: justify;padding-left: 20px;
             padding-right: 20px;}
 .indexbox a:visited {color: black; }
-.indexbox:hover {background: rgb(255,255,220); border: 0px solid black;
+.indexbox:hover {background: rgb(255,255,255); border: 0px solid black;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 /* ::::: Særlige boxe til billeder ::::::::::::::::::::::::::::::::::::: */
 .imgbox {border: 0px solid lightgray; 
@@ -146,12 +146,12 @@ body {
             	margin: 10px;
             	overflow: hidden;    
 }
-.imgbox h3, h4 { text-align:center; color: black;letter-spacing: 2px;}
+.imgbox h3, h4 { text-align:center; color: black; letter-spacing: 2px;margin-top: 10px;}
 .imgbox p {color: black; text-align: justify;padding-left: 20px;
             padding-right: 20px;}
 .imgbox a {color: black;}
 .imgbox a:visited {color: black;}
-.imgbox:hover {background: rgb(255,255,220); border: 0px solid black;
+.imgbox:hover {background: rgb(255,255,255); border: 0px solid black;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 .imgbox img {width: 100%;  height: auto;}
 @media screen and (max-width: 800px) {
