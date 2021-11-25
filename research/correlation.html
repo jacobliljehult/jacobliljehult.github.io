@@ -1,0 +1,117 @@
+---
+layout: stats
+title: Korrelation
+---
+
+<h1>Korrelation</h1>
+
+<p>korrelations analyser laves alle med funktionen <code><b>cor.test</b>( <i>x</i>, <i>y</i>, method)</code> hvor argumentet method bruges til at styre hvilken analyse der laves ved at definere den som enten <code>"pearson"</code>, <code>"kendall"</code> eller <code>"spearman"</code>.</p>
+
+<h2>Parametrisk test</h2>
+<h3>Pearson's r-test</h3>
+
+<p class="rcode">with(strokedata, cor.test(SBT, DBT, method = 'pearson'))</p>
+
+<p class="routput">
+Pearson's product-moment correlation<br><br>
+
+data:  SBT and DBT<br>
+t = 19.663, df = 1029, p-value < 2.2e-16<br>
+alternative hypothesis: true correlation is not equal to 0<br>
+95 percent confidence interval:<br>
+ 0.4767690 0.5656165<br>
+sample estimates:<br>
+&emsp;      cor <br>
+0.5226102 
+</p>
+<div style="border: 1px solid gray; padding-left: 20px;padding-right: 20px; background-color: rgb(255,255,240);margin-left:20px;margin-right:20px;">
+<h2>Modelantagelser</h2>
+<p>Pearson's r test antager at begge variable er normalfordelte - og ikke bare at residualerne er normaltfordelte som ved linær regression. <br><br>
+Den letteste måde at undersøge om denne antagelse er opfyldt er ved at visualisere data. Det kan gøres helt simpelt med funktionen <code><b>plot</b>( <i>x</i>, <i>y</i>)</code> der findes i base R, mens pakken <b>{ggplot2}</b> giver mere fleksibilitet i forhold til at lægge flere lag på plottet (fx smooth linjer).</p>
+<div class="rcode">
+library(ggplot2)<br>
+ggplot(aes(x = SBT, y = DBT), data = strokedata) + <br>
+&emsp;  geom_point(alpha = 0.5, color = "black") + <br>
+&emsp;  geom_smooth() +  <i># Indsætter smoothlinje (blå)</i><br>
+&emsp;  geom_smooth(method = lm, se = FALSE, color = "red", linetype = 2) + <i># Indsætter linær smoothlinje (rød)</i> <br>
+  theme_classic() 
+</div>
+<div class="illustration">
+<img src="https://jacobliljehult.github.io/research/images/plotSBT_DBT.png" style="width:400px; height: 400px; margin-left:auto; margin-right:auto;display: block;">
+<p>Systolisk blodtryk plottet imod diastolisk blodtryk. Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>
+</div>
+<p>For at gøre det endnu tydeligere:</p>
+<div class="rcode">
+library(ggplot2)<br>
+library(ggpubr)<br>
+library(patchwork)<br>
+<br>
+pointplot &lt;- ggplot(aes(x = SBT, y = DBT), data = strokedata) + <br>
+&emsp;  stat_density_2d(aes(fill = ..level..), geom = "polygon", alpha = 0.5) +<br> scale_fill_gradient(low = "yellow", high = "brown") +<br>
+&emsp;  geom_density_2d(aes(fill = ..level..), geom = "polygon", alpha = 0.5,<br> &emsp;&emsp;    color="black", linetype = 2) +<br>
+&emsp;  geom_point(alpha = 0.5, color = "black") + geom_smooth() + <br>
+&emsp;  geom_smooth(method = lm, se = FALSE, color = "red", linetype = 2) +<br> theme_classic() + <br>
+&emsp;  theme(legend.position = "none")<br>
+dens1 &lt;- ggplot(strokedata, aes(x = SBT)) + <br>
+&emsp;  geom_histogram(alpha = 0.4, color = "black") + <br>
+&emsp;  theme_void() + <br>
+&emsp;  theme(legend.position = "none")<br>
+dens2 &lt;- ggplot(strokedata, aes(x = DBT)) + <br>
+&emsp;  geom_histogram(alpha = 0.4, color = "black") + <br>
+&emsp;  theme_void() + <br>
+&emsp;  theme(legend.position = "none") + coord_flip()<br><br>
+
+dens1 + plot_spacer() + pointplot + dens2 + <br>
+&emsp;  plot_layout(ncol = 2, nrow = 2, widths = c(4, 1), heights = c(1, 4))
+</div>
+<div class="illustration">
+<img src="https://jacobliljehult.github.io/research/images/plotSBT_DBT_hist.png" style="width:500px; height: 500px; margin-left:auto; margin-right:auto;display: block;">
+<p>Systolisk blodtryk plottet imod diastolisk blodtryk. På siderne er der tilføjet histogrammer for hver variabel og under punkterne er der tilføjet et to-dimensionelt density område (jo tættere punkter, des mørkere område) 
+<br>Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>
+</div>
+<br>
+</div>
+<br><hr><br>
+<h3>Non-parametriske tests</h3>
+
+<p>Hvis man skal lave korrelationsanalyser på data der ikke opfylder modelantagelserne for Pearson's r-test, kan man i stedet bruge en non-parametrisk test. Ulempen er at <i>tau</i> og <i>rho</i> ikke kan fortolkes så direkte som <i>r</i>, men man får under alle omstændigheder en p-værdi.</p>
+<p>Som eksempel kan vi undersøge korrelationen mellem symptombyrden hos patienter med apopleksi (sss) og abnorme vitalparametre (EWS):</p>
+<div class="rcode">
+ggplot(aes(x = sss, y = EWS), data = strokedata) + <br>
+&emsp;	geom_point(alpha = 0.5, color = "black") + <br>
+&emsp;    geom_smooth() + <br>
+&emsp;  	geom_smooth(method = lm, se = FALSE, color = "red", linetype = 2) + <br>
+&emsp;  	theme_classic()
+</div>
+<div class="illustration">
+<img src="https://jacobliljehult.github.io/research/images/plotsss_EWS.png" style="width:500px; height: 500px; margin-left:auto; margin-right:auto;display: block;">
+<p>Scandinavian Stroke Scale plottet imod Early Warning Score. Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>
+</div>
+<br>
+<h3>Kendall's tau</h3>
+
+<p class="rcode">with(strokedata, cor.test(sss, EWS, method = 'kendall' ))</p>
+<p class="routput">
+Kendall's rank correlation tau<br><br>
+
+data:  sss and EWS<br>
+z = -13.724, p-value < 2.2e-16<br>
+alternative hypothesis: true tau is not equal to 0<br>
+sample estimates:<br>
+ &emsp;      tau <br>
+-0.3277317 
+</p>
+
+<h3>Spearman's rho</h3>
+
+<p class="rcode">with(strokedata, cor.test(sss, EWS, method = 'spearman' ))</p>
+<p class="routput">
+Spearman's rank correlation rho<br><br>
+
+data:  sss and EWS<br>
+S = 258010049, p-value < 2.2e-16<br>
+alternative hypothesis: true rho is not equal to 0<br>
+sample estimates:<br>
+  &emsp;     rho <br>
+-0.4125775 
+</p>
