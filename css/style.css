@@ -125,7 +125,7 @@ body {
     }
 .index h2 {text-align:center;color: black; }
 .index a {text-decoration: none;}
-.indexbox {border: 1px solid lightgray; 
+.indexbox {border: 0px solid lightgray; 
 		width: 350px; height: 200px;
             	padding-left: 5px;
             	padding-right: 5px;
@@ -136,9 +136,10 @@ body {
 .indexbox p {color: black; text-align: justify;padding-left: 20px;
             padding-right: 20px;}
 .indexbox a:visited {color: black; }
-.indexbox:hover {background: rgb(255,255,220); border: 1px solid black;}
+.indexbox:hover {background: rgb(255,255,220); border: 0px solid black;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 /* ::::: Særlige boxe til billeder ::::::::::::::::::::::::::::::::::::: */
-.imgbox {border: 1px solid lightgray; 
+.imgbox {border: 0px solid lightgray; 
 		width: 350px; height: 500px;
             	padding-left: 5px;
             	padding-right: 5px;
@@ -150,7 +151,8 @@ body {
             padding-right: 20px;}
 .imgbox a {color: black;}
 .imgbox a:visited {color: black;}
-.imgbox:hover {background: rgb(255,255,220); border: 1px solid black;}
+.imgbox:hover {background: rgb(255,255,220); border: 0px solid black;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 .imgbox img {width: 100%;  height: auto;}
 @media screen and (max-width: 800px) {
   .index {     
