@@ -71,6 +71,14 @@ body {
   text-align: right;
   text-transform: uppercase;
 }
+.sidenav h3 {
+  display: block;
+  color:rgb(220,220,220);
+  margin-bottom: 0px;
+  text-align: right;
+  font-weight: bold;
+	font-size: 12px;
+}
 .sidenav a {
   float: right;
   display: block;
