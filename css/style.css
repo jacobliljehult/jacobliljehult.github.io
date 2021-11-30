@@ -169,15 +169,15 @@ body {
   }
 }
 /* ::::: Tekst box :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
-.textbox {margin-left: 10%; 
-	  margin-right: 10%;
+.textbox {margin-left: 5%; 
+	  margin-right: 5%;
           padding: 20px; padding-left: 20px;
           outline: 1px solid lightgray; 
-	  width: 80%;
+	  width: 90%;
 	  display:block; 
           background-color: rgb(235,247,253);}
 .textbox h2, h3 {text-align: center; margin-bottom: 10px;margin-top: 0px;}   
-.textbox p, ul, ol, li {margin-bottom: 0px;margin-top: 0px;font-size: 18px;}   
+.textbox p, ul, ol, li {margin-bottom: 0px;margin-top: 0px;font-size: 16px;}   
 /* ---- Illustration med billedlegend ---- */
 .illustration {
 	float: center;
