@@ -117,6 +117,51 @@ Publish::publish(model3)
 <tr><th>age</th><th></th><th>        1.10</th><th> [1.08;1.12]</th><th>&lt;0.001</th></tr>
 </table></div>
 
+<div class="textbox">
+<h2>Goodness-of-fit</h2>
+<p>Log-liklihood ratio test kan bruges til at sammenligne to nestede Cox modeller, hvis man ønsker en formel test af om tilføjelsen af en kovariat bidrager med yderligere information til modellen. 
+</p>
+<p>Dette kan enten gøres med funktionen <code><b>lrtest</b>()</code> fra pakken <b>{lmtest}</b>:
+</p>
+<div class="rcode">
+	lmtest::lrtest(model2, model3)
+</div>
+<div class="routput">
+Likelihood ratio test<br><br>
+
+Model 1: Surv(daystomors, mors1y == "Dead") ~ relevel(diagnosis, ref = "IS")<br>
+Model 2: Surv(daystomors, mors1y == "Dead") ~ relevel(diagnosis, ref = "IS") + 
+    age<br>
+  <table>  
+    
+<tr><th></th><th>  #Df</th><th>  LogLik</th><th> Df</th><th>  Chisq</th><th> Pr(>Chisq)</th><th>    </th></tr>
+<tr><th>1</th><th>   1</th><th> -1257.4</th><th>    </th><th>      </th><th>           </th><th>    </th></tr>
+<tr><th>2</th><th>   2</th><th> -1173.7</th><th>  1</th><th> 167.44</th><th>  &lt; 2.2e-16</th><th> ***</th></tr>
+</table>
+---<br>
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+</div>
+<p>eller manuelt:</p>
+<div class="rcode">
+	a &lt;- unname( summary(model2)$logtest[1] )<br>
+b &lt;- unname( summary(model3)$logtest[1] )<br>
+c &lt;- (a-b)<br>
+a<br>
+b<br>
+c<br>
+pchisq(abs(c), df= 1, lower.tail = FALSE)
+
+</div>
+<div class="routput">
+[1] 28.6522<br>
+[1] 196.0886<br>
+[1] -167.4364<br>
+[1] 2.68599e-38</div>
+
+<p>Her hentes først log-test estimaterne fra de to modeller med <code><b>summary</b>(<i>x</i>)$logtest[1]</code>.<br> Funktionen <code><b>unname</b>()</code>, der er sat omkring, bruges kun til at fjerne tekst-attributen <code>"test"</code> fra outputtet så der kun returneres tallet - hvilket mest er af æstetiske grunde.<br>Forskellen mellem log-test estimaterne følger en chi<sup>2</sup>-fordeling og p-værdien kan derfor udregnes med funktionen <code><b>pchisq</b>(<i>x</i> , df = <i>df</i>, lower.tail = <i>FALSE</i>)</code>.<br>Funktionen <code><b>abs</b>(<i>x</i>)</code> bruges til at fjerne fortegnet fra inputtet, så det er ligegyldigt hvordan man trækker log-test estimaterne fra hinanden (chi<sup>2</sup>-værdien kan kun være positiv)</p>
+
+</div>
+
 <h2>Log-rank test</h2>
 <p>Log-rank test kan laves med funktionen <b>survdiff</b>() fra pakken {survival}:</p>
 <p class="rcode">library(survival) <br>
