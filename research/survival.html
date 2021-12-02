@@ -27,17 +27,17 @@ Som eksempel bruges data fra et kohortestudie med 1031 patienter med apopleksi, 
 library(dplyr)<br>
 rbind(<br>
 &emsp; strokedata %>% <br>
-&emsp; &emsp; select(daystillmors, morsdic1y, diagdict) %>% <br>
-&emsp; &emsp; arrange(daystillmors) %>% <br>
+&emsp; &emsp; select(daystomors, mors1y, diagnosis) %>% <br>
+&emsp; &emsp; arrange(daystomors) %>% <br>
 &emsp; &emsp; filter(row_number() &lt;= 5, row_number() &gt;= 1),<br>
 &emsp; strokedata %>% <br>
-&emsp; &emsp; select(daystillmors, morsdic1y, diagdict) %>% <br>
-&emsp; &emsp; arrange(-daystillmors) %>% <br>
+&emsp; &emsp; select(daystomors, mors1y, diagnosis) %>% <br>
+&emsp; &emsp; arrange(-daystomors) %>% <br>
 &emsp; &emsp; filter(row_number() &lt;= 5, row_number() &gt;= 1))
     </p>
 <div class="routput">
 <table>
-<tr><th></th><th>daystillmors</th><th>morsdic1y</th><th>diagdict</th></tr>
+<tr><th></th><th>daystomors</th><th>mors1y</th><th>diagnosis</th></tr>
 <tr><th>1</th><th>0</th><th>Dead</th><th>ICH</th></tr>
 <tr><th>2</th><th>0</th><th>Alive</th><th>ICH</th></tr>
 <tr><th>3</th><th>0</th><th>Dead </th><th>ICH</th></tr>
@@ -51,31 +51,32 @@ rbind(<br>
 </table>
 </div>
 <p>De tre variable indeholder følgende information:<br> <br>
-<b>daystillmors</b> - antallet af dage til dødsfald (eller frafald) indtil 1595 dage efter indlæggelsestidspunktet; <br>
-<b>morsdic1y</b> - dichotom factor-variabel der angiver om patienten er død eller levende et år efter indlæggelsesdagen; og <br>
-<b>diagdict</b> - factor-variabel der angiver subtypen dichotomt som enten IS eller ICH</p><br>
+<b>daysomors</b> - antallet af dage til dødsfald (eller frafald) indtil 1595 dage efter indlæggelsestidspunktet; <br>
+<b>mors1y</b> - dichotom factor-variabel der angiver om patienten er død eller levende et år efter indlæggelsesdagen; og <br>
+<b>diagnosis</b> - factor-variabel der angiver subtypen dichotomt som enten IS eller ICH</p><br>
 
 
 <h2>Cox' Proportional Hazard regression</h2>
-<p>Proportional hazard regression kan laves med funktionen <b>coxph</b>() fra pakken {survival} med syntaksen: <b>coxph</b>( <b><i>Surv</i></b>( <i>t</i>, <i>e</i> == <i>r</i>) ~ <i>x</i>, data = <i>df</i>).<br>
-Resultatet af modellen vises med funktionen <b>summary</b>().</p>
+<p>Proportional hazard regression kan laves med funktionen <code><b>coxph</b>()</code> fra pakken {survival} med syntaksen: 
+	<code><b>coxph</b>( <b><i>Surv</i></b>( <i>t</i>, <i>e</i> == <i>r</i>) ~ <i>x</i>, data = <i>df</i>).</code><br>
+Resultatet af modellen vises med funktionen <code><b>summary</b>()</code>.</p>
 <p class="rcode">library(survival) <br>
-model1 &lt;- coxph(Surv(daystillmors, morsdic1y == "Dead") ~ diagdict,<br>
+model1 &lt;- coxph(Surv(daystomors, mors1y == "Dead") ~ diagnosis,<br>
 &emsp; &emsp; &emsp; &emsp; data = strokedata) <br>
 summary(model1)  </p>
 <div class="routput">
 Call:<br>
-coxph(formula = Surv(daystillmors, morsdic1y == "Dead") ~ diagdict, data = strokedata)<br><br>
+coxph(formula = Surv(daystomors, mors1y == "Dead") ~ diagnosis, data = strokedata)<br><br>
   n = 1031, number of events= 186 <br><br>
 <table>
 <tr><th></th><th>coef</th><th>exp(coef)</th><th>se(coef)</th><th>z</th><th>Pr(>|z|)</th><th></th></tr>
-<tr><th>diagdictIS</th><th>-1.0522</th><th>0.3492</th><th>0.1770</th><th>-5.945</th><th>2.76e-09</th><th>***</th></tr>
+<tr><th>diagnosisIS</th><th>-1.0522</th><th>0.3492</th><th>0.1770</th><th>-5.945</th><th>2.76e-09</th><th>***</th></tr>
 </table>
 ---<br>
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br>
 <table>
 <tr><th></th><th> exp(coef)</th><th>exp(-coef)</th><th>lower .95</th><th>upper .95</th></tr>
-<tr><th>diagdictIS</th><th>    0.3492</th><th>2.864</th><th>0.2468</th><th>0.494</th></tr>
+<tr><th>diagnosisIS</th><th>    0.3492</th><th>2.864</th><th>0.2468</th><th>0.494</th></tr>
 </table><br>
 Concordance = 0.567  (se = 0.015 )<br><br>
 <table>
@@ -84,35 +85,35 @@ Concordance = 0.567  (se = 0.015 )<br><br>
 <tr><th style="text-align:left;">Score (logrank) test </th><th>= 38.73</th><th>on 1 df,</th><th>p=5e-10</th></tr>
 </table>
 </div>
-<p>Outputtet fra <b>summary</b>() funktionen indeholder både koefficienten på eksponentiel skala  (<code>coef</code>) og hazard ratio (<code>exp(coef)</code>), samt konfidensintervallet for hazard ratioen, men kan være lidt svær at overskue. Et lidt mere overskueligt output kan man få med <b>publish</b>() funktionen fra pakken {Publish}:</p>
+<p>Outputtet fra <code><b>summary</b>()</code> funktionen indeholder både koefficienten på eksponentiel skala  (<code>coef</code>) og hazard ratio (<code>exp(coef)</code>), samt konfidensintervallet for hazard ratioen, men kan være lidt svær at overskue. Et lidt mere overskueligt output kan man få med <b>publish</b>() funktionen fra pakken {Publish}:</p>
 <p class="rcode">
 Publish::publish(model1)
 </p>
 <div class="routput"><table>
 <tr><th>Variable</th><th>Units</th><th>HazardRatio</th><th>       CI.95</th><th> p-value </th></tr> 
-<tr><th>diagdict</th><th>ICH</th><th>         Ref</th><th> </th><th>                    </th></tr> 
+<tr><th>diagnosis</th><th>ICH</th><th>         Ref</th><th> </th><th>                    </th></tr> 
 <tr><th></th><th>IS</th><th>        0.35</th><th> [0.25;0.49]</th><th>&lt;0.001</th></tr>  
 </table></div>
-<p>Referenceværdien for eksponeringsvariablen kan ændres med funktionen <b>relevel</b>():</p>
+<p>Referenceværdien for eksponeringsvariablen kan ændres med funktionen <code><b>relevel</b>()</code>:</p>
 <p class="rcode">
-model2 &lt;- coxph(Surv(daystillmors, morsdic1y == "Dead") ~ <br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  relevel(diagdict, ref="IS"), 
+model2 &lt;- coxph(Surv(daystomors, mors1y == "Dead") ~ <br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  relevel(diagnosis, ref="IS"), 
 data = strokedata)  <br>
 Publish::publish(model2)
 </p>
 <div class="routput"><table>
 <tr><th>Variable</th><th>Units</th><th>HazardRatio</th><th>CI.95</th><th>p-value</th></tr> 
-<tr><th>relevel(diagdict, ref = "IS")</th><th>IS</th><th>Ref</th><th>        </th><th></th></tr>             
+<tr><th>relevel(diagnosis, ref = "IS")</th><th>IS</th><th>Ref</th><th>        </th><th></th></tr>             
 <tr><th>                             </th><th>ICH</th><th>2.86</th><th>[2.02;4.05]</th><th>&lt;0.001</th></tr> 
 </table></div>
 <p>Modellen kan justeres for en kovariate ved at forbinde dem med <i>x</i>-variablen på højre side af formlen:</p> 
 <p class="rcode">
-model3 &lt;- coxph(Surv(daystillmors, morsdic1y == "Dead") ~ <br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  relevel(diagdict, ref="IS") + age,
+model3 &lt;- coxph(Surv(daystomors, mors1y == "Dead") ~ <br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  relevel(diagnosis, ref="IS") + age,
 data = strokedata)<br>
 Publish::publish(model3)
 </p>
 <div class="routput"><table>
 <tr><th>Variable</th><th>Units</th><th>HazardRatio</th><th>       CI.95</th><th> p-value </th></tr> 
-<tr><th>relevel(diagdict, ref = "IS")</th><th>IS</th><th>         Ref</th><th> </th><th>                    </th></tr> 
+<tr><th>relevel(diagnosis, ref = "IS")</th><th>IS</th><th>         Ref</th><th> </th><th>                    </th></tr> 
 <tr><th></th><th>ICH</th><th>        2.83</th><th> [2.00;4.01]</th><th>&lt;0.001</th></tr>
 <tr><th>age</th><th></th><th>        1.10</th><th> [1.08;1.12]</th><th>&lt;0.001</th></tr>
 </table></div>
@@ -158,36 +159,41 @@ pchisq(abs(c), df= 1, lower.tail = FALSE)
 [1] -167.4364<br>
 [1] 2.68599e-38</div>
 
-<p>Her hentes først log-test estimaterne fra de to modeller med <code><b>summary</b>(<i>x</i>)$logtest[1]</code>.<br> Funktionen <code><b>unname</b>()</code>, der er sat omkring, bruges kun til at fjerne tekst-attributen <code>"test"</code> fra outputtet så der kun returneres tallet - hvilket mest er af æstetiske grunde.<br>Forskellen mellem log-test estimaterne følger en chi<sup>2</sup>-fordeling og p-værdien kan derfor udregnes med funktionen <code><b>pchisq</b>(<i>x</i> , df = <i>df</i>, lower.tail = <i>FALSE</i>)</code>.<br>Funktionen <code><b>abs</b>(<i>x</i>)</code> bruges til at fjerne fortegnet fra inputtet, så det er ligegyldigt hvordan man trækker log-test estimaterne fra hinanden (chi<sup>2</sup>-værdien kan kun være positiv)</p>
+<p>Her hentes først log-test estimaterne fra de to modeller med <code><b>summary</b>(<i>x</i>)$logtest[1]</code>.<br> Funktionen <code><b>unname</b>()</code>, 
+	der er sat omkring, bruges kun til at fjerne tekst-attributen <code>"test"</code> fra outputtet så der kun returneres tallet - hvilket mest er af æstetiske grunde.<br>
+	Forskellen mellem log-test estimaterne følger en chi<sup>2</sup>-fordeling og p-værdien kan derfor udregnes med funktionen <code><b>pchisq</b>(<i>x</i> , 
+	df = <i>df</i>, lower.tail = <i>FALSE</i>)</code>.<br>Funktionen <code><b>abs</b>(<i>x</i>)</code> bruges til at fjerne fortegnet fra inputtet, så det er ligegyldigt 
+	hvordan man trækker log-test estimaterne fra hinanden (chi<sup>2</sup>-værdien kan kun være positiv)</p>
 
 </div>
 
 <h2>Log-rank test</h2>
-<p>Log-rank test kan laves med funktionen <b>survdiff</b>() fra pakken {survival}:</p>
+<p>Log-rank test kan laves med funktionen <code><b>survdiff</b>()</code> fra pakken <b>{survival}</b>:</p>
 <p class="rcode">library(survival) <br>
-survdiff(Surv(daystillmors, morsdic1y == "Dead") ~ relevel(diagdict, ref="IS"), <br>
+survdiff(Surv(daystomors, mors1y == "Dead") ~ relevel(diagnosis, ref="IS"), <br>
 &emsp; &emsp; &emsp; data = strokedata) 
 </p>
 <div class="routput">
 Call:<br>
-survdiff(formula = Surv(daystillmors, morsdic1y == "Dead") ~ <br>
-&emsp; &emsp;     relevel(diagdict, ref = "IS"), data = strokedata)<br><br>
+survdiff(formula = Surv(daystomors, mors1y == "Dead") ~ <br>
+&emsp; &emsp;     relevel(diagnosis, ref = "IS"), data = strokedata)<br><br>
 
 <table>
 <tr><th>                                </th><th>  N</th><th>Observed</th><th>Expected</th><th>(O-E)^2/E</th><th>(O-E)^2/V</th></tr> 
-<tr><th style="text-align:left;">relevel(diagdict, ref = "IS")=IS</th><th>921</th><th>145</th><th>   169.2</th><th>     3.47</th><th>     38.6</th></tr> 
-<tr><th style="text-align:left;">relevel(diagdict, ref = "IS")=ICH</th><th>110</th><th>41</th><th>    16.8</th><th>    35.06</th><th>     38.6</th></tr> 
+<tr><th style="text-align:left;">relevel(diagnosis, ref = "IS")=IS</th><th>921</th><th>145</th><th>   169.2</th><th>     3.47</th><th>     38.6</th></tr> 
+<tr><th style="text-align:left;">relevel(diagnosis, ref = "IS")=ICH</th><th>110</th><th>41</th><th>    16.8</th><th>    35.06</th><th>     38.6</th></tr> 
 </table>
 <br>
 &emsp; Chisq= 38.6  on 1 degrees of freedom, p= 5e-10 
 </div>
 
 <h2>Kaplan-Meier plot</h2>
-<p>Overlevelsesanalyser kan illustreres ved hjælp af Kaplan-Meier plots med funktionen <b>survfit</b> fra pakken {survminer}<br><br>Kaplan-meier plot for ovenstående modeller:</p>
+<p>Overlevelsesanalyser kan illustreres ved hjælp af Kaplan-Meier plots med funktionen <code><b>survfit</b></code> fra pakken <b>{survminer}</b><br><br>Kaplan-meier plot 
+	for ovenstående modeller:</p>
 <p class="rcode">
 library(survminer) <br>
 fit1 &lt;-  survfit(<br>
-&emsp; &emsp;     Surv(daystillmors, morsdic1y == "Dead") ~ relevel(diagdict, ref="IS"), <br>
+&emsp; &emsp;     Surv(daystomors, mors1y == "Dead") ~ relevel(diagnosis, ref="IS"), <br>
 &emsp; &emsp; &emsp; &emsp;      data = strokedata)<br>
 ggsurvplot(fit1)
 </p>
