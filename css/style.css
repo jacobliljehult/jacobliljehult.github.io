@@ -122,6 +122,17 @@ body {
   margin-right: auto;
   width: 80%;
 }
+.sipTable {max-width:600px;
+			margin-right:auto;margin-left:auto; margin-bottom:40px; 
+            border: 0px solid black;border-collapse: collapse;}
+.sipTable th {text-align: left; border-bottom: 1px solid #ddd; padding-left: 10px; padding-right: 10px; padding: 5px; font-size: 16px; font-weight: normal; }
+.sipTable tr:nth-child(1) th {text-align: center; font-style: normal;font-size: 18px;font-weight: bold; }
+.sipTable tr:nth-child(1) {background-color: rgb(153,215,246); text-align: center}
+.sipTable tr:nth-child(even) {background-color: rgb(222,240,251);}
+.sipTable th:nth-child(1) {width: 60px; text-align: center;}
+.sipTable th:nth-child(2) {width: 190px}
+.sipTable th:nth-child(3) {width: 350px; font-style: italic;}
+.sipList {font-size: 18px;}
 
 /* ----- Index boxes -------------------------------------------------- */
 /* Bruges til at skabe box-struktur på forsiderne */
@@ -171,18 +182,18 @@ p.imgbox  {color: black; text-align: justify;padding-left: 20px;
   }
 }
 /* ::::: Tekst box :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
-.textbox {margin-left: 5%; 
+ div.textbox {margin-left: 5%; 
 	  margin-right: 5%;
-          padding: 20px; padding-left: 20px;
+          padding: 10px; padding-left: 0px;
           outline: 1px solid lightgray; 
 	  width: 90%;
 	  display:block; 
-          background-color: rgb(235,247,253);}
-h2.textbox {text-align: center; margin-bottom: 10px;margin-top: 0px;} 
-h3.textbox {text-align: center; margin-bottom: 10px;margin-top: 0px;}   
-p.textbox  {margin-bottom: 0px;margin-top: 0px;font-size: 16px;}
-ul.textbox li {margin-bottom: 0px;margin-top: 0px;font-size: 16px;}   
-ol.textbox li {margin-bottom: 0px;margin-top: 0px;font-size: 16px;}   
+          background-color: rgb(235,247,253)}
+div.textbox h2 {text-align: center; margin-bottom: 10px;margin-top: 0px;} 
+div.textbox h3 {text-align: center; margin-bottom: 10px;margin-top: 0px;}   
+div.textbox p {margin-bottom: 5px;margin-top: 0px;font-size: 18px; }
+div.textbox ul {margin-bottom: 0px;margin-top: 0px;font-size: 18px;}   
+div.textbox ol {margin-bottom: 0px;margin-top: 0px;font-size: 18px; }   
 /* ---- Illustration med billedlegend ---- */
 .illustration {
 	float: center;
