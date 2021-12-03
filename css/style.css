@@ -131,8 +131,8 @@ body {
 	display:grid; 
 	grid-template-columns: auto auto
     }
-h2.index  {text-align:center; color: black; margin-top: 10px;}
-a.index  {text-decoration: none;}
+.index h2 {text-align:center; color: black; margin-top: 10px;}
+.index a  {text-decoration: none;}
 .indexbox {border: 0px solid lightgray; 
 		width: 350px; height: 200px;
             	padding-left: 5px;
@@ -261,6 +261,7 @@ h5.rmaintext {font-size: 18px;}
 }
 h3.ref {font-size: 18px;}
 h4.ref {font-size: 18px;}
+ul.ref {list-style-type: none; margin-left: -10px; margin-bottom: 6px; font-size: 14px;}
 ul.ref li {list-style-type: none; margin-left: -10px; margin-bottom: 6px; font-size: 14px;}	
 
 /* ============================================================= */
