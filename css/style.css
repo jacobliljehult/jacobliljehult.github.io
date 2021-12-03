@@ -255,14 +255,14 @@ h5.rmaintext {font-size: 18px;}
 #imgtable img {width:100%;height:100%;border: 1px solid gray;min-width:300px;}
 	
 /* --- Reference lists ---------------------------------------------- */
-.ref {font-family: times;
+div.ref {font-family: times;
     color: black;    
     font-size: 14px;
 }
-h3.ref {font-size: 18px;}
-h4.ref {font-size: 18px;}
-ul.ref {list-style-type: none; margin-left: -10px; margin-bottom: 6px; font-size: 14px;}
-ul.ref li {list-style-type: none; margin-left: -10px; margin-bottom: 6px; font-size: 14px;}	
+div.ref h3 {font-size: 18px;}
+div.ref h4 {font-size: 18px;}
+div.ref ul {list-style-type: none; margin-left: -30px; margin-bottom: 6px; font-size: 14px;}
+div.ref li {list-style-type: none; margin-left: -10px; margin-bottom: 6px; font-size: 14px;}	
 
 /* ============================================================= */
 /* --- Add a card effect for articles --- */
