@@ -195,13 +195,13 @@ div.textbox p {margin-bottom: 5px;margin-top: 0px;font-size: 18px; }
 div.textbox ul {margin-bottom: 0px;margin-top: 0px;font-size: 18px;}   
 div.textbox ol {margin-bottom: 0px;margin-top: 0px;font-size: 18px; }   
 /* ---- Illustration med billedlegend ---- */
-.illustration {
+div.illustration {
 	float: center;
     max-width: 500px; max-heigth: 500px;
     margin-left: auto;
   	margin-right: auto;
 }
-p.illustration {
+div.illustration p {
 	font-size: 12px;
     text-align: justify;
     font-family: arial;
@@ -210,7 +210,7 @@ p.illustration {
    	padding-left: 5%;
     padding-right: 3%;
 }
-img.illustration {
+div.illustration img {
   display: block;
   margin-left: auto;
   margin-right: auto;
