@@ -184,7 +184,8 @@ p.imgbox  {color: black; text-align: justify;padding-left: 20px;
 /* ::::: Tekst box :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
  div.textbox {margin-left: 5%; 
 	  margin-right: 5%;
-          padding: 10px; padding-left: 0px;
+	  margin-top: 20px ; margin-bottom: 20px;
+          padding: 10px; padding-left: 10px;
           outline: 1px solid lightgray; 
 	  width: 90%;
 	  display:block; 
