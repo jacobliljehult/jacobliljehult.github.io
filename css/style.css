@@ -136,27 +136,27 @@ body {
 
 /* ----- Index boxes -------------------------------------------------- */
 /* Bruges til at skabe box-struktur på forsiderne */
-.index {outline: 0px solid lightgray; 
+div.index {outline: 0px solid lightgray; 
 	max-width: 730px; width: 80%; 
 	margin: auto;
 	display:grid; 
 	grid-template-columns: auto auto
     }
-.index h2 {text-align:center; color: black; margin-top: 10px;}
-.index a  {text-decoration: none;}
-.indexbox {border: 0px solid lightgray; 
-		width: 350px; height: 200px;
+div.index h2 {text-align:center; color: black; margin-top: 10px;}
+div.index a  {text-decoration: none; color: black;}
+div.indexbox {border: 0px solid lightgray; 
+		width: 350px; height: 100px;
             	padding-left: 5px;
             	padding-right: 5px;
             	margin: 10px;
             	overflow: hidden;       
 	}
-h3.indexbox { text-align:center; color: black; letter-spacing: 2px; margin-top: 10px;}
-h4.indexbox { text-align:center; color: black; letter-spacing: 2px; margin-top: 10px;}
-p.indexbox  {color: black; text-align: justify;padding-left: 20px;
-            padding-right: 20px;}
-.indexbox a:visited {color: black; }
-.indexbox:hover {background: rgb(255,255,255); border: 0px solid black;
+div.indexbox h3 { text-align:center; color: black; letter-spacing: 2px; margin-top: 10px;}
+div.indexbox h4 { text-align:center; color: black; letter-spacing: 2px; margin-top: 10px;}
+div.indexbox p  {color: black; text-align: justify;padding-left: 20px;
+           	 padding-right: 20px; font-size: 14px; line-height: 1.2;}
+div.indexbox a:visited {color: black; }
+div.indexbox:hover {background: rgb(255,255,255); border: 0px solid black;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 /* ::::: Særlige boxe til billeder ::::::::::::::::::::::::::::::::::::: */
 .imgbox {border: 0px solid lightgray; 
