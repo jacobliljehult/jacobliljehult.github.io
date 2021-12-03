@@ -131,8 +131,8 @@ body {
 	display:grid; 
 	grid-template-columns: auto auto
     }
-.index h2 {text-align:center; color: black; margin-top: 10px;}
-.index a {text-decoration: none;}
+h2.index  {text-align:center; color: black; margin-top: 10px;}
+a.index  {text-decoration: none;}
 .indexbox {border: 0px solid lightgray; 
 		width: 350px; height: 200px;
             	padding-left: 5px;
@@ -140,8 +140,9 @@ body {
             	margin: 10px;
             	overflow: hidden;       
 	}
-.indexbox h3, h4 { text-align:center; color: black; letter-spacing: 2px; margin-top: 10px;}
-.indexbox p {color: black; text-align: justify;padding-left: 20px;
+h3.indexbox { text-align:center; color: black; letter-spacing: 2px; margin-top: 10px;}
+h4.indexbox { text-align:center; color: black; letter-spacing: 2px; margin-top: 10px;}
+p.indexbox  {color: black; text-align: justify;padding-left: 20px;
             padding-right: 20px;}
 .indexbox a:visited {color: black; }
 .indexbox:hover {background: rgb(255,255,255); border: 0px solid black;
@@ -154,8 +155,9 @@ body {
             	margin: 10px;
             	overflow: hidden;    
 }
-.imgbox h3, h4 { text-align:center; color: black; letter-spacing: 2px;margin-top: 10px;}
-.imgbox p {color: black; text-align: justify;padding-left: 20px;
+h3.imgbox { text-align:center; color: black; letter-spacing: 2px;margin-top: 10px;}
+h4.imgbox { text-align:center; color: black; letter-spacing: 2px;margin-top: 10px;}
+p.imgbox  {color: black; text-align: justify;padding-left: 20px;
             padding-right: 20px;}
 .imgbox a {color: black;}
 .imgbox a:visited {color: black;}
@@ -176,8 +178,11 @@ body {
 	  width: 90%;
 	  display:block; 
           background-color: rgb(235,247,253);}
-.textbox h2, h3 {text-align: center; margin-bottom: 10px;margin-top: 0px;}   
-.textbox p, ul, ol, li {margin-bottom: 0px;margin-top: 0px;font-size: 16px;}   
+h2.textbox {text-align: center; margin-bottom: 10px;margin-top: 0px;} 
+h3.textbox {text-align: center; margin-bottom: 10px;margin-top: 0px;}   
+p.textbox  {margin-bottom: 0px;margin-top: 0px;font-size: 16px;}
+ul.textbox li {margin-bottom: 0px;margin-top: 0px;font-size: 16px;}   
+ol.textbox li {margin-bottom: 0px;margin-top: 0px;font-size: 16px;}   
 /* ---- Illustration med billedlegend ---- */
 .illustration {
 	float: center;
@@ -185,7 +190,7 @@ body {
     margin-left: auto;
   	margin-right: auto;
 }
-.illustration p {
+p.illustration {
 	font-size: 12px;
     text-align: justify;
     font-family: arial;
@@ -194,7 +199,7 @@ body {
    	padding-left: 5%;
     padding-right: 3%;
 }
-.illustration img {
+img.illustration {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -208,11 +213,11 @@ body {
     margin-left: 10%;
     margin-right: 10%;
 }
-.rmaintext h1 {font-size: 38px;}
-.rmaintext h2 {font-size: 28px;}
-.rmaintext h3 {font-size: 24px;}
-.rmaintext h4 {font-size: 20px;}
-.rmaintext h5 {font-size: 18px;}
+h1.rmaintext {font-size: 38px;}
+h2.rmaintext {font-size: 28px;}
+h3.rmaintext {font-size: 24px;}
+h4.rmaintext {font-size: 20px;}
+h5.rmaintext {font-size: 18px;}
 /* --- r code --- */	
 .rcode {
   border: 1px solid gray;
@@ -254,8 +259,9 @@ body {
     color: black;    
     font-size: 14px;
 }
-.ref h3, h4 {font-size: 18px;}
-.ref ul, li {list-style-type: none; margin-left: -10px; margin-bottom: 6px; font-size: 14px;}	
+h3.ref {font-size: 18px;}
+h4.ref {font-size: 18px;}
+ul.ref li {list-style-type: none; margin-left: -10px; margin-bottom: 6px; font-size: 14px;}	
 
 /* ============================================================= */
 /* --- Add a card effect for articles --- */
