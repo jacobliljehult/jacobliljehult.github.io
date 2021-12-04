@@ -185,12 +185,12 @@ p.imgbox  {color: black; text-align: justify;padding-left: 20px;
   }
 }
 /* ::::: Tekst box :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
- div.textbox {margin-left: 5%; 
-	  margin-right: 5%;
+ div.textbox {margin-left: auto; 
+	  margin-right: auto;
 	  margin-top: 20px ; margin-bottom: 20px;
-          padding: 10px; padding-left: 10px;
+          padding: 20px; padding-left: 20px;
           outline: 1px solid lightgray; 
-	  width: 90%;
+	  width: min(90%, 700px);
 	  display:block; 
           background-color: rgb(235,247,253)}
 div.textbox h2 {text-align: center; margin-bottom: 10px;margin-top: 0px;} 
