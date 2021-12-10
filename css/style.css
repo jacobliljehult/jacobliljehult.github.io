@@ -121,18 +121,21 @@ th {font-weight: normal;  }
 .maintext h4 {font-size: 20px;}
 .maintext h5 {font-size: 18px;}
 
+/* ~~~~~ Indholdsfortegnelse ~~~~~ */
 .indhold {outline: 1px solid lightgray; 
 	  background-color: rgb(235,247,253); 
-	  margin: 15px;
-	  margin-top: 15px; 
+	  margin-left: 15px; margin-right: 0px;
+	  margin-top: 5px; margin-bottom: 15px;
+	  padding: 10px;  
 	  width: 20%; 
 	  display: block; 
-	  float: right; 
-	  padding: 10px; 				
-	  font-size: min(14px, 1.5vw)}
+	  float: right; 				
+	  font-size: min(15px, 1.5vw)}
+.indhold b {text-align: center;}
+.indhold hr {margin-top: 3px;margin-bottom:5px; }   
 .indhold ol {margin-left: -20px; margin-top: -2px; margin-bottom: -2px}
 .indhold a {text-decoration: none; color:gray}
-.indhold a:hover {text-decoration: none; color:black}
+.indhold a:hover {text-decoration: none; color:darkblue}
 
 .centerimg img {
   display: block;
