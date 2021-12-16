@@ -8,14 +8,14 @@ title: "Intervaller"
 
 <h2>KONFIDENSINTERVALLER</h2>
 <h3>Kontinuerte data</h3>
-<p>Konfidensintervallet for en kontinuert variabel kan udregnes fra en t-test, hvor funktionen <code><b>t.test</b>()</code> bruges til at lave en one-sample t-test 
- imod variables eget gennemsnit. Selve konfidensintervallet ekstraheres fra funktionen ved at sætte post-fixet <code><i>$conf.int[1:2]</i></code> efter funktionen - 
- således at syntaksen bliver <code><b>t.test</b>(x, mu = <b><i>mean</i></b>(x))$conf.int[1:2]</code>
+<p>Konfidensintervallet for en kontinuert variabel kan udregnes fra en t-test, hvor funktionen <code><b>t.test</b>()</code> 
+ bruges til at lave en one-sample t-test imod variables eget gennemsnit. Selve konfidensintervallet ekstraheres fra 
+ funktionen ved at sætte post-fixet <code><i>$conf.int[1:2]</i></code> efter funktionen - 
+ således at syntaksen bliver <code><b>t.test</b>(x, mu = <b><i>mean</i></b>(<i>x</i>))$conf.int[1:2]</code>
 </p>
 <p class="rcode"> 
-var1 <- round(rnorm(100, 10, 2),0) &emsp; &emsp; # Tilfældigt genereret variable<br>
-mean(var1)<br>
-t.test(var1, mu = mean(var1))$conf.int[1:2]</p>
+mean(strokedata$age)<br>
+t.test(strokedata$age, mu = mean(strokedata$age))$conf.int[1:2]</p>
 <p class="routput">
 [1] 10.03<br>
 [1]  9.682921 10.377079
