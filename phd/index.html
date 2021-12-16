@@ -30,12 +30,34 @@
         .name {text-align: center; font-size: 26; font-weight: normal; font-family: arial}
         .titlebox {border: 1px solid lightgray;
         			background-color: white; 
-                    padding: 20px;
+                    padding: 0px;
                   	margin-left:auto; 
                     margin-right: auto; 
-                    width: 90%; 
-                    font-size: 36;
-                    text-align:center}
+                    width: 90%;                     
+                    }
+        .titlebox h2 {text-align:center; font-size: 36;margin-bottom: 10px}
+        .titlebox h3 {text-align:center; font-weight: bold; font-size: 16;}
+        #resume, .flip {
+  				font-size: 16px;
+  				padding: 10px;				
+  				background-color: white;
+  				margin-left:auto; 
+                    margin-right: auto; 
+                    width: 100%; 
+  				border: solid 1px rgb(242,242,242);
+  				margin: auto;
+				}
+                .flip:hover {background-color: rgb(242,242,242);}
+         #resume {border: 1px solid rgb(242,242,242);
+         			background-color: white; 
+         			padding: 20px;
+                    margin-top:0px; 
+                    margin-bottom:0px; 
+                  	margin-left:auto; 
+                    margin-right: auto; 
+                    width: 100%; 
+                    display: none;}
+         #resume p {text-align: justify;}
          .gridbox {display:grid; gap: 20px;
 					grid-template-columns: 1fr 1fr;
                     margin-left:auto; 
@@ -73,8 +95,28 @@
         Jacob Mesot Liljehult, Neurologisk Afdeling
       </h2>
       <div class="titlebox">
-        Health behaviour in patients with minor stroke and transient ischemic attacks
+        <h2>Health behaviour in patients with minor stroke and transient ischemic attacks</h2>
+      <h3 class="flip" onclick="myFunction()">Resume</h3>      
+      <div id="resume">
+      
+      <p>Patients with minor stroke or transient ischemic attacks have a significant prevalence of cognitive deficits and a risk of recurrent stroke. They are, however, often discharged home with little specialized follow-up. Patients with stroke are encouraged to avoid smoking, be physically active, and to take preventive medication, though these suggestions are insufficient in making them change their behaviour. Comprehensive interventions are needed to support the patients in adapting healthy behaviour. </p>
+<p><span style="margin-left:20px"></span>	In Study I we made a systematic review and meta-analysis of previous randomised, controlled trials of behavioural interventions with stroke patients. There was considerable methodological heterogeneity, making it difficult to identify specific aspects that could potentially promote the patients’ health behaviour. However, the interventions had a beneficial effect on blood pressure, hypertension, and low-density lipoprotein. Including physical training in the intervention increased the effect on blood pressure.</p>
+<p><span style="margin-left:20px"></span>In Study II we tested the feasibility of an early initiated, patient-centred intervention to patients with minor stroke or transient ischemic attacks targeting smoking cessation, physical activity, and medication adherence, in a randomised controlled pilot trial. Patients were included during their hospital admission and were randomised to the intervention, which consisted of health behavioural counselling, telephone follow-up, and monitoring of physical activity, or usual care. Relevant patients were identified, recruited, and randomized early after admission. Most of them adhered to the study until follow-up, and we were able to assess the feasibility of the intervention and derive estimates that can serve to guide the design of large-scale randomised controlled trials.</p>
+<p><span style="margin-left:20px"></span>In Study III we conducted qualitative interviews with selected participants from Study II and their relatives about their experience of returning to everyday life and how the stroke had affected their view on health and health behaviour. The participants experienced a new sense of vulnerability related to persisting symptoms and the awareness of risk of recurrence.</p>
+<p><span style="margin-left:20px"></span>Overall, we can conclude that patients with minor stroke or transient ischemic attacks experience a new sense of vulnerability, beyond their functional limitations. This experience can motivate some patients to change behaviour, which might also help them control their worries. Early initiated, interdisciplinary interventions might therefore be necessary to support patients in restructuring their health and life prospects. Supportive behavioural interventions may help to optimise care outcomes in minor stroke, such as lowering blood pressure and optimising medication adherence. Structured health promotion counselling may help patients initiate health behaviour changes and promote increased physical activity levels.
+
+      </p>
       </div>
+      
+      </div>
+      
+
+<script>
+function myFunction() {
+  document.getElementById("resume").style.display = "block";
+}
+</script>      
+      <div>
 	    <br><br>
       <div class="gridbox">
         <div >
@@ -91,7 +133,7 @@
             <p style="margin-top:5px;margin-bottom:0px;">Nuværende restriktioner:</p>
             <ul style="margin-left:-20px;margin-top:5px;margin-bottom:0px;">
             <li>Gyldigt <b>corona-pas</b> skal kunne vises ved forespørgsel</li>
-            <li><b>Maske</b> kan være påkrævet i nogle områder</li>
+            <li><b>Maske</b> er påkrævet i nogle områder</li>
             </ul>
             <p style="text-align:right; font-size:10;margin:5px;margin-right:-15px">Sidst opdateret 16-12-21</p>
            </div>
