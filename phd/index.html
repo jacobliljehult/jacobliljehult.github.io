@@ -1,44 +1,92 @@
 <html>
   <head>
+  	<link rel="icon" href="https://jacobliljehult.github.io/neuro/images/brainicon.png">
+    <link rel="stylesheet" href="https://jacobliljehult.github.io/css/style.css">
+    <style>
+    	main.phd {margin-left:auto;
+        		  margin-right:auto; 
+                  width: min(800px, 90%);
+                  background-color:white;}
+        .phd h1 {text-align: center; color:black; font-size: 48; font-weight: bold; }
+        .name {text-align: center; font-size: 26; font-weight: normal; font-family: arial}
+        .titlebox {border: 1px solid lightgray;
+        			background-color: white; 
+                    padding: 20px;
+                  	margin-left:auto; 
+                    margin-right: auto; 
+                    width: 90%; 
+                    font-size: 36;
+                    text-align:center}
+         .gridbox {display:grid; gap: 20px;
+					grid-template-columns: 1fr 1fr;
+                    margin-left:auto; 
+                    margin-right: auto; 
+                    margin-top: 10px; margin-bottom: 30px;
+                    width:90%;}
+          .gridbox th {text-align: left; font-size:20px}          
+          .covidbox {border: 1px solid red; background-color:yellow; 
+          			padding-left:30px;padding-right:30px;font-family:arial;
+                    }   
+          .covidbox li {font-family:arial; font-size:14px}
+          .combox {background-color: rgb(188,234,255); 
+          			border: 1px solid lightgray;
+          			padding: 10px; width: 90%;
+          			margin-left:auto; 
+                    margin-right: auto; }
+                    
+    </style>
   </head>
   <body>
-    <main style="margin-left:auto;margin-right:auto; width: min(800px, 90%)">
-      <h1 style="text-align: center">Ph.d. forsvar</h1>
-      <h2 style="text-align: center">Klinisk sygeplejespecialist, cand.scient.san, <br>
+    <main class="phd">
+    <div class="topnav">
+  		<a href="http://jacobliljehult.github.io/neuro/"></a>
+  		<a href="http://jacobliljehult.github.io/"></a>
+  		<a href="http://jacobliljehult.github.io/neuro/" style="float:right">Home</a> 
+	</div>
+      <h1 class="phd">Ph.d. forsvar</h1>
+      <h2 class="name">Klinisk sygeplejespecialist, cand.scient.san, <br>
         Jacob Mesot Liljehult, Neurologisk Afdeling
       </h2>
-      <div style="border: 1px solid gray;background-color: white; padding: 30px;
-                  margin-left:auto; margin-right: auto; width: 80%; font-size: 28;">
+      <div class="titlebox">
         Health behaviour in patients with minor stroke and transient ischemic attacks
       </div>
 	    <br><br>
-      <div style="display:grid; gap: 10px;
-	grid-template-columns: 1fr 1fr;">
-        <div>
+      <div class="gridbox">
+        <div >
           <table>
-            <tr><th>Dato:</th><th>Fredag d. 14. januar 2022</th></tr>
+            <tr><th style="width:80px">Dato:</th><th>Fredag d. 14. januar 2022</th></tr>
             <tr><th>Tid:</th><th>Kl. 14.00 </th></tr>
             <tr><th>Sted:</th><th>Auditoriet, Hillerød</th></tr>       
             </table>
-          <p>Afhandlingen kan inden forsvaret rekvireres fra forfatteren på: 
+          <p>Afhandlingen kan rekvireres fra forfatteren inden forsvaret på: 
            <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk</a></p>
+           <div class="covidbox">
+           	<p style="text-align:center; font-weight:bold;font-size:20;margin:5px">COVID</p>
+            <p style="margin-top:5px;margin-bottom:0px;text-align:left">Vi følger COVID-19 situationen tæt og tilpasser adgangsforholdene herefter. </p>
+            <p style="margin-top:5px;margin-bottom:0px;">Nuværende restriktioner:</p>
+            <ul style="margin-left:-20px;margin-top:5px;margin-bottom:0px;">
+            <li>Gyldigt <b>corona-pas</b> skal kunne vises ved forespørgsel</li>
+            <li><b>Maske</b> kan være påkrævet i nogle områder</li>
+            </ul>
+            <p style="text-align:right; font-size:10;margin:5px;margin-right:-15px">Sidst opdateret 16-12-21</p>
+           </div>
         </div>
         <div>
-        
+        	<img src="https://jacobliljehult.github.io/neuro/images/JacobLiljehult.jpg" style="width:100%">
         </div>
       </div>
-      <div style="background-color: lightblue; padding: 10px;">
-        <b>Bedømmelsesudvalg/assessment committee</b><br>
-        Thordis Thomsen, Professor, Københavns Universitet<br>
-        Ingrid Poulsen, Lektor, Aarhus University<br>
-        Hege Ihle-Hansen, Overlæge, Oslo University Hospital, Norge <br><br>
+      <div class="combox">
+        <b>Bedømmelsesudvalg/assessment committee</b>
+        <p>Thordis Thomsen, <i>Professor, Københavns Universitet</i><br>
+        Ingrid Poulsen, <i>Lektor, Aarhus University</i><br>
+        Hege Ihle-Hansen, <i>Overlæge, Oslo University Hospital, Norge</i></p>
 
         <b>Vejledere/academic supervisors</b><br>
-        Thomas Christensen, Overlæge, dr.med., Neurocenteret, Rigshospitalet (hovedvejleder)<br>
-        Tom Møller, Seniorforsker, Lektor, sygeplejerske, ph.d., Universitetshospitalernes Center for Sundhedsfaglig Forskning (UCSF), Rigshospitalet <br>
-        Dorthe Overgaard, Docent, Sygeplejerske, ph.d., Københavns Professionshøjskole<br>
-        Stig Mølsted, Seniorforsker, Lektor, Fysioterapeut, ph.d., Forskningsafdelingen, Nordsjællands Hospital
-        </div>
+        <p>Thomas Christensen, <i>Overlæge, dr.med., Neurocenteret, Rigshospitalet (hovedvejleder)</i><br>
+        Tom Møller, Seniorforsker, <i>Lektor, sygeplejerske, ph.d., Universitetshospitalernes Center for Sundhedsfaglig Forskning (UCSF), Rigshospitalet </i><br>
+        Dorthe Overgaard, <i>Docent, Sygeplejerske, ph.d., Københavns Professionshøjskole</i><br>
+        Stig Mølsted, <i>Seniorforsker, Lektor, Fysioterapeut, ph.d., Forskningsafdelingen, Nordsjællands Hospital</i>
+        </p></div><br>
     </main>
   </body>
   
