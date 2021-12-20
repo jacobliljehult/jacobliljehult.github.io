@@ -74,20 +74,25 @@
           			padding: 10px; width: 90%;
           			margin-left:auto; 
                     margin-right: auto; }
-	  @media screen and (max-width: 1081px) {
-  				main.phd  {   
+	  .bottom {height: 50px; 
+		   background-color:gray;
+		   width: min(800px, 90%);
+		   margin-left:auto;
+        	   margin-right:auto; }
+	    /* ~Ændre udseenende på mobilskærm~ */
+	  @media (orientation: portrait) {
+  			main.phd  {   
     				width: 100%;
     				padding: 0;	}
-					}
-	  @media screen and (max-width: 1081px) {
-  				.gridbox  {   
+  			.gridbox  {   
     				display:grid; gap: 20px;
-					grid-template-columns: 1fr ;
-                    margin-left:auto; 
-                    margin-right: auto; 
-                    margin-top: 10px; margin-bottom: 30px;
-                    width:90%;	}
-			} 
+				grid-template-columns: 1fr ;
+                    		margin-left:auto; 
+                    		margin-right: auto; 
+                    		margin-top: 10px; margin-bottom: 30px;
+                    		width: min(90%, 600px);	}
+			.bottom {width:100%}
+					} 
                     
     </style>
   </head>
@@ -119,17 +124,20 @@
 <p><span style="margin-left:20px"></span>In Study III we conducted qualitative interviews with selected participants from Study II and their relatives about their experience of returning to everyday life and how the stroke had affected their view on health and health behaviour. The participants experienced a new sense of vulnerability related to persisting symptoms and the awareness of risk of recurrence.</p>
 <p><span style="margin-left:20px"></span>Overall, we can conclude that patients with minor stroke or transient ischemic attacks experience a new sense of vulnerability, beyond their functional limitations. This experience can motivate some patients to change behaviour, which might also help them control their worries. Early initiated, interdisciplinary interventions might therefore be necessary to support patients in restructuring their health and life prospects. Supportive behavioural interventions may help to optimise care outcomes in minor stroke, such as lowering blood pressure and optimising medication adherence. Structured health promotion counselling may help patients initiate health behaviour changes and promote increased physical activity levels.
 
-      </p>
+      </p><p style="color:blue;text-align:center;" onclick="myHidden()">Skjul</p>
       </div>
       
       </div>
       
 
-<script>
-function myFunction() {
-  document.getElementById("resume").style.display = "block";
-}
-</script>      
+	<script>
+		function myFunction() {
+  			document.getElementById("resume").style.display = "block";
+			}
+		function myHidden() {
+  			document.getElementById("resume").style.display = "none";
+			}
+	</script>      
       <div>
 	    <br><br>
       <div class="gridbox">
@@ -141,7 +149,7 @@ function myFunction() {
 <i><span style="font-size:14px">(indgang via det gamle porthus ved Helsevej)</span></i></th></tr>       
             </table>
           <p>Afhandlingen kan rekvireres fra forfatteren inden forsvaret på: &shy;
-           <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk</a></p>
+           <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@&shy;regionh.dk</a></p>
            <div class="covidbox">
            	<p style="text-align:center; font-weight:bold;font-size:20;margin:5px">COVID</p>
             <p style="margin-top:5px;margin-bottom:0px;text-align:left">Vi følger COVID-19 situationen tæt og tilpasser adgangsforholdene herefter. </p>
@@ -175,8 +183,7 @@ function myFunction() {
         <div><img src="https://candidate.hr-manager.net/Export/Attachments/ViewFileManagerDocument.aspx?id=0f89be22-f29a-4e37-be4d-7c9082939e4b&cid=5001"></div>
      </div>
     </main>
-    <div style="height: 50px; background-color:gray;width: min(800px, 90%);margin-left:auto;
-        		  margin-right:auto; "></div>
+    <div class="bottom"></div>
   </body>
   
 </html>
