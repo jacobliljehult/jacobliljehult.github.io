@@ -17,15 +17,7 @@
                 height: 80px;
                 }
                 .logo img {max-width: 100%}
-        .logobottom {width: 75%;
-        		margin-left:auto; 
-                margin-right: auto;
-                margin-top: 10px;
-                display:grid; gap: 20px;
-				grid-template-columns: 35% 25% 40%;
-                height: 150px;
-                } 
-       .logobottom img {max-height: 80%; max-width:100%}
+        
         .phd h1 {text-align: center; color:black; font-size: 48; font-weight: bold; }
         .name {text-align: center; font-size: 26; font-weight: normal; font-family: arial}
         .titlebox {border: 1px solid lightgray;
@@ -62,23 +54,55 @@
 					grid-template-columns: 1fr 1fr;
                     margin-left:auto; 
                     margin-right: auto; 
-                    margin-top: 10px; margin-bottom: 30px;
+                    margin-top: 10px; margin-bottom: 15px;
                     width:90%;}
-          .gridbox th {text-align: left; font-size:20px}          
+          .gridbox th {text-align: left; font-size: max(20px, 2vw)}          
           .covidbox {border: 1px solid red; background-color:yellow; 
           			padding-left:30px;padding-right:30px;font-family:arial;
                     }   
           .covidbox li {font-family:arial; font-size:14px}
+          .teamslink {border: 1px solid rgb(125,130,255); color: black;
+          			  background-color: rgb(217,219,255);
+                      width: 90%; 
+                      margin-left:auto; 
+                      margin-right: auto; 
+                      margin-bottom: 10px;
+                      margin-top: 2px;
+                      padding: 10px;
+                      text-align:center;
+                      }
+          .teamslink:hover {background-color: rgb(160,160,255);
+          					border: 2px solid rgb(125,130,255);
+                            color:black;
+                            margin-bottom: 8px;
+                            margin-top: 0px;}
           .combox {background-color: rgb(188,234,255); 
           			border: 1px solid lightgray;
           			padding: 10px; width: 90%;
           			margin-left:auto; 
                     margin-right: auto; }
-	  .bottom {height: 50px; 
+       .logobottom {width: 75%;
+        		margin-left:auto; 
+                margin-right: auto;
+                margin-top: 10px;
+                display:grid; gap: 20px;
+				grid-template-columns: 35% 25% 40%;
+                height: 170px;
+                } 
+       .logobottom div {position: relative}        
+       .logobottom img {width: auto; 
+       				height: auto; 
+                    position: absolute; 
+                    top: 0; 
+                    bottom: 0; 
+                    left: 0; 
+                    right: 0;
+                    margin: auto;}
+        .bottom {height: 50px; 
 		   background-color:gray;
 		   width: min(800px, 90%);
 		   margin-left:auto;
-        	   margin-right:auto; }
+           margin-right:auto; }
 	    /* ~Ændre udseenende på mobilskærm~ */
 	  @media (orientation: portrait) {
   			main.phd  {   
@@ -152,19 +176,23 @@
            <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@&shy;regionh.dk</a></p>
            <div class="covidbox">
            	<p style="text-align:center; font-weight:bold;font-size:20;margin:5px">COVID</p>
-            <p style="margin-top:5px;margin-bottom:0px;text-align:left">Vi følger COVID-19 situationen tæt og tilpasser adgangsforholdene herefter. </p>
+            <p style="margin-top:5px;margin-bottom:0px;text-align:left">Vi følger COVID-19 situationen tæt og tilpasser adgangsforholdene herefter.</p><p>Forsvaret vil under alle omstændigheder kunne følges virtuelt via Teams-linket længere nede </p>
             <p style="margin-top:5px;margin-bottom:0px;">Nuværende restriktioner:</p>
             <ul style="margin-left:-20px;margin-top:5px;margin-bottom:0px;">
             <li>Gyldigt <b>corona-pas</b> skal kunne vises ved forespørgsel</li>
             <li><b>Maske</b> er påkrævet i nogle områder</li>
             </ul>
-            <p style="text-align:right; font-size:10;margin:5px;margin-right:-15px">Sidst opdateret 16-12-21</p>
+            <p style="text-align:right; font-size:10;margin:5px;margin-right:-15px">Sidst opdateret 22-12-21</p>
            </div>
         </div>
         <div>
-        	<img src="https://jacobliljehult.github.io/neuro/images/JacobLiljehult.jpg" style="width:100%">
+        	<img src="https://jacobliljehult.github.io/neuro/images/JacobLiljehult.jpg" style="width: min(100%,400px);
+            display: block;margin-left:auto;margin-right:auto">
         </div>
       </div>
+	<a style="text-decoration: none;" href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTgzMTQ1MDItZTJmOS00ZTllLWE3OGYtNzcxNDU0ZDM0OTgz%40thread.v2/0?context=%7b%22Tid%22%3a%22421c9c18-32c7-4250-84e0-c1626f963b1f%22%2c%22Oid%22%3a%22962f46eb-2f14-49e5-ae2c-9f9420833608%22%7d"><div class="teamslink">
+		<b>Link til Teams-feed</b></div></a>	
+	
       <div class="combox">
         <b>Bedømmelsesudvalg/assessment committee</b>
         <p>Thordis Thomsen, <i>Professor, Københavns Universitet</i><br>
