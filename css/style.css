@@ -161,7 +161,7 @@ div.index {outline: 0px solid lightgray;
 	max-width: 730px; 
 	margin: auto;
 	display:grid; gap: 5px;
-	grid-template-columns: auto auto
+	grid-template-columns: 1fr 1fr
     }
 div.index h2 {text-align:center; color: black; margin-top: 10px;}
 div.index a  {text-decoration: none; color: black;}
@@ -334,4 +334,13 @@ div.ref li {list-style-type: none; margin-left: -10px; margin-bottom: 6px; font-
     float: none;
     width: 100%;
   }
+}
+
+@media portrait {
+  div.index {outline: 0px solid lightgray; 
+    max-width: 730px; 
+    margin: auto;
+    display:grid; gap: 5px;
+    grid-template-columns: 1fr
+      }
 }
