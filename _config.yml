@@ -9,6 +9,7 @@ author:
   email: jacob.mesot.liljehult@regionh.dk
 description: "Jacob Liljehult"
 locale: da_DK
+lang: da_DK
 logo: https://jacobliljehult.github.io/neuro/images/brainicon.png
 
 # Build setting
