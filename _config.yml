@@ -1,3 +1,7 @@
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
 # Site settings
 author:
   name: Jacob Liljehult
