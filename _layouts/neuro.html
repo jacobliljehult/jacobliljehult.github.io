@@ -3,7 +3,7 @@
 <head>
 	<link rel="icon" href="/neuro/images/brainicon.png">
 	<link rel="stylesheet" href="https://jacobliljehult.github.io/css/style.css">
-	{% include linkpreview.html %}
+	<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 	{% seo %}	
 </head>
 <body>
