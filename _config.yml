@@ -5,7 +5,9 @@ plugins:
 # Site settings
 author:
   name: Jacob Liljehult
+  image: https://jacobliljehult.github.io/neuro/images/brainicon.png
   email: jacob.mesot.liljehult@regionh.dk
+description: "Jacob Liljehult"
 locale: da_DK
 
 # Build setting
