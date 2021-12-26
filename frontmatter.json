@@ -8,6 +8,11 @@
     },
     {
       "path": "c:/Users/bob_f/Documents/- Git web -/jacobliljehult.github.io/research"
+    },
+    {
+      "title": "images",
+      "path": "c:/Users/bob_f/Documents/- Git web -/jacobliljehult.github.io/neuro/images"
     }
-  ]
+  ],
+  "frontMatter.content.fmHighlight": true
 }

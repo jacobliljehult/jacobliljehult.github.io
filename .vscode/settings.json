@@ -1,5 +1,6 @@
 {
     "[markdown]": {
     },
-    "frontMatter.content.fmHighlight": true
+    "frontMatter.content.autoUpdateDate": false,
+    "frontMatter.content.fmHighlight": false
 }
