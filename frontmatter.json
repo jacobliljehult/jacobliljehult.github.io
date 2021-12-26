@@ -1,6 +1,6 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.framework.id": "hugo",
+  "frontMatter.framework.id": "jekyll",
   "frontMatter.content.publicFolder": "static",
   "frontMatter.content.pageFolders": [
     {
