@@ -16,72 +16,105 @@
                 <meta name="twitter:description" content="Siden indeholder en oversigt over neurologi-slides">
                 <meta name="twitter:site" content="jacobliljehult.github.io/phd/">
                 <meta name="twitter:image" content="https://jacobliljehult.github.io/neuro/images/JacobLiljehult.jpg"> 
+  <style>
+       #overskrift {text-align: center;}
+       article {border: 0 solid gray;
+                padding: 10px;}
+       article:hover {background: rgb(255,255,255); border: 0px solid black;
+		                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);} 
+       .gridbox {display:grid; gap: 20px;
+					          grid-template-columns: 1fr 1fr;
+                    margin-left:auto; 
+                    margin-right: auto; 
+                    margin-top: 10px; margin-bottom: 15px;
+                    width:90%;}
+        .gridbox h2 {text-align: center;
+                    font-size: min(28px, 5vw);} 
+        .gridbox p {text-align: justify;
+                    font-size: min(16px, 4vw);}                       
+        .gridbox img {width: min(100%, 600px)} 
+        .gridbox a {text-decoration: none;
+                    color: black}
+                                 
+    @media (orientation: portrait) {
+  			.gridbox  {   
+    				display:grid; gap: 20px;
+				    grid-template-columns: 1fr ;
+                    		margin-left:auto; 
+                    		margin-right: auto; 
+                    		margin-top: 10px; margin-bottom: 30px;
+                    		width: min(100%, 600px);	}
+                        .gridbox img {width: min(100%, 600px)}                 
+			  .bottom {width:100%}
+					} 
+
+  </style>
   </head>
   <body>
 <div class="card">
 <div class="maintext">
-    <center>
-	    <h1>Plakater</h1>
-	    <table id="imgtable">
-
-<div><tr><th>
-  <a target="_blank" href="intrakranielle_blodninger.pdf">
-    <img src="/neuro/images/intrakranielle_blodninger.png" alt="Intrakranielle blødninger"></a></th>
-  <th><a target="_blank" href="intrakranielle_blodninger.pdf"><h2>Intrakranielle blødninger</h2>
+   
+	    <h1 id="overskrift">Plakater</h1>
+	    
+<section class="gridbox">
+  <article>
+    <a target="_blank" href="intrakranielle_blodninger.pdf">
+    <img src="/neuro/images/intrakranielle_blodninger.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="intrakranielle_blodninger.pdf"><h2>Intrakranielle blødninger</h2>
     <p>Slide med de fire primære typer af intrakranielle blødninger - altså blødninger inden i kraniekassen - 
-      henholdsvis intracerebral hæmorrhagi, subarachnoidal hæmorrhagi, epidural hæmorrhagi og subdural hæmorrhagi. </p></a></th>  </tr>
+      henholdsvis intracerebral hæmorrhagi, subarachnoidal hæmorrhagi, epidural hæmorrhagi og subdural hæmorrhagi. </p></a> 
+  </article>
+  <article>
+    <a target="_blank" href="stroke.pdf">
+    <img src="/neuro/images/stroke.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="stroke.pdf"><h2>Apopleksi</h2>
+    <p>Slide med hovedtyperne af apopleksier, henholdsvis iskæmisk og hæmorrhagisk, og en række andre cerebrovaskulære sygdomme.</p></a>
+  </article>
+  <article>
+    <a target="_blank" href="overflade_lat.pdf">
+    <img src="/neuro/images/overflade_lat.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="overflade_lat.pdf"><h2>Overflade anatomi</h2>
+    <p>Slide med hjernes overflade anatomi og overordnede kortikale funktioner set fra siden.</p></a>
+  </article>
+  <article>
+    <a target="_blank" href="overflade_midt.pdf">
+    <img src="/neuro/images/overflade_midt.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="overflade_midt.pdf"><h2>Overflade anatomi</h2>
+    <p>Slide med hjernes overflade anatomi og overordnede kortikale funktioner set fra midten.</p></a>
+  </article>
+  <article>
+    <a target="_blank" href="blodforsyning.pdf">
+    <img src="/neuro/images/blodforsyning.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="blodforsyning.pdf"><h2>Hjernens karforsyning</h2>
+    <p>Slide med hjernens primære karforsyning i forskellige snit. </p></a>
+  </article>
+  <article>
+    <a target="_blank" href="lateralisering.pdf">
+    <img src="/neuro/images/lateralisering.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="lateralisering.pdf"><h2>Lateralisering</h2>
+    <p>Slide med hjernes lateraliserede funktioner og tilsvarende fokalt neurologiske udfald. </p></a>
+  </article>
+  <article>
+    <a target="_blank" href="synsudfald.pdf">
+    <img src="/neuro/images/synsudfald.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="synsudfald.pdf"><h2>Synsudfald</h2>
+    <p>Slide med synsbanernes anatomi og tilsvarende synsudfald. </p></a>
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/masseeffekt.pdf">
+    <img src="/neuro/images/masseeffekt.png" alt="Masseeffekt"></a>
+    <a target="_blank" href="/neuro/slides/masseeffekt.pdf"><h2>Masseeffekt</h2>
+    <p>Slide om effekten af forhøjet intrakranielt tryk. </p></a>
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/Pupilreaktion.pdf">
+    <img src="/neuro/images/pupilreaktion.png" alt="Pupilreaktion"></a>
+    <a target="_blank" href="/neuro/slides/Pupilreaktion.pdf"><h2>Pupilreaktion</h2>
+    <p>Slide om hvordan forhøjet tryk henholdsvist over og under tentorium cerebelli kommer til udtryk ved undersøgelse af øjne og pupiller.</p></a>
+  </article>		    	    
+</section>
 </div>
-<div><tr><th>
-  <a target="_blank" href="stroke.pdf">
-    <img src="/neuro/images/stroke.png" alt="Intrakranielle blødninger"></a></th>
-  <th><a target="_blank" href="stroke.pdf"><h2>Apopleksi</h2>
-    <p>Slide med hovedtyperne af apopleksier, henholdsvis iskæmisk og hæmorrhagisk, og en række andre cerebrovaskulære sygdomme.</p></a></th>  </tr>
 </div>
-  <div><tr><th>
-  <a target="_blank" href="overflade_lat.pdf">
-    <img src="/neuro/images/overflade_lat.png" alt="Intrakranielle blødninger"></a></th>
-  <th><a target="_blank" href="overflade_lat.pdf"><h2>Overflade anatomi</h2>
-    <p>Slide med hjernes overflade anatomi og overordnede kortikale funktioner set fra siden.</p></a></th>  </tr>
-</div>
-  <div><tr><th>
-  <a target="_blank" href="overflade_midt.pdf">
-    <img src="/neuro/images/overflade_midt.png" alt="Intrakranielle blødninger"></a></th>
-  <th><a target="_blank" href="overflade_midt.pdf"><h2>Overflade anatomi</h2>
-    <p>Slide med hjernes overflade anatomi og overordnede kortikale funktioner set fra midten.</p></a></th>  </tr>
-</div>
-  <div><tr><th>
-  <a target="_blank" href="blodforsyning.pdf">
-    <img src="/neuro/images/blodforsyning.png" alt="Intrakranielle blødninger"></a></th>
-  <th><a target="_blank" href="blodforsyning.pdf"><h2>Hjernens karforsyning</h2>
-    <p>Slide med hjernens primære karforsyning i forskellige snit. </p></a></th>  </tr>
-</div>
-  <div><tr><th>
-  <a target="_blank" href="lateralisering.pdf">
-    <img src="/neuro/images/lateralisering.png" alt="Intrakranielle blødninger"></a></th>
-  <th><a target="_blank" href="lateralisering.pdf"><h2>Lateralisering</h2>
-    <p>Slide med hjernes lateraliserede funktioner og tilsvarende fokalt neurologiske udfald. </p></a></th>  </tr>
-</div>
-  <div><tr><th>
-  <a target="_blank" href="synsudfald.pdf">
-    <img src="/neuro/images/synsudfald.png" alt="Intrakranielle blødninger"></a></th>
-  <th><a target="_blank" href="synsudfald.pdf"><h2>Synsudfald</h2>
-    <p>Slide med synsbanernes anatomi og tilsvarende synsudfald. </p></a></th>  </tr>
-</div>
-    <div><tr><th>
-  <a target="_blank" href="/neuro/slides/masseeffekt.pdf">
-    <img src="/neuro/images/masseeffekt.png" alt="Masseeffekt"></a></th>
-  <th><a target="_blank" href="/neuro/slides/masseeffekt.pdf"><h2>Masseeffekt</h2>
-    <p>Slide om effekten af forhøjet intrakranielt tryk. </p></a></th>  </tr>
-</div>
-    <div><tr><th>
-  <a target="_blank" href="/neuro/slides/Pupilreaktion.pdf">
-    <img src="/neuro/images/pupilreaktion.png" alt="Pupilreaktion"></a></th>
-  <th><a target="_blank" href="/neuro/slides/Pupilreaktion.pdf"><h2>Pupilreaktion</h2>
-    <p>Slide om hvordan forhøjet tryk henholdsvist over og under tentorium cerebelli kommer til udtryk ved undersøgelse af øjne og pupiller.</p></a></th>  </tr>
-</div>		    
-		    
-</table></center></div></div>
-
 <div class="footer">
 	<p>Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
     Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - <a href="https://www.researchgate.net/profile/Jacob-Liljehult">ResearchGate</a> - <a href="https://orcid.org/0000-0002-9928-1097">OCID</a></p> 
