@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="/neuro/images/brainicon.png">
+	<link rel="stylesheet" href="https://jacobliljehult.github.io/css/style.css">
+</head>
+<body>
+  
+<div class="card">
+    <main class="rmaintext">
+  	
+        <p class="rcode">with(strokedata, cor.test(SBT, DBT, method = 'pearson'))</p>
+
+        <p class="routput">
+        Pearson's product-moment correlation<br><br>
+        
+        data:  SBT and DBT<br>
+        t = 19.663, df = 1029, p-value < 2.2e-16<br>
+        alternative hypothesis: true correlation is not equal to 0<br>
+        95 percent confidence interval:<br>
+         0.4767690 0.5656165<br>
+        sample estimates:<br>
+        &emsp;      cor <br>
+        0.5226102 
+        </p>  
+           
+        <div class="illustration">
+            <img src="https://jacobliljehult.github.io/research/images/plotSBT_DBT.png" >
+            <p>Systolisk blodtryk plottet imod diastolisk blodtryk. Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>
+        </div>
+
+    </main>
+</div>
+
+</body>
+</html>
