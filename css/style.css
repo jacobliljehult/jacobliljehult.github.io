@@ -1,127 +1,132 @@
 /* ===== Overordnet ======================================== */
-* {
-  box-sizing: border-box;
-  } 
+  * {
+      box-sizing: border-box;
+      font-size: 20px;
+    } 
 
-body {
-  font-family: Arial;
-  padding: 10px;
-  background: rgb(245,245,245);
-  }
-th {font-weight: normal;  }
+  body {
+    font-family: Arial;
+    padding: 10px;
+    background: rgb(245,245,245);
+    }
+  th {font-weight: normal;  }
 
 /* ===== Headers ============================================= */
-.headerstroke {
-  padding: 10px;
-  text-align: center;
-  color: white;
-  background: rgb(192,0,0);
-  background-image: url(/neuro/images/headerhjerne.png);
-  background-repeat: no-repeat;}
+  .headerstroke {
+    padding: 10px;
+    text-align: center;
+    color: white;
+    background: rgb(192,0,0);
+    background-image: url(/neuro/images/headerhjerne.png);
+    background-repeat: no-repeat;}
 /* ----- Tema heading ----- */
-.headerstroke h1 {  font-size: 50px;}
-.headerstat {
-  padding: 10px;
-  text-align: center; 
-  color: white;
-  background: rgb(163,219,246);
-  background-image: url(/research/randomheader.png);
-  background-repeat: no-repeat;
-  background-size: auto 200px;}
-.headerstat h1 {  font-size: 50px;}
+  .headerstroke h1 {  font-size: 50px;}
+  .headerstat {
+    padding: 10px;
+    text-align: center; 
+    color: white;
+    background: rgb(163,219,246);
+    background-image: url(/research/randomheader.png);
+    background-repeat: no-repeat;
+    background-size: auto 200px;}
+  .headerstat h1 {  font-size: 50px;}
 
 /* ===== Top navigation bar ================================== */
-.topnav {
-  overflow: hidden;
-  background-color: rgb(35,35,35);
-  }
+  .topnav {
+    overflow: hidden;
+    background-color: rgb(35,35,35);
+    }
 /* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  }	
+  .topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }	
 /* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-  }
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+    }
 /* ============================================================ */
 /* Create two unequal columns that floats next to each other */
 /* Left column */
-.leftcolumn {   
-  float: left;
-  width: 20%;
-  max-width: 200px;
-  height: 100%;
-  background-color: rgb(245,245,245);
-  }
+  .leftcolumn {   
+    float: left;
+    width: 20%;
+    max-width: 200px;
+    height: 100%;
+    background-color: rgb(245,245,245);
+    }
 /* ===== Navigation i venstre side ============================= */
-.sidenav {
-  background-color: rgb(87,87,87);
-  padding: 20px;
-  margin-top: 10px;
-  height: 100%;
-  }
-.sidenav h3 {
-  color:rgb(220,220,220);
-  margin-bottom: 0px;
-  text-align: right;
-  text-transform: uppercase;
-  }
-.sidenav h4 {
-  display: block;
-  color:rgb(220,220,220);
-  text-align: right;
-  font-weight: bold;
-  margin-top: 10px;margin-bottom:1px;
-  font-size:16px;
-  text-transform: uppercase;
-  }
-.sidenav a {
-  float: right;
-  display: block;
-  color: rgb(220,220,220);
-  margin-bottom: 0px;
-  text-align: right;
-  text-decoration: none;
-	font-size: 12px;
-  }
-.sidenav a:hover,
-.sidenav a:focus{
-  background-color: rgb(220,220,220);
-  color: black;
-  width: 100%;
-  }
+  .sidenav {
+    background-color: rgb(87,87,87);
+    padding: 20px;
+    margin-top: 10px;
+    height: 100%;
+    }
+  .sidenav h3 {
+    color:rgb(220,220,220);
+    margin-bottom: 0px;
+    text-align: right;
+    text-transform: uppercase;
+    }
+  .sidenav h4 {
+    display: block;
+    color:rgb(220,220,220);
+    text-align: right;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom:1px;
+    font-size:16px;
+    text-transform: uppercase;
+    }
+  .sidenav a {
+    float: right;
+    display: block;
+    color: rgb(220,220,220);
+    margin-bottom: 0px;
+    text-align: right;
+    text-decoration: none;
+	  font-size: 12px;
+    }
+  .sidenav a:hover,
+  .sidenav a:focus{
+    background-color: rgb(220,220,220);
+    color: black;
+    width: 100%;
+    }
 	
 /* ===== Right column ============================================= */
-.rightcolumn {
-  float: left;
-  width: max(80%, 100% - 200px);
-  background-color: rgb(245,245,245);
-  padding-left: 20px;
-  }
+  .rightcolumn {
+    float: left;
+    width: max(80%, 100% - 200px);
+    background-color: rgb(245,245,245);
+    padding-left: 20px;
+    }
 
 /* ===== Maintexts ================================================= */
-.maintext {	
+  
+  .maintext {	
     color: black;    
-    font-size: 18px;
+    font-size: 0.9rem;
 	  width: min(80%, 800px);
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline: auto;
   }
-.maintext p, ul, li {font-family: times;}
-.maintext h1 {text-align: center; letter-spacing: 1px;font-size: 38px;}
-.maintext h2 {font-size: 28px;}
-.maintext h3 {font-size: 24px;}
-.maintext h4 {font-size: 20px;}
-.maintext h5 {font-size: 18px;}
+  .maintext p, ul, li {font-family: times;}
+  .maintext h1 {
+    text-align: center; 
+    letter-spacing: 1px;
+    font-size: 2rem;}
+  .maintext h2 {font-size: 1.5rem;}
+  .maintext h3 {font-size: 1.2rem;}
+  .maintext h4 {font-size: 1rem;}
+  .maintext h5 {font-size: 0.9rem;} 
 
 /* ~~~~~ Indholdsfortegnelse ~~~~~ */
-.indhold {outline: 1px solid lightgray; 
+  .indhold {outline: 1px solid lightgray; 
 	  background-color: rgb(235,247,253); 
 	  margin-left: 15px; margin-right: 0px;
 	  margin-top: 5px; margin-bottom: 15px;
@@ -130,264 +135,256 @@ th {font-weight: normal;  }
 	  display: block; 
 	  float: right; 				
 	  font-size: min(15px, 1.5vw)}
-.indhold b {text-align: center;}
-.indhold hr {margin-top: 3px;
+  .indhold b {text-align: center;}
+  .indhold hr {margin-top: 3px;
             margin-bottom:5px; }   
-.indhold ol {margin-left: -20px; 
+  .indhold ol {margin-left: -20px; 
             margin-top: -2px; 
             margin-bottom: -2px}
-.indhold a {text-decoration: none; 
+  .indhold a {text-decoration: none; 
             color:gray}
-.indhold a:hover {text-decoration: none; 
-                  color:darkblue}
+  .indhold a:hover {text-decoration: none; 
+            color:darkblue}
 
-.centerimg img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-}
-.sipTable { max-width:600px;
-			    margin-right:auto;
-          margin-left:auto; 
-          margin-bottom:40px; 
-          border: 0px solid black;
-          border-collapse: collapse; }
-.sipTable th {text-align: left; 
-              border-bottom: 1px solid #ddd; 
-              padding-left: 10px; 
-              padding-right: 10px; 
-              padding: 5px; 
-              font-size: 16px; 
-              font-weight: normal; }
-.sipTable tr:nth-child(1) th {text-align: center; 
-                              font-style: normal;
-                              font-size: 18px;
-                              font-weight: bold; }
-.sipTable tr:nth-child(1) {background-color: rgb(153,215,246); 
+  .centerimg img {
+    display: block;
+    margin-inline: auto;
+    width: 80%;
+    }
+  .sipTable { max-width:600px;
+		margin-inline:auto; 
+    margin-bottom:40px; 
+    border: 0px solid black;
+    border-collapse: collapse; }
+  .sipTable th {text-align: left; 
+    border-bottom: 1px solid #ddd; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+    padding: 5px; 
+    font-size: 16px; 
+    font-weight: normal; }
+  .sipTable tr:nth-child(1) th {text-align: center; 
+    font-style: normal;
+    font-size: 18px;
+    font-weight: bold; }
+  .sipTable tr:nth-child(1) {background-color: rgb(153,215,246); 
                           text-align: center}
-.sipTable tr:nth-child(even) {background-color: rgb(222,240,251);}
-.sipTable th:nth-child(1) {width: 60px; text-align: center;}
-.sipTable th:nth-child(2) {width: 190px}
-.sipTable th:nth-child(3) {width: 350px; font-style: italic;}
-.sipList {font-size: 18px;}
+  .sipTable tr:nth-child(even) {background-color: rgb(222,240,251);}
+  .sipTable th:nth-child(1) {width: 60px; text-align: center;}
+  .sipTable th:nth-child(2) {width: 190px}
+  .sipTable th:nth-child(3) {width: 350px; font-style: italic;}
+  .sipList {font-size: 18px;}
 
 /* ----- Index boxes -------------------------------------------------- */
 /* Bruges til at skabe box-struktur på forsiderne */
-div.index { outline: 0px solid lightgray; 
-	          max-width: 730px; 
-	          margin: auto;
-	          display:grid; gap: 5px;
-	          grid-template-columns: 1fr 1fr
-          }
-div.index h2 {text-align:center; 
-              color: black; 
-              margin-top: 10px;}
-div.index a  {text-decoration: none; 
-              color: black;}
-@media (orientation: portrait) {
+  div.index { outline: 0px solid lightgray; 
+	  max-width: 730px; 
+	  margin: auto;
+	  display:grid; gap: 5px;
+	  grid-template-columns: 1fr 1fr
+      }
+  div.index h2 {text-align:center; 
+    color: black; 
+    margin-top: 10px;}
+  div.index a  {text-decoration: none; 
+    color: black;}
+  @media (orientation: portrait) {
     .index { padding: 0;
-             grid-template-columns: 1fr }
-            }              
-div.indexbox {border: 0px solid lightgray; 
-		          max-width: 350px; 
-              height: 120px;
-            	padding-left: 0px;
-            	padding-right: 0px;
-            	margin: 10px;
-            	overflow: hidden;  
-	            }
-div.indexbox h3 { padding-left: 20px; 
-                  text-align:left; 
-                  color: black; 
-                  letter-spacing: 2px; 
-                  margin-top: 10px; }
-div.indexbox h4 { padding-left: 20px; 
-                  text-align:left; 
-                  color: black; 
-                  letter-spacing: 2px; 
-                  margin-top: 10px; }
-div.indexbox p  { padding-left: 20px; 
-                  text-align:left; 
-                  color: gray; 
-           	      padding-right: 20px; 
-                  font-size: 14px; 
-                  line-height: 1.2; }
-div.indexbox a:visited {color: black; }
-div.indexbox:hover {background: rgb(255,255,255); 
-                    border: 0px solid black;
-		                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+      grid-template-columns: 1fr }
+        }              
+  div.indexbox {border: 0px solid lightgray; 
+		max-width: 350px; 
+    height: 120px;
+    padding-inline: 0;
+    margin: 10px;
+    overflow: hidden;  
+	    }
+  div.indexbox h3 { padding-left: 20px; 
+    text-align:left; 
+    color: black; 
+    letter-spacing: 2px; 
+    margin-top: 10px; }
+  div.indexbox h4 { padding-left: 20px; 
+    text-align:left; 
+    color: black; 
+    letter-spacing: 2px; 
+    margin-top: 10px; }
+  div.indexbox p  { padding-left: 20px; 
+    text-align:left; 
+    color: gray; 
+    padding-right: 20px; 
+    font-size: 14px; 
+    line-height: 1.2; }
+  div.indexbox a:visited {color: black; }
+  div.indexbox:hover {background: rgb(255,255,255); 
+    border: 0px solid black;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 /* ::::: Særlige boxe til billeder ::::::::::::::::::::::::::::::::::::: */
-.imgbox { border: 0px solid lightgray; 
-		      width: 350px; height: 500px;
-          padding-left: 5px;
-          padding-right: 5px;
-          margin: 10px;
-          overflow: hidden;    
-        }
-h3.imgbox { text-align: center; 
-            color: black; 
-            letter-spacing: 2px;
-            margin-top: 10px; }
-h4.imgbox { text-align: center; 
-            color: black; 
-            letter-spacing: 2px;
-            margin-top: 10px; }
-p.imgbox  { text-align: justify;
-            color: black; 
-            padding-left: 20px;
-            padding-right: 20px;}
-.imgbox a { color: black;}
-.imgbox a:visited { color: black;}
-.imgbox:hover { background: rgb(255,255,255); 
-                border: 0px solid black;
-		            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
-.imgbox img { width: 100%;  
+  .imgbox { border: 0px solid lightgray; 
+		width: 350px; height: 500px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 10px;
+    overflow: hidden;    
+      }
+  h3.imgbox { text-align: center; 
+    color: black; 
+    letter-spacing: 2px;
+    margin-top: 10px; }
+  h4.imgbox { text-align: center; 
+    color: black; 
+    letter-spacing: 2px;
+    margin-top: 10px; }
+  p.imgbox  { text-align: justify;
+    color: black; 
+    padding-left: 20px;
+    padding-right: 20px;}
+  .imgbox a { color: black;}
+  .imgbox a:visited { color: black;}
+  .imgbox:hover { background: rgb(255,255,255); 
+    border: 0px solid black;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+  .imgbox img { width: 100%;  
               height: auto;}
 
 /* ::::: Tekst box :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
- div.textbox {margin-left: auto; 
-	            margin-right: auto;
-	            margin-top: 20px ; 
-              margin-bottom: 20px;
-              padding: 20px; 
-              padding-left: 20px;
-              outline: 1px solid lightgray; 
-	            width: min(90%, 700px);
-	            display:block; 
-              background-color: rgb(235,247,253)}
-div.textbox h2 { text-align: center; 
-                 margin-bottom: 10px;
-                 margin-top: 0px;} 
-div.textbox h3 {  text-align: center; 
-                  margin-bottom: 10px;
-                  margin-top: 0px;}   
-div.textbox p { margin-bottom: 5px;
-                margin-top: 0px;
-                font-size: 18px; }
-div.textbox ul {margin-bottom: 0px;
-                margin-top: 0px;
-                font-size: 18px;}   
-div.textbox ol {margin-bottom: 0px;
-                margin-top: 0px;
-                font-size: 18px; }   
+  div.textbox {
+    margin-inline: auto; 
+	  margin-top: 20px ; 
+    margin-bottom: 20px;
+    padding: 20px; 
+    padding-left: 20px;
+    outline: 1px solid lightgray; 
+	  width: min(90%, 700px);
+	  display:block; 
+    background-color: rgb(235,247,253)}
+  div.textbox h2 { text-align: center; 
+    margin-bottom: 10px;
+    margin-top: 0px;} 
+  div.textbox h3 {  text-align: center; 
+    margin-bottom: 10px;
+    margin-top: 0px;}   
+  div.textbox p { margin-bottom: 5px;
+    margin-top: 0px;
+    font-size: 18px; }
+  div.textbox ul {margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 18px;}   
+  div.textbox ol {margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 18px; }   
 /* ---- Illustration med billedlegend ---- */
-.illustration {  display: block;
-                  max-width: 500px; 
-                  margin-left: auto;
-  	              margin-right: auto;
-                  }
-.illustration p { font-size: 12px;
-                    text-align: justify;
-                    font-family: arial;
-                    line-height: 1.2;
-                    padding-top: 0px;
-   	                padding-left: 5%;
-                    padding-right: 3%;
-                    }
-.illustration img { 
-                      margin-left: auto;
-                      margin-right: auto;
-                      width: min(400px, 100%);
-                      }
+  .illustration {  display: block;
+    max-width: 500px; 
+    margin-inline: auto;
+    }
+  .illustration p { font-size: 18px;
+    text-align: justify;
+    font-family: arial;
+    line-height: 1.2;
+    padding-top: 0px;
+   	padding-left: 5%;
+    padding-right: 3%;
+      }
+  .illustration img { 
+    margin-inline: auto;
+    width: min(400px, 100%);
+      }
 /* ============================================================= */
 /* ----- Maintext for R -------------------------------------------------- */ 
-.rmaintext {color: black;    
-            font-size: 16px;
-            margin-left: 10%;
-            margin-right: 10%;
-            }
-h1.rmaintext {font-size: 38px;}
-h2.rmaintext {font-size: 28px;}
-h3.rmaintext {font-size: 24px;}
-h4.rmaintext {font-size: 20px;}
-h5.rmaintext {font-size: 18px;}
+  .rmaintext {color: black;    
+    font-size: 16px;
+    margin-inline: 10%;
+      }
+  h1.rmaintext {font-size: 38px;}
+  h2.rmaintext {font-size: 28px;}
+  h3.rmaintext {font-size: 24px;}
+  h4.rmaintext {font-size: 20px;}
+  h5.rmaintext {font-size: 18px;}
 /* --- r code --- */	
-.rcode {border: 1px solid gray;
-        margin: 20px;
-        margin-right: 20px;
-        margin-left: 20px;
-        padding:15px;
-        background-color: rgb(242,242,242);
-        font-family: courier;
-        font-size: min(14px, 1.4vw); 
-        }
-.rcode a {color: "#0066ff"}
-.rcode a:hover { background-color: "#f2f2f2"}
-.routput {border: 1px solid gray;
-          margin: 20px;
-          margin-right: 20px;
-          margin-left: 20px;
-          padding:15px;
-          background-color: white;
-          font-family: courier;
-          font-size: min(14px, 1.4vw); 
-          }
-.routput table { text-align: right;}
-.routput th { padding-right:10px; 
-              font-weight: normal;}
+  .rcode {border: 1px solid gray;
+    margin: 20px;
+    margin-inline: 20px;
+    padding:15px;
+    background-color: rgb(242,242,242);
+    font-family: courier;
+    font-size: min(14px, 1.4vw); 
+      }
+  .rcode a {color: "#0066ff"}
+  .rcode a:hover { background-color: "#f2f2f2"}
+  .routput {border: 1px solid gray;
+    margin: 20px;
+    margin-inline: 20px;
+    padding:15px;
+    background-color: white;
+    font-family: courier;
+    font-size: min(14px, 1.4vw); 
+      }
+  .routput table { text-align: right;}
+  .routput th { padding-right:10px; 
+    font-weight: normal;}
 	
 /* --- Image table ------------------------------------------------ */
-#imgtable {width:80%;font-family:times;}
-#imgtable table, tr, th {border:0px solid;}
-#imgtable th {width:50%;padding:10px;vertical-align: top;min-width:200px;max-width:300px;}
-#imgtable tr:hover {background-color: rgb(255,255,220);}
-#imgtable h2 {font-size:20px;color:black;margin-top: 1px;}
-#imgtable p {font-size:14px;color:gray;}
-#imgtable a {text-decoration: none;}
-#imgtable img {width:100%;height:100%;border: 1px solid gray;min-width:300px;}
+  #imgtable {width:80%;font-family:times;}
+  #imgtable table, tr, th {border:0px solid;}
+  #imgtable th {width:50%;padding:10px;vertical-align: top;min-width:200px;max-width:300px;}
+  #imgtable tr:hover {background-color: rgb(255,255,220);}
+  #imgtable h2 {font-size:20px;color:black;margin-top: 1px;}
+  #imgtable p {font-size:14px;color:gray;}
+  #imgtable a {text-decoration: none;}
+  #imgtable img {width:100%;height:100%;border: 1px solid gray;min-width:300px;}
 	
 /* --- Reference lists ---------------------------------------------- */
-div.ref {font-family: times;
-        color: black;    
-        font-size: 14px;
-        }
-div.ref h3 {font-size: 18px;}
-div.ref h4 {font-size: 18px;}
-div.ref ul {list-style-type: none; 
-            margin-left: -30px; 
-            margin-bottom: 6px; 
-            font-size: 14px;}
-div.ref li {list-style-type: none; 
-            margin-left: -10px; 
-            margin-bottom: 6px; 
-            font-size: 14px;}	
+  div.ref {font-family: times;
+    color: black;    
+    font-size: 14px;
+      }
+  div.ref h3 {font-size: 18px;}
+  div.ref h4 {font-size: 18px;}
+  div.ref ul {list-style-type: none; 
+    margin-left: -30px; 
+    margin-bottom: 6px; 
+    font-size: 14px;}
+  div.ref li {list-style-type: none; 
+    margin-left: -10px; 
+    margin-bottom: 6px; 
+    font-size: 14px;}	
 
 /* ============================================================= */
 /* --- Add a card effect for articles --- */
-.card {
-  background-color: white;
-  padding: 20px;
-  margin-top: 10px;
-}
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 10px;
+      }
 /* --- Clear floats after the columns --- */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+      }
 /* ====== Footer ============================================== */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: rgb(245,245,245);
-  margin-top: 20px;
-  font-size: 11px;
-}
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: rgb(245,245,245);
+    margin-top: 20px;
+    font-size: 11px;
+      }
 
 /* ============================================================= */
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {   
-    width: 100%;
-    padding: 0;
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+      }
   }
-}
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .topnav a {
-    float: none;
-    width: 100%;
+  @media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
   }
-}
