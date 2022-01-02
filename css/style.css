@@ -44,6 +44,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 0.9rem;
     }	
 /* Change color on hover */
   .topnav a:hover {
@@ -63,7 +64,9 @@
 /* ===== Navigation i venstre side ============================= */
   .sidenav {
     background-color: rgb(87,87,87);
-    padding: 20px;
+    padding-inline: 20px;
+    padding-top: 1px;
+    padding-bottom: 20px;
     margin-top: 10px;
     height: 100%;
     }
@@ -87,10 +90,11 @@
     float: right;
     display: block;
     color: rgb(220,220,220);
+    margin-top: 1px;
     margin-bottom: 0px;
     text-align: right;
     text-decoration: none;
-	  font-size: 12px;
+	  font-size: 0.65rem;
     }
   .sidenav a:hover,
   .sidenav a:focus{
@@ -98,7 +102,11 @@
     color: black;
     width: 100%;
     }
-	
+	.whiteline {
+    margin-top: 1px;
+    margin-bottom:1px;
+    color: white;
+    border-top: 0px solid white;}
 /* ===== Right column ============================================= */
   .rightcolumn {
     float: left;
@@ -398,8 +406,8 @@
     text-align: center;
     background: rgb(245,245,245);
     margin-top: 20px;
-    font-size: 11px;
       }
+  .footer p, a {font-size: 0.55rem;}
 
 /* ============================================================= */
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
