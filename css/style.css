@@ -247,7 +247,7 @@
               margin-right: auto; 
               margin-top: 10px; margin-bottom: 30px;
               width: min(100%, 600px);	}
-  .gridbox img {width: min(100%, 600px) }        
+  .gridbox img {width: min(100%, 600px) }   }     
 /* ::::: Særlige boxe til billeder ::::::::::::::::::::::::::::::::::::: */
   .imgbox { border: 0px solid lightgray; 
 		width: 350px; height: 500px;
