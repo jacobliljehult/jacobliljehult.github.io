@@ -317,18 +317,18 @@
     max-width: 500px; 
     margin-inline: auto;
     border: 0 solid red;
-    }
-  .illustration p { font-size: 0.6rem;
+    } 
+  .illustration img { border: 0 solid red;
+    margin-inline: auto; 
+    width: 100%;
+      }
+  .legend { font-size: 0.6rem;
     text-align: justify;
     font-family: arial;
     line-height: 1.2;
     padding-top: 0px;
     padding-inline: 1%;
-   	  }
-  .illustration img { border: 0 solid red;
-    margin-inline: auto; 
-    width: 100%;
-      }
+           }
 /* ============================================================= */
 /* ----- Maintext for R -------------------------------------------------- */ 
   .rmaintext {color: black;    
@@ -338,6 +338,7 @@
     @media (orientation: portrait) {
       .rmaintext {margin-inline: 0%}
     }
+  .rtext {font-size: 0.8rem;}
   h1.rmaintext {font-size: 2rem;}
   h2.rmaintext {font-size: 1.4rem;}
   h3.rmaintext {font-size: 0.2rem;}
@@ -364,7 +365,8 @@
       }
   .routput table { text-align: right;}
   .routput th { padding-right:10px; 
-    font-weight: normal;}
+    font-weight: normal;
+    font-size: min(0.7rem, 1.4vw);}
 	
 /* --- Image table ------------------------------------------------ */
   #imgtable {width:80%;font-family:times;}

@@ -10,13 +10,13 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 ---
 
 <h1>Grupperede kvantitative data</h1>
-    <p
-      >På denne side gives eksempler på hvordan man kan analysere data hvor eksponeringen er kategorisk men 
+    <p class="rtext">
+      På denne side gives eksempler på hvordan man kan analysere data hvor eksponeringen er kategorisk men 
       udfaldet er kvantitativt. Den kan enten være en sample, der testes mod en given grænseværdi; to grupper 
       der testes mod hinanden eller tre (eller flere) grupper der testes mod hinanden.
     </p>
  <h2>One-sample tests</h2>
-    <p>
+    <p class="rtext">
       Hypotese test for mean imod en given grænseværdi
     </p>
 
@@ -56,7 +56,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
   </p>
   <div class="illustration">
     <img src="https://jacobliljehult.github.io/research/images/onesampleboxplot.png">
-    <p>Boxplot for alder; den orange streg angiver grænseværdien der tests imod</p>
+    <p class="legend">Boxplot for alder; den orange streg angiver grænseværdien der tests imod</p>
   </div>
   <hr>
   <br>
@@ -64,7 +64,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 <h2>To grupper</h2>
 
 <h3>Student's t-test</h3>
-  <p>Parametrisk test forskel mellem to grupper</p>
+  <p class="rtext">Parametrisk test forskel mellem to grupper</p>
   <p class="rcode">
     t.test(age ~ gender, data = strokedata)
   </p>
@@ -82,7 +82,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
    </p>
 
   <h3>Wilcoxon rank sum test</h3>
-    <p>Non-parametrisk test for forskel mellem to grupper</p>
+    <p class="rtext">Non-parametrisk test for forskel mellem to grupper</p>
     <p class="rcode">
       wilcox.test(age ~ gender, data = strokedata)
     </p>
@@ -100,7 +100,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
     </p>
     <div class="illustration">
       <img src="https://jacobliljehult.github.io/research/images/twosampleboxplot.png">
-      <p>Boxplot for alder fordelt på køn. Den orange streg angiver gennemsnitsalderen for hele populationen.</p>
+      <p class="legend">Boxplot for alder fordelt på køn. Den orange streg angiver gennemsnitsalderen for hele populationen.</p>
     </div>
     <hr>
     <br>
@@ -129,4 +129,4 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
     </p>
     <div class="illustration">
       <img src="https://jacobliljehult.github.io/research/images/multiplesampleboxplot.png">
-      <p>Boxplot for alder fordelt på rygning. Den orange streg angiver gennemsnitsalderen for hele populationen.</p>
+      <p class="legend">Boxplot for alder fordelt på rygning. Den orange streg angiver gennemsnitsalderen for hele populationen.</p>

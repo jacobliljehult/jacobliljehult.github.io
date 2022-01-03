@@ -9,7 +9,7 @@ draft: true
 preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 ---
 <h1>Logistisk regression</h1> 
-  <p>Logistisk regression laves med funktionen 
+  <p class="rtext">Logistisk regression laves med funktionen 
     <code>glm( <i>y</i> ~ <i>x</i>, data = <i>data</i>, family = <i>"binomial"</i>)</code>, 
     altså en generaliseret linær model funktion hvor <code>family</code>-argumentet er defineret som <i>"binomial"</i>. 
     Resultatet kaldes derefter med <code>summary()</code>-funktionen:
@@ -41,7 +41,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
     AIC: 951.29<br><br> 
     Number of Fisher Scoring iterations: 4 
   </div> 
-  <p>
+  <p class="rtext">
     I <code>summary()</code> angives coefficienterne på logaritmisk skala og skal derfor transformeres med 
     <code>exp()</code> for at man får odds ratioerne. 
     En lidt lettere og overskuelig måde at få odds ratioerne er med funktionen <code>publish</code> fra pakken 
@@ -59,7 +59,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
   </div> 
 
   <h3>Ændring af referencegruppe</h3> 
-    <p>
+    <p class="rtext">
       Som default sortere <code>r</code> factor variable i alfabetisk orden og det er ikke altid fortolkningsmæssigt 
       det mest korrekte. Man kan derfor have brug for at vælge en anden referencekategori, hvilket kan gøres med 
       funktionen <code>relevel(<i>var</i>, ref = <i>referenceværdi</i>)</code>:
@@ -77,7 +77,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
     </div> 
 
   <h3>Justering for kovariate</h3> 
-    <p>
+    <p class="rtext">
       Modellen kan justeres for kovariate ved at tilføje dem på <i>x</i>-siden af formlen svarende til 
       <code><i>y</i> = <i>x</i> + <i>a</i></code>. I nedenstående eksempel laves først en model med et års dødelighed som 
       funktion af rygning:
@@ -94,7 +94,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
         <tr> <th></th><th> Previous </th><th>      0.87</th><th>  [0.60;1.28]</th><th>    0.486122 </th> </tr> 
       </table>
     </div>
-    <p>
+    <p class="rtext">
       I modellen ser det ud til at rygning <u>beskytter</u> imod at dø, hvilket umiddelbart ikke giver mening. En mulig 
       confounder kunne være alder (altså at forskellen i dødelighed er udtryk for at grupperne har forskellige aldre):
     </p>
@@ -111,7 +111,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
         <tr> <th>                               age  </th><th>  </th><th>             1.11</th><th>  [1.09;1.14]  </th><th>  <1e-04 </th> </tr> 
       </table> 
     </div> 
-    <p>
+    <p class="rtext">
       Resultatet her viser at der er en signifikant association mellem alder og dødelighed, men at associationen mellem 
       rygning og dødelighed ikke længere er signifikant (for nogle af kategorierne). Alder var således en confounder og 
       den tilsyneladende beskyttende effekt af at være nuværende ryger kan derfor forklares med at nuværende rygere er yngre.
@@ -120,20 +120,20 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 
   <div class="textbox">
     <h2>Sammenligning af nestede modeller</h2> 
-      <p>
+      <p class="rtext">
         Model 4 i ovenstående eksempel består af model 3 med en tilføjet kovariate (alder) - og man siger derfor at model 4 
         er nested i model 3. I modeludviklingen kan det være interessant at undersøge om tilføjelsen af en (eller flere) 
         kovariate bidrager med mere information til modellen. 
       </p>  
-      <p>
+      <p class="rtext">
         <code>Summary()</code> funktionen giver to mål man kan bruge til at sammenligne to nestede modeller: AIC og residual 
         deviance.
       </p> 
-      <p>
+      <p class="rtext">
         AIC kan bruges til at lave en uformel sammenligning – idet en lavere AIC tyder på en "bedre" model - altså en model 
         med mere information. 
       </p> <br>
-      <p>
+      <p class="rtext">
         Hvis man vil kalde AIC uden at kalde hele <code>summary()</code>-outputtet, kan man nøjes med post-fixet <code>$aic</code>:
       </p>
       <div class="rcode">
@@ -144,16 +144,16 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
         [1] 899.2056<br>
         [1] 759.162
       </div>
-      <p>
+      <p class="rtext">
         AIC for model 4 er lavere end for model 3, og model 4 er derfor en mere præcis/informationsrig model.
       </p><br>
 
     <h3>Log-likelihood ratio test</h3>
-      <p>
+      <p class="rtext">
         Residual deviance kan enten bruges på samme måde som AIC, men kan også bruges til at lave en formel sammenligning 
         ved hjælp af en log-likelihood ratio test.
       </p> 
-      <p>
+      <p class="rtext">
         Residual deviance kan kaldes fra modellen med post-fixet <code>$deviance</code>:
       </p>
       <div class="rcode">
@@ -164,7 +164,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
         [1] 893.2056<br>
         [1] 751.162
       </div>
-      <p>
+      <p class="rtext">
         Testet laves ved at man tager chi<sup>2</sup>-fordelingen af forskellen mellem deviancerne med funktionen 
         <code>pchisq( <i>chi</i>, df = <i>df</i>, lower.tail = FALSE)</code>:
       </p> 
@@ -178,7 +178,8 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
         [1] 9.514076e-33
       </div>
 
-      <p>Udregningen kan også laves med funktionen <code>lrtest( <i>m1</i>, <i>m2</i>)</code>, som findes i pakken 
+      <p class="rtext">
+        Udregningen kan også laves med funktionen <code>lrtest( <i>m1</i>, <i>m2</i>)</code>, som findes i pakken 
         <code><b>{lmtest}</b></code>:
       </p>
       <div class="rcode">
@@ -197,7 +198,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
         ---<br>
         Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
       </div>
-      <p>
+      <p class="rtext">
         Bemærk at <code>lmtest</code> bruger en lidt anderledes fremgangmåde til at udregne Chi<sup>2</sup>-værdien, 
         men at resultatet er det samme:
       </p>

@@ -26,8 +26,18 @@
            
         <div class="illustration">
             <img src="https://jacobliljehult.github.io/research/images/plotSBT_DBT.png" >
-            <p>Systolisk blodtryk plottet imod diastolisk blodtryk. Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>
+            <p class="legend">Systolisk blodtryk plottet imod diastolisk blodtryk. Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>
         </div>
+        <p class="rtext">Systolisk blodtryk plottet imod diastolisk blodtryk. Blå linje: Loess kurve med konfidensinterval. </p>
+        <p class="rcode">
+            quantile(strokedata$age, c(0.025,0.975)) 
+          </p>
+          <div class="routput">
+            <table>
+              <tr><th>2.5%</th><th>97.5%</th></tr>
+              <tr><th>46</th><th>92</th></tr>
+            </table>
+          </div>   
 
     </main>
 </div>

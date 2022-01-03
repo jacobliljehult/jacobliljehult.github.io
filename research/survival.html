@@ -8,13 +8,13 @@ image: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 ---
 <h1>Overlevelsesanalyse</h1>
-		<p>
+		<p class="rtext">
 			Overlevelsesmodeller (eller survival-modeller) er intensitetsbaserede modeller hvor udfaldet måles i hvor lang tid 
 			der går indtil et binomialt event. 
 		</p>
 
 	<h2>Datastruktur</h2>
-		<p>Modellerne skal bruge tre variable:<br>
+		<p class="rtext">Modellerne skal bruge tre variable:<br>
 			1) En <b>event-variable</b>, der angiver om hændelsen er indtruffet eller ej. Variablen skal være <i>logical</i> 
 			(TRUE/FALSE) når den indgår - men det nemmeste er at kode variablen som enten <i>factor</i> eller <i>integer</i> 
 			med to niveauer, som derefter omformateres i modellen som <code>variable == reference</code>;<br>
@@ -37,7 +37,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 				<b>surv</b>(<i>tidsvariabel</i>, <i>event-variabel</i> == <i>reference-værdi</i>) ~ <i>eksponering</i> + <i>kovariate</i></code>
 			<br><br>
 		</p>
-		<p><i>Eksempel</i><br>
+		<p class="rtext"><i>Eksempel</i><br>
 			Som eksempel bruges data fra et kohortestudie med 1031 patienter med apopleksi, der er fulgt i et år efter de blev 
 			indlagt. Udfaldet er tid indtil dødsfald og som eksempel bruges en variabel med to subtyper IS (ischemic stroke) og 
 			ICH (intracerebral heamorrhage):</p>
@@ -73,7 +73,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 				<tr><th>10</th><th>1595</th><th>Alive</th><th>IS</th></tr>
 			</table>
 		</div>
-		<p>
+		<p class="rtext">
 			De tre variable indeholder følgende information:<br> <br>
 			<b>daysomors</b> - antallet af dage til dødsfald (eller frafald) indtil 1595 dage efter indlæggelsestidspunktet; <br>
 			<b>mors1y</b> - dichotom factor-variabel der angiver om patienten er død eller levende et år efter indlæggelsesdagen; og <br>
@@ -82,7 +82,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 		<br>
 
 	<h2>Cox' Proportional Hazard regression</h2>
-		<p>
+		<p class="rtext">
 			Proportional hazard regression kan laves med funktionen <code><b>coxph</b>()</code> fra pakken {survival} med syntaksen: 
 			<code><b>coxph</b>( <b><i>Surv</i></b>( <i>t</i>, <i>e</i> == <i>r</i>) ~ <i>x</i>, data = <i>df</i>).</code><br>
 			Resultatet af modellen vises med funktionen <code><b>summary</b>()</code>.</p>
@@ -113,7 +113,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 				<tr><th style="text-align:left;">Score (logrank) test </th><th>= 38.73</th><th>on 1 df,</th><th>p=5e-10</th></tr>
 			</table>
 		</div>
-		<p>
+		<p class="rtext">
 			Outputtet fra <code><b>summary</b>()</code> funktionen indeholder både koefficienten på eksponentiel skala  
 			(<code>coef</code>) og hazard ratio (<code>exp(coef)</code>), samt konfidensintervallet for hazard ratioen, 
 			men kan være lidt svær at overskue. Et lidt mere overskueligt output kan man få med <b>publish</b>() funktionen 
@@ -129,7 +129,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 				<tr><th></th><th>IS</th><th>        0.35</th><th> [0.25;0.49]</th><th>&lt;0.001</th></tr>  
 			</table>
 		</div>
-		<p>
+		<p class="rtext">
 			Referenceværdien for eksponeringsvariablen kan ændres med funktionen <code><b>relevel</b>()</code>:
 		</p>
 		<p class="rcode">
@@ -144,7 +144,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 				<tr><th>                             </th><th>ICH</th><th>2.86</th><th>[2.02;4.05]</th><th>&lt;0.001</th></tr> 
 			</table>
 		</div>
-		<p>
+		<p class="rtext">
 			Modellen kan justeres for en kovariate ved at forbinde dem med <i>x</i>-variablen på højre side af formlen:
 		</p> 
 		<p class="rcode">
@@ -162,11 +162,11 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 		</div>
 		<div class="textbox">
 			<h2>Goodness-of-fit</h2>
-				<p>
+				<p class="rtext">
 					Log-liklihood ratio test kan bruges til at sammenligne to nestede Cox modeller, hvis man ønsker en formel 
 					test af om tilføjelsen af en kovariat bidrager med yderligere information til modellen. 
 				</p>
-				<p>
+				<p class="rtext">
 					Dette kan enten gøres med funktionen <code><b>lrtest</b>()</code> fra pakken <b>{lmtest}</b>:
 				</p>
 			<div class="rcode">
@@ -184,7 +184,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 				---<br>
 				Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 			</div>
-			<p>
+			<p class="rtext">
 				eller manuelt:
 			</p>
 			<div class="rcode">
@@ -202,7 +202,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 				[1] -167.4364<br>
 				[1] 2.68599e-38
 			</div>
-			<p>
+			<p class="rtext">
 				Her hentes først log-test estimaterne fra de to modeller med <code><b>summary</b>(<i>x</i>)$logtest[1]</code>.<br> 
 				Funktionen <code><b>unname</b>()</code>, 	der er sat omkring, bruges kun til at fjerne tekst-attributen 
 				<code>"test"</code> fra outputtet så der kun returneres tallet - hvilket mest er af æstetiske grunde.<br>
@@ -214,7 +214,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 		</div>
 
 	<h2>Log-rank test</h2>
-		<p>
+		<p class="rtext">
 			Log-rank test kan laves med funktionen <code><b>survdiff</b>()</code> fra pakken <b>{survival}</b>:
 		</p>
 		<p class="rcode">
@@ -243,7 +243,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 		</div>
 
 	<h2>Kaplan-Meier plot</h2>
-		<p>
+		<p class="rtext">
 			Overlevelsesanalyser kan illustreres ved hjælp af Kaplan-Meier plots med funktionen <code><b>survfit</b></code> 
 			fra pakken <b>{survminer}</b><br><br>Kaplan-meier plot for ovenstående modeller:
 		</p>
@@ -256,7 +256,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 		</p>
 		<div class="centerimg">
 		<img src="https://jacobliljehult.github.io/research/images/kaplanmeier_simple.png"></div>
-		<p>
+		<p class="rtext">
 			Problemet med dette plot er at tids- og eventvariablene har forskellige tidsperspektiver: Event-variablen angiver kun 
 			dødsfald indenfor det første år, men tidsvariablen angiver tid indtil dødsfald op til fire år efter; med det resultat at 
 			alle dødsfald efter 366 dage bortcensoreres. Man kan derfor tilføje argumenter for at styre hvordan plottet skal renderes:

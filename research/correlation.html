@@ -11,7 +11,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 
 <h1>Korrelation</h1>
 
-    <p>korrelations analyser laves alle med funktionen <code><b>cor.test</b>( <i>x</i>, <i>y</i>, method)</code> hvor argumentet method bruges til at styre hvilken analyse der laves ved at definere den som enten <code>"pearson"</code>, <code>"kendall"</code> eller <code>"spearman"</code>.</p>
+    <p class="rtext">korrelations analyser laves alle med funktionen <code><b>cor.test</b>( <i>x</i>, <i>y</i>, method)</code> hvor argumentet method bruges til at styre hvilken analyse der laves ved at definere den som enten <code>"pearson"</code>, <code>"kendall"</code> eller <code>"spearman"</code>.</p>
 
   <h2>Parametrisk test</h2>
   <h3>Pearson's r-test</h3>
@@ -36,7 +36,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
                 margin-left:20px;
                 margin-right:20px;">
     <h2>Modelantagelser</h2>
-    <p>
+    <p class="rtext">
       Pearson's r test antager at begge variable er normalfordelte - og ikke bare at residualerne er normaltfordelte som ved linær regression. <br><br>
       Den letteste måde at undersøge om denne antagelse er opfyldt er ved at visualisere data. Det kan gøres helt simpelt med funktionen <code><b>plot</b>( <i>x</i>, <i>y</i>)</code> der findes i base R, mens pakken <b>{ggplot2}</b> giver mere fleksibilitet i forhold til at lægge flere lag på plottet (fx smooth linjer).
     </p>
@@ -50,9 +50,9 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
     </div>
     <div class="illustration">
       <img src="https://jacobliljehult.github.io/research/images/plotSBT_DBT.png">
-      <p>Systolisk blodtryk plottet imod diastolisk blodtryk. Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>  
+      <p class="legend">Systolisk blodtryk plottet imod diastolisk blodtryk. Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>  
     </div>
-    <p>For at gøre det endnu tydeligere:</p>
+    <p class="rtext">For at gøre det endnu tydeligere:</p>
     <div class="rcode">
       library(ggplot2)<br>
       library(ggpubr)<br>
@@ -77,15 +77,21 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
     </div>
     <div class="illustration">
       <img src="https://jacobliljehult.github.io/research/images/plotSBT_DBT_hist.png">
-      <p>Systolisk blodtryk plottet imod diastolisk blodtryk. På siderne er der tilføjet histogrammer for hver variabel og under punkterne er der tilføjet et to-dimensionelt density område (jo tættere punkter, des mørkere område) <br>
+      <p class="legend">Systolisk blodtryk plottet imod diastolisk blodtryk. På siderne er der tilføjet histogrammer for hver variabel og under punkterne er der tilføjet et to-dimensionelt density område (jo tættere punkter, des mørkere område) <br>
           Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>
     </div>
     <br>
   </div>
       <br><hr><br>
   <h3>Non-parametriske tests</h3>
-      <p>Hvis man skal lave korrelationsanalyser på data der ikke opfylder modelantagelserne for Pearson's r-test, kan man i stedet bruge en non-parametrisk test. Ulempen er at <i>tau</i> og <i>rho</i> ikke kan fortolkes så direkte som <i>r</i>, men man får under alle omstændigheder en p-værdi.</p>
-      <p>Som eksempel kan vi undersøge korrelationen mellem symptombyrden hos patienter med apopleksi (sss) og abnorme vitalparametre (EWS):</p>
+      <p class="rtext">
+        Hvis man skal lave korrelationsanalyser på data der ikke opfylder modelantagelserne for Pearson's r-test, kan man i
+         stedet bruge en non-parametrisk test. Ulempen er at <i>tau</i> og <i>rho</i> ikke kan fortolkes så direkte som 
+         <i>r</i>, men man får under alle omstændigheder en p-værdi.</p>
+      <p class="rtext">
+        Som eksempel kan vi undersøge korrelationen mellem symptombyrden hos patienter med apopleksi (sss) og abnorme 
+        vitalparametre (EWS):
+      </p>
     <div class="rcode">
       ggplot(aes(x = sss, y = EWS), data = strokedata) + <br>
       &emsp;	geom_point(alpha = 0.5, color = "black") + <br>
@@ -95,7 +101,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
     </div>
     <div class="illustration">
       <img src="https://jacobliljehult.github.io/research/images/plotsss_EWS.png">
-      <p>Scandinavian Stroke Scale plottet imod Early Warning Score. Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>
+      <p class="legend">Scandinavian Stroke Scale plottet imod Early Warning Score. Blå linje: Loess kurve med konfidensinterval. Rød/stiplet linje: Linær tendens</p>
     </div>
       <br>
   <h3>Kendall's tau</h3>

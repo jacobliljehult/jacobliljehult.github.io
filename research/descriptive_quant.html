@@ -9,7 +9,7 @@ draft: true
 preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 ---
 <h1>Deskriptiv statistik for kvantitative data</h1>
-  <p>
+  <p class="rtext">
     En hurtig måde at lave deskriptiv statistik er med funktionen <code><b>summary</b>(x)</code>: 
   </p>
   <p class="rcode">
@@ -21,7 +21,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
       <tr><th>21.00</th><th>64.00 </th><th>73.00</th><th>71.85</th><th>81.00</th><th>99.00 </tr>
     </table>
   </div>
-  <p>
+  <p class="rtext">
     <code><b>summary</b>(x)</code> ignorerer per default NA-værdier, men vil fortælle hvor mange NA-værdier den har ignoreret:
   </p>
   <p class="rcode">
@@ -35,35 +35,35 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
   </div>
   <br>
 
-  <p>
+  <p class="rtext">
     Hvis man ønsker de enkelte beregninger kan de udregnes med følgende funktioner:
   </p>
 
-  <p>Antal værdier i variablen</p>
+  <p class="rtext">Antal værdier i variablen</p>
     <p class="rcode">length(strokedata$age)  </p>
     <p class="routput"> [1] 1031</p>
-  <p>Gennemsnit - <code><b>mean</b>(<i>x</i>)</code></p>
+  <p class="rtext">Gennemsnit - <code><b>mean</b>(<i>x</i>)</code></p>
     <p class="rcode"> mean(strokedata$age)</p>
     <p class="routput">[1] 71.85063 </p>
-  <p> Median (midterste værdi) - <code><b>median</b>(<i>x</i>)</code></p>
+  <p class="rtext"> Median (midterste værdi) - <code><b>median</b>(<i>x</i>)</code></p>
     <p class="rcode"> median(strokedata$age)</p>
     <p class="routput"> [1] 73</p>
-  <p> Mindste værdi - <code><b>min</b>(<i>x</i>)</code></p>
+  <p class="rtext"> Mindste værdi - <code><b>min</b>(<i>x</i>)</code></p>
     <p class="rcode"> min(strokedata$age)</p>
     <p class="routput">[1] 21</p>
-  <p> Højeste værdi - <code><b>max</b>(<i>x</i>)</code></p>
+  <p class="rtext"> Højeste værdi - <code><b>max</b>(<i>x</i>)</code></p>
     <p class="rcode">max(strokedata$age) </p>
     <p class="routput">[1] 99</p>
-  <p> Range (mindste og højeste værdi) - <code><b>range</b>(<i>x</i>)</code></p>
+  <p class="rtext"> Range (mindste og højeste værdi) - <code><b>range</b>(<i>x</i>)</code></p>
     <p class="rcode"> range(strokedata$age)</p>
     <p class="routput">[1]  21 99</p>
-  <p>Variation - <code><b>var</b>(<i>x</i>)</code></p>
+  <p class="rtext">Variation - <code><b>var</b>(<i>x</i>)</code></p>
     <p class="rcode">var(strokedata$age) </p>
     <p class="routput"> [1] 154.3349</p>
-  <p> Standard deviation - <code><b>sd</b>(<i>x</i>)</code></p>
+  <p class="rtext"> Standard deviation - <code><b>sd</b>(<i>x</i>)</code></p>
     <p class="rcode"> sd(strokedata$age)</p>
     <p class="routput">[1] 12.42316</p>
-  <p> Kvantiler/fraktiler - <code><b>quantile</b>(<i>x</i>, <i>p</i>)</code></p>
+  <p class="rtext"> Kvantiler/fraktiler - <code><b>quantile</b>(<i>x</i>, <i>p</i>)</code></p>
     <p class="rcode"> quantile(strokedata$age, .25)</p>
     <p class="routput">25% <br>  64  </p>
 
@@ -77,7 +77,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
     </table>
   </div>
 
-  <p>
+  <p class="rtext">
     Mange af de deskriptive funktioner ignorerer ikke NA-værdier per default og vil i så fald returnere NA, men 
     mindre man fortæller funktionen at den skal ignorere NA-værdier med argumentet <code><b>na.rm=TRUE</b></code> 
   </p>
