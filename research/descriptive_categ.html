@@ -11,51 +11,70 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 
 <h1>Deskriptiv statistik for kategoriske data</h1>
 
-<p>Hvis man ønsker at tælle hvor mange der er i hver gruppe kan man bruge funktionen <code><b>table</b>()</code> eller 
-  <code><b>summary</b>()</code> (de giver samme output):</p>
-<p class="rcode">
-table(strokedata$diagnosis)<br>
-table(strokedata$inhospmors)
-</p>
-<div class="routput">
-<table>  
-<tr><th>ICH</th><th>IS</th></tr>
-<tr><th>110</th><th>921</th></tr>
-<tr><th></th><th></th></tr>
-<tr><th>Alive</th><th>Dead</th></tr>
-<tr><th>971</th><th>60</th></tr>
-</table></div>
+  <p>
+    Hvis man ønsker at tælle hvor mange der er i hver gruppe kan man bruge funktionen <code><b>table</b>()</code> eller 
+    <code><b>summary</b>()</code> (de giver samme output):
+  </p>
+  <p class="rcode">
+    table(strokedata$diagnosis)<br>
+    table(strokedata$inhospmors)
+  </p>
+  <div class="routput">
+    <table>  
+      <tr>  <th>ICH</th>  <th>IS</th>     </tr>
+      <tr>  <th>110</th>  <th>921</th>    </tr>
+      <tr>  <th></th>     <th></th>       </tr>
+      <tr>  <th>Alive</th><th>Dead</th>   </tr>
+      <tr>  <th>971</th>  <th>60</th>     </tr>
+    </table>
+  </div>
 
-<p>Man kan også lave en 2 x 2 table:</p>
-<p class="rcode">
-with(strokedata, table(diagnosis, inhospmors))</p>
-<div class="routput"><table>
-  <tr> <th></th><th>inhospmors</th><th></th> </tr>
-  <tr> <th>diagnosis</th><th>Alive</th><th>Dead</th> </tr>
-  <tr> <th>ICH</th><th>88</th><th>22</th> </tr>
-  <tr> <th>IS</th><th>883</th><th>38</th> </tr>
-</table></div>
+  <p>
+    Man kan også lave en 2 x 2 table:
+  </p>
+  <p class="rcode">
+    with(strokedata, table(diagnosis, inhospmors))
+  </p>
+  <div class="routput">
+    <table>
+      <tr> <th></th>          <th>inhospmors</th> <th></th>     </tr>
+      <tr> <th>diagnosis</th> <th>Alive</th>      <th>Dead</th> </tr>
+      <tr> <th>ICH</th>       <th>88</th>         <th>22</th>   </tr>
+      <tr> <th>IS</th>        <th>883</th>        <th>38</th>   </tr>
+    </table>
+  </div>
 
-<p>For at få procenter bruges funktionen <code><b>prop.table</b>()</code></p>
-<p class="rcode">
-with(strokedata, prop.table(table(diagnosis, inhospmors)))</p>
-<div class="routput"><table>
-  <tr> <th></th><th>inhospmors</th><th></th> </tr>
-  <tr> <th>diagnosis</th><th>Alive</th><th>Dead</th> </tr>
-  <tr> <th>ICH</th><th>0.08535403</th><th>0.02133851</th> </tr>
-  <tr> <th>IS</th><th>0.85645005</th><th>0.03685742</th> </tr>
-</table></div>
-<p class="rcode">with(strokedata, prop.table(table(diagnosis, inhospmors) ,1)) # Procent for rækker<br>
-with(strokedata, prop.table(table(diagnosis, inhospmors) ,2)) # Procent for koloner</p>
-<div class="routput"><table>
-  <tr> <th></th><th>inhospmors</th><th></th> </tr>
-  <tr> <th>diagnosis</th><th>Alive</th><th>Dead</th> </tr>
-  <tr> <th>ICH</th><th>0.8000000</th><th>0.2000000</th> </tr>
-  <tr> <th>IS</th><th>0.9587405</th><th>0.0412595</th> </tr>
-</table></div>
-<div class="routput"><table>
-  <tr> <th></th><th>inhospmors</th><th></th> </tr>
-  <tr> <th>diagnosis</th><th>Alive</th><th>Dead</th> </tr>
-  <tr> <th>ICH</th><th>0.09062822</th><th>0.36666667</th> </tr>
-  <tr> <th>IS</th><th>0.90937178</th><th>0.63333333</th> </tr>
-</table></div>
+  <p>
+    For at få procenter bruges funktionen <code><b>prop.table</b>()</code>
+  </p>
+  <p class="rcode">
+    with(strokedata, prop.table(table(diagnosis, inhospmors)))
+  </p>
+  <div class="routput">
+    <table>
+      <tr> <th></th><th>inhospmors</th><th></th> </tr>
+      <tr> <th>diagnosis</th><th>Alive</th><th>Dead</th> </tr>
+      <tr> <th>ICH</th><th>0.08535403</th><th>0.02133851</th> </tr>
+      <tr> <th>IS</th><th>0.85645005</th><th>0.03685742</th> </tr>
+    </table>
+  </div>
+  <p class="rcode">
+    with(strokedata, prop.table(table(diagnosis, inhospmors) ,1)) # Procent for rækker<br>
+    with(strokedata, prop.table(table(diagnosis, inhospmors) ,2)) # Procent for koloner
+  </p>
+  <div class="routput">
+    <table>
+      <tr> <th></th><th>inhospmors</th><th></th> </tr>
+      <tr> <th>diagnosis</th><th>Alive</th><th>Dead</th> </tr>
+      <tr> <th>ICH</th><th>0.8000000</th><th>0.2000000</th> </tr>
+      <tr> <th>IS</th><th>0.9587405</th><th>0.0412595</th> </tr>
+    </table>
+  </div>
+  <div class="routput">
+    <table>
+      <tr> <th></th><th>inhospmors</th><th></th> </tr>
+      <tr> <th>diagnosis</th><th>Alive</th><th>Dead</th> </tr>
+      <tr> <th>ICH</th><th>0.09062822</th><th>0.36666667</th> </tr>
+      <tr> <th>IS</th><th>0.90937178</th><th>0.63333333</th> </tr>
+    </table>
+  </div>

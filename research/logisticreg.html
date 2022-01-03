@@ -9,153 +9,208 @@ draft: true
 preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 ---
 <h1>Logistisk regression</h1> 
-<p>Logistisk regression laves med funktionen <code>glm( <i>y</i> ~ <i>x</i>, data = <i>data</i>, family = <i>"binomial"</i>)</code>, altså en generaliseret linær model funktion 
-  hvor <code>family</code>-argumentet er defineret som <i>"binomial"</i>. Resultatet kaldes derefter med <code>summary()</code>-funktionen:</p> 
-<p class="rcode">model1 &lt;- glm( mors1y ~ diagnosis,<br>&emsp;&emsp;&emsp; data = strokedata, family = "binomial") 
-<br>
-summary(model1)</p> 
+  <p>Logistisk regression laves med funktionen 
+    <code>glm( <i>y</i> ~ <i>x</i>, data = <i>data</i>, family = <i>"binomial"</i>)</code>, 
+    altså en generaliseret linær model funktion hvor <code>family</code>-argumentet er defineret som <i>"binomial"</i>. 
+    Resultatet kaldes derefter med <code>summary()</code>-funktionen:
+  </p> 
+  <p class="rcode">
+    model1 &lt;- glm( mors1y ~ diagnosis,<br>&emsp;&emsp;&emsp; data = strokedata, family = "binomial") <br>
+    summary(model1)
+  </p> 
 
-<div class="routput"> 
-Call:<br> 
-glm(formula = mors1y ~ diagnosis, family = "binomial", data = strokedata)<br><br> 
-Deviance Residuals: <br> 
-<table> 
-<tr> <th>   Min </th><th>      1Q</th><th>   Median</th><th>       3Q</th><th>      Max </th> </tr> 
-<tr><th>-0.9658</th><th>    -0.5853 </th><th>   -0.5853</th><th>    -0.5853</th><th>     1.9229 </th> </tr>  
-</table> 
-Coefficients:<br> 
-<table> 
-<tr> <th></th><th>Estimate</th><th>Std. Error</th><th> z value</th><th>Pr(>|z|)</th><th></th></tr> 
-<tr> <th>(Intercept) </th><th> -0.5205</th><th>     0.1972</th><th>-2.640</th><th>0.0083</th><th> ** </th> </tr> 
-<tr> <th>diagdictIS </th><th>  -1.1569</th><th>     0.2170</th><th>  -5.332</th><th> 9.69e-08</th><th> ***</th> </tr> 
-</table> 
----<br> 
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
-(Dispersion parameter for binomial family taken to be 1)<br><br> 
-&emsp;    Null deviance: 973.29  on 1030  degrees of freedom<br> 
-Residual deviance: 947.29  on 1029  degrees of freedom<br> 
-AIC: 951.29<br><br> 
-  Number of Fisher Scoring iterations: 4 
-</div> 
-<p>I <code>summary()</code> angives coefficienterne på logaritmisk skala og skal derfor transformeres med <code>exp()</code> for at man får odds ratioerne. 
-  En lidt lettere og overskuelig måde at få odds ratioerne er med funktionen <code>publish</code> fra pakken <code>{Publish}</code>:</p>
-<p class="rcode">Publish::publish(model1)</p> 
-<div class="routput"> 
-<table> 
-<tr> <th>  Variable </th><th> Units</th><th>  OddsRatio</th><th>        CI.95</th><th>  p-value </th> </tr> 
-<tr> <th>   diagnosis </th><th>   ICH </th><th>       Ref        </th><th> </th><th>              </th> </tr> 
-<tr> <th>             </th><th>   IS</th><th>       0.31 </th><th> [0.21;0.48] </th><th>  <1e-04 </th> </tr> 
-</table> 
-</div> 
-<h3>Ændring af referencegruppe</h3> 
-<p>Som default sortere <code>r</code> factor variable i alfabetisk orden og det er ikke altid fortolkningsmæssigt det mest korrekte. Man kan derfor have brug for at 
-  vælge en anden referencekategori, hvilket kan gøres med funktionen <code>relevel(<i>var</i>, ref = <i>referenceværdi</i>)</code>:</p>
-<p class="rcode">model2 &lt;- glm(mors1y ~ relevel(diagnosis, ref = "IS"), data = strokedata, family = "binomial")<br> 
-Publish::publish(model2)</p> 
-<div class="routput"> 
-<table> 
-<tr> <th>  Variable</th><th>  Units</th><th>  OddsRatio</th><th>        CI.95 </th><th> p-value </th> </tr> 
-<tr> <th>   relevel(diagnosis, ref = "IS")</th><th>     IS</th><th>        Ref  </th><th></th><th>               </th> </tr> 
-<tr> <th>    </th><th>                                ICH</th><th>       3.18</th><th>  [2.08;4.87]  </th><th> <1e-04 </th> </tr> 
-</table> 
-</div> 
+  <div class="routput"> 
+    Call:<br> 
+    glm(formula = mors1y ~ diagnosis, family = "binomial", data = strokedata)<br><br> 
+    Deviance Residuals: <br> 
+    <table> 
+      <tr> <th>   Min </th><th>      1Q</th><th>   Median</th><th>       3Q</th><th>      Max </th> </tr> 
+      <tr><th>-0.9658</th><th>    -0.5853 </th><th>   -0.5853</th><th>    -0.5853</th><th>     1.9229 </th> </tr>  
+    </table> 
+    Coefficients:<br> 
+    <table> 
+      <tr> <th></th><th>Estimate</th><th>Std. Error</th><th> z value</th><th>Pr(>|z|)</th><th></th></tr> 
+      <tr> <th>(Intercept) </th><th> -0.5205</th><th>     0.1972</th><th>-2.640</th><th>0.0083</th><th> ** </th> </tr> 
+      <tr> <th>diagdictIS </th><th>  -1.1569</th><th>     0.2170</th><th>  -5.332</th><th> 9.69e-08</th><th> ***</th> </tr> 
+    </table> 
+    ---<br> 
+    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
+    (Dispersion parameter for binomial family taken to be 1)<br><br> 
+    &emsp;    Null deviance: 973.29  on 1030  degrees of freedom<br> 
+    Residual deviance: 947.29  on 1029  degrees of freedom<br> 
+    AIC: 951.29<br><br> 
+    Number of Fisher Scoring iterations: 4 
+  </div> 
+  <p>
+    I <code>summary()</code> angives coefficienterne på logaritmisk skala og skal derfor transformeres med 
+    <code>exp()</code> for at man får odds ratioerne. 
+    En lidt lettere og overskuelig måde at få odds ratioerne er med funktionen <code>publish</code> fra pakken 
+    <code>{Publish}</code>:
+  </p>
+  <p class="rcode">
+    Publish::publish(model1)
+  </p> 
+  <div class="routput"> 
+    <table> 
+      <tr> <th>  Variable </th><th> Units</th><th>  OddsRatio</th><th>        CI.95</th><th>  p-value </th> </tr> 
+      <tr> <th>   diagnosis </th><th>   ICH </th><th>       Ref        </th><th> </th><th>              </th> </tr> 
+      <tr> <th>             </th><th>   IS</th><th>       0.31 </th><th> [0.21;0.48] </th><th>  <1e-04 </th> </tr> 
+    </table> 
+  </div> 
 
-<h3>Justering for kovariate</h3> 
-<p>Modellen kan justeres for kovariate ved at tilføje dem på <i>x</i>-siden af formlen svarende til <code><i>y</i> = <i>x</i> + <i>a</i></code>. I nedenstående eksempel laves 
-først en model med et års dødelighed som funktion af rygning:</p>
-<p class="rcode">model3 &lt;- glm(mors1y ~ relevel(smoking, ref = "Never"), data = strokedata, family = "binomial")<br> 
-Publish::publish(model3)</p> 
+  <h3>Ændring af referencegruppe</h3> 
+    <p>
+      Som default sortere <code>r</code> factor variable i alfabetisk orden og det er ikke altid fortolkningsmæssigt 
+      det mest korrekte. Man kan derfor have brug for at vælge en anden referencekategori, hvilket kan gøres med 
+      funktionen <code>relevel(<i>var</i>, ref = <i>referenceværdi</i>)</code>:
+    </p>
+    <p class="rcode">
+      model2 &lt;- glm(mors1y ~ relevel(diagnosis, ref = "IS"), data = strokedata, family = "binomial")<br> 
+      Publish::publish(model2)
+    </p> 
+    <div class="routput"> 
+      <table> 
+        <tr> <th>  Variable</th><th>  Units</th><th>  OddsRatio</th><th>        CI.95 </th><th> p-value </th> </tr> 
+        <tr> <th>   relevel(diagnosis, ref = "IS")</th><th>     IS</th><th>        Ref  </th><th></th><th>               </th> </tr> 
+        <tr> <th>    </th><th>                                ICH</th><th>       3.18</th><th>  [2.08;4.87]  </th><th> <1e-04 </th> </tr> 
+      </table> 
+    </div> 
 
-<div class="routput"> 
-<table>
-<tr> <th>Variable</th><th>     Units</th><th>  OddsRatio </th><th>  CI.95 </th><th>    p-value </th> </tr> 
- <tr> <th>  relevel(smoking, ref = "Never")</th><th>     Never</th><th>        Ref </th><th> </th><th>                    </th> </tr> 
-<tr> <th></th><th> Current </th><th>      0.54</th><th>  [0.35;0.83]</th><th>    0.004904 </th> </tr> 
-<tr> <th></th><th> Previous </th><th>      0.87</th><th>  [0.60;1.28]</th><th>    0.486122 </th> </tr> 
-</table></div>
-<p>I modellen ser det ud til at rygning <u>beskytter</u> imod at dø, hvilket umiddelbart ikke giver mening. En mulig confounder kunne være alder (altså at forskellen i 
-  dødelighed er udtryk for at grupperne har forskellige aldre):</p>
-<p class="rcode">model4 &lt;- glm(mors1y ~ relevel(smoking, ref = "Never") + age, data = strokedata, family = "binomial")<br> 
-Publish::publish(model4)</p> 
-<div class="routput"> 
-<table> 
-<tr> <th>        Variable</th><th>     Units </th><th> OddsRatio </th><th>       CI.95</th><th>   p-value </th> </tr> 
- <tr> <th>  relevel(smoking, ref = "Never") </th><th>    Never</th><th>        Ref </th><th> </th><th>      </th> </tr>              
-<tr> <th>                       </th><th>              Current </th><th>      1.27 </th><th> [0.78;2.08]  </th><th>  0.3343 </th> </tr> 
-<tr> <th>                       </th><th>             Previous </th><th>      1.01 </th><th> [0.67;1.53]  </th><th>  0.9634 </th> </tr> 
-<tr> <th>                               age  </th><th>  </th><th>             1.11</th><th>  [1.09;1.14]  </th><th>  <1e-04 </th> </tr> 
-</table> 
-</div> 
-<p>Resultatet her viser at der er en signifikant association mellem alder og dødelighed, men at associationen mellem rygning og dødelighed ikke længere 
-er signifikant (for nogle af kategorierne). Alder var således en confounder og den tilsyneladende beskyttende effekt af at være nuværende ryger kan derfor
-forklares med at nuværende rygere er yngre.</p>
+  <h3>Justering for kovariate</h3> 
+    <p>
+      Modellen kan justeres for kovariate ved at tilføje dem på <i>x</i>-siden af formlen svarende til 
+      <code><i>y</i> = <i>x</i> + <i>a</i></code>. I nedenstående eksempel laves først en model med et års dødelighed som 
+      funktion af rygning:
+    </p>
+    <p class="rcode">
+      model3 &lt;- glm(mors1y ~ relevel(smoking, ref = "Never"), data = strokedata, family = "binomial")<br> 
+      Publish::publish(model3)
+    </p> 
+    <div class="routput"> 
+      <table>
+        <tr> <th>Variable</th><th>     Units</th><th>  OddsRatio </th><th>  CI.95 </th><th>    p-value </th> </tr> 
+        <tr> <th>  relevel(smoking, ref = "Never")</th><th>     Never</th><th>        Ref </th><th> </th><th>  </th> </tr> 
+        <tr> <th></th><th> Current </th><th>      0.54</th><th>  [0.35;0.83]</th><th>    0.004904 </th> </tr> 
+        <tr> <th></th><th> Previous </th><th>      0.87</th><th>  [0.60;1.28]</th><th>    0.486122 </th> </tr> 
+      </table>
+    </div>
+    <p>
+      I modellen ser det ud til at rygning <u>beskytter</u> imod at dø, hvilket umiddelbart ikke giver mening. En mulig 
+      confounder kunne være alder (altså at forskellen i dødelighed er udtryk for at grupperne har forskellige aldre):
+    </p>
+    <p class="rcode">
+      model4 &lt;- glm(mors1y ~ relevel(smoking, ref = "Never") + age, data = strokedata, family = "binomial")<br> 
+      Publish::publish(model4)
+    </p> 
+    <div class="routput"> 
+      <table> 
+        <tr> <th>        Variable</th><th>     Units </th><th> OddsRatio </th><th>       CI.95</th><th>   p-value </th> </tr> 
+        <tr> <th>  relevel(smoking, ref = "Never") </th><th>    Never</th><th>        Ref </th><th> </th><th>      </th> </tr>              
+        <tr> <th>                       </th><th>              Current </th><th>      1.27 </th><th> [0.78;2.08]  </th><th>  0.3343 </th> </tr> 
+        <tr> <th>                       </th><th>             Previous </th><th>      1.01 </th><th> [0.67;1.53]  </th><th>  0.9634 </th> </tr> 
+        <tr> <th>                               age  </th><th>  </th><th>             1.11</th><th>  [1.09;1.14]  </th><th>  <1e-04 </th> </tr> 
+      </table> 
+    </div> 
+    <p>
+      Resultatet her viser at der er en signifikant association mellem alder og dødelighed, men at associationen mellem 
+      rygning og dødelighed ikke længere er signifikant (for nogle af kategorierne). Alder var således en confounder og 
+      den tilsyneladende beskyttende effekt af at være nuværende ryger kan derfor forklares med at nuværende rygere er yngre.
+    </p>
+    <br><hr>
 
-<br><hr>
+  <div class="textbox">
+    <h2>Sammenligning af nestede modeller</h2> 
+      <p>
+        Model 4 i ovenstående eksempel består af model 3 med en tilføjet kovariate (alder) - og man siger derfor at model 4 
+        er nested i model 3. I modeludviklingen kan det være interessant at undersøge om tilføjelsen af en (eller flere) 
+        kovariate bidrager med mere information til modellen. 
+      </p>  
+      <p>
+        <code>Summary()</code> funktionen giver to mål man kan bruge til at sammenligne to nestede modeller: AIC og residual 
+        deviance.
+      </p> 
+      <p>
+        AIC kan bruges til at lave en uformel sammenligning – idet en lavere AIC tyder på en "bedre" model - altså en model 
+        med mere information. 
+      </p> <br>
+      <p>
+        Hvis man vil kalde AIC uden at kalde hele <code>summary()</code>-outputtet, kan man nøjes med post-fixet <code>$aic</code>:
+      </p>
+      <div class="rcode">
+        model3$aic<br>
+        model4$aic
+      </div>
+      <div class="routput">
+        [1] 899.2056<br>
+        [1] 759.162
+      </div>
+      <p>
+        AIC for model 4 er lavere end for model 3, og model 4 er derfor en mere præcis/informationsrig model.
+      </p><br>
 
-<div class="textbox">
-<h2>Sammenligning af nestede modeller</h2> 
-<p>Model 4 i ovenstående eksempel består af model 3 med en tilføjet kovariate (alder) - og man siger derfor at model 4 er nested i model 3. 
-  I modeludviklingen kan det være interessant at undersøge om tilføjelsen af en (eller flere) kovariate bidrager med mere information til modellen. </p>
-  
-<p><code>Summary()</code> funktionen giver to mål man kan bruge til at sammenligne to nestede modeller: AIC og residual deviance.</p> 
-<p>AIC kan bruges til at lave en uformel sammenligning – idet en lavere AIC tyder på en "bedre" model - altså en model med mere information. </p> <br>
-<p>Hvis man vil kalde AIC uden at kalde hele <code>summary()</code>-outputtet, kan man nøjes med post-fixet <code>$aic</code>:</p>
+    <h3>Log-likelihood ratio test</h3>
+      <p>
+        Residual deviance kan enten bruges på samme måde som AIC, men kan også bruges til at lave en formel sammenligning 
+        ved hjælp af en log-likelihood ratio test.
+      </p> 
+      <p>
+        Residual deviance kan kaldes fra modellen med post-fixet <code>$deviance</code>:
+      </p>
+      <div class="rcode">
+        model3$deviance<br>
+        model4$deviance
+      </div>
+      <div class="routput">
+        [1] 893.2056<br>
+        [1] 751.162
+      </div>
+      <p>
+        Testet laves ved at man tager chi<sup>2</sup>-fordelingen af forskellen mellem deviancerne med funktionen 
+        <code>pchisq( <i>chi</i>, df = <i>df</i>, lower.tail = FALSE)</code>:
+      </p> 
+      <div class="rcode">
+        c &lt;- model3$deviance-model4$deviance<br>
+        c<br>
+        pchisq(c, df = 1, lower.tail = FALSE)
+      </div>
+      <div class="routput">
+        [1] 142.0435<br>
+        [1] 9.514076e-33
+      </div>
 
-<div class="rcode">model3$aic<br>
-model4$aic</div>
-<div class="routput">[1] 899.2056<br>
-[1] 759.162
- </div>
-<p>AIC for model 4 er lavere end for model 3, og model 4 er derfor en mere præcis/informationsrig model.</p>
- 
-<br>
-<h3>Log-likelihood ratio test</h3>
-<p>Residual deviance kan enten bruges på samme måde som AIC, men kan også bruges til at lave en formel sammenligning ved hjælp af en log-likelihood ratio test.</p> 
-<p>Residual deviance kan kaldes fra modellen med post-fixet <code>$deviance</code>:</p>
-<div class="rcode">model3$deviance<br>
-model4$deviance</div>
-<div class="routput">[1] 893.2056<br>
-[1] 751.162
- </div>
-<p>Testet laves ved at man tager chi<sup>2</sup>-fordelingen af forskellen mellem deviancerne med funktionen <code>pchisq( <i>chi</i>, df = <i>df</i>, lower.tail = FALSE)</code>:</p> 
-<div class="rcode">
-c &lt;- model3$deviance-model4$deviance<br>
-c<br>
-pchisq(c, df = 1, lower.tail = FALSE)
-</div>
-<div class="routput">[1] 142.0435<br>
-[1] 9.514076e-33
- </div>
+      <p>Udregningen kan også laves med funktionen <code>lrtest( <i>m1</i>, <i>m2</i>)</code>, som findes i pakken 
+        <code><b>{lmtest}</b></code>:
+      </p>
+      <div class="rcode">
+        lmtest::lrtest(model3, model4)
+      </div>
+      <div class="routput">
+        Likelihood ratio test<br><br>
 
-<p>Udregningen kan også laves med funktionen <code>lrtest( <i>m1</i>, <i>m2</i>)</code>, som findes i pakken <code><b>{lmtest}</b></code>:</p>
-<div class="rcode">
-lmtest::lrtest(model3, model4)
-</div>
-<div class="routput">
-Likelihood ratio test<br><br>
-
-Model 1: mors1y ~ relevel(smoking, ref = "Never")<br>
-Model 2: mors1y ~ relevel(smoking, ref = "Never") + age<br>
-<table>
-<tr><th></th><th>#Df</th><th>LogLik</th><th>Df</th><th>Chisq</th><th>Pr(&gt;Chisq)</th><th></th></tr>
-<tr><th>1</th><th>   3</th><th> -446.60</th><th>         <th></th><th></th><th></th>                </tr>
-<tr><th>2</th><th>   4</th><th>-375.58</th><th>1</th><th>142.04</th><th>&lt; 2.2e-16</th><th>***</th></tr>
-</table>
----<br>
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
- </div>
-<p>Bemærk at <code>lmtest</code> bruger en lidt anderledes fremgangmåde til at udregne Chi<sup>2</sup>-værdien, men at resultatet er det samme:</p>
-<div class="rcode">
-a &lt;- model3$deviance * -0.5<br>
-a<br>
-b &lt;- model4$deviance * -0.5<br>
-b<br>
--2 * log( exp(a) / exp(b) )
-</div>
-<div class="routput">
-[1] -446.6028<br>
-[1] -375.581<br>
-[1] 142.0435
- </div>
-
-</div>
+        Model 1: mors1y ~ relevel(smoking, ref = "Never")<br>
+        Model 2: mors1y ~ relevel(smoking, ref = "Never") + age<br>
+        <table>
+          <tr><th></th><th>#Df</th><th>LogLik</th><th>Df</th><th>Chisq</th><th>Pr(&gt;Chisq)</th><th></th></tr>
+          <tr><th>1</th><th>   3</th><th> -446.60</th><th>         <th></th><th></th><th></th>                </tr>
+          <tr><th>2</th><th>   4</th><th>-375.58</th><th>1</th><th>142.04</th><th>&lt; 2.2e-16</th><th>***</th></tr>
+        </table>
+        ---<br>
+        Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      </div>
+      <p>
+        Bemærk at <code>lmtest</code> bruger en lidt anderledes fremgangmåde til at udregne Chi<sup>2</sup>-værdien, 
+        men at resultatet er det samme:
+      </p>
+      <div class="rcode">
+        a &lt;- model3$deviance * -0.5<br>
+        a<br>
+        b &lt;- model4$deviance * -0.5<br>
+        b<br>
+        -2 * log( exp(a) / exp(b) )
+      </div>
+      <div class="routput">
+        [1] -446.6028<br>
+        [1] -375.581<br>
+        [1] 142.0435
+      </div>
+  </div>

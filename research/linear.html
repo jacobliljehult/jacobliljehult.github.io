@@ -9,140 +9,169 @@ draft: true
 preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 ---
 <h1>Linær regression</h1>   
-<h2>Simpel linær model</h2> 
-<p class="rcode">model1 <- lm(weight ~ age, data = strokedata)<br> 
-summary(model1)</p> 
+  <h2>Simpel linær model</h2> 
+    <p class="rcode">
+      model1 <- lm(weight ~ age, data = strokedata)<br> 
+      summary(model1)
+    </p> 
 
-<div class="routput"> 
-  Call:<br> 
-  lm(formula = weight ~ age, data = apodata)<br><br> 
-  Residuals:<br> 
-  <table> 
-    <tr><th>    Min</th><th>1Q</th><th> Median</th><th>3Q</th><th>Max</th></tr>  
-    <tr><th>-40.138</th><th> -12.137 </th><th> -1.291</th><th> 10.901</th><th>102.555 </th></tr>  
-  </table> 
-  Coefficients:<br> 
-  <table> 
-    <tr><th> </th><th>             Estimate</th><th>Std. Error </th><th>t value</th><th>Pr(>|t|) </th><th>   </th></tr> 
-    <tr><th> (Intercept) </th><th>102.37581</th><th>3.17603  </th><th>32.234</th><th><2e-16 </th><th>***</th></tr> 
-    <tr><th> age</th><th> -0.38471 </th><th>0.04363</th><th>-8.818</th><th>&lt;2e-16</th><th>***</th></tr> 
-  </table> 
-  ---<br> 
-  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
-  Residual standard error: 16.87 on 981 degrees of freedom<br> 
-  (48 observations deleted due to missingness)<br> 
-  Multiple R-squared:  0.07344, Adjusted R-squared:  0.07249 <br> 
-  F-statistic: 77.75 on 1 and 981 DF,  p-value: < 2.2e-16 
-</div> 
+    <div class="routput"> 
+      Call:<br> 
+      lm(formula = weight ~ age, data = apodata)<br><br> 
+      Residuals:<br> 
+      <table> 
+        <tr><th>    Min</th><th>1Q</th><th> Median</th><th>3Q</th><th>Max</th></tr>  
+        <tr><th>-40.138</th><th> -12.137 </th><th> -1.291</th><th> 10.901</th><th>102.555 </th></tr>  
+      </table> 
+      Coefficients:<br> 
+      <table> 
+        <tr><th> </th><th>             Estimate</th><th>Std. Error </th><th>t value</th><th>Pr(>|t|) </th><th>   </th></tr> 
+        <tr><th> (Intercept) </th><th>102.37581</th><th>3.17603  </th><th>32.234</th><th><2e-16 </th><th>***</th></tr> 
+        <tr><th> age</th><th> -0.38471 </th><th>0.04363</th><th>-8.818</th><th>&lt;2e-16</th><th>***</th></tr> 
+      </table> 
+      ---<br> 
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
+      Residual standard error: 16.87 on 981 degrees of freedom<br> 
+      (48 observations deleted due to missingness)<br> 
+      Multiple R-squared:  0.07344, Adjusted R-squared:  0.07249 <br> 
+      F-statistic: 77.75 on 1 and 981 DF,  p-value: < 2.2e-16 
+    </div> 
 
-<h3>Justeret model</h3> 
-  <p class="rcode">model2 <- lm(weight ~ age + height, data = strokedata)<br> 
-    summary(model2)</p> 
-  <div class="routput"> 
-    Call:<br> 
-    lm(formula = weight ~ age + height, data = strokedata)<br><br> 
-    Residuals:<br> 
-    <table> 
-      <tr><th>     Min</th><th> 1Q </th><th> Median    </th><th>  3Q    </th><th> Max </th></tr> 
-      <tr><th> -46.578</th><th>  -8.662</th><th>  -1.524 </th><th>  7.137 </th><th> 98.136 </th></tr> 
-    </table> 
-    Coefficients:<br> 
-    <table> 
-      <tr><th>  </th><th>            Estimate </th><th>Std. Error </th><th>t value </th><th>Pr(>|t|)</th><th>  </th></tr> 
-      <tr><th> (Intercept) </th><th>-79.61793 </th><th>9.76465</th><th>-8.154</th><th>1.08e-15</th><th> ***</th></tr> 
-      <tr><th> age</th><th>-0.15257 </th><th> 0.03902</th><th> -3.910 </th><th>9.88e-05 </th><th>***</th></tr> 
-      <tr><th> height</th><th> 0.96616 </th><th>  0.04982</th><th>19.394</th><th>  &lt; 2e-16 </th><th>***</th></tr> 
-    </table> 
-    ---<br> 
-    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
-    Residual standard error: 14.36 on 978 degrees of freedom<br> 
-    (50 observations deleted due to missingness)<br> 
-    Multiple R-squared:  0.3307, Adjusted R-squared:  0.3293 <br> 
-    F-statistic: 241.6 on 2 and 978 DF,  p-value: < 2.2e-16 
-  </div> 
+  <h3>Justeret model</h3> 
+    <p class="rcode">model2 <- lm(weight ~ age + height, data = strokedata)<br> 
+      summary(model2)
+    </p> 
+    <div class="routput"> 
+      Call:<br> 
+      lm(formula = weight ~ age + height, data = strokedata)<br><br> 
+      Residuals:<br> 
+      <table> 
+        <tr><th>     Min</th><th> 1Q </th><th> Median    </th><th>  3Q    </th><th> Max </th></tr> 
+        <tr><th> -46.578</th><th>  -8.662</th><th>  -1.524 </th><th>  7.137 </th><th> 98.136 </th></tr> 
+      </table> 
+      Coefficients:<br> 
+      <table> 
+        <tr><th>  </th><th>            Estimate </th><th>Std. Error </th><th>t value </th><th>Pr(>|t|)</th><th>  </th></tr> 
+        <tr><th> (Intercept) </th><th>-79.61793 </th><th>9.76465</th><th>-8.154</th><th>1.08e-15</th><th> ***</th></tr> 
+        <tr><th> age</th><th>-0.15257 </th><th> 0.03902</th><th> -3.910 </th><th>9.88e-05 </th><th>***</th></tr> 
+        <tr><th> height</th><th> 0.96616 </th><th>  0.04982</th><th>19.394</th><th>  &lt; 2e-16 </th><th>***</th></tr> 
+      </table> 
+      ---<br> 
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
+      Residual standard error: 14.36 on 978 degrees of freedom<br> 
+      (50 observations deleted due to missingness)<br> 
+      Multiple R-squared:  0.3307, Adjusted R-squared:  0.3293 <br> 
+      F-statistic: 241.6 on 2 and 978 DF,  p-value: < 2.2e-16 
+    </div> 
     
-<h3>Goodness of fit</h3> 
+  <h3>Goodness of fit</h3> 
     <p class="rcode">mf1 &lt;- strokedata %>% select(age, weight, height) %>% <br> 
         filter(!is.na(age) & !is.na(weight) & !is.na(height))<br> 
-      md1 &lt;- lm(weight ~ age, data = mf1)<br> 
-      md2 &lt;- lm(weight ~ age + height, data = mf1)<br> 
-      anova(md1,md2)</p> 
-  <div class="routput"> 
-    Analysis of Variance Table<br><br> 
-    Model 1: weight ~ age<br> 
-    Model 2: weight ~ age + height<br> 
-    <table> 
-      <tr><th></th><th>   Res.Df  </th><th>  RSS </th><th>Df</th><th> Sum of Sq </th><th>     F</th><th>Pr(>F)   </th><th></th><th> </th></tr> 
-      <tr><th> 1</th><th>    979 </th><th>279134</th><th>  </th><th> </th><th>  </th></tr> 
-      <tr><th> 2 </th><th>   978 </th><th>201599</th><th>  1 </th><th>    77535 </th><th>376.14 </th><th>&lt;2.2e-16 </th><th>***</th></tr> 
-    </table> 
-    ---<br> 
-     Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
-  </div> 
+        md1 &lt;- lm(weight ~ age, data = mf1)<br> 
+        md2 &lt;- lm(weight ~ age + height, data = mf1)<br> 
+        anova(md1,md2)
+    </p> 
+    <div class="routput"> 
+      Analysis of Variance Table<br><br> 
+      Model 1: weight ~ age<br> 
+      Model 2: weight ~ age + height<br> 
+      <table> 
+        <tr><th></th><th>   Res.Df  </th><th>  RSS </th><th>Df</th><th> Sum of Sq </th><th>     F</th><th>Pr(>F)   </th><th></th><th> </th></tr> 
+        <tr><th> 1</th><th>    979 </th><th>279134</th><th>  </th><th> </th><th>  </th></tr> 
+        <tr><th> 2 </th><th>   978 </th><th>201599</th><th>  1 </th><th>    77535 </th><th>376.14 </th><th>&lt;2.2e-16 </th><th>***</th></tr> 
+      </table> 
+      ---<br> 
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+    </div> 
     
 <h2>Kontrol af modelantagelser</h2> 
-<h3>Kontrol af linearitet</h3> 
-    <p class="rcode">scatter.smooth(strokedata$age, resid(model1))<br> 
-        abline(0,0,col = "red", lty=2)</p> 
-      <p class="routput"><span style="color:red;">Error in xy.coords(x, y, xlabel, ylabel) : 'x' and 'y' lengths differ</span></p> 
-      <p class="rcode">scatter.smooth(subset(strokedata$age, !is.na(strokedata$weight)), resid(model1))<br> 
-        abline(0,0,col = "red", lty=2)</p> 
-     <div class="illustration"> 
-         <img src="https://jacobliljehult.github.io/research/images/lm_scattersmooth.png">  
-     </div> 
-     <p class="rcode">plot(model1, which = 1)</p> 
-      <div class="illustration"> 
-       <img src="https://jacobliljehult.github.io/research/images/lm_plotmodel1_1.png">  
-      </div> 
-    
-<h3>Normalfordeling af residualer</h3> 
-    <p class="rcode">par(mfrow = c(2,1))<br> 
-      plot(model1, which = 2)<br> 
-      hist(residuals(model1))</p> 
-      <div class="illustration"> 
-        <img src="https://jacobliljehult.github.io/research/images/lm_plotmodel1_2.png">  
-      </div> 
-    
-<h3>Varianshomogenitet </h3> 
-    <p class="rcode">plot(model1, which = 3)</p> 
-      <div class="illustration"> 
-        <img src="https://jacobliljehult.github.io/research/images/lm_plotmodel1_3.png">  
-      </div>
-<h3>Eksempel på model hvor antagelserne ikke er opfyldt</h3> 
-    <p class="rcode">model3 <- lm(sss ~ age, data = strokedata)<br> 
-      summary(model3)</p> 
-    <div class="routput"> 
-    Call:<br> 
-    lm(formula = sss ~ age, data = strokedata)<br><br> 
-    Residuals:<br> 
-    <table>   
-       <tr><th>   Min  </th><th>    1Q </th><th> Median </th><th>     3Q </th><th>    Max </th></tr> 
-       <tr><th> -52.069 </th><th> -6.159</th><th>   4.700</th><th>  10.405  </th><th>20.290 </th></tr> 
-    <table/> 
-    Coefficients:<br> 
-    <table> 
-      <tr><th> </th><th> Estimate</th><th>Std. Error</th><th> t value</th><th> Pr(>|t|)   </th><th> </th></tr> 
-      <tr><th> (Intercept)</th><th> 69.66015 </th><th> 2.65238</th><th>26.263</th><th> &lt;2e-16 </th><th>***</th></tr> 
-      <tr><th> age </th><th> -0.35899 </th><th> 0.03638  </th><th>-9.869  </th><th> &lt;2e-16 </th><th>***</th></tr> 
-    </table> 
-     ---<br> 
-    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
-    Residual standard error: 14.5 on 1029 degrees of freedom<br> 
-    Multiple R-squared:  0.08647, Adjusted R-squared:  0.08558 <br> 
-    F-statistic:  97.4 on 1 and 1029 DF,  p-value: &lt; 2.2e-16</div> 
-  <p class="rcode">library(ggplot2)<br> 
-    ggplot(aes(x = age, y = sss), data = apodata) + geom_point() +<br> 
-    geom_smooth(method = loess) + theme_bw()</p> 
+  <h3>Kontrol af linearitet</h3> 
+    <p class="rcode">
+      scatter.smooth(strokedata$age, resid(model1))<br> 
+      abline(0,0,col = "red", lty=2)
+    </p> 
+    <p class="routput"><span style="color:red;">
+      Error in xy.coords(x, y, xlabel, ylabel) : 'x' and 'y' lengths differ</span>
+    </p> 
+    <p class="rcode">
+      scatter.smooth(subset(strokedata$age, !is.na(strokedata$weight)), resid(model1))<br> 
+      abline(0,0,col = "red", lty=2)
+    </p> 
     <div class="illustration"> 
-      <img src="https://jacobliljehult.github.io/research/images/lm_model3.png">  
+      <img src="https://jacobliljehult.github.io/research/images/lm_scattersmooth.png">
+      <p></p>  
     </div> 
-  <p class="rcode">par(mfrow = c(5,1))<br> 
+    <p class="rcode">
+      plot(model1, which = 1)
+    </p> 
+    <div class="illustration"> 
+      <img src="https://jacobliljehult.github.io/research/images/lm_plotmodel1_1.png">  
+      <p></p>
+    </div> 
+    
+  <h3>Normalfordeling af residualer</h3> 
+    <p class="rcode">
+      par(mfrow = c(2,1))<br> 
+      plot(model1, which = 2)<br> 
+      hist(residuals(model1))
+    </p> 
+    <div class="illustration"> 
+      <img src="https://jacobliljehult.github.io/research/images/lm_plotmodel1_2.png">  
+      <p></p>
+    </div> 
+    
+  <h3>Varianshomogenitet </h3> 
+    <p class="rcode">
+      plot(model1, which = 3)
+    </p> 
+    <div class="illustration"> 
+      <img src="https://jacobliljehult.github.io/research/images/lm_plotmodel1_3.png">  
+      <p></p>
+    </div>
+
+  <h3>Eksempel på model hvor antagelserne ikke er opfyldt</h3> 
+    <p class="rcode">
+      model3 <- lm(sss ~ age, data = strokedata)<br> 
+      summary(model3)
+    </p> 
+    <div class="routput"> 
+      Call:<br> 
+      lm(formula = sss ~ age, data = strokedata)<br><br> 
+      Residuals:<br> 
+      <table>   
+        <tr><th>   Min  </th><th>    1Q </th><th> Median </th><th>     3Q </th><th>    Max </th></tr> 
+        <tr><th> -52.069 </th><th> -6.159</th><th>   4.700</th><th>  10.405  </th><th>20.290 </th></tr> 
+      <table/> 
+      Coefficients:<br> 
+      <table> 
+        <tr><th> </th><th> Estimate</th><th>Std. Error</th><th> t value</th><th> Pr(>|t|)   </th><th> </th></tr> 
+        <tr><th> (Intercept)</th><th> 69.66015 </th><th> 2.65238</th><th>26.263</th><th> &lt;2e-16 </th><th>***</th></tr> 
+        <tr><th> age </th><th> -0.35899 </th><th> 0.03638  </th><th>-9.869  </th><th> &lt;2e-16 </th><th>***</th></tr> 
+      </table> 
+      ---<br> 
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br> 
+      Residual standard error: 14.5 on 1029 degrees of freedom<br> 
+      Multiple R-squared:  0.08647, Adjusted R-squared:  0.08558 <br> 
+      F-statistic:  97.4 on 1 and 1029 DF,  p-value: &lt; 2.2e-16
+    </div> 
+    <p class="rcode">
+      library(ggplot2)<br> 
+      ggplot(aes(x = age, y = sss), data = apodata) + geom_point() +<br> 
+      geom_smooth(method = loess) + theme_bw()
+    </p> 
+    <div class="illustration"> 
+      <img src="https://jacobliljehult.github.io/research/images/lm_model3.png"> 
+      <p></p> 
+    </div> 
+    <p class="rcode">
+      par(mfrow = c(5,1))<br> 
       scatter.smooth(strokedata$age, resid(model3))<br> 
       abline(0,0,col = "red", lty=2)<br> 
       plot(model3, which = 1)<br> 
       plot(model3, which = 2)<br> 
       hist(residuals(model3))<br> 
-      plot(model3, which = 3)</p> 
+      plot(model3, which = 3)
+    </p> 
     <div class="illustration"> 
       <img src="https://jacobliljehult.github.io/research/images/lm_plotmodel3.png">  
     </div> 

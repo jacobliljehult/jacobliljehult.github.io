@@ -9,70 +9,87 @@ draft: true
 preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 ---
 <h1>Deskriptiv statistik for kvantitative data</h1>
-<p>En hurtig måde at lave deskriptiv statistik er med funktionen <code><b>summary</b>(x)</code>: </p>
-<p class="rcode">summary(strokedata$age)</p>
-<div class="routput"><table>
-  <tr><th>Min.</th><th>1st Qu.</th><th> Median</th><th>Mean</th><th>3rd Qu.</th><th>Max.</tr>
-  <tr><th>21.00</th><th>64.00 </th><th>73.00</th><th>71.85</th><th>81.00</th><th>99.00 </tr>
-</table>
-   
- </div>
-<p><code><b>summary</b>(x)</code> ignorerer per default NA-værdier, men vil fortælle hvor mange NA-værdier den har ignoreret:</p>
-<p class="rcode">summary(strokedata$height)</p>
-<div class="routput"><table>
-  <tr><th>Min.</th><th>1st Qu.</th><th> Median</th><th>Mean</th><th>3rd Qu.</th><th>Max.</th><th>NA's</th></tr>
-  <tr><th>139.00</th><th>164.00 </th><th>170.00</th><th>171.1</th><th>178.00</th><th>198.00</th> <th>50</th></tr>
-</table>
-   
- </div>
+  <p>
+    En hurtig måde at lave deskriptiv statistik er med funktionen <code><b>summary</b>(x)</code>: 
+  </p>
+  <p class="rcode">
+    summary(strokedata$age)
+  </p>
+  <div class="routput">
+    <table>
+      <tr><th>Min.</th><th>1st Qu.</th><th> Median</th><th>Mean</th><th>3rd Qu.</th><th>Max.</tr>
+      <tr><th>21.00</th><th>64.00 </th><th>73.00</th><th>71.85</th><th>81.00</th><th>99.00 </tr>
+    </table>
+  </div>
+  <p>
+    <code><b>summary</b>(x)</code> ignorerer per default NA-værdier, men vil fortælle hvor mange NA-værdier den har ignoreret:
+  </p>
+  <p class="rcode">
+    summary(strokedata$height)
+  </p>
+  <div class="routput">
+    <table>
+      <tr><th>Min.</th><th>1st Qu.</th><th> Median</th><th>Mean</th><th>3rd Qu.</th><th>Max.</th><th>NA's</th></tr>
+      <tr><th>139.00</th><th>164.00 </th><th>170.00</th><th>171.1</th><th>178.00</th><th>198.00</th> <th>50</th></tr>
+    </table> 
+  </div>
+  <br>
 
-<br>
-<p>Hvis man ønsker de enkelte beregninger kan de udregnes med følgende funktioner:</p>
+  <p>
+    Hvis man ønsker de enkelte beregninger kan de udregnes med følgende funktioner:
+  </p>
 
-<p>Antal værdier i variablen</p>
-<p class="rcode">length(strokedata$age)  </p>
-<p class="routput"> [1] 1031</p>
-<p>Gennemsnit - <code><b>mean</b>(<i>x</i>)</code></p>
-<p class="rcode"> mean(strokedata$age)</p>
-<p class="routput">[1] 71.85063 </p>
-<p> Median (midterste værdi) - <code><b>median</b>(<i>x</i>)</code></p>
-<p class="rcode"> median(strokedata$age)</p>
-<p class="routput"> [1] 73</p>
-<p> Mindste værdi - <code><b>min</b>(<i>x</i>)</code></p>
-<p class="rcode"> min(strokedata$age)</p>
-<p class="routput">[1] 21</p>
-<p> Højeste værdi - <code><b>max</b>(<i>x</i>)</code></p>
-<p class="rcode">max(strokedata$age) </p>
-<p class="routput">[1] 99</p>
-<p> Range (mindste og højeste værdi) - <code><b>range</b>(<i>x</i>)</code></p>
-<p class="rcode"> range(strokedata$age)</p>
-<p class="routput">[1]  21 99</p>
-<p>Variation - <code><b>var</b>(<i>x</i>)</code></p>
-<p class="rcode">var(strokedata$age) </p>
-<p class="routput"> [1] 154.3349</p>
-<p> Standard deviation - <code><b>sd</b>(<i>x</i>)</code></p>
-<p class="rcode"> sd(strokedata$age)</p>
-<p class="routput">[1] 12.42316</p>
-<p> Kvantiler/fraktiler - <code><b>quantile</b>(<i>x</i>, <i>p</i>)</code></p>
-<p class="rcode"> quantile(strokedata$age, .25)</p>
-<p class="routput">25% <br>  64  </p>
+  <p>Antal værdier i variablen</p>
+    <p class="rcode">length(strokedata$age)  </p>
+    <p class="routput"> [1] 1031</p>
+  <p>Gennemsnit - <code><b>mean</b>(<i>x</i>)</code></p>
+    <p class="rcode"> mean(strokedata$age)</p>
+    <p class="routput">[1] 71.85063 </p>
+  <p> Median (midterste værdi) - <code><b>median</b>(<i>x</i>)</code></p>
+    <p class="rcode"> median(strokedata$age)</p>
+    <p class="routput"> [1] 73</p>
+  <p> Mindste værdi - <code><b>min</b>(<i>x</i>)</code></p>
+    <p class="rcode"> min(strokedata$age)</p>
+    <p class="routput">[1] 21</p>
+  <p> Højeste værdi - <code><b>max</b>(<i>x</i>)</code></p>
+    <p class="rcode">max(strokedata$age) </p>
+    <p class="routput">[1] 99</p>
+  <p> Range (mindste og højeste værdi) - <code><b>range</b>(<i>x</i>)</code></p>
+    <p class="rcode"> range(strokedata$age)</p>
+    <p class="routput">[1]  21 99</p>
+  <p>Variation - <code><b>var</b>(<i>x</i>)</code></p>
+    <p class="rcode">var(strokedata$age) </p>
+    <p class="routput"> [1] 154.3349</p>
+  <p> Standard deviation - <code><b>sd</b>(<i>x</i>)</code></p>
+    <p class="rcode"> sd(strokedata$age)</p>
+    <p class="routput">[1] 12.42316</p>
+  <p> Kvantiler/fraktiler - <code><b>quantile</b>(<i>x</i>, <i>p</i>)</code></p>
+    <p class="rcode"> quantile(strokedata$age, .25)</p>
+    <p class="routput">25% <br>  64  </p>
 
-<p class="rcode">quantile(strokedata$age, c(0.025,0.975)) </p>
-<div class="routput"><table>
-  <tr><th>2.5%</th><th>97.5%</th></tr>
-  <tr><th>46</th><th>92</th></tr>
-  </table></div>
+  <p class="rcode">
+    quantile(strokedata$age, c(0.025,0.975)) 
+  </p>
+  <div class="routput">
+    <table>
+      <tr><th>2.5%</th><th>97.5%</th></tr>
+      <tr><th>46</th><th>92</th></tr>
+    </table>
+  </div>
 
-<p>Mange af de deskriptive funktioner ignorerer ikke NA-værdier per default og vil i så fald returnere NA, men mindre man fortæller funktionen at den skal ignorere NA-værdier med argumentet <code><b>na.rm=TRUE</b></code> </p>
-<p class="rcode"> 
-mean(strokedata$height)
-</p>
-<p class="routput">
-[1] NA
- </p>
-<p class="rcode"> 
-mean(strokedata$height, na.rm = TRUE)
-</p>
-<p class="routput">
-[1] 171.1203
- </p>
+  <p>
+    Mange af de deskriptive funktioner ignorerer ikke NA-værdier per default og vil i så fald returnere NA, men 
+    mindre man fortæller funktionen at den skal ignorere NA-værdier med argumentet <code><b>na.rm=TRUE</b></code> 
+  </p>
+  <p class="rcode"> 
+    mean(strokedata$height)
+  </p>
+  <p class="routput">
+    [1] NA
+  </p>
+  <p class="rcode"> 
+    mean(strokedata$height, na.rm = TRUE)
+  </p>
+  <p class="routput">
+    [1] 171.1203
+  </p>

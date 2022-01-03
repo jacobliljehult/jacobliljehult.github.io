@@ -10,12 +10,17 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 ---
 
 <h1>Grupperede kvantitative data</h1>
-
-  <p>På denne side gives eksempler på hvordan man kan analysere data hvor eksponeringen er kategorisk men udfaldet er kvantitativt. Den kan enten være en sample, der testes mod en given grænseværdi; to grupper der testes mod hinanden eller tre (eller flere) grupper der testes mod hinanden.</p>
+    <p
+      >På denne side gives eksempler på hvordan man kan analysere data hvor eksponeringen er kategorisk men 
+      udfaldet er kvantitativt. Den kan enten være en sample, der testes mod en given grænseværdi; to grupper 
+      der testes mod hinanden eller tre (eller flere) grupper der testes mod hinanden.
+    </p>
  <h2>One-sample tests</h2>
-  <p>Hypotese test for mean imod en given grænseværdi</p>
+    <p>
+      Hypotese test for mean imod en given grænseværdi
+    </p>
 
- <h3>One-sample z-test</h3>
+<h3>One-sample z-test</h3>
   <p class="rcode">
    gn = 72<br>
    x = strokedata$age<br>
@@ -26,7 +31,7 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
    [1] 0.6994493
   </p>
 
- <h3>One-sample t-test</h3>
+<h3>One-sample t-test</h3>
   <p class="rcode">
    t.test(x, mu = gn)
   </p>
@@ -43,37 +48,37 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
   &emsp;  71.85063 
   </p>
 
- <h3>Visualisering</h3>
+<h3>Visualisering</h3>
   <p class="rcode">
-   library(ggplot2)<br>
-   ggplot(aes(x = age), data = strokedata) + geom_boxplot() +<br>
-   geom_vline(xintercept = gn, color = "orange", size = 1)
+    library(ggplot2)<br>
+    ggplot(aes(x = age), data = strokedata) + geom_boxplot() +<br>
+    geom_vline(xintercept = gn, color = "orange", size = 1)
   </p>
   <div class="illustration">
-   <img src="https://jacobliljehult.github.io/research/images/onesampleboxplot.png">
-   <p>Boxplot for alder; den orange streg angiver grænseværdien der tests imod</p>
+    <img src="https://jacobliljehult.github.io/research/images/onesampleboxplot.png">
+    <p>Boxplot for alder; den orange streg angiver grænseværdien der tests imod</p>
   </div>
   <hr>
   <br>
 
- <h2>To grupper</h2>
+<h2>To grupper</h2>
 
- <h3>Student's t-test</h3>
+<h3>Student's t-test</h3>
   <p>Parametrisk test forskel mellem to grupper</p>
   <p class="rcode">
-   t.test(age ~ gender, data = strokedata)
+    t.test(age ~ gender, data = strokedata)
   </p>
   <p class="routput">
-   Welch Two Sample t-test<br><br>
+    Welch Two Sample t-test<br><br>
 
-   data:  age by gender<br>
-   t = 5.4993, df = 991.93, p-value = 4.851e-08<br>
-   alternative hypothesis: true difference in means between group F and group M is not equal to 0<br>
-   95 percent confidence interval:<br>
-   2.714512 5.726636<br>
-   sample estimates:<br>
-   mean in group F mean in group M <br>
-       74.06531        69.84473 
+    data:  age by gender<br>
+    t = 5.4993, df = 991.93, p-value = 4.851e-08<br>
+    alternative hypothesis: true difference in means between group F and group M is not equal to 0<br>
+    95 percent confidence interval:<br>
+    2.714512 5.726636<br>
+    sample estimates:<br>
+    mean in group F mean in group M <br>
+    &emsp;     74.06531  &emsp;        69.84473 
    </p>
 
   <h3>Wilcoxon rank sum test</h3>
