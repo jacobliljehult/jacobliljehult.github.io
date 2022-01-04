@@ -121,6 +121,7 @@
     color: black;    
     font-size: 0.9rem;
     margin-inline: 10%;
+		max-width: 800px;  
     }
     @media (orientation: portrait) {
       .maintext {margin-inline: 0%}
@@ -320,7 +321,7 @@
     } 
   .illustration img { border: 0 solid red;
     margin-inline: auto; 
-    width: 100%;
+    width: min(500px, 100%);
       }
   .legend { font-size: 0.6rem;
     text-align: justify;
@@ -339,6 +340,7 @@
       .rmaintext {margin-inline: 0%}
     }
   .rtext {font-size: 0.8rem;}
+	.rtext code {font-size: 0.8rem;}
   h1.rmaintext {font-size: 2rem;}
   h2.rmaintext {font-size: 1.4rem;}
   h3.rmaintext {font-size: 0.2rem;}
