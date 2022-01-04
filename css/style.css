@@ -120,11 +120,12 @@
   .maintext {	
     color: black;    
     font-size: 0.9rem;
-    margin-inline: 10%;
-		max-width: 800px;  
+    margin-inline: auto;
+    width: min(800px,90%);  
     }
     @media (orientation: portrait) {
-      .maintext {margin-inline: 0%}
+      .maintext {margin-inline: 0%;
+	    width: 100%}
       }
   .maintext p, ul, li {font-family: times;}
   .maintext h1 {
@@ -334,10 +335,12 @@
 /* ----- Maintext for R -------------------------------------------------- */ 
   .rmaintext {color: black;    
     font-size: 0.8rem;
-    margin-inline: 10%;
+    margin-inline: auto;
+    width: min(800px,90%); 
       }
     @media (orientation: portrait) {
-      .rmaintext {margin-inline: 0%}
+      .rmaintext {margin-inline: 0%;
+	    width: 100%}
     }
   .rtext {font-size: 0.8rem;}
 	.rtext code {font-size: 0.8rem;}
