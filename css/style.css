@@ -1,7 +1,6 @@
 /* ===== Overordnet ======================================== */
   * {
       box-sizing: border-box;
-      font-size: 20px;
     } 
 
   body {
@@ -44,7 +43,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 18px;
     }	
 /* Change color on hover */
   .topnav a:hover {
@@ -94,7 +93,7 @@
     margin-bottom: 0px;
     text-align: right;
     text-decoration: none;
-	  font-size: 0.65rem;
+	  font-size: 13px;
     }
   .sidenav a:hover,
   .sidenav a:focus{
@@ -119,7 +118,7 @@
   
   .maintext {	
     color: black;    
-    font-size: 0.9rem;
+    font-size: 18px;
     margin-inline: auto;
     width: min(800px,90%);  
     }
@@ -131,11 +130,11 @@
   .maintext h1 {
     text-align: center; 
     letter-spacing: 1px;
-    font-size: 2rem;}
-  .maintext h2 {font-size: 1.5rem;}
-  .maintext h3 {font-size: 1.2rem;}
-  .maintext h4 {font-size: 1rem;}
-  .maintext h5 {font-size: 0.9rem;} 
+    font-size: 40px;}
+  .maintext h2 {font-size: 30px;}
+  .maintext h3 {font-size: 24px;}
+  .maintext h4 {font-size: 20px;}
+  .maintext h5 {font-size: 18px;} 
 
 /* ~~~~~ Indholdsfortegnelse ~~~~~ */
   .indhold {outline: 1px solid lightgray; 
@@ -146,7 +145,7 @@
 	  width: 20%; 
 	  display: block; 
 	  float: right; 				
-	  font-size: min(0.75rem, 1.5vw)}
+	  font-size: min(15px, 1.5vw)}
   .indhold b {text-align: center;}
   .indhold hr {margin-top: 3px;
             margin-bottom:5px; }   
@@ -307,13 +306,13 @@
     margin-top: 0px;}   
   div.textbox p { margin-bottom: 5px;
     margin-top: 0px;
-    font-size: 0.9rem; }
+    font-size: 18px; }
   div.textbox ul {margin-bottom: 0px;
     margin-top: 0px;
-    font-size: 0.9rem;}   
+    font-size: 18px;}   
   div.textbox ol {margin-bottom: 0px;
     margin-top: 0px;
-    font-size: 0.9rem; }   
+    font-size: 18px; }   
 /* ---- Illustration med billedlegend ---- */
   .illustration {  display: block;
     max-width: 500px; 
@@ -324,7 +323,7 @@
     margin-inline: auto; 
     width: min(500px, 100%);
       }
-  .legend { font-size: 0.6rem;
+  .legend { font-size: 12px;
     text-align: justify;
     font-family: arial;
     line-height: 1.2;
@@ -334,7 +333,7 @@
 /* ============================================================= */
 /* ----- Maintext for R -------------------------------------------------- */ 
   .rmaintext {color: black;    
-    font-size: 0.8rem;
+    font-size: 16px;
     margin-inline: auto;
     width: min(800px,90%); 
       }
@@ -342,13 +341,13 @@
       .rmaintext {margin-inline: 0%;
 	    width: 100%}
     }
-  .rtext {font-size: 0.8rem;}
-	.rtext code {font-size: 0.8rem;}
-  h1.rmaintext {font-size: 2rem;}
-  h2.rmaintext {font-size: 1.4rem;}
-  h3.rmaintext {font-size: 0.2rem;}
-  h4.rmaintext {font-size: 1rem;}
-  h5.rmaintext {font-size: 0.9rem;}
+  .rtext {font-size: 16px;}
+	.rtext code {font-size: 16px;}
+  h1.rmaintext {font-size: 40px;}
+  h2.rmaintext {font-size: 28px;}
+  h3.rmaintext {font-size: 24px;}
+  h4.rmaintext {font-size: 20px;}
+  h5.rmaintext {font-size: 18px;}
 /* --- r code --- */	
   .rcode {border: 1px solid gray;
     margin: 20px;
@@ -356,7 +355,7 @@
     padding:15px;
     background-color: rgb(242,242,242);
     font-family: courier;
-    font-size: min(0.7rem, 1.4vw); 
+    font-size: min(14px, 1.4vw); 
       }
   .rcode a {color: "#0066ff"}
   .rcode a:hover { background-color: "#f2f2f2"}
@@ -366,12 +365,12 @@
     padding:15px;
     background-color: white;
     font-family: courier;
-    font-size: min(0.7rem, 1.4vw); 
+    font-size: min(14px, 1.4vw); 
       }
   .routput table { text-align: right;}
   .routput th { padding-right:10px; 
     font-weight: normal;
-    font-size: min(0.7rem, 1.4vw);}
+    font-size: min(14px, 1.4vw);}
 	
 /* --- Image table ------------------------------------------------ */
   #imgtable {width:80%;font-family:times;}
@@ -386,10 +385,10 @@
 /* --- Reference lists ---------------------------------------------- */
   div.ref {font-family: times;
     color: black;    
-    font-size: 0.75rem;
+    font-size: 15px;
       }
-  div.ref h3 {font-size: 0.9rem;}
-  div.ref h4 {font-size: 0.9rem;}
+  div.ref h3 {font-size: 18px;}
+  div.ref h4 {font-size: 18px;}
   div.ref ul {list-style-type: none; 
     margin-left: -30px; 
     margin-bottom: 6px; 
