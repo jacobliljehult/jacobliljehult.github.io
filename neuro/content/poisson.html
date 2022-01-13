@@ -1,0 +1,169 @@
+---
+layout: stats
+title: "Poisson regression"
+---
+<p>Poisson regression bruges til at lave intensitets-baserede, marginale modeller, til at sammenligne antallet af tilfælde i to grupper i forhold til mængden af risiko-tid.</p>
+<p>Regressionen udføres ved hjælp af en generaliseret linær model med funktionn <code>glm</code>(), med syntaxen:</p>
+<code style="text-align: center; ">
+<b>glm</b>( <i>y</i> ~ <i>x</i> + <b>offset</b>(<b><i>log</i></b>(<i>z</i>)), 
+		data = <i>data</i>, family=<i>"poisson"</i>)
+</code>
+<p>offsetet er logaritmen af den tidsstruktur der er i data - det kan fx være person-år, altså summen af år som alle personer i gruppen har bidraget med. <code>family</code>-argumentet defineres som <i>"poisson"</i></p>
+
+<h2>Eksempel</h2>
+<p>Ud fra datasættet <b>strokedata</b> kan man undersøge om det øger risikoen for en ny apopleksi, hvis man tidligere har haft apopleksi. Der bruges følgende variable: prevapo = tidligere apopleksi; recurrence = ny apopleksi; daystorcurrence = antal dage indtil ny apopleksi, dødsfald eller afslutningen af opfølgningen.
+</p>
+<p>
+Fordi det er en marginal model skal data omstruktureres, så man får de samlede antal for hver gruppe. Det kan fx gøres med <code>dplyr</code>
+</p>
+<div class="rcode">
+poisson_df <- strokedata %>% <br>
+<span style="margin: 10px"></span>select(age, prevapo, recurrence, daystorecurrence) %>% <br>
+<span style="margin: 15px"></span>  mutate(tidligereapo = prevapo) %>% <br>
+<span style="margin: 15px"></span>  group_by(tidligereapo) %>% <br>
+<span style="margin: 15px"></span>  summarise(<br>
+<span style="margin: 20px"></span>    events = sum(recurrence == "Event"), <br>
+<span style="margin: 20px"></span>    personaar = sum(daystorecurrence/365),<br>
+<span style="margin: 20px"> </span>   rate = events/personaar) <br>
+poisson_df
+</div>
+<div class="routput">
+<table>
+<tr> <th>tidligereapo</th><th>events</th><th>personaar</th><th>rate</th> </tr>
+<tr> <th>&lt;fctr&gt;
+</th><th>
+&lt;int&gt;
+</th><th>
+&lt;dbl&gt;
+</th><th>
+&lt;dbl&gt;
+</th> </tr>
+<tr> <th>N</th><th>73</th><th>2133.6164</th><th>0.03421421</th> </tr>
+<tr> <th>Y</th><th>43</th><th>595.2466</th><th>0.07223897</th> </tr>
+</table>
+
+				
+				
+</div>
+
+Manuel indtastning
+
+<div class="rcode">
+poisson_df <- data.frame(<br>
+			<span style="margin: 10px"></span>tidligereapo = c(0,1),<br>
+			<span style="margin: 10px"></span>events = c(73,43),<br>
+			<span style="margin: 10px"></span>personaar = c(2133.6164,595.2466) )
+</div>
+
+<div class="rcode">
+model1_1 = glm(events ~ factor(tidligereapo) + offset(log(personaar)), <br>
+		<span style="margin: 30px"></span>data = poisson_df, family="poisson")
+</div>
+<div class="rcode">
+summary(model1_1)
+</div>
+<div class="routput">
+Call:<br>
+glm(formula = events ~ factor(tidligereapo) + offset(log(personaar)), <br>
+<span style="margin: 10px"></span>    family = "poisson", data = poisson_df)<br><br>
+
+Deviance Residuals: <br>
+[1]  0  0<br><br>
+
+Coefficients:<br>
+<table>
+<tr><th>  </th><th>Estimate</th><th>Std. Error</th><th>z value</th><th>Pr(>|z|)</th><th></th></tr>
+<tr><th>(Intercept)</th><th>-3.3751</th><th>0.1170</th><th>-28.837</th><th>&lt; 2e-16</th><th>***</tr>
+<tr><th>factor(tidligereapo)Y</th><th>0.7473</th><th>0.1922</th><th>3.888</th><th>0.000101</th><th>***</tr>
+</table>
+---<br>
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1<br><br>
+
+(Dispersion parameter for poisson family taken to be 1)<br><br>
+
+<span style="margin: 10px"></span>    Null deviance: 1.3912e+01  on 1  degrees of freedom<br>
+Residual deviance: 5.7732e-15  on 0  degrees of freedom<br>
+AIC: 15.734<br><br>
+
+Number of Fisher Scoring iterations: 2
+</div>
+
+
+
+<div class="rcode">
+Publish::publish(model1_1)
+</div>
+<div class="routput">
+<table style="text-align:right;">
+ <tr><th>            Variable</th><th>Units</th><th>HazardRatio</th><th>CI.95</th><th>p-value </th></tr>
+ <tr><th>factor(tidligereapo)</th><th>N</th><th>Ref</th><th>                         </th></tr>
+ <tr><th></th><th>                         Y</th><th>2.11</th><th>[1.45;3.08]</th><th>0.0001012 </th></tr>
+</table>
+</div>
+
+<h3>Justering for alder</h3>
+
+<div class="rcode">
+poisson_df <- strokedata %>% <br>
+<span style="margin: 15px">select(age, prevapo, recurrence, daystorecurrence) %>% <br>
+<span style="margin: 30px">  mutate(aldersgruppe = factor(case_when(<br>
+<span style="margin: 60px">                                  age < 60 ~ 1,<br>
+<span style="margin: 60px">                                  age >= 60 & age <= 75 ~ 2,<br>
+<span style="margin: 60px">                                  age > 75 ~ 3)  ),<br>
+<span style="margin: 45px">         tidligereapo = prevapo) %>% <br>
+<span style="margin: 30px">  group_by(tidligereapo, aldersgruppe) %>% <br>
+<span style="margin: 30px">  summarise(<br>
+<span style="margin: 45px">    events = sum(recurrence == "Event"), <br>
+<span style="margin: 45px">    personaar = sum(daystorecurrence/365),<br>
+<span style="margin: 45px">    rate = events/personaar)<br>
+poisson_df
+</div>
+<div class="routput">
+<table>
+<tr> <th>tidligereapo</th><th>aldersgruppe</th><th>events</th><th>personaar</th><th>rate</th> </tr>
+<tr> <th>&lt;fctr&gt;</th><th>&lt;fctr&gt;</th><th>&lt;int&gt;</th><th>&lt;dbl&gt;</th><th>&lt;dbl&gt;</th> </tr>
+<tr> <th>N</th><th>1</th><th>13</th><th>449.80822</th><th>0.02890121</th> </tr>
+<tr> <th>N</th><th>2</th><th>35</th><th>1032.46849</th><th>0.03389934</th> </tr>
+<tr> <th>N</th><th>3</th><th>25</th><th>651.33973</th><th>0.03838243</th> </tr>
+<tr> <th>Y</th><th>1</th><th>5</th><th>92.95616</th><th>0.05378879</th> </tr>
+<tr> <th>Y</th><th>2</th><th>23</th><th>273.72603</th><th>0.08402562</th> </tr>
+<tr> <th>Y</th><th>3</th><th>15</th><th>228.56438</th><th>0.06562702</th> </tr>
+</table>
+</div>
+
+<div class="rcode">
+model1_2 = glm(events ~ factor(tidligereapo) + factor(aldersgruppe) + offset(log(personaar)), <br>
+		<span style="margin: 60px">data = poisson_df, family="poisson")<br>
+Publish::publish(model1_2)
+</div>
+<div class="routput">
+<table> 
+ <tr><th>            Variable</th><th>Units</th><th>HazardRatio</th><th> CI.95</th><th>p-value </th></tr> 
+ <tr><th>  factor(tidligereapo)</th><th>N</th><th>Ref </th><th></th><th>            			 </th></tr>
+ <tr> <th>                     </th><th>Y</th><th>2.09</th><th>[1.43;3.05]</th><th>0.0001369 </th></tr>
+ <tr> <th> factor(aldersgruppe)</th><th>1 </th><th>Ref </th><th></th><th>       			</th></tr>
+ <tr> <th>                     </th><th>2 </th><th>1.29</th><th>	[0.76;2.20]</th><th>0.3405091 </th></tr>
+ <tr>  <th>                   </th><th>3</th><th>1.27</th><th>[0.73;2.22]</th><th>0.4045718 </th></tr>
+</table>
+</div>
+
+<h3>Goodness-of-fit</h3>
+
+<div class="rcode">
+model1_1 = glm(events ~ factor(tidligereapo) + offset(log(personaar)), <br>
+		<span style="margin: 60px">data = poisson_df, family="poisson")<br>
+model1_2 = glm(events ~ factor(tidligereapo) + factor(aldersgruppe) + offset(log(personaar)), <br>
+		<span style="margin: 60px">data = poisson_df, family="poisson")<br>
+lmtest::lrtest(model1_1, model1_2)
+</div>
+<div class="routput">
+Likelihood ratio test<br><br>
+
+Model 1: events ~ factor(tidligereapo) + offset(log(personaar))<br>
+Model 2: events ~ factor(tidligereapo) + factor(aldersgruppe) + offset(log(personaar))<br>
+<table>
+<tr> <th></th><th>#Df</th><th>LogLik</th><th>Df</th><th>Chisq</th><th>Pr(>Chisq)</th></tr>
+<tr>1</th><th>2</th><th>-14.866</th><th></th><th></th><th></th></tr>
+<tr>2</th><th>4</th><th>-14.364</th><th>2</th><th>1.005</th><th>0.605</th></tr>
+</table>
+</div>
