@@ -129,7 +129,8 @@ title: "Poisson regression"
 			Hvis man vil justere modellen for en mulig confounder kan der gøres ved at stratificere tabellen for 
 			denne variabel, så man får antal events og person-tid for hver strata. I dette eksempel er der stratificeret
 			for alder ved at opdele alders variablen (som i <code><b>strokedata</b></code> er kontinuert) i tre
-			grupper (henholdsvis &lt;60 år/ 60-75 år/ &gt;75 år) - herefter er 
+			grupper (henholdsvis &lt;60 år/ 60-75 år/ &gt;75 år) - herefter er tabellen er stratificeret for både
+			tidligere apopleksi og alder:
 		</p>
 		<div class="rcode">
 			poisson_df <- strokedata %>% <br>
