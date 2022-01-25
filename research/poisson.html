@@ -8,15 +8,21 @@ title: "Poisson regression"
 		tilfælde i to grupper i forhold til mængden af risiko-tid.
 	</p>
 	<p>
-		Regressionen udføres ved hjælp af en generaliseret linær model med funktionn <code>glm</code>(), med syntaxen:
+		Regressionen udføres ved hjælp af en generaliseret linær model med funktionn <code><b>glm</b></code>(), med syntaxen:
 	</p>
-	<code style="text-align: center; ">
+	
+	<center><code style="text-align: center; ">
 		<b>glm</b>( <i>y</i> ~ <i>x</i> + <b>offset</b>(<b><i>log</i></b>(<i>z</i>)), 
 			data = <i>data</i>, family=<i>"poisson"</i>)
-	</code>
+	</code></center>
 	<p>
-		offsetet er logaritmen af den tidsstruktur der er i data - det kan fx være person-år, altså summen af år som 
-		alle personer i gruppen har bidraget med. <code>family</code>-argumentet defineres som <i>"poisson"</i>
+		Offsetet er logaritmen af den tidsstruktur der er i data - det kan fx være person-risiko-år, altså summen af år hvor 
+		alle personer i gruppen er i risiko for udfaldet. Hvis en person bliver fulgt op efter et år har personen bidraget
+		med 1 person-år; mens en person der dør efter 60 dage ikke længere er i risiko efter sin død og derfor kun bidrager
+		med 60/365 person-år til modellen. Events tælles som antallet af events over risiko-perioden og samme person kan
+		derfor godt bidrage med flere events over risiko-personen. Hvis udfaldet er antal epileptiske anfald kan samme patient
+		godt have flere epileptiske anfald over perioden - og hvert anfald tælles derfor som ét event.
+		<code>family</code>-argumentet defineres som <i>"poisson"</i>
 	</p>
 
 	<h2>Eksempel</h2>
@@ -25,8 +31,8 @@ title: "Poisson regression"
 			daystorcurrence = antal dage indtil ny apopleksi, dødsfald eller afslutningen af opfølgningen.
 		</p>
 		<p>
-			Fordi det er en marginal model skal data omstruktureres, så man får de samlede antal for hver gruppe. Det 
-			kan fx gøres med <code>dplyr</code>
+			Fordi det er en marginal model skal data omstruktureres til et tabel-format, så man får de samlede antal for 
+			hver gruppe. Det kan fx gøres med <code><b>{dplyr}</b></code>
 		</p>
 		<div class="rcode">
 			poisson_df <- strokedata %>% <br>
@@ -55,11 +61,24 @@ title: "Poisson regression"
 			<span style="margin: 10px"></span>events = c(73,43),<br>
 			<span style="margin: 10px"></span>personaar = c(2133.6164,595.2466) )
 		</div>
-
+		<p>
+			Her kan vi altså se at blandt personer der tidligere har haft en apopleksi er der 43 nye indlæggelser
+			med apopleksi indenfor en samlet risiko-periode på 595,2466 person-år; hvilket giver en rate på 0,072
+			per person-år. Blandt personer der ikke tidligere havde haft apopleksi var der 73 nye indlæggelser 
+			indenfor en samlet risiko-periode på 2133,2466 person-år; svarende til en rate på 0,034 per person-år.
+			
+		</p>
+		<p>
+			Poisson-modellen opstilles således:
+		</p>
 		<div class="rcode">
 			model1_1 = glm(events ~ factor(tidligereapo) + offset(log(personaar)), <br>
 			<span style="margin: 30px"></span>data = poisson_df, family="poisson")
 		</div>
+		<p>
+			Det 'rå' resultat af modellen kan kaldes med <code><b>summary</b>()</code>, men resultatet er her på
+			en logaritmisk skala og kan umiddelbart være svært at fortolke:
+		</p>
 		<div class="rcode">
 			summary(model1_1)
 		</div>
@@ -85,7 +104,10 @@ title: "Poisson regression"
 
 			Number of Fisher Scoring iterations: 2
 		</div>
-
+		<p>
+			For at gøre fortolkningen lettere kan man bruge funktionen <code><b>publish</b>()</code> fra pakken 
+			<code><b>{Publish}</b></code> til at omregne estimat og konfidens-interval til Hazard-ratio skala:
+		</p>
 		<div class="rcode">
 			Publish::publish(model1_1)
 		</div>
@@ -96,9 +118,20 @@ title: "Poisson regression"
 				<tr><th></th><th>                         Y</th><th>2.11</th><th>[1.45;3.08]</th><th>0.0001012 </th></tr>
 			</table>
 		</div>
+		<p>
+			Modellen viser altså at risikoen for at få en ny apopleksi efter udskrivelsen er omkring dobbelt så høj
+			blandt de patienter der tidligere havde haft en apopleksi sammenlignet med de patienter, der ikke tidligere
+			havde haft det. 
+		</p>
 
 	<h3>Justering for alder</h3>
-
+		<p>
+			Hvis man vil justere modellen for en mulig confounder kan der gøres ved at stratificere tabellen for 
+			denne variabel, så man får antal events og person-tid for hver strata. I dette eksempel er der stratificeret
+			for alder ved at opdele alders variablen (som i <code><b>strokedata</b></code> er kontinuert) i tre
+			grupper (henholdsvis &lt;60 år/ 60-75 år/ &gt;75 år) - herefter er tabellen er stratificeret for både
+			tidligere apopleksi og alder:
+		</p>
 		<div class="rcode">
 			poisson_df <- strokedata %>% <br>
 			<span style="margin: 15px">select(age, prevapo, recurrence, daystorecurrence) %>% <br>
@@ -126,7 +159,9 @@ title: "Poisson regression"
 				<tr> <th>Y</th><th>3</th><th>15</th><th>228.56438</th><th>0.06562702</th> </tr>
 			</table>
 		</div>
-
+		<p>
+			For at justere for alder indsætte alders variablen efter <i>x</i>-argumentet (men før offset argumentet):
+		</p>
 		<div class="rcode">
 			model1_2 = glm(events ~ factor(tidligereapo) + factor(aldersgruppe) + offset(log(personaar)), <br>
 			<span style="margin: 60px">data = poisson_df, family="poisson")<br>
@@ -142,9 +177,19 @@ title: "Poisson regression"
  				<tr>  <th>                   </th><th>3</th><th>1.27</th><th>[0.73;2.22]</th><th>0.4045718 </th></tr>
 			</table>
 		</div>
-
+		<p>
+			Den justerede model viser at Hazard-ratioen for tidligere apopleksi ikke ændre sig nævneværdigt efter
+			justering for alder og at der ikke er noget der tyder på en alders gradient.
+		</p>
+		<br>
+			
 	<h3>Goodness-of-fit</h3>
-
+		<p>
+			Man kan lave en goodness-of-fit analyse for at sammenligne to nestede modeller (altså om tilføjelsen
+			af en justering forbedre modellen signifikant) ved hjælp af en log-likelihood test. Den laves lettest
+			med funktionen <code><b>lrtest</b>()</code> fra pakken <code><b>{lmtest}</b></code>. For at testen 
+			virker er det vigtigt at de to modeller, der sammenlignes er nestede og er udregnet på samme dataset.
+		</p>
 		<div class="rcode">
 			model1_1 = glm(events ~ factor(tidligereapo) + offset(log(personaar)), <br>
 			<span style="margin: 60px">data = poisson_df, family="poisson")<br>
@@ -158,8 +203,14 @@ title: "Poisson regression"
 			Model 1: events ~ factor(tidligereapo) + offset(log(personaar))<br>
 			Model 2: events ~ factor(tidligereapo) + factor(aldersgruppe) + offset(log(personaar))<br>
 			<table>
-				<tr> <th></th><th>#Df</th><th>LogLik</th><th>Df</th><th>Chisq</th><th>Pr(>Chisq)</th></tr>
-				<tr>1</th><th>2</th><th>-14.866</th><th></th><th></th><th></th></tr>
-				<tr>2</th><th>4</th><th>-14.364</th><th>2</th><th>1.005</th><th>0.605</th></tr>
+				<tr><th></th>	<th>#Df</th>	<th>LogLik</th>	<th>Df</th>	<th>Chisq</th>	<th>Pr(>Chisq)</th></tr>
+				<tr><th>1</th>	<th>2</th>	<th>-14.866</th><th></th>	<th></th>	<th></th></tr>
+				<tr><th>2</th>	<th>4</th>	<th>-14.364</th><th>2</th>	<th>1.005</th>	<th>0.605</th></tr>
 			</table>
 		</div>
+		<p>
+			Testet viser en p-værdi på 0,60, hvilket vil sige at tilføjelse af alder ikke har forbedret modellen.
+		</p>
+				
+				
+				
