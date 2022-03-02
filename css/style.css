@@ -137,8 +137,10 @@
   .maintext h5 {font-size: 18px;} 
 
 /* ~~~~~ Indholdsfortegnelse ~~~~~ */
-  .indhold {outline: 1px solid lightgray; 
+  .indhold {outline: 0px solid lightgray; 
+	  border-radius: 10px;
 	  background-color: rgb(235,247,253); 
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	  margin-left: 15px; margin-right: 0px;
 	  margin-top: 5px; margin-bottom: 15px;
 	  padding: 10px;  
@@ -153,7 +155,7 @@
             margin-top: -2px; 
             margin-bottom: -2px}
   .indhold a {text-decoration: none; 
-            color:gray}
+            color:darkgray}
   .indhold a:hover {text-decoration: none; 
             color:darkblue}
 
@@ -230,7 +232,7 @@
   div.indexbox a:visited {color: black; }
   div.indexbox:hover {background: rgb(255,255,255); 
     border: 0px solid black;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
     /* gridbox */
   .gridbox {display:grid; gap: 20px;
