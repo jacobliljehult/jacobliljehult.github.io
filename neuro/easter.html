@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {background-color: LightYellow; font-family: "Lucida Console";}
+h2 { text-align: center; font-size: 40px;}
+div { background-color: yellow; 
+		width: 90%; padding: 30px; height: 700px;  
+		margin: auto; border-radius: 20px;}
+input {display: block; margin: auto; height: 40px; width: 90%; font-size: 30px; border-radius: 5px; text-align:center;}
+button {display: block; font-size: 26px; height: 40px; width: 90%; margin: auto;}
+p {font-size: 30px;}
+</style>
+<body>
+
+
+<div>
+
+<h2>Den dumme demme Påske-app</h2>
+<input type="text" id="name" name="name" placeholder="Skriv dit navn"><br><br>
+<script>
+function prikker(){
+	let name = document.getElementById('name').value;
+	let nameArr = name.split("");
+    let prikArr = [];
+    for (let i = 0; i < nameArr.length; i++){
+     prikArr.push(".") }
+    return "Hvis du vil skrive dit navn med prikker, skal du skrive " + prikArr.join("") + " prikker";
+}
+</script>
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = prikker(name)">
+Hvor mange prikker?</button>
+
+<p id="demo"></p>
+</div>
+</body>
+</html> 
