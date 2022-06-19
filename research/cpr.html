@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        #form {background-color: #fff4a5;
+                border: 1px solid gray; 
+                padding: 10px; 
+                margin: 10px auto 10px auto; 
+                width: 90%;}
+        #cpr {font-size: max(18px, 5vw); background-color: white;
+                border: 1px solid gray;}
+        .button {font-size: max(18px, 5vw);}
+        #outputFrame {background-color: #fff4a5;
+            border: 1px solid gray; 
+            padding: 10px; margin: 10px auto 10px auto; 
+                width: 90%;}
+        body {font-size: max(18px, 5vw);}        
+        #output {background-color: white;
+                border: 1px solid lightgray;
+                height: 30vh;
+                padding: 5px;
+                }    
+    </style>
 <body>
-<div style="border: 1px solid black; padding: 10px; margin: 10px; width: 300px;">
+<div id="form" style="">
 <form action="/action_page.php">
-  <label for="cpr" style="font-size: 18px;">CPR-nummer:</label><br>
+  <label for="cpr">CPR-nummer:</label><br>
   <input type="text" id="cpr" name="cpr"><br><br>
   <button type="button" class="button" onclick="document.getElementById('cprOutput').innerHTML = agefun()">
         Udregn
@@ -36,8 +56,13 @@
                 "Køn: " + sex;
 }
 </script>
-<div style="border: 1px solid black; padding: 10px; margin: 10px; width: 300px;">
-<p style="font-size: 18px; margin-top: 0px;">Output: <br><br> <span id="cprOutput"></span></p>
+<div id="outputFrame" style="">
+<div id="output">
+    <p style="margin-top: 0px;">
+        Output: <br><br> 
+        <span id="cprOutput"></span>
+    </p>
+</div>
 </div>
 </body>
 </html>
