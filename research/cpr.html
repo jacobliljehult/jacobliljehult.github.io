@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div style="border: 1px solid black; padding: 10px; margin: 10px; width: 300px;">
+<form action="/action_page.php">
+  <label for="cpr" style="font-size: 18px;">CPR-nummer:</label><br>
+  <input type="text" id="cpr" name="cpr"><br><br>
+  <button type="button" class="button" onclick="document.getElementById('cprOutput').innerHTML = agefun()">
+        Udregn
+    </button>
+  
+</form>
+</div>
+<script>
+
+/* Funktion til trække oplysninger ud af CPR-nummer */
+    function agefun(){
+	    let a = document.getElementById("cpr").value; 
+  	    let b = a.toString().split(""); 
+        let d = b[b.length - 1];
+        let sex = d % 2 == 0 ? "Kvinde" : "Mand";
+        let cprnr = b[0] + b[1] + b[2] + b[3] + b[4] + b[5] + "-" +
+        			b[b.length - 4] + 
+        			b[b.length - 3] + 
+                    b[b.length - 2] + 
+                    b[b.length - 1];
+        let birthdate = new Date(b[2]+b[3]+"/"+b[0]+b[1]+"/19"+b[4]+b[5]);
+        let currentDate = Date.now();
+        let age = Math.floor((currentDate - birthdate)/(1000*60*60*24*365),0);
+        return "CPR-nummer: " + cprnr + "<br>" + 
+        		"Fødselsdag: " + birthdate.getDate() + "/" +
+                				(birthdate.getMonth()+1) + "/" +
+                                birthdate.getFullYear() + "<br>" +
+                "Fødselsår: " + birthdate.getFullYear() + "<br>" +
+        		"Alder: " + age + "<br>" +
+                "Køn: " + sex;
+}
+</script>
+<div style="border: 1px solid black; padding: 10px; margin: 10px; width: 300px;">
+<p style="font-size: 18px; margin-top: 0px;">Output: <br><br> <span id="cprOutput"></span></p>
+</div>
+</body>
+</html>
