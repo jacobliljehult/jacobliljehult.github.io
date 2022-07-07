@@ -197,11 +197,11 @@ randomSekvens <- randomBlockEven(4,8, seed = 123)
 	bruger en <code><b>c</b>()</code>-funktion til at kombinere hver ny blok (som liste) med den 
 	eksisterende sekvens (som også er en liste).</p>
 <p class="rtext">Funktionen skal derved bruge tre elementer:
-	<ol style="font-family: Arial;">
-	<li>En <code><b>sample</b>()</code>-funktion, der tilfældigt vælger en blokstørrelser a enten 4, 6 eller 8;</li>
-	<li>En funktion (<i>randomseq</i>), der kan tage blokstørrelse som input og herefter bruger en 
+	<ol>
+	<li style="font-family: Arial;">En <code><b>sample</b>()</code>-funktion, der tilfældigt vælger en blokstørrelser a enten 4, 6 eller 8;</li>
+	<li style="font-family: Arial;">En funktion (<i>randomseq</i>), der kan tage blokstørrelse som input og herefter bruger en 
 		<code><b>sample</b>()</code>-funktion til tilfældigt at fordele lige mange af hver allokeringer indenfor blokken; samt</li>
-	<li>et <code><b>for</b>-loop</code> udfører <i>randomseq()</i>-funktionen <i>n</i> antal gange og for 
+	<li style="font-family: Arial;">et <code><b>for</b>-loop</code> udfører <i>randomseq()</i>-funktionen <i>n</i> antal gange og for 
 		hver gentagelse 'klistre' den nye blok sammen med de tidligere i en samlet liste.</li>
 	</ol>
 </p>
