@@ -122,7 +122,7 @@ c( replicate(4, sample(block, 8, replace = FALSE)) )
  [1] 1 2 2 1 1 2 1 2 1 2 2 2 1 1 1 2 1 1 2 1 2 1 2 2 1 1 2 2 2 1 1 2
 </p>
 
-<div style="border: 1px solid gray; padding: 10px; ">
+<div style="border: 1px solid hsl(180, 100%, 95%); padding: 10px; background-color: hsl(180, 100%, 98%);">
 <h3>Funktioner</h3>
 <p class="rtext">Når man skriver kode, som bruger flere trin til at løse et problem, kan det være en fordel at bruge en 
 	funktionel tilgang til at automatisering. Derved bliver det muligt at genbruge koden, så man ikke skal skrive 
@@ -233,8 +233,8 @@ randomBlockVar(5)
 </p>
 <p class="routput">
   [1] 1 2 2 1 1 2 2 1 1 1 2 2 1 1 2 2 1 1 1 2 2 2 1 2 1 2 2 1 2 1
-</p>
-<div>
+</p><br>
+<div style="border: 1px solid hsl(180, 100%, 95%); padding: 10px; background-color: hsl(180, 100%, 98%);">
 <h3>Gem sekvens som fil</h3>
 <p class="rtext">Når randomiseringssekvensen skal bruges i praksis, fx hvis den skal implementeres 
 	i RedCap, er man nødt til at gemme den som en fil - fx som en komma-separeret fil (*.csv). 
@@ -246,7 +246,7 @@ write.csv(data.frame(allocation = randomBlockVar(10)), "randomseq.csv", row.name
 </p>
 <p class="rtext">Det er vigtigt at argumentet <code>row.names</code> sættes til <code>FALSE</code>, 
 	så det er allocation, der er første kolonne.</p>
-</div>
+</div><br>
 <h2>Stratificering</h2>
 <p class="rtext">Hvis der er kendte eller mistænkte interaktioner mellem interventionen og en faktor 
 	hos deltagerne vil vi helst have at fordelingen af denne faktor bliver nogenlunde ens i 
