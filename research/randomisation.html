@@ -11,53 +11,92 @@ preview: 'https://jacobliljehult.github.io\research\images\plotSBT_DBT_hist.png'
 
 
 <h1>Randomiseringssekvenser</h1>
-<p class="rtext">I randomiserede kontrollerede forsøg vil man som regel bruge en computer-genereret randomiseringssekvens som grundlag for allokeringen af forsøgsdeltagerne. Formålet med randomisering er at gøre interventionen i forsøget uafhængigt af potentielle confounds (non-kausale associationer), så der ikke kommer skævvridninger i hvilke patienter, der får interventionen, og hvilke der ikke får forsøgsinterventionen (kontrolgruppen). Hvis det er helt tilfældigt hvilke deltagere, som får interventionen, hvilke der ikke får - vil alle forskelle mellem de to grupper være udtryk for enten tilfældig variation eller en reel behandlingseffekt (eller potentielt en skadevirkning hvis der er forskel i mængden af <i>adverse events</i>).</p>
+<p class="rtext">I randomiserede kontrollerede forsøg vil man som regel bruge en computer-genereret 
+	randomiseringssekvens som grundlag for allokeringen af forsøgsdeltagerne. Formålet med randomisering 
+	er at gøre interventionen i forsøget uafhængigt af potentielle confounds (non-kausale associationer), 
+	så der ikke kommer skævvridninger i hvilke patienter, der får interventionen, og hvilke der ikke får 
+	forsøgsinterventionen (kontrolgruppen). Hvis det er helt tilfældigt hvilke deltagere, som får interventionen, 
+	hvilke der ikke får - vil alle forskelle mellem de to grupper være udtryk for enten tilfældig variation 
+	eller en reel behandlingseffekt (eller potentielt en skadevirkning hvis der er forskel i mængden af 
+	<i>adverse events</i>).
+</p>
 
 <h2>Simple randomisation</h2>
-<p class="rtext">I forsøg med to behandlingsgrupper kan man i princippet nøjes med en række af tilfældigt fordelte tal af enten 0/1 eller 1/2. Sådanne sekvenser kan laves i R med funktionerne <code><b>rbinom</b>(n, s, p)</code> eller <code><b>sample</b>(<i>pulje</i>, n, replace)</code>. Hvis man ønsker at gøre randomiseringen reproducerbar kan man bruge <code>set.seed()</code>-funktionen til at definere startpunktet for randomiseringsalgoritmen. Bruger man samme seed-tal, vil funktionen også returnere samme sekvens, hver gang man kører den.</p>
+<p class="rtext">I forsøg med to behandlingsgrupper kan man i princippet nøjes med en række af tilfældigt fordelte 
+	tal af enten 0/1 eller 1/2. Sådanne sekvenser kan laves i R med funktionerne <code><b>rbinom</b>(<i>n</i>, <i>s</i>, <i>p</i>)</code> 
+	eller <code><b>sample</b>(<i>pulje</i>, <i>n</i>, <i>replace</i>)</code>. Hvis man ønsker at gøre randomiseringen 
+	reproducerbar kan man bruge <code>set.seed()</code>-funktionen til at definere startpunktet for 
+	randomiseringsalgoritmen. Bruger man samme seed-tal, vil funktionen også returnere samme sekvens, 
+	hver gang man kører den.
+</p>
 
-<p class="rtext">Eksempel:  Sekvens med en længde på 20; med 1 gruppe over 0; og en sandsynlighed på 50%
+<p class="rtext">
+	Eksempel:  Sekvens med en længde på 20; med 1 gruppe over 0; og en sandsynlighed på 50%
 </p>
 <p class="rcode">
-set.seed(123)<br>
-rbinom(20, 1, 0.5)
+	set.seed(123)<br>
+	rbinom(20, 1, 0.5)
 </p>
 <p class="routput">
- [1] 0 1 0 1 1 0 1 1 1 0 1 0 1 1 0 1 0 0 0 1
+ 	[1] 0 1 0 1 1 0 1 1 1 0 1 0 1 1 0 1 0 0 0 1
 </p>
-<p class="rtext">Tilfældig sampling fra puljen c(1,2); på en længde af 20; og med tilbagelægning (replace = TRUE). </p>
+<p class="rtext">
+	Eksempel: Tilfældig sampling fra puljen <code>c(1,2)</code>; på en længde af 20; og med tilbagelægning (<code>replace = TRUE</code>). 
+</p>
 <p class="rcode">
-set.seed(123)<br>
-sample(c(1,2), 20, replace = TRUE)
+	set.seed(123)<br>
+	sample(c(1,2), 20, replace = TRUE)
 </p>
 <p class="routput">
-[1] 1 1 1 2 1 2 2 2 1 1 2 2 2 1 2 1 2 1 1 1
+	[1] 1 1 1 2 1 2 2 2 1 1 2 2 2 1 2 1 2 1 1 1
 </p>
-<p class="rtext">Fordelen ved <code>sample()</code>-funktionen er at man både kan sample fra en pulje af tal eller kategorier; så man vil også kunne bruge en pulje som <code>c("Intervention","Control")</code>.
+<p class="rtext">
+	Fordelen ved <code><b>sample</b>()</code>-funktionen er at man både kan sample fra en pulje af tal eller kategorier; 
+	så man vil også kunne bruge en pulje som <code>c("Intervention","Control")</code>.
 </p>
 
 <h2>Blokrandomisering (med ens blokstørrelser)</h2>
-<p class="rtext">Ved simple randomisering er der en sandsynlighed for at der kommer 'klumper' af allokeringer - hvilket vil sige at der kommer en række af enten interventions- eller kontroldeltagere efter hinanden. I store studier gør det i princippet ikke noget, så længe at både patienter og kvaliteten af interventionen er ens hele tiden.<br> Men disse 'klumper' af allokering kan i nogle tilfælde blive et problem, fx: <br>
-Hvis der er variation blandt de personer man rekruttere fra over tid, fx pga. sæsonvariation. Man kunne fx forestille sig en intervention, hvor der potentielt kunne være en interaktion med pollenallergi eller med allergimedicin. I dette tilfælde vil det kunne påvirke resultatet af studiet, hvis der allokeres mange til interventionsgruppen i løbet af foråret.<br>
-Hvis interventionen eller opfølgningen i interventionsgruppen er mere ressourcekrævende end i kontrolgruppen. Det kan fx være en intervention, som tager nogle timer at udføre/administrere og kræver at der er personale tilstede. Her vil der være en praktisk begrænsning i hvor mange interventioner der kan udføres pr dag eller pr uge.</p>
-<p class="rtext">Løsningen i alle disse tilfælde vil være at fordele allokeringerne mere jævnt - hvilket man gør ved at lave randomiseringen i mindre blokke, fx med en størrelse af 6 eller 8, ad gangen. Sekvensen bygges derefter op af at disse blokke sættes sammen til en sekvens.</p>
+<p class="rtext">Ved simple randomisering er der en sandsynlighed for at der kommer 'klumper' 
+	af allokeringer - hvilket vil sige at der kommer en række af enten interventions- eller 
+	kontroldeltagere efter hinanden. I store studier gør det i princippet ikke noget, så længe 
+	at både patienter og kvaliteten af interventionen er ens hele tiden.<br> Men disse 'klumper' 
+	af allokering kan i nogle tilfælde blive et problem, fx: </p>
+<p class="rtext">Hvis der er variation blandt de personer man rekruttere fra over tid, fx pga. 
+	sæsonvariation. Man kunne fx forestille sig en intervention, hvor der potentielt kunne være en 
+	interaktion med pollenallergi eller med allergimedicin. I dette tilfælde vil det kunne påvirke 
+	resultatet af studiet, hvis der allokeres mange til interventionsgruppen i løbet af foråret.</p>
+<p class="rtext">Hvis interventionen eller opfølgningen i interventionsgruppen er mere ressourcekrævende 
+	end i kontrolgruppen. Det kan fx være en intervention, som tager nogle timer at udføre/administrere 
+	og kræver at der er personale tilstede. Her vil der være en praktisk begrænsning i hvor mange 
+	interventioner der kan udføres pr dag eller pr uge.</p>
+<p class="rtext">Løsningen i alle disse tilfælde vil være at fordele allokeringerne mere jævnt - hvilket 
+	man gør ved at lave randomiseringen i mindre blokke, fx med en størrelse af 6 eller 8, ad gangen. 
+	Sekvensen bygges derefter op af at disse blokke sættes sammen til en sekvens.</p>
 
-<p class="rtext">Når man bruger <code>sample()</code>-funktionen til at lave en simple sekvens, er man ikke sikker på at der kommer lige mange af hver gruppe indenfor blokken.</p>
+<p class="rtext">
+	Når man bruger <code><b>sample</b>()</code>-funktionen til at lave en simple sekvens, er man ikke sikker på 
+	at der kommer lige mange af hver gruppe indenfor blokken.
+</p>
 <p class="rcode">
-sample(c(1,2), 8, replace = TRUE)
+	sample(c(1,2), 8, replace = TRUE)
 </p>
 <p class="routput">[1] 1 2 2 2 2 1 2 1</p>
 
-<p class="rtext">For at sikre at der kommer lige mange af begge allokeringer i hver blok, laver man en pulje, som indeholder alle de allokeringer, man ønsker - og definere <code>replace</code>-argumentet til <code>FALSE</code>. Derved laver man en tilfældig trækning fra puljen <i>uden</i> tilbagelægning.</p>
+<p class="rtext">For at sikre at der kommer lige mange af begge allokeringer i hver blok, laver man en pulje, 
+	som indeholder alle de allokeringer, man ønsker - og definere <code>replace</code>-argumentet til 
+	<code>FALSE</code>. Derved laver man en tilfældig trækning fra puljen <i>uden</i> tilbagelægning.
+</p>
 <p class="rcode">
 block = c(1,1,1,1,2,2,2,2)<br>
 sample(block, 8, replace = FALSE)<br>
-# kan også skrives som: sample(c(1,1,1,1,2,2,2,2), 8, replace = FALSE)
+# kan også skrives som: sample( c(1,1,1,1,2,2,2,2), 8, replace = FALSE )
 </p>
 <p class="routput">[1] 1 2 2 2 1 1 1 2</p>
 
-<p class="rtext">For at lave en længere sekvens kan man bruge <code>replicate(n, FUN)</code>-funktionen til at gentage samme funktion et <i>n</i> antal gange.</p>
-<p class="rtext">Eksempel: replicate()-funktionen bruges til at lave 4 blokke af hver en længde på 8. Funktionen returnere en tabel med dimensionerne 8x4.</p>
+<p class="rtext">For at lave en længere sekvens kan man bruge <code><b>replicate</b>(<i>n</i>, <i>FUN</i>)</code>-funktionen 
+	til at gentage samme funktion et <i>n</i> antal gange.</p>
+<p class="rtext">Eksempel: <code><b>replicate</b>()</code>-funktionen bruges til at lave 4 blokke af hver en længde på 8. 
+	Funktionen returnere en tabel med dimensionerne 8x4.</p>
 <p class="rcode">
 replicate(4, sample(block, 8, replace = FALSE))
 </p>
@@ -75,7 +114,7 @@ replicate(4, sample(block, 8, replace = FALSE))
 </table>
 </div>
 </p>
-<p class="rtext">Hvis man formattere tabellen til en liste kan man bruge combine funktionen <code>c()</code>:</p>
+<p class="rtext">Hvis man formattere tabellen til en liste kan man bruge combine funktionen <code><b>c</b>()</code>:</p>
 <p class="rcode">
 c( replicate(4, sample(block, 8, replace = FALSE)) )
 </p>
@@ -85,29 +124,42 @@ c( replicate(4, sample(block, 8, replace = FALSE)) )
 
 <div style="border: 1px solid gray; padding: 10px; ">
 <h3>Funktioner</h3>
-<p class="rtext">Når man skriver kode, som bruger flere trin til at løse et problem, kan det være en fordel at bruge en funktionel tilgang til at automatisering. Derved bliver det muligt at genbruge koden, så man ikke skal skrive det sammen flere gang, hvis man skal gentage noget flere gange (fx at man skal bruge to randomiseringssekvenser til test og til produktion). Derudover gør det også ens kode mere læsevenlig, fordi man kan se hvilke elementer, der høre sammen og man kan følge beregningen fra input til output.</p>
+<p class="rtext">Når man skriver kode, som bruger flere trin til at løse et problem, kan det være en fordel at bruge en 
+	funktionel tilgang til at automatisering. Derved bliver det muligt at genbruge koden, så man ikke skal skrive 
+	det sammen flere gang, hvis man skal gentage noget flere gange (fx at man skal bruge to randomiseringssekvenser 
+	til test og til produktion). Derudover gør det også ens kode mere læsevenlig, fordi man kan se hvilke elementer, 
+	der høre sammen og man kan følge beregningen fra input til output.	
+</p>
 <p class="rtext">Syntaksen når man deklarerer en funktion er:</p>
 <p class="rcode"><i>funktionsNavn</i> <- function(<i>input</i>){
   <i>indhold</i>
 }</p>
-<p class="rtext">En funktion er som regel kun meningsfuld, hvis den giver et output. Det kan gøres på to måder: Funktionen <code>return()</code> vil give et console-output, mens deklarationen af et element med dobbeltpil <code><<-</code> vil give et output med globalt scope.</p>
-<p class="rtext">Vi har brug for en funktion, der kan lave en blok-randomiseret sekvens med et <i>n</i> antal blokke og med en blokstørrelse af <i>b</i>, samt mulighed for at definere <code>set.seed()</code>. <br>
-Funktionerne <code>if(missing( <i>x</i> )){ <i>x</i> = <i>værdi</i> }</code> giver mulighed for at man kan definere default værdier for hvert input. Dette er ikke strengt nødvendigt - men det gør at funktionen ikke bare returnere en fejlmeddelelse hvis man glemmer et input. I denne funktion defineres default værdier for <i>n</i> og <i>b</i> til 8; mens <i>seed</i> gøres variabel - hvilket vil sige at hvis man ikke skriver et specifikt seed-tal til <code>set.seed()</code>-funktionen, så vælges der automatisk et tilfældigt tal mellem 10 og 99999.
+<p class="rtext">En funktion er som regel kun meningsfuld, hvis den giver et output. Det kan gøres på to måder: Funktionen 
+	<code><b>return</b>()</code> vil give et console-output, mens deklarationen af et element med dobbeltpil <code><b><<-</b></code> 
+	vil give et output med globalt scope.
+</p>
+<p class="rtext">Vi har brug for en funktion, der kan lave en blok-randomiseret sekvens med et <i>n</i> antal blokke og 
+	med en blokstørrelse af <i>b</i>, samt mulighed for at definere <code><b>set.seed</b>()</code>. </p>
+<p class="rtext">Funktionen <code><b>if</b>(<b>missing</b>( <i>x</i> )){ <i>x</i> = <i>værdi</i> }</code> giver mulighed for at man kan 
+	definere <i>default</i> værdier for hvert input. Dette er ikke strengt nødvendigt - men det gør at funktionen ikke 
+	bare returnere en fejlmeddelelse hvis man glemmer et input. I denne funktion defineres default værdier for <i>n</i> 
+	og <i>b</i> til 8; mens <i>seed</i> gøres variabel - hvilket vil sige at hvis man ikke skriver et specifikt seed-tal 
+	til <code><b>set.seed</b>()</code>-funktionen, så vælges der automatisk et tilfældigt heltal mellem 10 og 99999.
 </p>
 <p class="rcode">
 randomBlockEven <- function(n, b, seed){<br>
-  if(missing(n)){ n = 8 } # Number of blocks<br>
-  if(missing(b)){ b = 8 } # Block sizes<br>
-  if(missing(seed)){ seed = round(runif(10, min = 10, max = 99999),0)}<br>
-  set.seed(seed)<br><br>
+&nbsp;if(missing(n)){ n = 8 } # Number of blocks<br>
+&nbsp;if(missing(b)){ b = 8 } # Block sizes<br>
+&nbsp;if(missing(seed)){ seed = round( runif(10, min = 10, max = 99999),0 ) }<br>
+&nbsp;set.seed(seed)<br><br>
   
-  # Definition of the blocks<br>
-  groups  <- c(rep(1,(b/2)),rep(2,(b/2)))<br><br>
+&nbsp;# Definition of the blocks<br>
+&nbsp;groups  <- c(rep(1,(b/2)),rep(2,(b/2)))<br><br>
   
-  # Construction of the sequence<br>
-  randomlist  <- c(replicate(n, sample( groups, b, replace = FALSE ) ))<br>
-  return(randomlist)<br>
-}
+&nbsp;# Construction of the sequence<br>
+&nbsp;randomlist  <- c(replicate(n, sample( groups, b, replace = FALSE ) ))<br>
+&nbsp;return(randomlist)<br>
+&nbsp;}
 </p>
 <p class="rtext">Funktionen anvendes således:</p>
 <p class="rcode">
@@ -116,47 +168,67 @@ randomBlockEven(4,8, seed = 123)
 <p class="routput">
 [1] 2 2 1 2 1 1 2 1 2 1 2 1 1 1 2 2 1 2 1 1 2 2 2 1 2 1 2 1 2 1 1 2
 </p>
-<p class="rtext">Vil man bruge outputtet som et element, frem for et console-output, deklarerer man bare elementet påledes:</p>
+<p class="rtext">Vil man bruge outputtet som et element, frem for et console-output, 
+	deklarerer man bare elementet påledes:</p>
 <p class="rcode">
 randomSekvens <- randomBlockEven(4,8, seed = 123) 
 </p>
 </div>
 
 <h2>Blokrandomisering (med varierende blokstørrelser)</h2>
-<p class="rtext">Et vigtigt element i randomiserede kontrollerede forsøg er det vigtigt at personalet, der rekrutterer deltagere ikke kan forudsige hvilken gruppe den næste deltagere bliver allokeret til, fordi det potentielt kan påvirke deres beslutning om inklusion eller ej, eller deltagerens beslutning om at deltage. Sikringen af at fremtidige allokeringer skjult kaldes <i>concealment</i><br>
-I forsøg, hvor allokeringen ikke er blindet overfor personalet, vil personalet potentielt kunne huske allokeringen af tidligere deltagere. Hvis personalet samtidigt ved at der er randomiseret i blokke af otte og kan huske at der lige har været tre deltagere i intervention og fire deltagere i kontrolgruppen, så kan de regne ud at den næste deltagere vil komme i interventionsgruppen. <br>
-Løsningen på dette er at lave tilfældig variation i størrelsen af blokke, hvilket vil gøre at personalet ikke ved hvornår den en blok stopper og den næste starter. Typisk vil man lade blokstørrelsen skifte mellem 4, 6 og 8. 
+<p class="rtext">Et vigtigt element i randomiserede kontrollerede forsøg er det vigtigt at 
+	personalet, der rekrutterer deltagere ikke kan forudsige hvilken gruppe den næste 
+	deltagere bliver allokeret til, fordi det potentielt kan påvirke deres beslutning om 
+	inklusion eller ej, eller deltagerens beslutning om at deltage. Sikringen af at 
+	fremtidige allokeringer skjult kaldes <i>concealment</i></p>
+<p class="rtext">I forsøg, hvor allokeringen ikke er blindet overfor personalet, vil personalet 
+	potentielt kunne huske allokeringen af tidligere deltagere. Hvis personalet samtidigt 
+	ved at der er randomiseret i blokke af otte og kan huske at der lige har været tre 
+	deltagere i intervention og fire deltagere i kontrolgruppen, så kan de regne ud at den 
+	næste deltagere vil komme i interventionsgruppen. </p>
+<p class="rtext">Løsningen på dette er at lave tilfældig variation i størrelsen af blokke, 
+	hvilket vil gøre at personalet ikke ved hvornår den en blok stopper og den næste starter. 
+	Typisk vil man lade blokstørrelsen skifte mellem 4, 6 og 8. 
 </p>
-<p class="rtext">I funktionen, som vi brugte til at lave sekvensen med ens blokstørrelser, kunne vi bare bruge <code>replicate()</code>-funktionen til at lave en tabel med dimensionerne <i>n</i> x <i>b</i>. Men det kan vi ikke når blokstørrelserne varierer, fordi dimensionerne i en tabel skal være ens.<br> En løsning på dette er at bruge et <code>for-loop</code>, der bruger en <code>c()</code>-funktion til at kombinere hver ny blok (som liste) med den eksisterende sekvens (som også er en liste).</p>
+<p class="rtext">I funktionen, som vi brugte til at lave sekvensen med ens blokstørrelser, kunne 
+	vi bare bruge <code><b>replicate</b>()</code>-funktionen til at lave en tabel med dimensionerne 
+	<i>n</i> x <i>b</i>. Men det kan vi ikke når blokstørrelserne varierer, fordi dimensionerne 
+	i en tabel skal være ens.<br> En løsning på dette er at bruge et <code><b>for</b>-loop</code>, der 
+	bruger en <code><b>c</b>()</code>-funktion til at kombinere hver ny blok (som liste) med den 
+	eksisterende sekvens (som også er en liste).</p>
 <p class="rtext">Funktionen skal derved bruge tre elementer:
-	<ol>
-	<li>En <code>sample</code>-funktion, der tilfældigt vælger en blokstørrelser a enten 4, 6 eller 8;</li>
-	<li>En funktion (<i>randomseq</i>), der kan tage blokstørrelse som input og herefter bruger en <code>sample</code>-funktion til tilfældigt at fordele lige mange af hver allokeringer indenfor blokken; samt</li>
-	<li>et <code>for-loop</code> udfører <i>randomseq()</i>-funktionen <i>n</i> antal gange og for hver gentagelse 'klistre' den nye blok sammen med de tidligere i en samlet liste.</li>
+	<ol style="font-family: Arial;">
+	<li>En <code><b>sample</b>()</code>-funktion, der tilfældigt vælger en blokstørrelser a enten 4, 6 eller 8;</li>
+	<li>En funktion (<i>randomseq</i>), der kan tage blokstørrelse som input og herefter bruger en 
+		<code><b>sample</b>()</code>-funktion til tilfældigt at fordele lige mange af hver allokeringer indenfor blokken; samt</li>
+	<li>et <code><b>for</b>-loop</code> udfører <i>randomseq()</i>-funktionen <i>n</i> antal gange og for 
+		hver gentagelse 'klistre' den nye blok sammen med de tidligere i en samlet liste.</li>
 	</ol>
 </p>
 
 <p class="rcode">
 randomBlockVar <- function(n, seed){<br>
-  if (missing(n)){ n = 10 } # n defines the number of blocks<br>
-  if(missing(seed)){ seed = round(runif(10, min = 10, max = 99999),0)}<br>
-  set.seed(seed)<br><br>
+&nbsp;  if (missing(n)){ n = 10 } # n defines the number of blocks<br>
+&nbsp;  if(missing(seed)){ seed = round(runif(10, min = 10, max = 99999),0)}<br>
+&nbsp;  set.seed(seed)<br><br>
 
-    # random sampling of c(1,2) of b length<br>
-    randomseq <- function(b){<br>
-      sample( c(rep(1,b/2),rep(2,b/2)), b, replace=FALSE )<br>
-      }<br><br>
+&nbsp;    # random sampling of c(1,2) of b length<br>
+&nbsp;    randomseq <- function(b){<br>
+&nbsp;&nbsp; sample( c(rep(1,b/2),rep(2,b/2)), b, replace=FALSE )<br>
+	     # Alternative: <br>
+	     # sample( c(rep("Intervention",b/2),rep("Control",b/2)), b, replace=FALSE )<br>
+&nbsp;&nbsp;      }<br>
+	<br>
+&nbsp;    # list of the size of each block<br>
+&nbsp;    blocks <- sample(c(4,6,8),n,replace = T)<br><br>
     
-    # list of the size of each block<br>
-    blocks <- sample(c(4,6,8),n,replace = T)<br><br>
-    
-    # Construction of the sequence<br>
-    randomlist <- NULL<br>
-    for (i in 1:n){<br>
-      randomlist <- c(randomlist, randomseq(blocks[i]))<br>
-      }<br>
-  return(randomlist)<br>
-}<br>
+&nbsp;    # Construction of the sequence<br>
+&nbsp;    randomlist <- NULL<br>
+&nbsp;    for (i in 1:n){<br>
+&nbsp;&nbsp;      randomlist <- c(randomlist, randomseq(blocks[i]))<br>
+&nbsp;&nbsp;      }<br>
+&nbsp;  return(randomlist)<br>
+&nbsp;}<br>
 randomBlockVar(5)
 </p>
 <p class="routput">
@@ -164,16 +236,34 @@ randomBlockVar(5)
 </p>
 <div>
 <h3>Gem sekvens som fil</h3>
-<p class="rtext">Når randomiseringssekvensen skal bruges i praksis, fx hvis den skal implementeres i RedCap, er man nødt til at gemme den som en fil - fx som en komma-separeret fil (*.csv). I RedCap er det et krav at sekvensen er struktureret som en tabel, hvor den første kolonne har samme navn som den variabel, der bruges til randomisering (I nedenstående eksempel bruges variabelnavnet <i>allocation</i>).</p>
+<p class="rtext">Når randomiseringssekvensen skal bruges i praksis, fx hvis den skal implementeres 
+	i RedCap, er man nødt til at gemme den som en fil - fx som en komma-separeret fil (*.csv). 
+	I RedCap er det et krav at sekvensen er struktureret som en tabel, hvor den første kolonne 
+	har samme navn som den variabel, der bruges til randomisering (I nedenstående eksempel 
+	bruges variabelnavnet <i>allocation</i>).</p>
 <p class="rcode">
 write.csv(data.frame(allocation = randomBlockVar(10)), "randomseq.csv", row.names=FALSE)
 </p>
-<p class="rtext">Det er vigtigt at argumentet <code>row.names</code> sættes til <code>FALSE</code>, så det er allocation, der er første kolonne.</p>
+<p class="rtext">Det er vigtigt at argumentet <code>row.names</code> sættes til <code>FALSE</code>, 
+	så det er allocation, der er første kolonne.</p>
 </div>
 <h2>Stratificering</h2>
-<p class="rtext">Hvis der er kendte eller mistænkte interaktioner mellem interaktionen og en faktor hos deltagerne vil vi helst have at fordelingen af denne faktor bliver nogenlunde ens i allokeringsgrupperne. I teorien vil dette fordele sig ligeligt hvis bare studiet er stort nok i forhold til forekomsten af faktoren. Men fordi vi ofte vil begrænse antallet af deltagere i et randomiseret forsøg, kan det være en fordel af 'tvinge' fordelen til at være ens ved at stratificere randomiseringen, så man har en randomiseringssekvens for hver strata. <br>
-Det kan fx være at vi på forhånd har en formodning om at effekten af vores intervention vil være mindre, hvis patienten samtidigt er i behandling med en beta-blokker. Her vil vi lave en randomiseringssekvens til deltagere med beta-blokker behandling (med en længde på 100) og en til deltagere uden (med en længde på 100).<br> 
-Fordi vi bruger en funktion med varierende blokstørrelse ved vi ikke på forhånd hvor lang sekvens den vil returnere. Men det kan vi komme udenom ved at lave en der med sikkerhed er længere end det ønskede og derefter begrænse den til det ønskede antal (i eksemplet til en længde a 100 for hvert strata).</p>
+<p class="rtext">Hvis der er kendte eller mistænkte interaktioner mellem interaktionen og en faktor 
+	hos deltagerne vil vi helst have at fordelingen af denne faktor bliver nogenlunde ens i 
+	allokeringsgrupperne. I teorien vil dette fordele sig ligeligt hvis bare studiet er stort nok 
+	i forhold til forekomsten af faktoren. Men fordi vi ofte vil begrænse antallet af deltagere i 
+	et randomiseret forsøg, kan det være en fordel af 'tvinge' fordelen til at være ens ved at 
+	stratificere randomiseringen, så man har en randomiseringssekvens for hver strata. </p>
+<p class="rtext">Det kan fx være at vi på forhånd har en formodning om at effekten af vores intervention 
+	vil være mindre, hvis patienten samtidigt er i behandling med en beta-blokker. Her laves 
+	en randomiseringssekvens til deltagere med beta-blokker behandling (med en længde på 100) og en 
+	til deltagere uden (med en længde på 100).</p> 
+<p class="rtext">Fordi vi bruger en funktion med varierende blokstørrelse ved vi ikke på forhånd hvor lang sekvens den 
+	vil returnere. Men det kan vi komme udenom ved at lave en der med sikkerhed er længere end det 
+	ønskede og derefter begrænse den til det ønskede antal (i eksemplet til en længde a 100 for hvert strata).</p>
+<p class="rtext">Derefter tilføjes en ny kolonne med navn <i>betablokker</i> (I RedCap skal den have sammen 
+	navn som stratificerings variablen), hvor <code><i>rep</i>()</code>-funktionen bruges til at lave en 
+	liste med først 100 gange '1' og derefter 100 gange '2'.</p>
 <p class="rcode">
 write.csv(<br>
 	&nbsp;data.frame( allocation = c(randomBlockVar(100)[1:100], randomBlockVar(100)[1:100]),<br>
