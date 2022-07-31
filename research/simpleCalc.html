@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 style="text-align:center;">Very simple calculator</h2>
+<input style="height:30px; 
+            width: 210px; 
+            display: block;
+            margin-inline:auto;
+            font-size:20px;"  
+        type="text" id="promptText" name="promptText" placeholder="Equation"><br>
+
+<div style="border:1px solid gray; 
+            background-color:#e6ffff;
+            height: 20px; width: 
+            200px;margin-top: 15px; 
+            padding: 10px; 
+            margin-inline:auto;">
+<p style="margin: 0;font-size:20px;">= <span id="calcOutput"></span></p>
+</div><br>
+
+<button style="height:30px; width: 
+                220px;display: block;
+                margin-inline:auto;
+                font-size:20px;" 
+            type="button" 
+            class="button" 
+            onclick="document.getElementById('calcOutput').innerHTML = calculateFun()">
+        Calculate
+</button>
+<script>
+    function calculateFun(){
+        let x = document.getElementById("promptText").value;
+        let a = x.toString(); 
+        return eval(a);
+    }
+</script>
