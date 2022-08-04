@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: rgb(242, 242, 242);
+}
+main { 
+  background-color: white;
+  width: min(800px, 95%);
+  }
+h1 {
+  color: white;
+  text-align: center;
+}
+  .grid-container { border: 1px solid red; width: 90%; margin-inline: auto; 
+			padding: 10px;display: grid; grid-template-columns: 50% 50%}
+p {
+  font-family: verdana;
+  font-size: 12px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+  .button { background-color: #e6e6e6; }
+  .button:hover { background-color: #cccccc; }
+</style>
+<script>
+
+function onClickNIHSS(){
+	let a = document.nihss1.nihss_consc.value;
+    let aa = +a + +a;
+    return document.getElementById('output1').innerHTML = "NIHSS: " + aa; }
+function onClickSSS(){
+	let a = document.sss1.sss_consc.value;
+    return document.getElementById('output2').innerHTML = "SSS: " + a; }
+   
+</script>
+</head>
+<body>
+<main>
+<div style="height: 50px;"></div>
+<div class="grid-container">
+<div><h2>Bevidsthed</h2></div>
+<div></div>
+<div><p>Hjælpetekst</p></div>
+<div></div>
+<table style="margin: 10px;">
+<form name="nihss1">
+<tr><th colspan="3">NIHSS</th></tr>
+<tr>
+	<td style="width: 10%;"><input type="radio" name="nihss_consc" value="0" checked></td>
+    <td style="width: 10%;">0</td>
+    <td style="width: 80%;text-align: left;padding: 5px;">Vågen</td>
+    
+</tr>
+<tr>
+	<td><input type="radio" name="nihss_consc" value="1"></td>
+    <td>1</td>
+    <td style="text-align: left;padding: 5px;">Ikke vågen, men kan vækkes ved minimal stimulation</td>   
+</tr>
+<tr>
+	<td><input type="radio" name="nihss_consc" value="2"></td>
+    <td>2</td>
+    <td style="text-align: left;padding: 5px;">Gentagen stimulation nødvendig for at opnå kontakt</td>   
+</tr>
+<tr>
+	<td><input type="radio" name="nihss_consc" value="3"></td>
+    <td>3</td>
+    <td style="text-align: left;padding: 5px;">Coma</td>   
+</tr>
+</form>
+
+</table>
+
+<table style="margin: 10px;">
+<form name="sss1">
+<tr><th colspan="3">SSS</th></tr>
+<tr>
+	<td style="width: 10%;"><input type="radio" name="sss_consc" value="6" checked></td>
+    <td style="width: 10%;">6</td>
+    <td style="width: 80%;text-align: left;padding: 5px;">Vågen og ved fuld bevidsthed</td>
+</tr>
+<tr>
+	<td><input type="radio" name="sss_consc" value="4"></td>
+    <td>4</td>
+    <td style="text-align: left;padding: 5px;">Somnolent, kan vækkes til vågen tilstand</td>   
+</tr>
+<tr>
+	<td><input type="radio" name="sss_consc" value="2"></td>
+    <td>2</td>
+    <td style="text-align: left;padding: 5px;">Reagere på verbal opfordring</td>   
+</tr>
+<tr>
+	<td><input type="radio" name="sss_consc" value="0"></td>
+    <td>0</td>
+    <td style="text-align: left;padding: 5px;">Dybt bevidstløs</td>   
+</tr>
+</form>
+
+</table>
+</div><br><br>
+<button type="button" class="button" onclick="onClickNIHSS();onClickSSS();">Vis resultat</button>
+<h2 id="output1"></h2>
+<h2 id="output2"></h2>
+
+
+</main>
+</body>
+</html>
