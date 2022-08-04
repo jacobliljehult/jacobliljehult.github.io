@@ -13,7 +13,7 @@ h1 {
   color: white;
   text-align: center;
 }
-  .grid-container { border: 1px solid red; width: 90%; margin-inline: auto; 
+  .container { border: 1px solid red; width: 90%; margin-inline: auto; 
 			padding: 10px;display: grid; grid-template-columns: 50% 50%}
 p {
   font-family: verdana;
@@ -40,39 +40,37 @@ function onClickSSS(){
 </head>
 <body>
 <main>
-<div style="height: 50px;"></div>
-<div class="grid-container">
-<div><h2>Bevidsthed</h2></div>
-<div></div>
-<div><p>Hjælpetekst</p></div>
-<div></div>
-<table style="margin: 10px;">
-<form name="nihss1">
-<tr><th colspan="3">NIHSS</th></tr>
-<tr>
-	<td style="width: 10%;"><input type="radio" name="nihss_consc" value="0" checked></td>
-    <td style="width: 10%;">0</td>
-    <td style="width: 80%;text-align: left;padding: 5px;">Vågen</td>
-    
-</tr>
-<tr>
-	<td><input type="radio" name="nihss_consc" value="1"></td>
-    <td>1</td>
-    <td style="text-align: left;padding: 5px;">Ikke vågen, men kan vækkes ved minimal stimulation</td>   
-</tr>
-<tr>
-	<td><input type="radio" name="nihss_consc" value="2"></td>
-    <td>2</td>
-    <td style="text-align: left;padding: 5px;">Gentagen stimulation nødvendig for at opnå kontakt</td>   
-</tr>
-<tr>
-	<td><input type="radio" name="nihss_consc" value="3"></td>
-    <td>3</td>
-    <td style="text-align: left;padding: 5px;">Coma</td>   
-</tr>
-</form>
-
-</table>
+  <div style="height: 50px;"></div>
+    <div class="container">
+      <div><h2>Bevidsthed</h2></div>
+      <div></div>
+      <div><p>Hjælpetekst</p></div>
+      <div></div>
+      <table style="margin: 10px;">
+        <form name="nihss1">
+          <tr><th colspan="3">NIHSS</th></tr>
+          <tr>
+	          <td style="width: 10%;"><input type="radio" name="nihss_consc" value="0" checked></td>
+            <td style="width: 10%;">0</td>
+            <td style="width: 80%;text-align: left;padding: 5px;">Vågen</td>
+          </tr>
+          <tr>
+	          <td><input type="radio" name="nihss_consc" value="1"></td>
+            <td>1</td>
+            <td style="text-align: left;padding: 5px;">Ikke vågen, men kan vækkes ved minimal stimulation</td>   
+          </tr>
+          <tr>
+	          <td><input type="radio" name="nihss_consc" value="2"></td>
+            <td>2</td>
+            <td style="text-align: left;padding: 5px;">Gentagen stimulation nødvendig for at opnå kontakt</td>   
+          </tr>
+          <tr>
+	          <td><input type="radio" name="nihss_consc" value="3"></td>
+            <td>3</td>
+            <td style="text-align: left;padding: 5px;">Coma</td>   
+          </tr>
+        </form>
+      </table>
 
 <table style="margin: 10px;">
 <form name="sss1">
