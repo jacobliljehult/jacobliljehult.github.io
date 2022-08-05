@@ -3,29 +3,521 @@
 <head>
 <style>
 body {
-  background-color: rgb(242, 242, 242);
-}
-main { 
   background-color: white;
-  width: min(800px, 95%);
-  }
+}
+
 h1 {
   color: white;
   text-align: center;
 }
-  .container { border: 1px solid red; width: 90%; margin-inline: auto; 
-			padding: 10px;display: grid; grid-template-columns: 50% 50%}
+
 p {
   font-family: verdana;
-  font-size: 12px;
+  font-size: 20px;
 }
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
-  .button { background-color: #e6e6e6; }
-  .button:hover { background-color: #cccccc; }
+td { font-size: 12px; font-family: ariel; }
 </style>
+</head>
+<body>
+<table style="width: 80%; margin: auto; border: 2px solid black;">
+<!-- Headings -->
+<tr><th style="width: 20%; border-bottom: 2px solid black;">
+Item
+</th><th style="width: 5%; border-bottom: 2px solid black;">
+Point
+</th><th style="width: 25%; border-bottom: 2px solid black;">
+NIHSS
+</th><th style="width: 5%; border-bottom: 2px solid black;">
+Point
+</th><th style="width: 25%; border-bottom: 2px solid black;">
+SSS
+</th>
+</tr>
+
+<!-- Bevidsthed -->
+<tr>
+<td rowspan="4" style="border-bottom: 2px solid black;">
+Bevidsthedsniveau
+</td><td >
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Vågen
+</td><td>
+<input type="radio" name="" value="6" checked>6
+</td><td>
+Vågen og ved fuld bevidsthed
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Ikke vågen, men kan vækkes ved minimal stimulation
+</td><td>
+<input type="radio" name="" value="4" >4
+</td><td>
+Somnolent, kan vækkes til vågen tilstand
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Gentagen stimulation nødvendig for at opnå kontakt
+</td><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Reagere på verbal opfordring
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="3" >3
+</td><td style="border-bottom: 2px solid black;">
+Coma
+</td><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="0" >0
+</td><td style="border-bottom: 2px solid black;">
+Dybt bevidstløs
+</td>
+</tr>
+
+<!-- Orientering -->
+<tr>
+<td rowspan="4" style="border-bottom: 2px solid black;">
+Spørg om aktuel måned og alder
+</td><td>
+<input type="radio" name="" value="0" checked>0</td><td>
+
+Besvarer begge korrekt
+</td><td>
+<input type="radio" name="" value="6" checked>6
+</td><td>
+Orienteret i måned, hospital, fødselsdag
+</td></tr>
+<tr><td rowspan="2">
+<input type="radio" name="" value="1" >1
+</td><td rowspan="2">
+Besvarer et korrekt
+</td><td>
+<input type="radio" name="" value="4" >4
+</td><td>
+2 af 3 korrekt
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+1 af 3 korrekt
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="2" >2
+</td><td style="border-bottom: 2px solid black;">
+Besvarer ingen korrekt
+</td><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="0" >0
+</td><td style="border-bottom: 2px solid black;">
+Ingen korrekt
+</td></tr>
+
+<!-- Opfordringer -->
+<tr><td rowspan="3" style="border-bottom: 2px solid black;">
+Bed pt åbne og lukke øjnene og knyt og åbn hånden
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Adlyder begge korrekt
+</td><td rowspan="3" colspan="2" style="background-color:lightgray; border-bottom: 2px solid black;"></td></tr>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Adlyder en korrekt
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="2" >2
+</td><td style="border-bottom: 2px solid black;">
+Adlyder ingen korrekt
+</td></tr>
+
+<!-- Øjenbevægelser -->
+<tr><td rowspan="3" style="border-bottom: 2px solid black;">
+Horisontal øjenbevægelse
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Normal
+</td><td>
+<input type="radio" name="" value="4" checked>4
+</td><td>
+Ingen blikparese
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Partiel blikparese
+</td><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Blikparese til stede
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="2" >2
+</td><td style="border-bottom: 2px solid black;">
+Tvungen blikparese
+</td><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="0" >0
+</td><td style="border-bottom: 2px solid black;">
+Konjugeret blikparese
+</td>
+</tr>
+
+<!-- Synsfelt -->
+<tr>
+<td rowspan="4" style="border-bottom: 2px solid black;">
+Synsfelt
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Normalt
+</td><td rowspan="4" colspan="2" style="background-color:lightgray; border-bottom: 2px solid black;"></td></tr>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Partiel hemianopsi
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Komplet hemianopsi
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="3" >3
+</td><td style="border-bottom: 2px solid black;">
+Bilateral hemianopsi, kortikal blindhed
+</td>
+</tr>
+
+<!-- Faciales -->
+<tr>
+<td rowspan="4" style="border-bottom: 2px solid black;">
+Faciales parese
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Symmetrisk bevægelse
+</td><td>
+<input type="radio" name="" value="2" checked>2
+</td><td>
+Ingen eller tvivlsom faciales parese
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Let parese (affladet nasolabialfure, asymmetri ved smil
+</td><td rowspan="3" style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="0" >0
+</td><td rowspan="3" style="border-bottom: 2px solid black;">
+Faciales parese til stede
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Partiel paralyse (total eller næsten total paralyse af nedre ansigtshalvdel)
+</td></tr><tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="3" >3
+</td><td style="border-bottom: 2px solid black;">
+Komplet paralyse (øvre og nedre)
+</td>
+</tr>
+
+<!-- Arm -->
+<tr>
+<td rowspan="5" style="border-bottom: 2px solid black;">
+Motorisk funktion i arm
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Normal (løft arm 90o i 10 sek uden deviation
+</td><td>
+<input type="radio" name="" value="6" checked>6
+</td><td>
+Løfter arm med normal kraft
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Deviation
+</td><td>
+<input type="radio" name="" value="5" >5
+</td><td>
+Løfter arm med nedsat kraft
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Nogen modstand mod tyngden
+</td><td>
+<input type="radio" name="" value="4" >4
+</td><td>
+Løfter arm med fleksion af albuen
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="3" >3
+</td><td>
+Ingen bevægelse mod tyngden
+</td><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Bevæger arm men ikke mod tyngden
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="4" >4
+</td><td style="border-bottom: 2px solid black;">
+Ingen bevægelse
+</td><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="0" >0
+</td><td style="border-bottom: 2px solid black;">
+Paralyse
+</td>
+</tr>
+
+<!-- Hånd -->
+<tr>
+<td rowspan="4" style="border-bottom: 2px solid black;">
+Motorisk funktion i hånd
+</td><td rowspan="4" colspan="2" style="background-color:lightgray; border-bottom: 2px solid black;"></td><td>
+<input type="radio" name="" value="6" checked>6
+</td><td>
+Normal kraft
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="4" >4
+</td><td>
+Nedsat kraft, men normal bevægelighed
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Nogen bevægelse, kan ikke knytte hånden
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="0" >0
+</td><td style="border-bottom: 2px solid black;">
+Paralyse
+</td>
+</tr>
+
+<!-- Ben -->
+<tr>
+<td rowspan="5" style="border-bottom: 2px solid black;">
+Motorisk funktion i ben
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Normal (løft ben 30 o i 5 sek uden deviation
+</td><td>
+<input type="radio" name="" value="6" checked>6
+</td><td>
+Løfter ben med normal kraft
+</td></tr>
+<tr><<td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Deviation
+</td><td>
+<input type="radio" name="" value="5" >5
+</td><td>
+Løfter strakt ben med nedsat kraft
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Nogen modstand mod tyngden
+</td><td>
+<input type="radio" name="" value="4" >4
+</td><td>
+Løfter ben med fleksion af knæet
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="3" >3
+</td><td>
+Ingen bevægelse mod tyngden
+</td><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Bevæger benet men ikke mod tyngden
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="4" >4
+</td><td style="border-bottom: 2px solid black;">
+Ingen bevægelse
+</td><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="0" >0
+</td><td style="border-bottom: 2px solid black;">
+Paralyse
+</td>
+</tr>
+
+<!-- Gangfunktion -->
+<tr>
+<td rowspan="5" style="border-bottom: 2px solid black;">
+Gangfunktion
+</td><td rowspan="5" colspan="2" style="background-color:lightgray; border-bottom: 2px solid black;"></td><td>
+<input type="radio" name="" value="12" checked>12
+</td><td>
+Går 5 meter uden hjælpemidler
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="9" >9
+</td><td>
+Går med hjælpemidler
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="6" >6
+</td><td>
+Går med personstøtte
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="3" >3
+</td><td>
+Går ikke, sidder uden støtte
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="0" >0
+</td><td style="border-bottom: 2px solid black;">
+Seng eller kørestolsbunden
+</td></tr>
+
+<!-- Ataksi -->
+<tr><td rowspan="3" style="border-bottom: 2px solid black;">
+Ekstremitets ataksi
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Ingen ataksi (FNF+hæl/knæ)
+</td><td rowspan="3" colspan="2" style="background-color:lightgray; border-bottom: 2px solid black;"></td></tr>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Til stede i en ekstremitet
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="2" >2
+</td><td style="border-bottom: 2px solid black;">
+Til stede i to ekstremiteter
+</td>
+</tr>
+
+<!-- Sensorisk -->
+<tr>
+<td rowspan="3" style="border-bottom: 2px solid black;">
+Sensorisk (spids: arme, ben, trunkus og ansigt)
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Normal
+</td><td rowspan="3" colspan="2" style="background-color:lightgray; border-bottom: 2px solid black;"></td></tr>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Mildt til moderat nedsat følesans
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="2" >2
+</td><td style="border-bottom: 2px solid black;">
+Svært til komplet tab af følesans
+</td>
+</tr>
+
+<!-- Sprog/afasi -->
+<tr>
+<td rowspan="5" style="border-bottom: 2px solid black;">
+Bedste sprogfunktion (Beskriv billede, benævne genstande)
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Ingen afasi
+</td><td>
+<input type="radio" name="" value="10" checked>10
+</td><td>
+Ingen afasi
+</td></tr>
+<tr><td rowspan="2">
+<input type="radio" name="" value="" >1</td><td rowspan="2">
+
+Mild til moderat afasi
+</td><td>
+<input type="radio" name="" value="6" >6
+</td><td>
+Begrænset ordforråd/ usammenhængende tale
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="3" >3
+</td><td>
+Mere end ja og nej, men korte sætninger
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Svær afasi
+</td><td rowspan="2" style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="0" >0
+</td><td rowspan="2" style="border-bottom: 2px solid black;">
+Højst ja og nej
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="3" >3
+</td><td style="border-bottom: 2px solid black;">
+Stum
+</td>
+</tr>
+
+<!-- Dysatri -->
+<tr>
+<td rowspan="3" style="border-bottom: 2px solid black;">
+Dysartri (Læs adskillige ord)
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Normal artikulation
+</td></td><td rowspan="3" colspan="2" style="background-color:lightgray; border-bottom: 2px solid black;"></td>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Let til moderat utydelig tale
+</td></tr>
+<tr><td style="border-bottom: 2px solid black;">
+<input type="radio" name="" value="2" >2
+</td><td style="border-bottom: 2px solid black;">
+Næsten uforståelig eller uden af stand til at tale
+</td>
+</tr>
+
+<!-- Neglect -->
+<tr>
+<td rowspan="3">
+Neglect (visuel og sensorisk bilat simultan stimulation)
+</td><td>
+<input type="radio" name="" value="0" checked>0
+</td><td>
+Normal
+</td><td rowspan="3" colspan="2" style="background-color:lightgray;"></td></tr>
+<tr><td>
+<input type="radio" name="" value="1" >1
+</td><td>
+Uopmærksomhed eller extinction for bilat simultan stimulation i en af de sensoriske modaliteter
+</td></tr>
+<tr><td>
+<input type="radio" name="" value="2" >2
+</td><td>
+Alvorlig hemiform uopmærksomhed for mere end en modalitet
+</td>
+</tr>
+
+
+ 
+<table>
+<button type="button" class="button" onclick="onClickNIHSS();onClickSSS();">Resultat</button>
+<h2 id="output1"></h2>
+<h2 id="output2"></h2>
+
 <script>
 
 function onClickNIHSS(){
@@ -37,73 +529,5 @@ function onClickSSS(){
     return document.getElementById('output2').innerHTML = "SSS: " + a; }
    
 </script>
-</head>
-<body>
-<main>
-  <div style="height: 50px;"></div>
-    <div class="container">
-      <div><h2>Bevidsthed</h2></div>
-      <div></div>
-      <div><p>Hjælpetekst</p></div>
-      <div></div>
-      <table style="margin: 10px;">
-        <form name="nihss1">
-          <tr><th colspan="3">NIHSS</th></tr>
-          <tr>
-	          <td style="width: 10%;"><input type="radio" name="nihss_consc" value="0" checked></td>
-            <td style="width: 10%;">0</td>
-            <td style="width: 80%;text-align: left;padding: 5px;">Vågen</td>
-          </tr>
-          <tr>
-	          <td><input type="radio" name="nihss_consc" value="1"></td>
-            <td>1</td>
-            <td style="text-align: left;padding: 5px;">Ikke vågen, men kan vækkes ved minimal stimulation</td>   
-          </tr>
-          <tr>
-	          <td><input type="radio" name="nihss_consc" value="2"></td>
-            <td>2</td>
-            <td style="text-align: left;padding: 5px;">Gentagen stimulation nødvendig for at opnå kontakt</td>   
-          </tr>
-          <tr>
-	          <td><input type="radio" name="nihss_consc" value="3"></td>
-            <td>3</td>
-            <td style="text-align: left;padding: 5px;">Coma</td>   
-          </tr>
-        </form>
-      </table>
-
-<table style="margin: 10px;">
-<form name="sss1">
-<tr><th colspan="3">SSS</th></tr>
-<tr>
-	<td style="width: 10%;"><input type="radio" name="sss_consc" value="6" checked></td>
-    <td style="width: 10%;">6</td>
-    <td style="width: 80%;text-align: left;padding: 5px;">Vågen og ved fuld bevidsthed</td>
-</tr>
-<tr>
-	<td><input type="radio" name="sss_consc" value="4"></td>
-    <td>4</td>
-    <td style="text-align: left;padding: 5px;">Somnolent, kan vækkes til vågen tilstand</td>   
-</tr>
-<tr>
-	<td><input type="radio" name="sss_consc" value="2"></td>
-    <td>2</td>
-    <td style="text-align: left;padding: 5px;">Reagere på verbal opfordring</td>   
-</tr>
-<tr>
-	<td><input type="radio" name="sss_consc" value="0"></td>
-    <td>0</td>
-    <td style="text-align: left;padding: 5px;">Dybt bevidstløs</td>   
-</tr>
-</form>
-
-</table>
-</div><br><br>
-<button type="button" class="button" onclick="onClickNIHSS();onClickSSS();">Vis resultat</button>
-<h2 id="output1"></h2>
-<h2 id="output2"></h2>
-
-
-</main>
 </body>
 </html>
