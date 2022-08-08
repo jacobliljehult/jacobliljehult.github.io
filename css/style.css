@@ -437,9 +437,23 @@
   }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-  @media screen and (max-width: 400px) {
+  @media (orientation : portrait) {
     .topnav a {
       float: none;
       width: 100%;
-    }
+    } 
+    .leftcolumn { 
+      float: none;
+      width: 100%; }
+  }
+
+/* Styling of print format - When the page is printed only maintext should be displayed but not menus */
+@media print {
+  	.headerstroke { display: none; }
+    	.leftcolumn { display: none; } 
+    	.topnav a { display: none; }
+    	.rightcolumn {   
+      		width: 100%;
+      		padding: 0; 
+      }
   }
