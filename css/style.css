@@ -122,10 +122,7 @@
     margin-inline: auto;
     width: min(800px,90%);  
     }
-    @media (orientation: portrait) {
-      .maintext {margin-inline: 0%;
-	    width: 100%}
-      }
+    /* Mobil modification */
   .maintext p, ul, li {font-family: times;}
   .maintext h1 {
     text-align: center; 
@@ -253,15 +250,7 @@
   .gridbox a {text-decoration: none;
     color: black}
                        
-@media (orientation: portrait) {
-  .gridbox  {   
-    display:grid; gap: 20px;
-    grid-template-columns: 1fr ;
-              margin-left:auto; 
-              margin-right: auto; 
-              margin-top: 10px; margin-bottom: 30px;
-              width: min(100%, 600px);	}
-  .gridbox img {width: min(100%, 600px) }   }     
+   
 /* ::::: Særlige boxe til billeder ::::::::::::::::::::::::::::::::::::: */
   .imgbox { border: 0px solid lightgray; 
 		width: 350px; height: 500px;
@@ -440,29 +429,7 @@
   }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-  @media (orientation : portrait) {
-	  body { padding: 0; }
-	  .rightcolumn { width: 100% }
-	  .maintext { width: 100% }
-	  .mobilnav { width: 100%; 
-    		background-color: gray; 
-	    	display: block; 
-	    	float: left;
-                }
-    .mobilnav a { font-size: 18px; text-align: center; color: white; text-decoration: none; }
-    .navbar { padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
-    .mobilnav h2 { color: white; text-align: center; padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
-    .navbar:hover { background-color:white; color: gray; }.topnav a {
-      float: none;
-      width: 100%;
-    } 
-    .leftcolumn { 
-      display: none;
-      width: 100%; }
-	  .footer_large { display: none; }
-	  .footer_small { display: block; background-color: rgb(87,87,87)}
-  }
-
+  /* ## Moved to the file mobil.css ## */
 /* Styling of print format - When the page is printed only maintext should be displayed but not menus */
 @media print {
   	.headerstroke { display: none; }
