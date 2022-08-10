@@ -434,6 +434,7 @@
       width: 100%;
       padding: 0;
       }
+	.mobilnav { display: none; }
 	  .footer_large { display: block; }
 	  .footer_small { display: none; }
   }
