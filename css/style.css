@@ -425,7 +425,7 @@
     background: rgb(245,245,245);
     margin-top: 20px;
       }
-  
+  .footer_small { display: none; }
 
 /* ============================================================= */
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
@@ -438,13 +438,23 @@
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
   @media (orientation : portrait) {
-    .topnav a {
+    .mobilnav { width: 100%; 
+    		background-color: gray; 
+	    	display: block; 
+	    	float: left;
+                }
+    .mobilnav a { font-size: 18px; text-align: center; color: white; text-decoration: none; }
+    .navbar { padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
+    .mobilnav h2 { color: white; text-align: center; padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
+    .navbar:hover { background-color:white; color: gray; }.topnav a {
       float: none;
       width: 100%;
     } 
     .leftcolumn { 
       float: none;
       width: 100%; }
+	  .footer_large { display: none; }
+	  .footer_small { display: block; }
   }
 
 /* Styling of print format - When the page is printed only maintext should be displayed but not menus */
