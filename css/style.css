@@ -114,11 +114,12 @@
   .rightcolumn {
     float: left;
     background-color: rgb(245,245,245);
+    width: max(80%, 100% - 200px);
     padding-left: 20px;
     }
-    @media (orientation: landspace){
+    /*@media (orientation: landspace){
       .rightcolumn { width: max(80%, 100% - 200px); }
-    }
+    }*/
 /* ===== Maintexts ================================================= */
   
   .maintext {	
