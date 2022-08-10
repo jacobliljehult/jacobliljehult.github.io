@@ -22,10 +22,20 @@
   .leftcolumn { 
     display: none;
     width: 100%; }
+
+    /* Mobil footer */
     .footer_large { display: none; }
     .footer_small { display: block; background-color: rgb(87,87,87)}
     .footer_small p { color: whitesmoke; }
     .footer_small a { color: cyan; }
+    .footer_small img {
+        height: 20%; 
+        width: 20%; 
+        display: block; 
+        margin-left: auto;
+        margin-right: auto; 
+        border-radius: 50%;
+        border: 0px solid darkgray;"}
 
     .gridbox  {   
       display:grid; gap: 20px;

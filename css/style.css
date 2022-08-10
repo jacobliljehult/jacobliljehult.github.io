@@ -419,10 +419,10 @@
 /* ============================================================= */
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
   @media (orientation : landscape) {
-    .leftcolumn, .rightcolumn {   
+    /*.leftcolumn, .rightcolumn {   
       width: 100%;
       padding: 0;
-      }
+      }*/
 	.mobilnav { display: none; }
 	  .footer_large { display: block; }
 	  .footer_small { display: none; }
