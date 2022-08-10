@@ -456,7 +456,7 @@
       display: none;
       width: 100%; }
 	  .footer_large { display: none; }
-	  .footer_small { display: block; }
+	  .footer_small { display: block; background-color: rgb(87,87,87)}
   }
 
 /* Styling of print format - When the page is printed only maintext should be displayed but not menus */
