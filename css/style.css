@@ -55,13 +55,15 @@
 /* Left column */
   .leftcolumn {   
     float: left;
+    width: 20%;
+    max-width: 200px;
     height: 100%;
     background-color: rgb(245,245,245);
     }
-    @media (orientation: landspace){
+    /*@media (orientation: landspace){
       .leftcolumn { width: 20%;
         max-width: 200px;}
-    }
+    }*/
 /* ===== Navigation i venstre side ============================= */
   .sidenav {
     background-color: rgb(87,87,87);
