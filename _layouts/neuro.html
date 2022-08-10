@@ -18,6 +18,7 @@
   			<a href="http://jacobliljehult.github.io/neuro/" style="float:right">Home</a> 
 		</div>
 
+		<!-- Sidemenu displayes on orientation landscape -->
 		<div class="row">
   			<div class="leftcolumn">
     			<div class="sidenav">
@@ -69,7 +70,37 @@
  	     			</div>  
     			</div>
 			</div>
+  <!-- Topmenu displayes on orientation portrait -->
+	<div>		
+	  <script>
+  function showMenu() {
+     document.getElementById("menu").style.display = "block";
+     document.getElementById("menuBottom").style.display = "none";
+                    }
+                  function hideMenu() {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("menuBottom").style.display = "block";
+                    }
   
+  </script>
+  <div class="mobilnav">
+      				<div id="menuBottom" onclick="showMenu()"><h2>Menu</h2></div>
+                    <div id="menu" style="display: none">
+                    <div onclick="hideMenu()"><h2>Menu</h2></div>
+      				<a href="/neuro/content/neuroanatomi_overordnet.html"><div class="navbar"></div></a><br>
+			    			<div><h2>Apopleksi</h2></div>
+						<a href="/neuro/content/apopleksi.html"><div class="navbar">Introduktion</div></a><br>
+						<a href="/neuro/content/apo_epidemiologi.html"><div class="navbar">Epidemiologi</div></a><br>
+						<a href="/neuro/content/klinik.html"></a>
+      						<a href="/neuro/content/dysfagi.html"><div class="navbar">Dysfagi</div></a><br>
+      						<a href="/neuro/content/sip.html"><div class="navbar">SIP score</div></a><br>    
+						<a href="/neuro/content/gcs.html"><div class="navbar">Glasgow Coma Scale</div></a><br>
+						<a href="/neuro/content/dysfagi.html#guss"><div class="navbar">GUSS (dysfagi screening)</div></a><br>   
+      						<a href="/neuro/slides/"><div class="navbar">Slides</div></a><br>
+      						<a href="/neuro/content/references.html"><div class="navbar">Litteratur</div></a><br>
+        </div>
+  </div>		
+	</div>		
 			<div class="rightcolumn"> 
 				<div class="card">
   					<main class="maintext">
@@ -80,7 +111,7 @@
 			</div>
 		</div>
 
-		<footer class="footer">
+		<footer class="footer footer_large">
 			<p>
 				Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
     			Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - 
@@ -93,6 +124,38 @@
 					Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)</a>; 
 				yderligere betingelser kan være gældende.
 			</p>
+		</footer>
+		<footer class="footer footer_small">
+		<img src="/neuro/images/JacobLiljehult.jpg" 
+							style="	height: 100px; 
+									width: 100px; 
+									display: block; 
+									margin-left: auto;
+ 									margin-right: auto; 
+									border-radius: 50%;
+									border: 0px solid darkgray;">
+	        			<p style="font-size: 12px;text-align: center; color: rgb(234,234,234)">
+	        				<b style="font-size: 16px; color: white">
+								Jacob Liljehult</b><br>
+	        					Klinisk sygeplejespecialist<br>
+	        					cand.scient.san, Ph.d.<br><br>
+	        				<b style="font-size: 14px">
+								Neurologisk afdeling<br>
+	        					Nordsjællands Hospital</b>
+						<hr>
+						<p>
+				Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
+    			Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - 
+				<a href="https://www.researchgate.net/profile/Jacob-Liljehult">ResearchGate</a> - 
+				<a href="https://orcid.org/0000-0002-9928-1097">OCID</a>
+			</p> 
+			<p>
+				Tekst og illustrationer er tilgængelig under Creative Commons 
+				<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+					Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)</a>; 
+				yderligere betingelser kan være gældende.
+			</p>
+						</p>
 		</footer>
 	</body>
 </html>
