@@ -5,6 +5,18 @@
         padding: 10px;
         margin: 0 ;
           }
+    .topnav {
+        display: grid;
+        grid-template-columns: auto auto auto auto; }
+  .topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 4vw;
+    }	
     .rightcolumn { width: 100% }
     .maintext { width: 100%; padding: 0; }
     .mobilnav { width: 100%; 
@@ -36,7 +48,9 @@
         margin-right: auto; 
         border-radius: 50%;
         border: 0px solid darkgray;"}
-
+    .footer_small_rights p { font-size: 3vw; }
+    .footer_small img { width: 40%; height: 40% }
+    .footer_small_name { font-size: 6vw; }
     .gridbox  {   
       display:grid; gap: 20px;
       grid-template-columns: 1fr ;
