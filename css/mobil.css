@@ -2,8 +2,8 @@
     body { padding: 0; }
     .card {
         background-color: white;
-        padding: 0;
-        margin: 10vw ;
+        padding: 10px;
+        margin: 0 ;
           }
     .rightcolumn { width: 100% }
     .maintext { width: 100%; padding: 0; }
