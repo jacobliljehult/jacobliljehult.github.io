@@ -12,6 +12,13 @@
         	background-image: url(https://jacobliljehult.github.io/neuro/images/headerhjerne.png);
                         }
     .headerstroke h1, h2 { display: none; }
+    .headerstat { display: block; 
+      height: 15vh; 
+      width: 100%; 
+      background-size: 260vw;
+      background-image: url(https://jacobliljehult.github.io/research/randomheader.png);
+                    }
+    .headerstat h1, h2 { display: none; }
     .topnav {
         display: grid;
         grid-template-columns: auto auto auto auto; }
