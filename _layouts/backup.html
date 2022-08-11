@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="/neuro/images/brainicon.png">
+	<style>
+    /* ===== Overordnet ======================================== */
+  * {
+      box-sizing: border-box;
+    } 
+
+  body {
+    font-family: Arial;
+    padding: 10px;
+    background: rgb(245,245,245);
+    }
+  th {font-weight: normal;  }
+
+/* ===== Headers ============================================= */
+  .headerstroke {
+    padding: 10px;
+    text-align: center;
+    color: white;
+    background: rgb(192,0,0);
+    background-image: url(/neuro/images/headerhjerne.png);
+    background-repeat: no-repeat;}
+/* ----- Tema heading ----- */
+  .headerstroke h1 {  font-size: 50px;}
+  .headerstat {
+    padding: 10px;
+    text-align: center; 
+    color: white;
+    background: rgb(163,219,246);
+    background-image: url(/research/randomheader.png);
+    background-repeat: no-repeat;
+    background-size: auto 200px;}
+  .headerstat h1 {  font-size: 50px;}
+
+/* ===== Top navigation bar ================================== */
+  .topnav {
+    overflow: hidden;
+    background-color: rgb(35,35,35);
+    }
+/* Style the topnav links */
+  .topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    }	
+/* Change color on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+    }
+/* ============================================================ */
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+  .leftcolumn {   
+    float: left;
+    width: 20%;
+    max-width: 200px;
+    height: 100%;
+    background-color: rgb(245,245,245);
+    }
+/* ===== Navigation i venstre side ============================= */
+  .sidenav {
+    background-color: rgb(87,87,87);
+    padding-inline: 20px;
+    padding-top: 1px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    height: 100%;
+    }
+  .sidenav h3 {
+    color:rgb(220,220,220);
+    margin-bottom: 0px;
+    text-align: right;
+    text-transform: uppercase;
+    }
+  .sidenav h4 {
+    display: block;
+    color:rgb(220,220,220);
+    text-align: right;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom:1px;
+    font-size:16px;
+    text-transform: uppercase;
+    }
+  .sidenav a {
+    float: right;
+    display: block;
+    color: rgb(220,220,220);
+    margin-top: 1px;
+    margin-bottom: 0px;
+    text-align: right;
+    text-decoration: none;
+	  font-size: 13px;
+    }
+  .sidenav a:hover,
+  .sidenav a:focus{
+    background-color: rgb(220,220,220);
+    color: black;
+    width: 100%;
+    }
+	.whiteline {
+    margin-top: 1px;
+    margin-bottom:1px;
+    color: white;
+    border-top: 0px solid white;}
+/* ===== Right column ============================================= */
+  .rightcolumn {
+    float: left;
+    width: max(80%, 100% - 200px);
+    background-color: rgb(245,245,245);
+    padding-left: 20px;
+    }
+
+/* ===== Maintexts ================================================= */
+  
+  .maintext {	
+    color: black;    
+    font-size: 18px;
+    margin-inline: auto;
+    width: min(800px,90%);  
+    }
+    @media (orientation: portrait) {
+      .maintext {margin-inline: 0%;
+	    width: 100%}
+      }
+  .maintext p, ul, li {font-family: times;}
+  .maintext h1 {
+    text-align: center; 
+    letter-spacing: 1px;
+    font-size: 40px;}
+  .maintext h2 {font-size: 30px;}
+  .maintext h3 {font-size: 24px;}
+  .maintext h4 {font-size: 20px;}
+  .maintext h5 {font-size: 18px;} 
+
+/* ~~~~~ Indholdsfortegnelse ~~~~~ */
+  .indhold {outline: 0px solid lightgray; 
+	  border-radius: 10px;
+	  background-color: rgb(235,247,253); 
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	  margin-left: 15px; margin-right: 0px;
+	  margin-top: 5px; margin-bottom: 15px;
+	  padding: 10px;  
+	  width: 20%; 
+	  display: block; 
+	  float: right; 				
+	  font-size: min(15px, 1.5vw)}
+  .indhold b {text-align: center;}
+  .indhold hr {margin-top: 3px;
+            margin-bottom:5px; }   
+  .indhold ol {margin-left: -20px; 
+            margin-top: -2px; 
+            margin-bottom: -2px}
+  .indhold a {text-decoration: none; 
+            color:darkgray}
+  .indhold a:hover {text-decoration: none; 
+            color:darkblue}
+
+  .centerimg img {
+    display: block;
+    margin-inline: auto;
+    width: 80%;
+    }
+  .sipTable { max-width:600px;
+		margin-inline:auto; 
+    margin-bottom:40px; 
+    border: 0px solid black;
+    border-collapse: collapse; }
+  .sipTable th {text-align: left; 
+    border-bottom: 1px solid #ddd; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+    padding: 5px; 
+    font-size: 16px; 
+    font-weight: normal; }
+  .sipTable tr:nth-child(1) th {text-align: center; 
+    font-style: normal;
+    font-size: 18px;
+    font-weight: bold; }
+  .sipTable tr:nth-child(1) {background-color: rgb(153,215,246); 
+                          text-align: center}
+  .sipTable tr:nth-child(even) {background-color: rgb(222,240,251);}
+  .sipTable th:nth-child(1) {width: 60px; text-align: center;}
+  .sipTable th:nth-child(2) {width: 190px}
+  .sipTable th:nth-child(3) {width: 350px; font-style: italic;}
+  .sipList {font-size: 18px;}
+
+/* ----- Index boxes -------------------------------------------------- */
+/* Bruges til at skabe box-struktur på forsiderne */
+  div.index { outline: 0px solid lightgray; 
+	  max-width: 730px; 
+	  margin: auto;
+	  display:grid; gap: 5px;
+	  grid-template-columns: 1fr 1fr
+      }
+  div.index h2 {text-align:center; 
+    color: black; 
+    margin-top: 10px;}
+  div.index a  {text-decoration: none; 
+    color: black;}
+  @media (orientation: portrait) {
+    .index { padding: 0;
+      grid-template-columns: 1fr }
+        }              
+  div.indexbox {border: 0px solid lightgray; 
+		max-width: 350px; 
+    height: 120px;
+    padding-inline: 0;
+    margin: 10px;
+    overflow: hidden;  
+	    }
+  div.indexbox h3 { padding-left: 20px; 
+    text-align:left; 
+    color: black; 
+    letter-spacing: 2px; 
+    margin-top: 10px; 
+	font-size: 16px;}
+  div.indexbox h4 { padding-left: 20px; 
+    text-align:left; 
+    color: black; 
+    letter-spacing: 2px; 
+    margin-top: 10px; }
+  div.indexbox p  { padding-left: 20px; 
+    text-align:left; 
+    color: gray; 
+    padding-right: 20px; 
+    font-size: 14px; 
+    line-height: 1.2; }
+  div.indexbox a:visited {color: black; }
+  div.indexbox:hover {background: rgb(255,255,255); 
+    border: 0px solid black;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+
+    /* gridbox */
+  .gridbox {display:grid; gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    margin-left:auto; 
+    margin-right: auto; 
+    margin-top: 10px; margin-bottom: 15px;
+    width:90%;}
+  .gridbox article {border: 0 solid gray;
+    padding: 10px;}
+  .gridbox article:hover {background: rgb(255,255,255); border: 0px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);} 
+  .gridbox h2 {text-align: center;
+    font-size: min(28px, 5vw);} 
+  .gridbox p {text-align: justify;
+    font-size: min(16px, 4vw);}                       
+  .gridbox img {width: min(100%, 600px)} 
+  .gridbox a {text-decoration: none;
+    color: black}
+                       
+@media (orientation: portrait) {
+  .gridbox  {   
+    display:grid; gap: 20px;
+    grid-template-columns: 1fr ;
+              margin-left:auto; 
+              margin-right: auto; 
+              margin-top: 10px; margin-bottom: 30px;
+              width: min(100%, 600px);	}
+  .gridbox img {width: min(100%, 600px) }   }     
+/* ::::: Særlige boxe til billeder ::::::::::::::::::::::::::::::::::::: */
+  .imgbox { border: 0px solid lightgray; 
+		width: 350px; height: 500px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 10px;
+    overflow: hidden;    
+      }
+  h3.imgbox { text-align: center; 
+    color: black; 
+    letter-spacing: 2px;
+    margin-top: 10px; }
+  h4.imgbox { text-align: center; 
+    color: black; 
+    letter-spacing: 2px;
+    margin-top: 10px; }
+  p.imgbox  { text-align: justify;
+    color: black; 
+    padding-left: 20px;
+    padding-right: 20px;}
+  .imgbox a { color: black;}
+  .imgbox a:visited { color: black;}
+  .imgbox:hover { background: rgb(255,255,255); 
+    border: 0px solid black;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+  .imgbox img { width: 100%;  
+              height: auto;}
+              
+/* ::::: Tekst box :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+  div.textbox {
+    margin-inline: auto; 
+	  margin-top: 20px ; 
+    margin-bottom: 20px;
+    padding: 20px; 
+    padding-left: 20px;
+    outline: 0px solid lightgray; 
+	  width: min(90%, 700px);
+	  display:block; 
+	  border-radius: 10px; 
+    background-color: rgb(235,247,253);
+    box-shadow: 0px 7px 15px 1px rgba(0,0,0,0.26);	
+}
+  div.textbox h2 { text-align: center; 
+    margin-bottom: 10px;
+    margin-top: 0px;} 
+  div.textbox h3 {  text-align: center; 
+    margin-bottom: 10px;
+    margin-top: 0px;}   
+  div.textbox p { margin-bottom: 5px;
+    margin-top: 0px;
+    font-size: 18px; }
+  div.textbox ul {margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 18px;}   
+  div.textbox ol {margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 18px; }   
+/* ---- Illustration med billedlegend ---- */
+  .illustration {  display: block;
+    max-width: 500px; 
+    margin-inline: auto;
+    border: 0 solid red;
+    } 
+  .illustration img { border: 0 solid red;
+    margin-inline: auto; 
+    width: min(500px, 100%);
+      }
+  .legend { font-size: 12px;
+    text-align: justify;
+    font-family: arial;
+    line-height: 1.2;
+    padding-top: 0px;
+    padding-inline: 1%;
+           }
+/* ============================================================= */
+/* ----- Maintext for R -------------------------------------------------- */ 
+  .rmaintext {color: black;    
+    font-size: 16px;
+    margin-inline: auto;
+    width: min(800px,90%); 
+      }
+    @media (orientation: portrait) {
+      .rmaintext {margin-inline: 0%;
+	    width: 100%}
+    }
+  .rtext {font-size: 16px;}
+	.rtext code {font-size: 16px;}
+  h1.rmaintext {font-size: 40px;}
+  h2.rmaintext {font-size: 28px;}
+  h3.rmaintext {font-size: 24px;}
+  h4.rmaintext {font-size: 20px;}
+  h5.rmaintext {font-size: 18px;}
+/* --- r code --- */	
+  .rcode {border: 1px solid gray;
+    margin: 20px;
+    margin-inline: 20px;
+    padding:15px;
+    background-color: rgb(242,242,242);
+    font-family: courier;
+    font-size: min(14px, 1.4vw); 
+      }
+  .rcode a {color: "#0066ff"}
+  .rcode a:hover { background-color: "#f2f2f2"}
+  .routput {border: 1px solid gray;
+    margin: 20px;
+    margin-inline: 20px;
+    padding:15px;
+    background-color: white;
+    font-family: courier;
+    font-size: min(14px, 1.4vw); 
+      }
+  .routput table { text-align: right;}
+  .routput th { padding-right:10px; 
+    font-weight: normal;
+    font-size: min(14px, 1.4vw);}
+	
+/* --- Image table ------------------------------------------------ */
+  #imgtable {width:80%;font-family:times;}
+  #imgtable table, tr, th {border:0px solid;}
+  #imgtable th {width:50%;padding:10px;vertical-align: top;min-width:200px;max-width:300px;}
+  #imgtable tr:hover {background-color: rgb(255,255,220);}
+  #imgtable h2 {font-size:20px;color:black;margin-top: 1px;}
+  #imgtable p {font-size:14px;color:gray;}
+  #imgtable a {text-decoration: none;}
+  #imgtable img {width:100%;height:100%;border: 1px solid gray;min-width:300px;}
+	
+/* --- Reference lists ---------------------------------------------- */
+  div.ref {font-family: times;
+    color: black;    
+    font-size: 15px;
+      }
+  div.ref h3 {font-size: 18px;}
+  div.ref h4 {font-size: 18px;}
+  div.ref ul {list-style-type: none; 
+    margin-left: -30px; 
+    margin-bottom: 6px; 
+    font-size: inherit;}
+  div.ref li {list-style-type: none; 
+    margin-left: -10px; 
+    margin-bottom: 6px; 
+    font-size: inherit;}	
+
+/* ============================================================= */
+/* --- Add a card effect for articles --- */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 10px;
+      }
+/* --- Clear floats after the columns --- */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+      }
+/* ====== Footer ============================================== */
+  footer {font-size: 11px;}
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: rgb(245,245,245);
+    margin-top: 20px;
+      }
+  
+
+/* ============================================================= */
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media print {
+  	.headerstroke { display: none; }
+    .leftcolumn { display: none; } 
+    .topnav a { display: none; }
+    .rightcolumn {   
+      width: 100%;
+      padding: 0; 
+      }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .headerstroke { display: none; }
+    .leftcolumn { display: none; } 
+    .rightcolumn {   
+      width: 100%;
+      padding: 0; margin: 0;
+      }
+      .maintext {width:100%;}
+  }
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media (orientation : portrait) {
+    .mobilnav { width: 100%; 
+    			background-color: gray; display: block; float: left;
+                }
+    
+    .mobilnav a { font-size: 18px; text-align: center; color: white; text-decoration: none; }
+    .navbar { padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
+    .mobilnav h2 { color: white; text-align: center; padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
+    .navbar:hover { background-color:white; color: gray; }
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+    
+  }
+  @media (orientation : landscape) {
+    .mobilnav {
+      display: none;
+    }
+    
+  }
+    </style>
+   
+	</head>
+	<body>
+
+		<div class="headerstroke">
+  			<h1 style="margin-bottom: 0px;">Apopleksi</h1>
+  			<h2 style="margin-top: 0px;">og andre cerebrovaskulære sygdomme</h2>
+		</div>
+
+		<div class="topnav">
+  			<a href="http://jacobliljehult.github.io/neuro/">Apopleksi</a>
+  			<a href="http://jacobliljehult.github.io/">Statistik</a>
+  			<a href="http://jacobliljehult.github.io/neuro/" style="float:right">Home</a> 
+		</div>
+
+		<div class="row">
+  			<div class="leftcolumn">
+    			<div class="sidenav">
+      				<h3>NEUROANATOMI</h3>
+      				<hr class="whiteline">
+        				<a href="/neuro/content/neuroanatomi_overordnet.html"></a><br>
+					<h3>Sygdomme</h3>
+					<hr class="whiteline">
+      			
+					<h4>Apopleksi</h4>
+						<a href="/neuro/content/apopleksi.html">Introduktion</a><br>
+						<a href="/neuro/content/apo_epidemiologi.html">Epidemiologi</a><br>
+						<a href="/neuro/content/klinik.html"></a><br>
+      				<h3>Klinik</h3>
+      				<hr class="whiteline">
+	    				<a href="/neuro/content/dysfagi.html">Dysfagi</a><br>
+      				<br>
+					<h4>Undersøgelser</h4>     
+        				<a href="/neuro/content/sip.html">SIP score</a><br>    
+						<a href="/neuro/content/gcs.html">Glasgow Coma Scale</a><br>
+						<a href="/neuro/content/dysfagi.html#guss">GUSS (dysfagi screening)</a><br>   
+      				<h3>Slides</h3>
+      				<hr class="whiteline">
+      					<a href="/neuro/slides/">Slides</a><br>
+      
+					<h3>Litteratur</h3>
+					<hr class="whiteline">
+      					<a href="/neuro/content/references.html">Litteratur</a><br>
+      
+      				<div style="border: 1px gray;">
+        				<br><br><br>
+        				<img src="/neuro/images/JacobLiljehult.jpg" 
+							style="	height: 100px; 
+									width: 100px; 
+									display: block; 
+									margin-left: auto;
+ 									margin-right: auto; 
+									border-radius: 50%;
+									border: 0px solid darkgray;">
+	        			<p style="font-size: 12px;text-align: center; color: rgb(234,234,234)">
+	        				<b style="font-size: 16px; color: white">
+								Jacob Liljehult</b><br>
+	        					Klinisk sygeplejespecialist<br>
+	        					cand.scient.san, Ph.d.<br><br>
+	        				<b style="font-size: 14px">
+								Neurologisk afdeling<br>
+	        					Nordsjællands Hospital</b>
+						</p>
+ 	     			</div>  
+    			</div>
+			</div>
+  
+  <script>
+  function showMenu() {
+     document.getElementById("menu").style.display = "block";
+     document.getElementById("menuBottom").style.display = "none";
+                    }
+                  function hideMenu() {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("menuBottom").style.display = "block";
+                    }
+  
+  </script>
+  <div class="mobilnav">
+      				<div id="menuBottom" onclick="showMenu()"><h2>Menu</h2></div>
+                    <div id="menu" style="display: none">
+                    <div onclick="hideMenu()"><h2>Menu</h2></div>
+      				<a href="/neuro/content/neuroanatomi_overordnet.html"><div class="navbar">Neuroanatomi</div></a><br>
+						<a href="/neuro/content/apopleksi.html"><div class="navbar">Introduktion</div></a><br>
+						<a href="/neuro/content/apo_epidemiologi.html"><div class="navbar">Epidemiologi</div></a><br>
+						<a href="/neuro/content/klinik.html"></a>
+      				
+      			
+	    				<a href="/neuro/content/dysfagi.html"><div class="navbar">Dysfagi</div></a><br>
+      				
+						<a href="/neuro/content/sip.html"><div class="navbar">SIP score</div></a><br>    
+						<a href="/neuro/content/gcs.html"><div class="navbar">Glasgow Coma Scale</div></a><br>
+						<a href="/neuro/content/dysfagi.html#guss"><div class="navbar">GUSS (dysfagi screening)</div></a><br>   
+      				
+      					<a href="/neuro/slides/"><div class="navbar">Slides</div></a><br>
+      	<a href="/neuro/content/references.html"><div class="navbar">Litteratur</div></a><br>
+        </div>
+  </div>
+  
+			<div class="rightcolumn"> 
+				<div class="card">
+  					<main class="maintext">
+  						<center>
+  <h1>Apopleksi<br><span style="font-size:24px">og andre karsygdomme i hjernen</span></h1>
+</center>
+<p>Karsygdomme i og omkring hjernen, primært apopleksi, er blandt de hyppigste dødsårsager i verden, efter iskæmisk hjertesydgom og cancer, og en af 
+de hyppigste årsager til svær fysisk funktionsnedsættelse</p>
+<p style="text-indent: 20px;">Ordet <i>'apopleksi'</i> kommer fra old-græsk og betyder oprindeligt <i>"slået til jorden"</i>. Historisk blev det brugt om alle sygdomme med pludseligt indsættende bevidsthedstab 
+  og lammelse, men i nyere tid - efter læger begyndt at lave medicinske obduktioner - blev det afgrænset til karsygdomme i hjernen.</p>
+<p style="text-indent: 20px;">I dag defineres apopleksi som <i>"pludseligt opståede fokalneurologiske symptomer af formodet vaskulær 
+  genese med en varighed på over 24 timer"</i> (Dansk selskab for apopleksi 2013; World Health Organization 1978). Under denne 
+  definition regnes normalt blodpropper i hjernens arterier eller arterielle blødninger inde i selve hjernen. </p>
+<p>Tilfælde af mindre 
+  end 24 timers varighed betegnes <i>'transitorisk cerebral iskæmi'</i> (forkortet TCI). Pludseligt og forbigående synstab på grund
+  af forstyrrelse af blodforsyningen til øjet kaldes <i>'amaurosis fugax'</i> udredes og behandles oftest på samme måde som TCI.
+</p>
+<p style="text-indent: 20px;">Blødning fra arterierne uden på hjernen - ud i væsken omkring hjerne - kaldes <i>'subarachnoidal 
+  hæmorrhagi'</i> (forkortet SAH). I nogle lande, særligt i USA, medregnes SAH under betegnelsen 'stroke', mens man i de fleste 
+  andre lande ikke medregner den, da både ætiologi og behandling er væsentlig anderledes fra apopleksier. Største delen af de 
+  subarachnoidale blødninger skyldes blødning fra en udposning på en arterie på hjernens yderside (et aneurisme).
+</p>
+<p style="text-indent: 20px;">Blodpropper i hjernens vener opstår oftest i de store sinuser der ligger omkring hjernen og hvor 
+  det venøse blod draneres ud i - og det kaldes derfor for <i>'sinus trombose'</i>. Når blodet forhindes i at løbe væk fra hjernen 
+  staser det op og får trykket i kraniet til at stige, hvilket kan forårsage iskæmi og blødning i det område af hjernen hvor blodet
+  staser op.
+</p>
+<p style="text-indent: 20px;">Blødninger fra venerne omkring hjernen opstår oftest i de vener der ligger ud imellem hjernehinderne,
+  mellem dura mater og arachoidea mater, efter et alvorligt hovedtraume, fx ved fald hos ældre mennesker. Fordi der opstår en 
+  blodansamling under dura mater kaldes det for et <i>'subduralt hæmatom'</i> (forkortet SDH). Til forskel fra de arterielle blødninger 
+  der udvikler sig hurtigt, kan et SDH udvikle sig langsomt over dage eller uger med tiltagende neurologiske udfald, der skyldes
+  at blødansamlingen trykker ind på hjernen.
+</p>
+<hr>
+
+<h2 style="text-align: center;">Plakater</h2>
+<section class="gridbox">
+  <article>
+    <a target="_blank" href="/neuro/slides/intrakranielle_blodninger.pdf">
+    <img src="/neuro/images/intrakranielle_blodninger.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="/neuro/slides/intrakranielle_blodninger.pdf"><h2>Intrakranielle blødninger</h2>
+    <p>Slide med de fire primære typer af intrakranielle blødninger - altså blødninger inden i kraniekassen - 
+      henholdsvis intracerebral hæmorrhagi, subarachnoidal hæmorrhagi, epidural hæmorrhagi og subdural hæmorrhagi. </p></a> 
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/stroke.pdf">
+    <img src="/neuro/images/stroke.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="/neuro/slides/stroke.pdf"><h2>Apopleksi</h2>
+    <p>Slide med hovedtyperne af apopleksier, henholdsvis iskæmisk og hæmorrhagisk, og en række andre 
+      cerebrovaskulære sygdomme.</p></a>
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/overflade_lat.pdf">
+    <img src="/neuro/images/overflade_lat.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="/neuro/slides/overflade_lat.pdf"><h2>Overflade anatomi</h2>
+    <p>Slide med hjernes overflade anatomi og overordnede kortikale funktioner set fra siden.</p></a>
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/overflade_midt.pdf">
+    <img src="/neuro/images/overflade_midt.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="/neuro/slides/overflade_midt.pdf"><h2>Overflade anatomi</h2>
+    <p>Slide med hjernes overflade anatomi og overordnede kortikale funktioner set fra midten.</p></a>
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/blodforsyning.pdf">
+    <img src="/neuro/images/blodforsyning.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="/neuro/slides/blodforsyning.pdf"><h2>Hjernens karforsyning</h2>
+    <p>Slide med hjernens primære karforsyning i forskellige snit. </p></a>
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/lateralisering.pdf">
+    <img src="/neuro/images/lateralisering.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="/neuro/slides/lateralisering.pdf"><h2>Lateralisering</h2>
+    <p>Slide med hjernes lateraliserede funktioner og tilsvarende fokalt neurologiske udfald. </p></a>
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/synsudfald.pdf">
+    <img src="/neuro/images/synsudfald.png" alt="Intrakranielle blødninger"></a>
+    <a target="_blank" href="/neuro/slides/synsudfald.pdf"><h2>Synsudfald</h2>
+    <p>Slide med synsbanernes anatomi og tilsvarende synsudfald. </p></a>
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/masseeffekt.pdf">
+    <img src="/neuro/images/masseeffekt.png" alt="Masseeffekt"></a>
+    <a target="_blank" href="/neuro/slides/masseeffekt.pdf"><h2>Masseeffekt</h2>
+    <p>Slide om effekten af forhøjet intrakranielt tryk. </p></a>
+  </article>
+  <article>
+    <a target="_blank" href="/neuro/slides/Pupilreaktion.pdf">
+    <img src="/neuro/images/pupilreaktion.png" alt="Pupilreaktion"></a>
+    <a target="_blank" href="/neuro/slides/Pupilreaktion.pdf"><h2>Pupilreaktion</h2>
+    <p>Slide om hvordan forhøjet tryk henholdsvist over og under tentorium cerebelli kommer til udtryk ved 
+      undersøgelse af øjne og pupiller.</p></a>
+  </article>
+  </a>
+</section>
+
+<hr>
+  					</main>
+
+  				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<p>
+				Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
+    			Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - 
+				<a href="https://www.researchgate.net/profile/Jacob-Liljehult">ResearchGate</a> - 
+				<a href="https://orcid.org/0000-0002-9928-1097">OCID</a>
+			</p> 
+			<p>
+				Tekst og illustrationer er tilgængelig under Creative Commons 
+				<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+					Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)</a>; 
+				yderligere betingelser kan være gældende.
+			</p>
+		</footer>
+	</body>
+</html>
+
+
