@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
     <style>
+        * {font-family: Arial;}
+        body {background-color: whitesmoke ;}
+
         #form {background-color: #fff4a5;
                 border: 1px solid gray; 
                 border-radius: 4px;
                 padding: 10px; 
                 margin: 10px auto 10px auto; 
                 width: 90vw;}
-        #innerBox {width: 88vw; margin-inline: auto; 
+            
+        .innerBox {width: 88vw; margin-inline: auto; 
                     
   }
         #cprInput {font-size: max(18px, 5vw); 
@@ -37,6 +41,18 @@
                 height: 30vh;
                 padding: 5px;
                 }  
+        @media (orientation: portrait){
+            #form { width: 98% }
+            #outputFrame {width: 98%;}
+            #cprInput { font-size: 8vw; padding: 1vw; }
+            label { font-size: 8vw; }
+            .button { font-size: 8vw;
+            border-radius: 3vw;}
+            p {font-size: 7vw;}
+            #output {height: 70vh;
+                padding: 1vw;
+                }  
+        }    
         @media (orientation: landscape) {
     	    body {font-size: 2vw;}  
             #form {
@@ -56,12 +72,13 @@
                 width: 30vw;}
             #output {height: 50vh;
                 padding: 5px;
+                border: 1px solid gray;
                 }         
     	    }  
     </style>
 <body>
 <div id="form" style="">
-  <div id="innerBox">
+  <div class="innerBox">
         <!--<form action="/action_page.php">-->
         <label for="cprInput">CPR-nummer:</label><br>
         <input type="text" id="cprInput" name="cprInput" placeholder="CPR nummer.."><br>
@@ -96,14 +113,17 @@
         		"Alder: " + age + "<br>" +
                 "Køn: " + sex;} else {
                     return "<span style='color: red;'><center>CPR-nummer mangler</center></span>"}
+                
 }
 </script>
-<div id="outputFrame" style="">
-<div id="output">
+<div id="outputFrame">
+<div class="innerBox">
+    <div id="output">
     <p style="margin-top: 0px;">
         Output: <br><br> 
         <span id="cprOutput"></span>
     </p>
+</div>
 </div>
 </div>
 </body>
