@@ -4,7 +4,8 @@
   	<link rel="icon" href="/neuro/images/brainicon.png">
   	<link rel="stylesheet" href="https://jacobliljehult.github.io/css/style.css">
     <link rel="stylesheet" href="https://jacobliljehult.github.io/css/mobil.css">
-  	{% seo %}	
+  	{% seo %}
+    
   </head>
   <body>
     <div class="headerstat">
@@ -15,6 +16,7 @@
     <div class="topnav">
       <a href="http://jacobliljehult.github.io/neuro/">Apopleksi</a>
       <a href="http://jacobliljehult.github.io/">Statistik</a>
+      <a href=""></a>
       <a href="http://jacobliljehult.github.io/" style="float:right">Home</a> 
     </div>
 
@@ -73,29 +75,86 @@
           </div>  
         </div>
       </div>
+  <!-- mobil menu -->
+   <script>
+  function showMenu() {
+     document.getElementById("menu").style.display = "block";
+     document.getElementById("menuBottom").style.display = "none";
+                    }
+                  function hideMenu() {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("menuBottom").style.display = "block";
+                    }
   
+  </script>
+  <div class="mobilnav">
+      				<div id="menuBottom" onclick="showMenu()"><h2>Menu</h2></div>
+                    <div id="menu" style="display: none">
+                    <div onclick="hideMenu()"><h2>Menu</h2></div>
+      				<a href="/research/descriptive_quant.html"><div class="navbar">Kvantitative data</div></a><br>
+            		<a href="/research/descriptive_categ.html"><div class="navbar">Kategoriske data</div></a><br>
+            		<a href="/research/intervals.html"><div class="navbar">Intervaller</div></a><br>
+	    			<a href="/research/probabilities.html"><div class="navbar">Sandsynligheder</div></a><br> 
+	          		<a href="/research/stat_categorical.html"><div class="navbar">Kategoriske eksponeringer</div></a><br>
+	          		<a href="/research/logisticreg.html"><div class="navbar">Logistisk regression</div></a><br> 
+	          		<a href="/research/cate_quant.html"><div class="navbar">Kvantitative udfald</div></a><br>    
+	          		<a href="/research/linear.html"><div class="navbar">Linær regression</div></a><br>    
+	          		<a href="/research/correlation.html"><div class="navbar">Korrelationer</div></a><br>
+	          		<a href="/research/survival.html"><div class="navbar">Overlevelse</div></a><br>
+	          		<a href="/research/poisson.html"><div class="navbar">Poisson regression</div></a><br>
+					<a href="/research/randomisation.html"><div class="navbar">Randomisering</div></a><br>
+        </div>
+  </div>
+  <!-- mobil menu -->
       <div class="rightcolumn"> 
         <div class="card">
           <div class="rmaintext">
-  	        {{ content }}
+  	       
+         {{ content }} 
+          
           </div>
         </div>
       </div>
     </div>
 
-    <footer class="footer">
-	    <p>
-        Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
-        Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - 
-        <a href="https://www.researchgate.net/profile/Jacob-Liljehult">ResearchGate</a> - 
-        <a href="https://orcid.org/0000-0002-9928-1097">OCID</a>
-      </p> 
-	    <p>
-        Tekst og illustrationer er tilgængelig under Creative Commons 
-        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
-          Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)</a>; 
-          yderligere betingelser kan være gældende.
-	    </p> 
-    </footer>
+		<footer class="footer footer_large">
+			<p>
+				Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
+    			Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - 
+				<a href="https://www.researchgate.net/profile/Jacob-Liljehult">ResearchGate</a> - 
+				<a href="https://orcid.org/0000-0002-9928-1097">OCID</a>
+			</p> 
+			<p>
+				Tekst og illustrationer er tilgængelig under Creative Commons 
+				<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+					Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)</a>; 
+				yderligere betingelser kan være gældende.
+			</p>
+		</footer>
+		<footer class="footer footer_small">
+		<img src="https://jacobliljehult.github.io/neuro/images/JacobLiljehult.jpg">
+	        			<p class="footer_small_name">
+	        				<b>
+								Jacob Liljehult</b><br>
+	        					Klinisk sygeplejespecialist<br>
+	        					cand.scient.san, Ph.d.<br><br>
+	        				<b>
+								Neurologisk afdeling<br>
+	        					Nordsjællands Hospital</b></p>
+						<hr>
+						<p class="footer_small_rights">
+				Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
+    			Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - 
+				<a href="https://www.researchgate.net/profile/Jacob-Liljehult">ResearchGate</a> - 
+				<a href="https://orcid.org/0000-0002-9928-1097">OCID</a>
+			</p> 
+			<p class="footer_small_rights">
+				Tekst og illustrationer er tilgængelig under Creative Commons 
+				<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+					Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)</a>; 
+				yderligere betingelser kan være gældende.
+			</p>
+						
+		</footer>
   </body>
 </html>
