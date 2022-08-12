@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+body { padding: 20px }
+.box { width: 400px; border: 1px solid lightgray; margin: 5px; }
+</style>
+<script>
+function myClick(){
+	let a = document.forms[0].input.value;
+    let b = [];
+   	for (let i = 1; i < 5; i++){
+    	b.push(document.getElementById("result").innerHTML = "<div class='box btn-light' onClick='myHidden" + i + "()' id='box" + i + "'>" + a + i + "</div>");
+    }
+    let c = b.join(" ")	
+    
+    return document.getElementById("result").innerHTML = c;
+}
+
+let myArray = []; 
+function myInput(){
+	let a = document.forms[0].input.value;
+    let len = myArray.length + 1;
+    myArray.push("<div class='box btn-light' onClick='myHidden" + len +"()' id='box"+ len +"'>" + a + len + "</div>")
+	let c = myArray.join(" ")
+
+	return document.getElementById("result").innerHTML = c;
+
+
+}
+
+
+function myDelete(){ myArray = [];
+	return document.getElementById("result").innerHTML = myArray;
+}
+function myHidden1(){ document.getElementById("box1").style.cssText = "color: white; background-color: red"; }
+function myHidden2(){ document.getElementById("box2").style.cssText = "color: white; background-color: red"; }
+function myHidden3(){ document.getElementById("box3").style.cssText = "color: white; background-color: red"; }
+function myHidden4(){ document.getElementById("box4").style.cssText = "color: white; background-color: red"; }
+function myHidden5(){ document.getElementById("box5").style.cssText = "color: white; background-color: red"; }
+function myHidden6(){ document.getElementById("box6").style.cssText = "color: white; background-color: red"; }
+function myHidden7(){ document.getElementById("box7").style.cssText = "color: white; background-color: red"; }
+</script>
+<body>
+<form>
+<input type="text" class="form-control" name="input"><br>
+<div type="button" class="btn btn-light" id="btn1" onClick="myInput()">Input</div>
+<div type="button" class="btn btn-light" id="btn1" onClick="myDelete()">Delete</div><br>
+</form>
+<div id="result"></div>
+
+</body>
+</html>
+
+
