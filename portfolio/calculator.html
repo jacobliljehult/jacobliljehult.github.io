@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+    body {background-color: white;}
+    main {background-color: rgb(185, 195, 255); 
+            border: 1px solid gray; 
+            border-radius: 3vw;
+            padding-bottom: 50px;}
+    @media (orientation: landscape){
+        main {width: max(300px, 30%);
+                margin-inline: auto;}
+        
+    }
+   
+    h1 {text-align: center; font-family: Arial; 
+        font-size: 100%;}
+    .innerFrame { width: 90%; margin-inline: auto; 
+                padding-top: 10px;}
+    .prompt { width: 100%; height: 8wv ;
+            background-color: white; 
+            padding: 10px;
+            margin: 10px auto; 
+            border: 2px solid gray; 
+            border-radius: 10px; 
+            font-size: 25px;
+            font-family: Arial;}
+    button { margin: 10px; padding: 10px;
+            width: 10wv; height: 8wv;
+            border: 2px solid gray; 
+            border-radius: 5px; 
+            font-size: 25px;
+             }
+    button:active { 
+            border: 2px solid black; 
+            background-color: darkgray;
+            transition:0.5s;
+             }
+    #btnClear:active, 
+    #btnBack:active { background-color: rgb(255, 158, 158); }     
+    #btnCalc:active { background-color: rgb(132, 255, 132);}
+    #btnPlus:active,
+    #btnMinus:active,
+    #btnDivide:active,
+    #btnAdd:active
+     { background-color: rgb(132, 230, 255);}
+    
+    @media (orientation: portrait){
+        main {width: 100%}
+        h1 {text-align: center; 
+            font-family: Arial; 
+            font-size: 11vw;
+            margin-top: 3vw;
+            margin-bottom: 0;
+        }
+    .innerFrame { width: 90%; 
+                margin-inline: auto; 
+                padding-top: 10px;}
+    .prompt { width: 90%; height: 8wv ; 
+            padding: 3vw 30px;
+            margin: 4vw auto 4vw auto; 
+            border-radius: 3vw; 
+            font-size: 10vw;
+            }
+    button { margin: 10px; padding: 10px;
+            /*width: 10wv;*/ height: 20vw;
+
+            border-radius: 2vw; 
+            font-size: 10vw;
+             }
+    }
+    .keys { display: grid; 
+            grid-template-columns: auto auto auto auto;}
+    #btn0 { grid-row: 5; 
+        grid-column: 1/3; }
+    #btnSep { grid-row: 4; grid-column:4; }
+    #btnCalc { grid-row: span 2;
+                grid-column: 3 / span 2  ;}                         
+</style>
+<script>
+    let input = [];
+    /* NUmbers */
+    function click1(){
+        input.push("1");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function click2(){
+        input.push("2");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function click3(){
+        input.push("3");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function click4(){
+        input.push("4");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function click5(){
+        input.push("5");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function click6(){
+        input.push("6");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function click7(){
+        input.push("7");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function click8(){
+        input.push("8");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function click9(){
+        input.push("9");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function click0(){
+        input.push("0");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    /* Signs */
+    function clickPlus(){
+        input.push("+");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function clickMinus(){
+        input.push("-");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function clickDivide(){
+        input.push("/");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function clickAdd(){
+        input.push("*");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    function clickSep(){
+        input.push(".");
+        let output = input.join("");
+        return document.getElementById('prompt').innerHTML = output;
+    }
+    /* Functions */
+    function clickCalc(){
+        let promptValue = input.join("");
+        let output = eval(promptValue);
+        input = [output];
+        if(typeof output == 'number'){
+        return document.getElementById('prompt').innerHTML = output;
+        } else {return document.getElementById('prompt').innerHTML = "Error";}
+    }
+    function clickBack(){
+        input.pop();
+        let output = input.join("");
+        if(input.length != 0){
+        return document.getElementById('prompt').innerHTML = output;
+        } else {document.getElementById('prompt').innerHTML = 0;}
+    }
+    function clickClear(){
+        input = [];
+        return document.getElementById('prompt').innerHTML = 0;
+    }
+</script>    
+</head>
+<body>
+    <main>
+        <div class="innerFrame">
+<h1>Regnemaskine</h1>
+    <div class="prompt" id="prompt">0</div>
+        
+    <div class="keys">
+    <button id="btnClear" onclick="clickClear()">C</button>
+    <button id="btnBack" onclick="clickBack()">&lt;</button>
+    <button id="btnDivide" onclick="clickDivide()">/</button>
+    <button id="btnAdd" onclick="clickAdd()">x</button>
+    <button id="btn7" onclick="click7()">7</button>
+    <button id="btn8" onclick="click8()">8</button>
+    <button id="btn9" onclick="click9()">9</button>
+    <button id="btnPlus" onclick="clickPlus()">+</button>
+    <button id="btn4" onclick="click4()">4</button>
+    <button id="btn5" onclick="click5()">5</button>
+    <button id="btn6" onclick="click6()">6</button>
+    <button id="btnMinus" onclick="clickMinus()">-</button>
+    <button id="btn1" onclick="click1()">1</button>
+    <button id="btn2" onclick="click2()">2</button>
+    <button id="btn3" onclick="click3()">3</button>
+    <button id="btnCalc" onclick="clickCalc()">=</button>
+    <button id="btn0" onclick="click0()">0</button>
+    <button id="btnSep" onclick="clickSep()">,</button>
+    
+    
+    
+    </div>
+</div>
+    </main>
+</body>
+</html>
