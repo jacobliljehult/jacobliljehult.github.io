@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 { font-size: 50vw; text-align: center; margin: 0 auto; }
+
+.page { width: 400px; height: 600px; margin: auto; 
+		border: 1px solid black; 
+         }
+button { width: 49%; margin-top: 0; }
+#div1 { display: block; }
+#div2, #div3, #div4, #div5, #div6, #div7, #div8 { display: none; }
+</style>
+<script>
+	function next() {
+    	let name = event.srcElement.value;
+        let a = "div" + name;
+        let b = "div" + eval(name + "+1");
+    	document.getElementById(a).style.display = "none"; 
+        document.getElementById(b).style.display = "block";
+        /*alert(event.srcElement.value)*/
+    }
+   function back() {
+    	let name = event.srcElement.value;
+        let a = "div" + name;
+        let b = "div" + eval(name + "-1");
+    	document.getElementById(a).style.display = "none"; 
+        document.getElementById(b).style.display = "block";
+        /*alert(event.srcElement.value)*/
+    }
+</script>
+</head>
+<body>
+
+  <div class="page" id="div1"><h1>1</h1>
+  	<button disabled>&lt;</button>	
+  	<button onClick="next()" value="1">&gt;</button>
+  </div>
+  <div class="page" id="div2" value="2"><h1>2</h1>
+  	<button onClick="back()" value="2" >&lt;</button>	
+  	<button onClick="next()" value="2">&gt;</button></div>
+  <div class="page" id="div3" value="3"><h1>3</h1>
+  	<button onClick="back()" value="3" >&lt;</button>	
+  	<button onClick="next()" value="3">&gt;</button></div>  
+  <div class="page" id="div4" value="4"><h1>4</h1>
+  	<button onClick="back()" value="4" >&lt;</button>	
+  	<button onClick="next()" value="4">&gt;</button></div>
+  <div class="page" id="div5" value="5"><h1>5</h1>
+ 	  <button onClick="back()" value="5" >&lt;</button>	
+  	<button onClick="next()" value="5">&gt;</button></div>
+  <div class="page" id="div6" value="6"><h1>6</h1>
+  	<button onClick="back()" value="6" >&lt;</button>	
+  	<button onClick="next()" value="6">&gt;</button></div>
+  <div class="page" id="div7" value="7"><h1>7</h1>
+  	<button onClick="back()" value="7" >&lt;</button>	
+  	<button onClick="next()" value="7">&gt;</button></div>
+  <div class="page" id="div8" value="8"><h1>8</h1>
+  	<button onClick="back()" value="8" >&lt;</button>	
+  	<button disabled>&gt;</button></div>
+  <div style="margin: auto; text-align: center;">
+  
+  <br><br>
+  <div id="prompt"></div>
+</div>	
+
+
+</body>
+</html>
+
+
