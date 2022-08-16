@@ -18,7 +18,8 @@ button { width: 49%; margin-top: 0; }
         let b = "div" + eval(name + "+1");
     	document.getElementById(a).style.display = "none"; 
         document.getElementById(b).style.display = "block";
-        /*alert(event.srcElement.value)*/
+        document.getElementById("prompt").innerHTML = "Side " + eval(name + "+1") + " af 8";
+        document.getElementById("pagenr").innerHTML = eval(name + "+1");
     }
    function back() {
     	let name = event.srcElement.value;
@@ -26,7 +27,8 @@ button { width: 49%; margin-top: 0; }
         let b = "div" + eval(name + "-1");
     	document.getElementById(a).style.display = "none"; 
         document.getElementById(b).style.display = "block";
-        /*alert(event.srcElement.value)*/
+        document.getElementById("prompt").innerHTML = "Side " + eval(name + "-1") + " af 8";
+        document.getElementById("pagenr").innerHTML = eval(name + "-1");
     }
 </script>
 </head>
@@ -46,7 +48,7 @@ button { width: 49%; margin-top: 0; }
   	<button onClick="back()" value="4" >&lt;</button>	
   	<button onClick="next()" value="4">&gt;</button></div>
   <div class="page" id="div5" value="5"><h1>5</h1>
- 	  <button onClick="back()" value="5" >&lt;</button>	
+ 	<button onClick="back()" value="5" >&lt;</button>	
   	<button onClick="next()" value="5">&gt;</button></div>
   <div class="page" id="div6" value="6"><h1>6</h1>
   	<button onClick="back()" value="6" >&lt;</button>	
@@ -58,13 +60,13 @@ button { width: 49%; margin-top: 0; }
   	<button onClick="back()" value="8" >&lt;</button>	
   	<button disabled>&gt;</button></div>
   <div style="margin: auto; text-align: center;">
-  
+  <div style="border: 1px solid black; width: 30px; height: 30px; background-color: whitesmoke;
+  text-align: center; border-radius: 50%; font-size: 24px; margin: -15px auto 0 auto;" 
+  id="pagenr">1</div>
   <br><br>
-  <div id="prompt"></div>
+  <div id="prompt">Side 1 af 8</div>
 </div>	
 
 
 </body>
 </html>
-
-
