@@ -19,9 +19,30 @@
 </style>
 <script>
   function evalRisk(){
-  	let age = "";
-  	if( document.getElementById('age').checked == true ){ age = 2 } else { age = 0 };
-    document.getElementById('prompt').innerHTML = age;
+  	let age = 0;
+  	if( document.getElementById('age').checked == true ){ 
+      age = 2 } else { age = 0 };
+    let hypertension = 0;
+  	if( document.getElementById('hypertension').checked == true ){ 
+      hypertension = 1 } else { hypertension = 0 };
+  	let ihd = 0;
+  	if( document.getElementById('ihd').checked == true ){ 
+      ihd = 1 } else { ihd = 0 };
+  	let prevstroke = 0;
+  	if( document.getElementById('prevstroke').checked == true ){ 
+      prevstroke = 3 } else { prevstroke = 0 };
+  	let diabetes = 0;
+  	if( document.getElementById('diabetes').checked == true ){ 
+      diabetes = 3 } else { diabetes = 0 };
+  	let insufficient = 0;
+  	if( document.getElementById('insufficient').checked == true ){ 
+      insufficient = 3 } else { insufficient = 0 };
+    let currentStroke = parseFloat(document.forms[1].persist.value);
+    /*document.form[1].persist.value;*/
+    
+    let riskScore = age + hypertension + ihd + prevstroke + 
+                    diabetes + insufficient + currentStroke; 
+    document.getElementById('prompt').innerHTML = riskScore;
     document.getElementById('btnRisk').innerHTML = "Revurder";
     document.getElementById('riskLow').style.display = "block";
   }
@@ -43,31 +64,31 @@
     </input>
     </label></div>
     <div><label>
-    	<input type="checkbox" value="1">  
+    	<input type="checkbox" id="hypertension" value="1">  
   Hypertension (BT &gt;140/90 mmHg) [1 point]
   </span>
     </input>
     </label></div>
     <div><label>
-    	<input type="checkbox" value="1">  
+    	<input type="checkbox" id="ihd" value="1">  
   Iskæmisk hjertesygdom [1 point]
   </span>
     </input>
     </label></div>
     <div><label>
-    	<input type="checkbox" value="3">  
+    	<input type="checkbox" id="prevstroke" value="3">  
   Tidligere apopleksi [3 point]
   </span>
     </input>
     </label></div>
     <div><label>
-    	<input type="checkbox" value="3">  
+    	<input type="checkbox" id="diabetes" value="3">  
   Diabetes [3 point]
   </span>
     </input>
     </label></div>
     <div><label>
-    	<input type="checkbox" value="3">  
+    	<input type="checkbox" id="insufficient" value="3">  
   Erkendt hjerteinsufficiens [3 point]
   </span>
     </input>
@@ -80,7 +101,7 @@
   <input type="date" name="dateDebut"></input><br><br>
   <form>
   <div><label>
-    	<input type="radio" name="persist" value="0">  
+    	<input type="radio" name="persist" value="0" checked>  
   Remitteret indenfor 24 timer [0 point]
   </span>
     </input>
