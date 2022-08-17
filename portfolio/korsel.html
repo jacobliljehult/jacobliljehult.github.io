@@ -3,54 +3,235 @@
 <head>
 <style>
   
+  #riskNone { display: none; }
+  #riskLow { display: none;}
+  #riskMedium { display: none;}
+  #riskHigh { display: none;}
+  #btnRisk { display: block; }
+  
+  #btnConcl { display: block; }
+  #conclNone { display: none; }
+  #concl3mdr { display: none;}
+  #concl6mdr { display: none;}
+  #conclCarotis { display: none;}
+  #conclRehab { display: none;}
   
 </style>
 <script>
-  
+  function evalRisk(){
+  	let age = "";
+  	if( document.getElementById('age').checked == true ){ age = 2 } else { age = 0 };
+    document.getElementById('prompt').innerHTML = age;
+    document.getElementById('btnRisk').innerHTML = "Revurder";
+    document.getElementById('riskLow').style.display = "block";
+  }
+  function conclude(){
+  	
+	  document.getElementById('btnConcl').innerHTML = "Revurder";
+    document.getElementById('conclNone').style.display = "block";
+  }
 </script>
 </head>
   <body>
 <div>
-    Risikofaktorer
-  - Alder 70 eller over [2 point]
-  - Hypertension (BT> 140/90 mmHg) [1 point]
-  - Iskæmisk hjertesygdom [1 point]
-  - Tidligere apopleksi [3 point]
-  - Diabetes [3 point]
-  - Erkendt hjerteinsufficiens [3 point]
+	<form>
+    <h2>Risikofaktorer</h2>
+	<div><label>
+    	<input type="checkbox" id="age" value="2">  
   
-    Symptomvarighed
-  Dato for symptom debut
-  - Remitteret indenfor 24 timer [0 point]
-  - Remitteret indenfor en uge [2 point]
-  - Fortsat symptomer efter en uge [2 point]
+  	<span>Alder 70 eller over [2 point]</span>
+    </input>
+    </label></div>
+    <div><label>
+    	<input type="checkbox" value="1">  
+  Hypertension (BT &gt;140/90 mmHg) [1 point]
+  </span>
+    </input>
+    </label></div>
+    <div><label>
+    	<input type="checkbox" value="1">  
+  Iskæmisk hjertesygdom [1 point]
+  </span>
+    </input>
+    </label></div>
+    <div><label>
+    	<input type="checkbox" value="3">  
+  Tidligere apopleksi [3 point]
+  </span>
+    </input>
+    </label></div>
+    <div><label>
+    	<input type="checkbox" value="3">  
+  Diabetes [3 point]
+  </span>
+    </input>
+    </label></div>
+    <div><label>
+    	<input type="checkbox" value="3">  
+  Erkendt hjerteinsufficiens [3 point]
+  </span>
+    </input>
+    </label></div>
+   </form>
   
-  Fortsatte symptomer
-  - Lammelse i arm eller ben
-  - Hemianopsi
-  - Kognitive vanskeligheder der kan påvirke patientens evne til at køre bil
   
-  Carotis stenose
+    <h2>Symptomvarighed</h2>
+  <label>Dato for symptom debut</label><br>
+  <input type="date" name="dateDebut"></input><br><br>
+  <form>
+  <div><label>
+    	<input type="radio" name="persist" value="0">  
+  Remitteret indenfor 24 timer [0 point]
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="radio" name="persist" value="2">  
+  Remitteret indenfor en uge [2 point]
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="radio" name="persist" value="2">  
+  Fortsat symptomer efter en uge [2 point]
+  </span>
+    </input>
+    </label></div>
+    </form><br><hr>
+    
+   <button id="btnRisk" onClick="evalRisk()">Beregn risiko</button>
+   
+   <!--  -->
+   <div id="prompt"></div>
+   <div id="riskLow">Lav risiko for nyt stroke</div>
+   <div id="riskMedium">Middel risiko for nyt stroke</div>
+   <div id="riskHigh">Høj risiko for nyt stroke</div>
+  
+  
+  <h2>Fortsatte symptomer</h2>
+  <div>
+  <form>
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="checkbox" name="symptomes" value="1">  
+  Lammelse i arm eller ben
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="checkbox" name="symptomes" value="1">  
+  Hemianopsi
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="checkbox" name="symptomes" value="1">  
+  Kognitive vanskeligheder der kan påvirke patientens evne til at køre bil
+  </span>
+    </input>
+    </label></div>
+  </form>
+  </div>
+  
+  <h2>Carotis stenose</h2>
+  <form>
+  <div><label>
+    	<input type="radio" name="stenosis" value="1">  
   - Ingen stenose
-  - Stenose <50%
-  - Stenose >50%
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="radio" name="stenosis" value="1">
+  - Stenose &lt;50%
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="radio" name="stenosis" value="1">
+  - Stenose &gt;50%
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="radio" name="stenosis" value="1">
   - Ikke undersøgt
-  Hvis stenose -> er der behandlingstilbud
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+  <div>
+  <p>Hvis stenose -> er der behandlingstilbud</p>
+    	<input type="radio" name="stenosisTreat" value="1">
+  Patienten skal opereres
+  </span>
+    </input>
+    </label></div>
+    <input type="radio" name="stenosisTreat" value="2">
+  Der er ikke noget behandlingstilbud
+  </span>
+    </input>
+    </label></div>
+    </div>
+  </form>
   
-  EKG
+  <h2>EKG</h2>
+  <div><form>
+  
+  <div><label>
+    	<input type="radio" name="ekg" value="0">	
   - Normal rytme
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="radio" name="ekg" value="0">	
   - Atrieflimmer
+  </span>
+    </input>
+    </label></div>
+  <div><label>
+    	<input type="radio" name="ekg" value="0">	
   - Ikke undersøgt
-  Hvis atrieflimmer -> er der behandlingstilbud (AK/NOAK)
+  </span>
+    </input>
+    </label></div>
+  	
+  <div>
+  <p>Hvis atrieflimmer -> er der behandlingstilbud</p>
+    	<input type="radio" name="afib" value="1">
+  Patienten er opstartet AK eller NOAK behandling
+  </span>
+    </input>
+    </label></div>
+    <input type="radio" name="afib" value="2">
+  Der er ikke noget behandlingstilbud
+  </span>
+    </input>
+    </label></div>
+    </div>
+	</form></div>
 
-  Konklusion
-  1) Kørsel tilladt
-  2) Kørselsforbud i 3 måneder ()
-  3) Kørselsforbud i 6 måneder - Revurdering af neurolog
-  4) Kørselsforbud indtil carotis operation + 1 måned
-  5) Kørselsforbud indtil afslutning af rehabilitering
+  <h2>Konklusion</h2>
+  <div class="conclusion" id="conclNone">
+  <span>1) Kørsel tilladt</span>
+  </div>
+  <div class="conclusion" id="concl3mdr">
+  <span>2) Kørselsforbud i 3 måneder ()</span>
+  </div>
+  <div class="conclusion" id="concl6mdr">
+  <span>3) Kørselsforbud i 6 måneder - Revurdering af neurolog</span>
+  </div>
+  <div class="conclusion" id="conclCarotis">
+  <span>4) Kørselsforbud indtil carotis operation + 1 måned</span>
+  </div>
+  <div class="conclusion" id="conclRehab">
+  <span>5) Kørselsforbud indtil afslutning af rehabilitering</span>
+  </div>
   
-  
+  <button class="" id="btnConcl" onClick="conclude()">Tryk her for konklusion</button>
 </div>
     
   </body>
