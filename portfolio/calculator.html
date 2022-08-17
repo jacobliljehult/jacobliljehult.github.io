@@ -10,11 +10,7 @@
             border-radius: 3vw;
             padding-bottom: 50px;
             box-shadow: 2px 3px 7px 0px rgba(0,0,0,0.36);}
-    @media (orientation: landscape){
-        main {width: max(300px, 30%);
-                margin-inline: auto;}
-        
-    }
+    
    
     h1 {text-align: center; font-family: Arial; 
         font-size: 100%; color: #FDFDFF;}
@@ -53,7 +49,27 @@
     #btnDivide:active,
     #btnAdd:active
      { background-color: rgb(132, 230, 255);}
-    
+     @media (orientation: landscape){
+        main {width: 30vw; 
+                height: 75vh;
+                margin-inline: auto;}
+        h1 { font-size: 3.5vw; 
+            margin-top: 0; margin-bottom: 0;}        
+        .innerFrame { width: 90% }
+        .prompt { width: 25vw; height: 6vh; margin-bottom: 0;
+                    font-size: 3.5vw;} 
+        .keys { display: grid; 
+            grid-template-columns: auto auto auto auto;
+            width: 25vw; height: 70vh;
+            gap: 10px ;
+            }
+        button { margin: 0; padding: 0px;
+            width: 100%; height: 100%;
+            border: 2px solid gray; 
+            border-radius: 1vw; 
+            font-size: 3vw;
+             }
+    }
     @media (orientation: portrait){
         main {width: 100%}
         h1 {text-align: center; 
@@ -75,12 +91,10 @@
             border-radius: 2vw; 
             font-size: 10vw;
              }
+    .keys { width: 100%; height: 130vw; gap: 10px ;}         
     }
     .keys { display: grid; 
             grid-template-columns: auto auto auto auto;
-            width: 100%; height: 130vw;
-            
-            gap: 10px ;
             }
     #prompt { grid-column: 1 / span 4  ; }        
     #btn0 { grid-row: 6; 
@@ -195,7 +209,7 @@
 <body>
     <main>
         <div class="innerFrame">
-<h1>Regnemaskine</h1>
+<h1>Lommeregner</h1>
     <div class="keys">
     <div class="prompt" id="prompt">0</div>
     
