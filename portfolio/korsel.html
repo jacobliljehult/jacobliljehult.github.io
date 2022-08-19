@@ -4,33 +4,46 @@
 <head>
 <style>
 	* { font-family: Arial; }
-    main {}
-	h2 { font-size: 28px; text-align: center; margin: 40px 0 0 0;}
-  .btn { height: 40px; width: 100%; border: 1px solid gray;  margin: 4px;
-		  border-radius: 4px; overflow: hidden; float: left; color: black; 
-          background-color: lightgray}
+    main { background-color: #FDFDFD; }
+	h2 { font-size: 40px; text-align: center; margin: 0 0 0 0;}
+  h3 { font-size: 32px; text-align: center; margin: 0 0 0 0; }
+  p { text-align: center; margin: 0; }
+  section { border: 1px solid #E3E3E1; border-radius: 5px; 
+            background-color: #E3E3E1;
+            width: 98%; margin: 10px auto; 
+            padding: 5px; }
+  .btn { height: min(40px); width: 90%; 
+        border: 1px solid #BDBDC7;  
+        margin: 4px auto; border-radius: 8px;
+		    overflow: hidden; 
+        float: center; color: black; 
+        background-color: #fbfbfb;}
   .btn label { 
   float: center; font-size: 24px;
-}
-  
+    }
   .btn input:checked + span { background-color: blue; color: white; }
   .btn label span {
-  text-align: center;
-  padding: 8px 0;
-  display: block; 
-}
+        text-align: center;
+        padding: 8px 0;
+        display: block; 
+        }
+  .btn label input {
+        position: absolute;
+        display: none;
+        color: black !important;
+        }
+  .btn label input + span{color: black;}
 
-.btn label input {
-  position: absolute;
-  display: none;
-  color: black !important;
-}
-
-.btn label input + span{color: black;}
-
-.panel { height: 40px; width: 100%; border-radius: 4px; text-align: center; font-size: 24px; }
-.panel span { padding: 8px 0;
-  display: block; }
+  button { height: 40px; width: 90%; margin: auto; 
+           border-radius: 5px; 
+           background-color: #505050; color: white; 
+           font-size: 30px; }
+  .panel { height: 40px; width: 90%; 
+           border-radius: 4px; margin: auto;
+           text-align: center; 
+           font-size: 24px; }
+  .panel span { padding: 8px 0;
+            display: block; }
 
   
   #riskNone { display: block; background-color: #fff; color: gray;
@@ -44,7 +57,8 @@
   #btnRisk { display: block; }
   
   #afibtreat { display: none; }
-  
+  #stenosistreat { display: none; }
+
   .conclusion { height: 40px; width: 100%; border-radius: 4px; text-align: center; font-size: 24px; }
 	.conclusion span { padding: 8px 0;
   display: block; }
@@ -57,7 +71,10 @@
   #conclCarotis { display: none;}
   #conclRehab { display: none;}
   
-  @media (orientation: portrait){}
+  @media (orientation: portrait){
+    main { width: 100%; }
+
+  }
   @media (orientation: landscape){}
   
 </style>
@@ -109,48 +126,95 @@
      }
 
   }
+  
+  function stenosistreat(ekg){
+    	document.getElementById('stenosistreat').style.display = "block";
+    }
+
 	function afibtreat(ekg){
     	document.getElementById('afibtreat').style.display = "block";
     }
 	
   function conclude(){
-  	let currentStroke = 0;
-    if( document.getElementById('minor').checked == true ){ 
-      currentStroke = 1 } else 
-    if( document.getElementById('major').checked == true ){ 
-      currentStroke = 2 };
-    
-    let lowMinor = 0;
-    let lowMajor = 0;
-    let mediumMinor = 0;
-    let mediumMajor = 0;
-    let highMajor = 0;
+    /* - riskScore er en global score variabel - */
+    /* - currentStroke - */
+    let currentStroke = 0;
+      if( document.getElementById('minor').checked == true ){ 
+        currentStroke = 1 } else 
+      if( document.getElementById('major').checked == true ){ 
+        currentStroke = 2 };
+    /* - stenosis - */
+    let stenose = document.forms[3].stenosis.value; /* 0,1,2,9 */ 
+    /* - afib - */
+    let afib = document.forms[4].ekg.value; /* 0,1,9 */
+    /* - stenosisTreat - */  
+    let stenosisTreat = document.forms[3].stenosisTreat.value;
+    /* - currentStroke - */
+    let afibTreat = document.forms[4].afib.value;
+    /* - persist - */
+    let persist = 0;
+      if( document.getElementById('parese').checked == true |
+          document.getElementById('hemianopsi').checked == true |
+          document.getElementById('cognitive').checked == true  
+          ){ persist = 1 }
+    let concludeCat = 0;   /* 0,3,6,7,8 */
+        if( riskScore <= 3 & 
+            currentStroke < 2 & 
+            stenose < 2 & 
+            afib == 0 ){concludeCat = 0} else
+        if( riskScore <= 3 & 
+            currentStroke < 2 & 
+            afib == 1 &
+            afibTreat == 0 ){concludeCat = 3} else
+        if( riskScore <= 3 & 
+            currentStroke < 2 & 
+            (stenose == 9 | afib == 9) ){concludeCat = 3} else
+        if( riskScore <= 3 & 
+            currentStroke == 2 & 
+            persist == 0){concludeCat = 3} else
+        if( (riskScore >= 4 & riskScore <= 7) & 
+            currentStroke < 2 ){concludeCat = 3} else
+        if( (riskScore >= 4 & riskScore <= 7) & 
+            currentStroke == 2 &
+            persist == 0){concludeCat = 6} else
+        if( persist == 1 ){concludeCat = 8}
+        if( riskScore >= 8 ){concludeCat = 6} else
+        if( stenosisTreat == 1 ){concludeCat = 6} else
+        if( afibTreat == 1 ){concludeCat = 6} else
+        if( stenose == 2 & 
+            stenosisTreat == 0 ){concludeCat = 7} else
+        
+    /*
+    <div class="conclusion" id="conclNone">
+  <span>1) Kørsel tilladt</span>
+  </div>
+  <div class="conclusion" id="concl3mdr">
+  <span>2) Kørselsforbud i 3 måneder ()</span>
+  </div>
+  <div class="conclusion" id="concl6mdr">
+  <span>3) Kørselsforbud i 6 måneder - Revurdering af neurolog</span>
+  </div>
+  <div class="conclusion" id="conclCarotis">
+  <span>4) Kørselsforbud indtil carotis operation + 1 måned</span>
+  </div>
+  <div class="conclusion" id="conclRehab">
+  <span>5) Kørselsforbud indtil afslutning af rehabilitering</span>
+  </div>
+    */
 
-    /*let mySten = document.forms[3].stenosisTreat.value;
-    if( document.forms[3].stenosisTreat.value == 1 ){
-      document.getElementById('conclNone').style.display = "none";
-      document.getElementById('concl3mdr').style.display = "none";
-      document.getElementById('concl6mdr').style.display = "none";
-      document.getElementById('conclCarotis').style.display = "block";
-      document.getElementById('conclRehab').style.display = "none";
-    } else
-    if( riskScore >= 8 ){
-      document.getElementById('conclNone').style.display = "none";
-      document.getElementById('concl3mdr').style.display = "none";
-      document.getElementById('concl6mdr').style.display = "block";
-      document.getElementById('conclCarotis').style.display = "none";
-      document.getElementById('conclRehab').style.display = "none";
-    }
-    /*conclRehab*/
+
 	  document.getElementById('btnConcl').innerHTML = "Revurder";
     /*document.getElementById('conclNone').style.display = "block";*/
-    document.getElementById('prompt2').innerHTML = currentStroke;
+    document.getElementById('prompt2').innerHTML = concludeCat;
   }
 </script>
 </head>
   <body>
-<div>
-	<form>
+    <main>
+      <!-- Risikofaktorer -->
+<section>
+      <div>
+	<form id="form0">
     <h2>Risikofaktorer</h2>
     <p>Vælg alle relevant</p>
 	<div class="btn"><label>
@@ -190,13 +254,14 @@
     </input>
     </label></div>
    </form>
-  
-  
+  </section>  
+   <!-- Symptomvarighed -->
+   <section>
     <h2>Symptomvarighed</h2>
     <p>Vælg kun en</p>
   <label>Dato for symptom debut</label><br>
   <input type="date" name="dateDebut"></input><br><br>
-  <form>
+  <form id="form1">
   <div class="btn"><label>
     	<input type="radio" id="tia" name="persist" value="0" checked>  
       <span>Remitteret indenfor 24 timer [0 point]
@@ -225,12 +290,16 @@
    <div class="panel" id="riskLow"><span>Lav risiko for nyt stroke</span></div>
    <div class="panel" id="riskMedium"><span>Middel risiko for nyt stroke</span></div>
    <div class="panel" id="riskHigh"><span>Høj risiko for nyt stroke</span></div>
+   
+   </section>
    <hr>
   
+   <!-- Fortsatte symptomer -->
+   <section>
   <h2>Fortsatte symptomer</h2>
   <p>Vælg alle relevant</p>
   <div>
-  <form>
+  <form id="form2">
   </span>
     </input>
     </label></div>
@@ -248,16 +317,20 @@
     </label></div>
   <div class="btn"><label>
     	<input type="checkbox" id="cognitive" value="1">  
-      <span>Kognitive vanskeligheder der kan påvirke patientens evne til at køre bil
+      <span>Kognitive vanskeligheder der kan påvirke patientens 
+        evne til at køre bil
   </span>
     </input>
     </label></div>
   </form>
   </div>
-  
+  </section>
+  <!-- Carotis stenose -->
+  <section>
   <h2>Carotis stenose</h2>
   <p>Vælg kun en</p>
-  <form>
+  <div>
+    <form id="form3">
   <div class="btn"><label>
     	<input type="radio" name="stenosis" value="0">  
       <span>Ingen stenose
@@ -271,7 +344,8 @@
     </input>
     </label></div>
   <div class="btn"><label>
-    	<input type="radio" name="stenosis" value="2">
+    	<input type="radio" name="stenosis" value="2"  
+        onclick="stenosistreat(this)">
       <span>Stenose &gt;50%
   </span>
     </input>
@@ -283,27 +357,30 @@
     </input>
     </label></div>
  
-  
-  <p>Hvis stenose -> er der behandlingstilbud</p>
+  <div id="stenosistreat">
+    <h3>Er der et behandlingstilbud</h3>
   <div class="btn"><label>
   
-    	<input type="radio" name="stenosisTreat" value="1">
+    	<input type="radio" name="stenosisTreat" value="0">
       <span>Patienten skal opereres
   </span>
     
     </label></div>
     <div class="btn"><label>
-    <input type="radio" name="stenosisTreat" value="0">
+    <input type="radio" name="stenosisTreat" value="1">
     <span>Der er ikke noget behandlingstilbud
   </span>
     
     </label></div>
     </div>
+  </div>
   </form>
-  
+  </section>
+  <!-- EKG/Atrieflimmer -->
+  <section>
   <h2>EKG</h2>
   <p>Vælg kun en</p>
-  <div><form>
+  <div><form id="form4">
   
   <div class="btn"><label>
     	<input type="radio" name="ekg" value="0">	
@@ -325,7 +402,7 @@
     </label></div>
   	
   <div id="afibtreat">
-  <p>Hvis atrieflimmer -> er der behandlingstilbud</p>
+  <h3>Er der et behandlingstilbud</h3>
   <div class="btn"><label>
     	<input type="radio" name="afib" value="0">
       <span>Patienten er opstartet AK eller NOAK behandling
@@ -341,32 +418,21 @@
     </div>
 	</form></div>
 	</div>
+  </section>
+  <!-- Konklusion -->
+  
   <h2>Konklusion</h2>
   
   
   <div class="conclusion" id="conclPlaceholder">
   <span>Tryk</span>
   </div>
-  <div class="conclusion" id="conclNone">
-  <span>1) Kørsel tilladt</span>
-  </div>
-  <div class="conclusion" id="concl3mdr">
-  <span>2) Kørselsforbud i 3 måneder ()</span>
-  </div>
-  <div class="conclusion" id="concl6mdr">
-  <span>3) Kørselsforbud i 6 måneder - Revurdering af neurolog</span>
-  </div>
-  <div class="conclusion" id="conclCarotis">
-  <span>4) Kørselsforbud indtil carotis operation + 1 måned</span>
-  </div>
-  <div class="conclusion" id="conclRehab">
-  <span>5) Kørselsforbud indtil afslutning af rehabilitering</span>
-  </div>
+  
   
   <button class="" id="btnConcl" onClick="conclude()">
     Tryk her for konklusion</button>
   <div id="prompt2"></div>  
 </div>
-    
+    </main>
   </body>
 </html>
