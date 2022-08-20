@@ -5,13 +5,13 @@
 <style>
 	* { font-family: Arial; }
     main { background-color: #FDFDFD; }
-	h2 { font-size: 40px; text-align: center; margin: 0 0 0 0;}
-  h3 { font-size: 32px; text-align: center; margin: 0 0 0 0; }
+	h2 { text-align: center; margin: 0 0 0 0;}
+  h3 { text-align: center; margin: 0 0 0 0; }
   p { text-align: center; margin: 0; }
   section { border: 1px solid #E3E3E1; border-radius: 5px; 
             background-color: #E3E3E1;
             width: 98%; margin: 10px auto; 
-            padding: 5px; }
+            padding: 5px 5px 20px 5px; }
   .btn { height: min(40px); width: 90%; 
         border: 1px solid #BDBDC7;  
         margin: 4px auto; border-radius: 8px;
@@ -21,7 +21,8 @@
   .btn label { 
   float: center; font-size: 24px;
     }
-  .btn input:checked + span { background-color: blue; color: white; }
+  .btn input:checked + span { 
+    background-color: blue; color: white; border: darkblue;}
   .btn label span {
         text-align: center;
         padding: 8px 0;
@@ -37,7 +38,7 @@
   button { height: 40px; width: 90%; margin: auto; 
            border-radius: 5px; 
            background-color: #505050; color: white; 
-           font-size: 30px; }
+           font-size: 30px; display: none; }
   .panel { height: 40px; width: 90%; 
            border-radius: 4px; margin: auto;
            text-align: center; 
@@ -54,28 +55,65 @@
             border: 1px solid orange;}
   #riskHigh { display: none; background-color: pink; 
             border: 1px solid red;}
-  #btnRisk { display: block; }
+  #btnRisk { display: none; height: 0; }
   
   #afibtreat { display: none; }
   #stenosistreat { display: none; }
 
-  .conclusion { height: 40px; width: 100%; border-radius: 4px; text-align: center; font-size: 24px; }
+  .conclusion { width: 90%; border-radius: 10px; 
+                text-align: center; font-size: 24px; 
+                margin: 0 auto 20px auto;
+                padding: 10px;}
 	.conclusion span { padding: 8px 0;
   display: block; }
+  .conclusion p { font-size: 10px; float: bottom; }
   #btnConcl { display: block; }
-  #conclPlaceholder { display: block; background-color: #fff; color: gray;
+  #conclPlaceholder { display: block; 
             border: 1px solid gray;}
-  #conclNone { display: none;}
-  #concl3mdr { display: none;}
-  #concl6mdr { display: none;}
-  #conclCarotis { display: none;}
-  #conclRehab { display: none;}
   
+  .drivePlaceholder { display: block; background-color: #fff; 
+            color: gray;
+            border: 1px solid gray;}
+  .driveNone { display: none; background-color: greenyellow; 
+            border: 1px solid green; color: black;}
+  .drive3mdr { display: none; background-color: pink; 
+            border: 1px solid red; color: black}
+  .drive6mdr { display: none; background-color: pink; 
+            border: 1px solid red;}
+  
+
   @media (orientation: portrait){
     main { width: 100%; }
-
+    h2 { font-size: 8vw; }
+    h3 { font-size: 4vw; }
+    p { font-size: 4vw; }
+    .btn { min-height: 3vh; }
+    .btn label { font-size: 4vw;  }
+    .panel { height: 8vh; width: 90%; 
+           font-size: 5vw; }
+    .conclusion { border-radius: 10px; 
+                font-size: 5vw; 
+                margin: 0 auto 20px auto;
+                padding: 10px;}
+	  .conclusion span { padding: 8px 0; display: block; }
+    .conclusion p { font-size: 2.5vw; float: bottom; }
   }
-  @media (orientation: landscape){}
+  @media (orientation: landscape){
+    main { width: min(25%, 300px); margin: auto; 
+          /*display: grid; grid-template-columns: auto auto;*/}
+    h2 { font-size: 24px; }
+    h3 { font-size: 24px; }
+    .btn { min-height: 30px }
+    .btn label { font-size: 14px;  }
+    .panel { height: 30px; width: 90%; 
+           font-size: 20px; }
+    .conclusion { border-radius: 10px; 
+                font-size: 20px; 
+                margin: 0 auto 20px auto;
+                padding: 10px;}
+	  .conclusion span { padding: 8px 0; display: block; }
+    .conclusion p { font-size: 10px; float: bottom; }
+  }
   
 </style>
 <script>
@@ -157,6 +195,7 @@
           document.getElementById('hemianopsi').checked == true |
           document.getElementById('cognitive').checked == true  
           ){ persist = 1 }
+
     let concludeCat = 0;   /* 0,3,6,7,8 */
         if( riskScore <= 3 & 
             currentStroke < 2 & 
@@ -177,35 +216,39 @@
         if( (riskScore >= 4 & riskScore <= 7) & 
             currentStroke == 2 &
             persist == 0){concludeCat = 6} else
-        if( persist == 1 ){concludeCat = 8}
+        if( persist == 1 ){concludeCat = 8} else
         if( riskScore >= 8 ){concludeCat = 6} else
         if( stenosisTreat == 1 ){concludeCat = 6} else
         if( afibTreat == 1 ){concludeCat = 6} else
         if( stenose == 2 & 
-            stenosisTreat == 0 ){concludeCat = 7} else
+            stenosisTreat == 0 ){concludeCat = 7}; 
         
-    /*
-    <div class="conclusion" id="conclNone">
-  <span>1) Kørsel tilladt</span>
-  </div>
-  <div class="conclusion" id="concl3mdr">
-  <span>2) Kørselsforbud i 3 måneder ()</span>
-  </div>
-  <div class="conclusion" id="concl6mdr">
-  <span>3) Kørselsforbud i 6 måneder - Revurdering af neurolog</span>
-  </div>
-  <div class="conclusion" id="conclCarotis">
-  <span>4) Kørselsforbud indtil carotis operation + 1 måned</span>
-  </div>
-  <div class="conclusion" id="conclRehab">
-  <span>5) Kørselsforbud indtil afslutning af rehabilitering</span>
-  </div>
-    */
-
-
-	  document.getElementById('btnConcl').innerHTML = "Revurder";
-    /*document.getElementById('conclNone').style.display = "block";*/
-    document.getElementById('prompt2').innerHTML = concludeCat;
+        if( concludeCat == 0 ){
+          document.getElementById('conclPlaceholder').innerHTML = 
+          "<span>Kørsel tilladt</span><p>Tryk igen for revurdering</p>"
+          document.getElementById('conclPlaceholder').className = "conclusion driveNone"
+        } else
+        if( concludeCat == 3 ){
+          document.getElementById('conclPlaceholder').innerHTML = 
+          "<span>3 mdr</span><p>Tryk igen for revurdering</p>"
+          document.getElementById('conclPlaceholder').className = "conclusion drive3mdr"
+        } else  
+        if( concludeCat == 6 ){
+          document.getElementById('conclPlaceholder').innerHTML = 
+          "<span>6 mdr</span><p>Tryk igen for revurdering</p>"
+          document.getElementById('conclPlaceholder').className = "conclusion drive6mdr"
+        } else 
+        if( concludeCat == 7 ){
+          document.getElementById('conclPlaceholder').innerHTML = 
+          "<span>Carotis</span><p>Tryk igen for revurdering</p>"
+          document.getElementById('conclPlaceholder').className = "conclusion drive6mdr"
+        } else
+        if( concludeCat == 8 ){
+          document.getElementById('conclPlaceholder').innerHTML = 
+          "<span>Rehab</span><p>Tryk igen for revurdering</p>"
+          document.getElementById('conclPlaceholder').className = "conclusion drive6mdr"
+        } ;
+  
   }
 </script>
 </head>
@@ -259,8 +302,11 @@
    <section>
     <h2>Symptomvarighed</h2>
     <p>Vælg kun en</p>
+  <!--
   <label>Dato for symptom debut</label><br>
   <input type="date" name="dateDebut"></input><br><br>
+   -->
+  
   <form id="form1">
   <div class="btn"><label>
     	<input type="radio" id="tia" name="persist" value="0" checked>  
@@ -280,16 +326,16 @@
   </span>
     </input>
     </label></div>
-    </form><br>
+    </form>
     
    <button id="btnRisk" onClick="evalRisk()">Beregn risiko</button>
-   <br>
+   
    <!--  -->
    <div id="prompt"></div>
-   <div class="panel" id="riskNone"><span>Risikovurdering</span></div>
-   <div class="panel" id="riskLow"><span>Lav risiko for nyt stroke</span></div>
-   <div class="panel" id="riskMedium"><span>Middel risiko for nyt stroke</span></div>
-   <div class="panel" id="riskHigh"><span>Høj risiko for nyt stroke</span></div>
+   <div class="panel" id="riskNone" onClick="evalRisk()"><span>Tryk her for risikovurdering</span></div>
+   <div class="panel" id="riskLow" onClick="evalRisk()"><span>Lav risiko for nyt stroke</span></div>
+   <div class="panel" id="riskMedium" onClick="evalRisk()"><span>Middel risiko for nyt stroke</span></div>
+   <div class="panel" id="riskHigh" onClick="evalRisk()"><span>Høj risiko for nyt stroke</span></div>
    
    </section>
    <hr>
@@ -424,13 +470,13 @@
   <h2>Konklusion</h2>
   
   
-  <div class="conclusion" id="conclPlaceholder">
-  <span>Tryk</span>
+  <div class="conclusion drivePlaceholder" id="conclPlaceholder" onClick="conclude()">
+  <span>Tryk her for resultat</span>
   </div>
   
-  
+  <!--
   <button class="" id="btnConcl" onClick="conclude()">
-    Tryk her for konklusion</button>
+    Tryk her for konklusion</button>-->
   <div id="prompt2"></div>  
 </div>
     </main>
