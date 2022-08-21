@@ -4,28 +4,42 @@
 <head>
 <style>
 	* { font-family: Arial; }
-    main { background-color: #FDFDFD; }
-	h2 { text-align: center; margin: 0 0 0 0;}
+    main { background-color: #f0f6ff/* #fdfdfd;*/ }  
+	h1 { text-align: center; margin: 0 0 0 0; }
+  h2 { text-align: center; margin: 0 0 0 0; }
   h3 { text-align: center; margin: 0 0 0 0; }
   p { text-align: center; margin: 0; }
-  section { border: 1px solid #E3E3E1; border-radius: 5px; 
-            background-color: #E3E3E1;
-            width: 98%; margin: 10px auto; 
-            padding: 5px 5px 20px 5px; }
-  .btn { height: min(40px); width: 90%; 
-        border: 1px solid #BDBDC7;  
-        margin: 4px auto; border-radius: 8px;
+  .heading { }
+  section { border: 1px solid #fdfdfd; border-radius: 5px; 
+            background-color: #fdfdfd;
+            margin: 10px auto; 
+            padding: 5px 5px 20px 5px; 
+            -webkit-box-shadow: -1px 5px 10px -1px rgba(126, 124, 255, 0.3); 
+            box-shadow: -1px 5px 15px -1px rgba(126, 124, 255, 0.3);          
+          }
+  .btn { /*height: min(40px); */width: 90%; 
+        border: 1px solid #43b6aa;  
+        margin: 0px auto; border-radius: 8px;
 		    overflow: hidden; 
         float: center; color: black; 
-        background-color: #fbfbfb;}
-  .btn label { 
-  float: center; font-size: 24px;
+        background-color: rgb(251, 251, 251);
+        -webkit-box-shadow: -1px 2px 5px -1px rgba(251, 251, 251, 0.3); 
+        box-shadow: -1px 2px 5px -1px rgba(124, 124, 124, 0.299);
+      }
+  /*.btn-lrg { height: 70px; }*/
+  .btn label { line-height: 50px; height: 40px;
+        float: center; font-size: 24px; 
+        ;
     }
   .btn input:checked + span { 
-    background-color: blue; color: white; border: darkblue;}
+        background-color: #43b6aa; 
+        color: white; 
+        border: #266b64;
+        
+      }
   .btn label span {
         text-align: center;
-        padding: 8px 0;
+        padding: 5px 10px;
         display: block; 
         }
   .btn label input {
@@ -46,15 +60,24 @@
   .panel span { padding: 8px 0;
             display: block; }
 
+/*
+  .riskPlaceholder {  }
+*/          
   
   #riskNone { display: block; background-color: #fff; color: gray;
             border: 1px solid gray;}
-  #riskLow { display: none; background-color: greenyellow; 
-            border: 1px solid green;}
+  #riskLow { display: none; background-color: rgb(173, 255, 47); 
+            border: 0px solid green;
+            -webkit-box-shadow: -1px 2px 5px -1px green; 
+            box-shadow: -1px 2px 10px -1px green;}
   #riskMedium { display: none; background-color: yellow; 
-            border: 1px solid orange;}
+            border: 0px solid orange;
+            -webkit-box-shadow: -1px 2px 5px -1px orange; 
+            box-shadow: -1px 2px 10px -1px orange;}
   #riskHigh { display: none; background-color: pink; 
-            border: 1px solid red;}
+            border: 0px solid red;
+            -webkit-box-shadow: -1px 2px 5px -1px red; 
+            box-shadow: -1px 2px 10px -1px red;}
   #btnRisk { display: none; height: 0; }
   
   #afibtreat { display: none; }
@@ -83,14 +106,22 @@
   
 
   @media (orientation: portrait){
-    main { width: 100%; }
+    main { width: 100%; border-radius: 3vw; 
+            padding-top: 1vw;}
+    h1 { font-size: 10vw; }
     h2 { font-size: 8vw; }
     h3 { font-size: 4vw; }
     p { font-size: 4vw; }
-    .btn { min-height: 3vh; }
+    .heading { margin: 5vw 2vw 3vw 2vw; }
+    section { margin: 2vw 2vw 3vw 2vw; 
+              border-radius: 3vw;}
+    .btn { /*min-height: 3vh;*/ margin: 2vw auto;
+            border-radius: 3vw; padding: 0;}
+    /*.btn-lrg { min-height: 5vh; }*/
     .btn label { font-size: 4vw;  }
+    .btn label span { padding: 0.5vw 2vw; font-size: 2vw; }
     .panel { height: 8vh; width: 90%; 
-           font-size: 5vw; }
+           font-size: 5vw; border-radius: 3vw;}
     .conclusion { border-radius: 10px; 
                 font-size: 5vw; 
                 margin: 0 auto 20px auto;
@@ -253,82 +284,72 @@
 </script>
 </head>
   <body>
+    <div class="heading">
+      <h1>Kørsel</h1>
+    </div>
+    
     <main>
       <!-- Risikofaktorer -->
 <section>
-      <div>
-	<form id="form0">
-    <h2>Risikofaktorer</h2>
-    <p>Vælg alle relevant</p>
-	<div class="btn"><label>
-    	<input type="checkbox" id="age" value="2">  
-  
-  	<span>Alder 70 eller over [2 point]</span>
-    
-    </label></div>
-    <div class="btn"><label>
-    	<input type="checkbox" id="hypertension" value="1">  
-      <span>Hypertension (BT &gt;140/90 mmHg) [1 point]
-  </span>
-    </input>
-    </label></div>
-    <div class="btn"><label>
-    	<input type="checkbox" id="ihd" value="1">  
-      <span>Iskæmisk hjertesygdom [1 point]
-  </span>
-    </input>
-    </label></div>
-    <div class="btn"><label>
-    	<input type="checkbox" id="prevstroke" value="3">  
-      <span>Tidligere apopleksi [3 point]
-  </span>
-    </input>
-    </label></div>
-    <div class="btn"><label>
-    	<input type="checkbox" id="diabetes" value="3">  
-      <span>Diabetes [3 point]
-  </span>
-    </input>
-    </label></div>
-    <div class="btn"><label>
-    	<input type="checkbox" id="insufficient" value="3">  
-      <span>Erkendt hjerteinsufficiens [3 point]
-  </span>
-    </input>
-    </label></div>
+  <div>	  
+      <h2>Risikofaktorer</h2>
+      <p>Vælg alle relevant</p>
+    <form id="form0">
+	    <div class="btn"><label>
+    	  <input type="checkbox" id="age" value="2">  
+        <span>Alder 70 eller over [2 point]</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="checkbox" id="hypertension" value="1">  
+        <span>Hypertension (BT &gt;140/90 mmHg) [1 point]</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="checkbox" id="ihd" value="1">  
+        <span>Iskæmisk hjertesygdom [1 point]</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="checkbox" id="prevstroke" value="3">  
+        <span>Tidligere apopleksi [3 point]</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="checkbox" id="diabetes" value="3">  
+        <span>Diabetes [3 point]</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="checkbox" id="insufficient" value="3">  
+        <span>Erkendt hjerteinsufficiens [3 point]</span>
+        </label>
+      </div>
    </form>
-  </section>  
+</section>  
    <!-- Symptomvarighed -->
-   <section>
+<section>
     <h2>Symptomvarighed</h2>
     <p>Vælg kun en</p>
-  <!--
-  <label>Dato for symptom debut</label><br>
-  <input type="date" name="dateDebut"></input><br><br>
-   -->
-  
   <form id="form1">
-  <div class="btn"><label>
-    	<input type="radio" id="tia" name="persist" value="0" checked>  
-      <span>Remitteret indenfor 24 timer [0 point]
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
-    	<input type="radio" id="minor" name="persist" value="2">  
-      <span>Remitteret indenfor en uge [2 point]
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
-    	<input type="radio" id="major" name="persist" value="2">  
-      <span>Fortsat symptomer efter en uge [2 point]
-  </span>
-    </input>
-    </label></div>
+      <div class="btn"><label>
+    	  <input type="radio" id="tia" name="persist" value="0" checked>  
+        <span>Remitteret indenfor 24 timer [0 point]</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="radio" id="minor" name="persist" value="2">  
+        <span>Remitteret indenfor en uge [2 point]</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="radio" id="major" name="persist" value="2">  
+        <span>Fortsat symptomer efter en uge [2 point]</span>
+        </label>
+      </div>
     </form>
     
-   <button id="btnRisk" onClick="evalRisk()">Beregn risiko</button>
+  <button id="btnRisk" onClick="evalRisk()">Beregn risiko</button>
    
    <!--  -->
    <div id="prompt"></div>
@@ -337,148 +358,145 @@
    <div class="panel" id="riskMedium" onClick="evalRisk()"><span>Middel risiko for nyt stroke</span></div>
    <div class="panel" id="riskHigh" onClick="evalRisk()"><span>Høj risiko for nyt stroke</span></div>
    
-   </section>
-   <hr>
-  
+    <!--  
+      <div class="panel riskPlaceholder" id="riskPlaceholder" 
+        onClick="evalRisk()">
+      <span>Tryk her for risikovurdering</span>
+  </div> -->
+
+</section>
+   
    <!-- Fortsatte symptomer -->
-   <section>
-  <h2>Fortsatte symptomer</h2>
-  <p>Vælg alle relevant</p>
+<section>
+    <h2>Fortsatte symptomer</h2>
+    <p>Vælg alle relevant</p>
   <div>
   <form id="form2">
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
+  
+    <div class="btn"><label>
     	<input type="checkbox" id="parese" value="1">  
-      <span>Lammelse i arm eller ben
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
+      <span>Lammelse i arm eller ben</span>
+      </label>
+    </div>
+    <div class="btn"><label>
     	<input type="checkbox" id="hemianopsi" value="1">  
-      <span>Hemianopsi
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
+      <span>Hemianopsi</span>
+      </label>
+    </div>
+    <div class="btn btn-lrg"><label>
     	<input type="checkbox" id="cognitive" value="1">  
       <span>Kognitive vanskeligheder der kan påvirke patientens 
-        evne til at køre bil
-  </span>
-    </input>
-    </label></div>
+        evne til at køre bil</span>
+      </label>
+    </div>
   </form>
   </div>
-  </section>
+</section>
   <!-- Carotis stenose -->
-  <section>
+<section>
   <h2>Carotis stenose</h2>
   <p>Vælg kun en</p>
   <div>
     <form id="form3">
-  <div class="btn"><label>
-    	<input type="radio" name="stenosis" value="0">  
-      <span>Ingen stenose
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
-    	<input type="radio" name="stenosis" value="1">
-      <span>Stenose &lt;50%
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
-    	<input type="radio" name="stenosis" value="2"  
-        onclick="stenosistreat(this)">
-      <span>Stenose &gt;50%
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
-    	<input type="radio" name="stenosis" value="9">
-      <span>Ikke undersøgt
-  </span>
-    </input>
-    </label></div>
+      <div class="btn"><label>
+    	  <input type="radio" name="stenosis" value="0">  
+        <span>Ingen stenose</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="radio" name="stenosis" value="1">
+        <span>Stenose &lt;50%</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="radio" name="stenosis" value="2"  
+            onclick="stenosistreat(this)">
+        <span>Stenose &gt;50%</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="radio" name="stenosis" value="9" checked>
+        <span>Ikke undersøgt</span>
+        </label>
+      </div>
  
-  <div id="stenosistreat">
-    <h3>Er der et behandlingstilbud</h3>
-  <div class="btn"><label>
-  
-    	<input type="radio" name="stenosisTreat" value="0">
-      <span>Patienten skal opereres
-  </span>
-    
-    </label></div>
-    <div class="btn"><label>
-    <input type="radio" name="stenosisTreat" value="1">
-    <span>Der er ikke noget behandlingstilbud
-  </span>
-    
-    </label></div>
-    </div>
-  </div>
-  </form>
-  </section>
+      <div id="stenosistreat">
+        <h3>Er der et behandlingstilbud</h3>
+        <div class="btn"><label>
+    	    <input type="radio" name="stenosisTreat" value="0">
+          <span>Patienten skal opereres</span>
+          </label>
+        </div>
+        <div class="btn"><label>
+          <input type="radio" name="stenosisTreat" value="1">
+          <span>Der er ikke noget behandlingstilbud</span>
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>    
+</section>
   <!-- EKG/Atrieflimmer -->
-  <section>
+<section>
   <h2>EKG</h2>
   <p>Vælg kun en</p>
-  <div><form id="form4">
-  
-  <div class="btn"><label>
-    	<input type="radio" name="ekg" value="0">	
-      <span>Normal rytme
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
-    	<input type="radio" name="ekg" value="1" onclick="afibtreat(this)">	
-      <span>Atrieflimmer
-  </span>
-    </input>
-    </label></div>
-  <div class="btn"><label>
-    	<input type="radio" name="ekg" value="9">	
-      <span>Ikke undersøgt
-  </span>
-    </input>
-    </label></div>
+  <div>
+    <form id="form4">
+      <div class="btn"><label>
+    	  <input type="radio" name="ekg" value="0">	
+        <span>Normal rytme</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="radio" name="ekg" value="1" 
+            onclick="afibtreat(this)">	
+        <span>Atrieflimmer</span>
+        </label>
+      </div>
+      <div class="btn"><label>
+    	  <input type="radio" name="ekg" value="9" checked>	
+        <span>Ikke undersøgt</span>
+        </label>
+      </div>
   	
-  <div id="afibtreat">
-  <h3>Er der et behandlingstilbud</h3>
-  <div class="btn"><label>
-    	<input type="radio" name="afib" value="0">
-      <span>Patienten er opstartet AK eller NOAK behandling
-  </span>
-    </input>
-    </label></div>
-    <div class="btn"><label>
-    <input type="radio" name="afib" value="1">
-    <span>Der er ikke noget behandlingstilbud
-  </span>
-    
-    </label></div>
-    </div>
-	</form></div>
-	</div>
-  </section>
+      <div id="afibtreat">
+      <h3>Er der et behandlingstilbud</h3>
+        <div class="btn"><label>
+    	    <input type="radio" name="afib" value="0">
+          <span>Patienten er opstartet AK eller NOAK behandling</span>
+          </label>
+        </div>
+        <div class="btn"><label>
+          <input type="radio" name="afib" value="1">
+          <span>Der er ikke noget behandlingstilbud</span>
+          </label>
+        </div>
+      </div>
+	  </form>
+  </div>
+</section>
+
   <!-- Konklusion -->
-  
+<section>
   <h2>Konklusion</h2>
   
-  
-  <div class="conclusion drivePlaceholder" id="conclPlaceholder" onClick="conclude()">
-  <span>Tryk her for resultat</span>
+  <div class="conclusion drivePlaceholder" id="conclPlaceholder" 
+        onClick="evalRisk();conclude()">
+    <span>Tryk her for resultat</span>
   </div>
   
   <!--
   <button class="" id="btnConcl" onClick="conclude()">
     Tryk her for konklusion</button>-->
   <div id="prompt2"></div>  
+  <!-- Placeholder for dato felt
+  <label>Dato for symptom debut</label><br>
+  <input type="date" name="dateDebut"></input><br><br>
+   -->
 </div>
+
+</section>  
+<br>
     </main>
   </body>
 </html>
