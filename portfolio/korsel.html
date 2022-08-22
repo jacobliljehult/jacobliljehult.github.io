@@ -18,7 +18,7 @@
             box-shadow: -1px 5px 15px -1px rgba(126, 124, 255, 0.3);          
           }
   .btn { /*height: min(40px); */width: 90%; 
-        border: 1px solid #43b6aa;  
+        border: 2px solid #266b64;  
         margin: 0px auto; border-radius: 8px;
 		    overflow: hidden; 
         float: center; color: black; 
@@ -26,20 +26,20 @@
         -webkit-box-shadow: -1px 2px 5px -1px rgba(251, 251, 251, 0.3); 
         box-shadow: -1px 2px 5px -1px rgba(124, 124, 124, 0.299);
       }
-  /*.btn-lrg { height: 70px; }*/
-  .btn label { line-height: 50px; height: 40px;
+  .btn:hover { background-color: #43b6ab2e; }
+  .btn label { line-height: 26px; 
         float: center; font-size: 24px; 
-        ;
+        
     }
   .btn input:checked + span { 
         background-color: #43b6aa; 
         color: white; 
-        border: #266b64;
+        border: 0px solid #43b6aa; 
         
       }
   .btn label span {
         text-align: center;
-        padding: 5px 10px;
+        padding: 20px 50px;
         display: block; 
         }
   .btn label input {
@@ -47,7 +47,7 @@
         display: none;
         color: black !important;
         }
-  .btn label input + span{color: black;}
+  .btn label input + span {color: black;}
 
   button { height: 40px; width: 90%; margin: auto; 
            border-radius: 5px; 
@@ -115,11 +115,14 @@
     .heading { margin: 5vw 2vw 3vw 2vw; }
     section { margin: 2vw 2vw 3vw 2vw; 
               border-radius: 3vw;}
-    .btn { /*min-height: 3vh;*/ margin: 2vw auto;
-            border-radius: 3vw; padding: 0;}
+    .btn { /*min-height: 3vh;*/ margin: 2.5vw auto;
+            border-radius: 3vw; padding: 0;
+            }
     /*.btn-lrg { min-height: 5vh; }*/
-    .btn label { font-size: 4vw;  }
-    .btn label span { padding: 0.5vw 2vw; font-size: 2vw; }
+    .btn label { font-size: 4vw; ; 
+      }
+    .btn label span { padding: 2vw 0vw; font-size: 4vw; 
+                      border-radius: 3vw; }
     .panel { height: 8vh; width: 90%; 
            font-size: 5vw; border-radius: 3vw;}
     .conclusion { border-radius: 10px; 
