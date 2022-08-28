@@ -18,11 +18,11 @@
             box-shadow: -1px 5px 15px -1px rgba(126, 124, 255, 0.3);          
           }
   .btn { /*height: min(40px); */width: 90%; 
-        border: 2px solid #266b64;  
+        border: 0px solid #266b64;  
         margin: 0px auto; border-radius: 8px;
-		    overflow: hidden; 
+		    overflow: hidden;
         float: center; color: black; 
-        background-color: rgb(251, 251, 251);
+        background-color: rgb(226, 226, 226);
         -webkit-box-shadow: -1px 2px 5px -1px rgba(251, 251, 251, 0.3); 
         box-shadow: -1px 2px 5px -1px rgba(124, 124, 124, 0.299);
       }
@@ -64,20 +64,20 @@
   .riskPlaceholder {  }
 */          
   
-  #riskNone { display: block; background-color: #fff; color: gray;
+  .riskNone { display: block; background-color: #fff; color: gray;
             border: 1px solid gray;}
-  #riskLow { display: none; background-color: rgb(173, 255, 47); 
-            border: 0px solid green;
-            -webkit-box-shadow: -1px 2px 5px -1px green; 
-            box-shadow: -1px 2px 10px -1px green;}
-  #riskMedium { display: none; background-color: yellow; 
-            border: 0px solid orange;
-            -webkit-box-shadow: -1px 2px 5px -1px orange; 
-            box-shadow: -1px 2px 10px -1px orange;}
-  #riskHigh { display: none; background-color: pink; 
-            border: 0px solid red;
-            -webkit-box-shadow: -1px 2px 5px -1px red; 
-            box-shadow: -1px 2px 10px -1px red;}
+  .riskLow { display: block; background-color: rgb(173, 255, 47); 
+            border: 1px solid green;
+            /*-webkit-box-shadow: -1px 2px 5px -1px green; 
+            box-shadow: -1px 2px 5px -1px green;*/}
+  .riskMedium { display: block; background-color: yellow; 
+            border: 1px solid orange;
+            /*-webkit-box-shadow: -1px 2px 5px -1px orange; 
+            box-shadow: -1px 2px 10px -1px orange;*/}
+  .riskHigh { display: block; background-color: pink; 
+            border: 1px solid red;
+            /*-webkit-box-shadow: -1px 2px 5px -1px red; 
+            box-shadow: -1px 2px 10px -1px red;*/}
   #btnRisk { display: none; height: 0; }
   
   #afibtreat { display: none; }
@@ -118,12 +118,12 @@
     .btn { /*min-height: 3vh;*/ margin: 2.5vw auto;
             border-radius: 3vw; padding: 0;
             }
-    /*.btn-lrg { min-height: 5vh; }*/
+    
     .btn label { font-size: 4vw; ; 
       }
-    .btn label span { padding: 2vw 0vw; font-size: 4vw; 
+    .btn label span { padding: 3.5vw 0vw; font-size: 4vw; 
                       border-radius: 3vw; }
-    .panel { height: 8vh; width: 90%; 
+    .panel { height: 12vw; width: 90%; padding-top: 4vw; 
            font-size: 5vw; border-radius: 3vw;}
     .conclusion { border-radius: 10px; 
                 font-size: 5vw; 
@@ -139,7 +139,7 @@
     h3 { font-size: 24px; }
     .btn { min-height: 30px }
     .btn label { font-size: 14px;  }
-    .panel { height: 30px; width: 90%; 
+    .panel { height: 30px; width: 90%;  
            font-size: 20px; }
     .conclusion { border-radius: 10px; 
                 font-size: 20px; 
@@ -177,9 +177,25 @@
                     diabetes + insufficient + currentStroke; 
     window.riskScore = riskScore;                
     /*document.getElementById('prompt').innerHTML = riskScore;*/
-    document.getElementById('btnRisk').innerHTML = "Revurder";
+    /*document.getElementById('btnRisk').innerHTML = "Revurder";*/
     /*document.getElementById('riskLow').style.display = "block";*/
 
+    switch(riskScore){
+      case 0: case 1: case 2: case 3:  
+      document.getElementById('riskPanel').innerHTML = "<span>Lav risiko for nyt stroke</span>";
+      document.getElementById('riskPanel').className = "panel riskLow";
+      break;
+      case 4: case 5: case 6: case 7:  
+      document.getElementById('riskPanel').innerHTML = "<span>Middel risiko for nyt stroke</span>";
+      document.getElementById('riskPanel').className = "panel riskMedium";
+      break;
+      case 8: case 9: case 10: case 11: case 12: case 13:  
+      document.getElementById('riskPanel').innerHTML = "<span>Høj risiko for nyt stroke</span>";
+      document.getElementById('riskPanel').className = "panel riskHigh";
+      break;
+    }
+
+    /*
     if(riskScore <= 3){ 
       document.getElementById('riskLow').style.display = "block";
       document.getElementById('riskMedium').style.display = "none";
@@ -196,7 +212,7 @@
       document.getElementById('riskHigh').style.display = "block";
       document.getElementById('riskNone').style.display = "none";
      }
-
+*/
   }
   
   function stenosistreat(ekg){
@@ -220,9 +236,9 @@
     /* - afib - */
     let afib = document.forms[4].ekg.value; /* 0,1,9 */
     /* - stenosisTreat - */  
-    let stenosisTreat = document.forms[3].stenosisTreat.value;
-    /* - currentStroke - */
-    let afibTreat = document.forms[4].afib.value;
+    let stenosisTreat = document.forms[3].stenosisTreat.value || 9;
+    /* - afibTreat - */
+    let afibTreat = document.forms[4].afib.value || 9;
     /* - persist - */
     let persist = 0;
       if( document.getElementById('parese').checked == true |
@@ -233,57 +249,121 @@
     let concludeCat = 0;   /* 0,3,6,7,8 */
         if( riskScore <= 3 & 
             currentStroke < 2 & 
-            stenose < 2 & 
-            afib == 0 ){concludeCat = 0} else
+            stenose < 2 &
+            stenosisTreat == 9 & 
+            afib == 0 &
+            afibTreat == 9 &
+            persist == 0 ){concludeCat = 0} else
         if( riskScore <= 3 & 
             currentStroke < 2 & 
+            stenose < 2 &
+            stenosisTreat == 9 & 
             afib == 1 &
-            afibTreat == 0 ){concludeCat = 3} else
+            afibTreat == 9 &
+            persist == 0 ){concludeCat = 3} else
         if( riskScore <= 3 & 
             currentStroke < 2 & 
+            stenosisTreat == 9 & 
+            afibTreat == 9 &
+            persist == 0 & 
             (stenose == 9 | afib == 9) ){concludeCat = 3} else
         if( riskScore <= 3 & 
             currentStroke == 2 & 
-            persist == 0){concludeCat = 3} else
+            stenose < 2 &
+            stenosisTreat == 9 & 
+            afibTreat == 9 &
+            afib == 0 &
+            persist == 0 ){concludeCat = 3} else
+        if( riskScore <= 3 & 
+            currentStroke < 2 & 
+            stenose < 2 &
+            stenosisTreat == 9 & 
+            afib == 1 &
+            afibTreat == 0 &
+            persist == 0 ){concludeCat = 3} else
         if( (riskScore >= 4 & riskScore <= 7) & 
-            currentStroke < 2 ){concludeCat = 3} else
+            currentStroke < 2 & 
+            stenose < 2 &
+            stenosisTreat == 9 & 
+            afibTreat == 9 &
+            afib == 0 &
+            persist == 0 ){concludeCat = 3} else
         if( (riskScore >= 4 & riskScore <= 7) & 
-            currentStroke == 2 &
+            currentStroke == 2 & 
+            stenose < 2 &
+            stenosisTreat == 9 & 
+            afibTreat == 9 &
+            afib == 0 &
             persist == 0){concludeCat = 6} else
-        if( persist == 1 ){concludeCat = 8} else
-        if( riskScore >= 8 ){concludeCat = 6} else
-        if( stenosisTreat == 1 ){concludeCat = 6} else
-        if( afibTreat == 1 ){concludeCat = 6} else
-        if( stenose == 2 & 
-            stenosisTreat == 0 ){concludeCat = 7}; 
+        if( riskScore >= 0 & 
+            currentStroke <= 2 & 
+            stenose <= 2 &
+            stenosisTreat >= 0 & 
+            afibTreat >= 0 &
+            afib >= 0 &
+            persist == 1 ){concludeCat = 8} else
+        if( riskScore >= 8 & 
+            currentStroke <= 2 & 
+            stenose <= 2 &
+            stenosisTreat == 9 & 
+            afibTreat == 9 &
+            afib == 0 &
+            persist == 0 ){concludeCat = 6} else
+        if( riskScore >= 0 & 
+            currentStroke <= 2 & 
+            stenose <= 2 &
+            stenosisTreat == 1 & 
+            afibTreat >= 0 &
+            afib >= 0 &
+            persist >= 0 ){concludeCat = 6} else
+        if( riskScore >= 0 & 
+            currentStroke <= 2 & 
+            stenose <= 2 &
+            stenosisTreat != 0 & 
+            afibTreat == 1 &
+            afib == 1 &
+            persist >= 0 ){concludeCat = 6} else
+        if( riskScore >= 0 & 
+            currentStroke <= 2 & 
+            stenose == 2 &
+            stenosisTreat == 0 & 
+            afibTreat >= 0 &
+            afib >= 0 &
+            persist >= 0 ){concludeCat = 7}; 
         
-        if( concludeCat == 0 ){
+        switch(concludeCat){
+          case 0:
           document.getElementById('conclPlaceholder').innerHTML = 
           "<span>Kørsel tilladt</span><p>Tryk igen for revurdering</p>"
           document.getElementById('conclPlaceholder').className = "conclusion driveNone"
-        } else
-        if( concludeCat == 3 ){
+          break;
+          case 3:
           document.getElementById('conclPlaceholder').innerHTML = 
-          "<span>3 mdr</span><p>Tryk igen for revurdering</p>"
+          "<span>Kørselsforbud i 3 måneder</span><p>Tryk igen for revurdering</p>"
           document.getElementById('conclPlaceholder').className = "conclusion drive3mdr"
-        } else  
-        if( concludeCat == 6 ){
+          break;  
+          case 6:
           document.getElementById('conclPlaceholder').innerHTML = 
-          "<span>6 mdr</span><p>Tryk igen for revurdering</p>"
+          "<span>Kørselsforbud i 6 måneder<br>Revurderes af neurolog før kørsel kan genoptages</span><p>Tryk igen for revurdering</p>"
           document.getElementById('conclPlaceholder').className = "conclusion drive6mdr"
-        } else 
-        if( concludeCat == 7 ){
+          break;
+          case 7:
           document.getElementById('conclPlaceholder').innerHTML = 
-          "<span>Carotis</span><p>Tryk igen for revurdering</p>"
+          "<span>Kørselsforbud i mindst 3 måneder<br>Efter carotisendarterektomi er der kørselsforbud i 1 måned</span><p>Tryk igen for revurdering</p>"
           document.getElementById('conclPlaceholder').className = "conclusion drive6mdr"
-        } else
-        if( concludeCat == 8 ){
+          break;
+          case 8:
           document.getElementById('conclPlaceholder').innerHTML = 
-          "<span>Rehab</span><p>Tryk igen for revurdering</p>"
+          "<span>Ved ved varende symptomer er der kørselsforbud indtil disse er tilstrækkeligt rehabiliterede, ofte 3-6 måneder.<br>Dette forudsætter yderligere at patienten er i relevant profylaktisk behandling</span><p>Tryk igen for revurdering</p>"
           document.getElementById('conclPlaceholder').className = "conclusion drive6mdr"
+          break;
         } ;
-  
-  }
+
+        /* debug prompt2 
+        document.getElementById('prompt2').innerHTML = 
+          "<p style='font-size: 15vw;'>" + afib + afibTreat + "</span>";
+          */    
+          }
 </script>
 </head>
   <body>
@@ -356,10 +436,8 @@
    
    <!--  -->
    <div id="prompt"></div>
-   <div class="panel" id="riskNone" onClick="evalRisk()"><span>Tryk her for risikovurdering</span></div>
-   <div class="panel" id="riskLow" onClick="evalRisk()"><span>Lav risiko for nyt stroke</span></div>
-   <div class="panel" id="riskMedium" onClick="evalRisk()"><span>Middel risiko for nyt stroke</span></div>
-   <div class="panel" id="riskHigh" onClick="evalRisk()"><span>Høj risiko for nyt stroke</span></div>
+   <div class="panel riskNone" id="riskPanel" onClick="evalRisk()"><span>Tryk her for risikovurdering</span></div>
+   
    
     <!--  
       <div class="panel riskPlaceholder" id="riskPlaceholder" 
@@ -372,7 +450,7 @@
    <!-- Fortsatte symptomer -->
 <section>
     <h2>Fortsatte symptomer</h2>
-    <p>Vælg alle relevant</p>
+    <p>Vælg alle der vil kunne påvirke patientens<br>evne til at køre bil</p>
   <div>
   <form id="form2">
   
@@ -388,8 +466,7 @@
     </div>
     <div class="btn btn-lrg"><label>
     	<input type="checkbox" id="cognitive" value="1">  
-      <span>Kognitive vanskeligheder der kan påvirke patientens 
-        evne til at køre bil</span>
+      <span>Kognitive vanskeligheder</span>
       </label>
     </div>
   </form>
@@ -466,7 +543,7 @@
       <h3>Er der et behandlingstilbud</h3>
         <div class="btn"><label>
     	    <input type="radio" name="afib" value="0">
-          <span>Patienten er opstartet AK eller NOAK behandling</span>
+          <span>Patienten er opstartet<br><br>AK eller NOAK behandling</span>
           </label>
         </div>
         <div class="btn"><label>
