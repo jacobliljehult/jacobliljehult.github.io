@@ -9,9 +9,9 @@
                 border-radius: 4px;
                 padding: 10px; 
                 margin: 10px auto 10px auto; 
-                width: 90vw;}
+                ;}
             
-        .innerBox {width: 88vw; margin-inline: auto; 
+        .innerBox {margin-inline: auto; 
                     
   }
         #cprInput {font-size: max(18px, 5vw); 
@@ -61,7 +61,7 @@
             #cprInput {font-size: max(18px, 2vw); 
                 border: 1px solid gray;
                 width: 100%;}
-            #innerBox {width: 29vw; 
+            #innerBox {width: 29%; 
                 margin-inline: auto; 
                 ;}
             .button {font-size: max(18px, 2vw); 
@@ -81,46 +81,75 @@
   <div class="innerBox">
         <!--<form action="/action_page.php">-->
         <label for="cprInput">CPR-nummer:</label><br>
-        <input type="text" id="cprInput" name="cprInput" placeholder="CPR nummer.."><br>
+        <input type="text" id="cprInput" name="cprInput" placeholder="Indtast CPR nummer.."><br>
         <button type="button" class="button" onclick="document.getElementById('cprOutput').innerHTML = agefun()">
         Udregn
         </button>
     </div>
-</form>
+
 </div>
 <script>
 
 /* Funktion til trække oplysninger ud af CPR-nummer */
     function agefun(){
-	    let a = document.getElementById("cprInput").value || 0; 
-  	    let b = a.toString().split(""); 
-        let d = b[b.length - 1];
-        let sex = d % 2 == 0 ? "Kvinde" : "Mand";
-        let cprnr = b[0] + b[1] + b[2] + b[3] + b[4] + b[5] + "-" +
-        			b[b.length - 4] + 
-        			b[b.length - 3] + 
-                    b[b.length - 2] + 
-                    b[b.length - 1];
-        let year = b[4] + b[5];
+	    /* Import fra textfelt; ellers default værdien 0 */
+        let cprInput = document.getElementById("cprInput").value || 0; 
+        let inputLen = cprInput.length;
+        if (inputLen < 10){ cprInput = 1 }
+  	    /* Transformere string til liste */
+        let cprList = cprInput.toString().split(""); 
+        /* Den sidste værdi i listen bruges til at afgøre kønnet */
+        let lastChr = cprList[cprList.length - 1];
+        let sex = lastChr % 2 == 0 ? "Kvinde" : "Mand";
+        /* Samler cpr-nummeret fra listen til string format med bindestreg;
+            Derved er det ligegyldigt om det indtastes med eller uden bindestreg */
+        let cprnr = cprList[0] + 
+                cprList[1] + 
+                cprList[2] + 
+                cprList[3] + 
+                cprList[4] + 
+                cprList[5] + "-" +
+                cprList[cprList.length - 4] + 
+                cprList[cprList.length - 3] + 
+                cprList[cprList.length - 2] + 
+                cprList[cprList.length - 1];
+        /* Årstallet udledes fra 5. og 6. ciffer i cpr-nummeret */
+        let year = cprList[4] + cprList[5];
+        /* Århundrede udledes udfra 7. ciffer kombineret med året */
         let century = 19; 
         if (cprnr[7] === "4" & year <= 36){ century = 20} else 
         if (cprnr[7] === "5" & year <= 57){ century = 20} else 
         if (cprnr[7] === "6" & year <= 57){ century = 20} else 
         if (cprnr[7] === "7" & year <= 57){ century = 20} else 
         if (cprnr[7] === "8" & year <= 57){ century = 20} else 
-        if (cprnr[7] === "9" & year <= 36){ century = 20} ;           
-        let birthdate = new Date(b[2]+b[3]+"/"+b[0]+b[1]+"/"+century+year);
+        if (cprnr[7] === "9" & year <= 36){ century = 20} else
+        if (cprnr[7] === "5" & year > 57){ century = 18} else 
+        if (cprnr[7] === "6" & year > 57){ century = 18} else 
+        if (cprnr[7] === "7" & year > 57){ century = 18} else 
+        if (cprnr[7] === "8" & year > 57){ century = 18} ;
+        /* Fødselsdatoen udledes fra listen og transformeres til dato format */           
+        let birthdate = new Date(cprList[2]+cprList[3]+"/"+cprList[0]+cprList[1]+"/"+century+year);
+        /* Dags dato */
         let currentDate = Date.now();
+        /* Alder udregnes ved at trække fødselsdatoen fra dags dato og runde ned */
         let age = Math.floor((currentDate - birthdate)/(1000*60*60*24*365),0);
-        if (a != 0){
+        /* Outputtet er betinget af om der er indtastet noget i text feltet;
+            Hvis text feltet er tomt vil cprInput have default værdien 0 og outputtet 
+            vil derfor være en besked om at cpr-nummeret mangler */
+        if (cprInput != 0 & cprInput != 1){
         return "CPR-nummer: " + cprnr + "<br>" + 
         		"Fødselsdag: " + birthdate.getDate() + "/" +
                 				(birthdate.getMonth()+1) + "/" +
                                 birthdate.getFullYear() + "<br>" +
         		"Fødselsår: " + century + year + "<br>" +
                 "Alder: " + age + "<br>" +
-                "Køn: " + sex;} else {
-                    return "<span style='color: red;'><center>CPR-nummer mangler</center></span>"}
+                "Køn: " + sex ;} else 
+                if(cprInput == 0){
+                    return "<style>#cprInput {border:2px solid red; background-color: pink}</style>"+
+                    "<span style='color: red;'><center>CPR-nummer mangler</center></span>"} else 
+                if(cprInput == 1){
+                    return "<style>#cprInput {border:2px solid red; background-color: pink}"+
+                        "</style><span style='color: red;'><center>Mangelfuld indtastning</center></span>"}
                 
 }
 </script>
