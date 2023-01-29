@@ -101,7 +101,15 @@
         			b[b.length - 3] + 
                     b[b.length - 2] + 
                     b[b.length - 1];
-        let birthdate = new Date(b[2]+b[3]+"/"+b[0]+b[1]+"/19"+b[4]+b[5]);
+        let year = b[4] + b[5];
+        let century = 19; 
+        if (cprnr[7] === "4" & year <= 36){ century = 20} else 
+        if (cprnr[7] === "5" & year <= 57){ century = 20} else 
+        if (cprnr[7] === "6" & year <= 57){ century = 20} else 
+        if (cprnr[7] === "7" & year <= 57){ century = 20} else 
+        if (cprnr[7] === "8" & year <= 57){ century = 20} else 
+        if (cprnr[7] === "9" & year <= 36){ century = 20} ;           
+        let birthdate = new Date(b[2]+b[3]+"/"+b[0]+b[1]+"/"+century+year);
         let currentDate = Date.now();
         let age = Math.floor((currentDate - birthdate)/(1000*60*60*24*365),0);
         if (a != 0){
@@ -109,8 +117,8 @@
         		"Fødselsdag: " + birthdate.getDate() + "/" +
                 				(birthdate.getMonth()+1) + "/" +
                                 birthdate.getFullYear() + "<br>" +
-                "Fødselsår: " + birthdate.getFullYear() + "<br>" +
-        		"Alder: " + age + "<br>" +
+        		"Fødselsår: " + century + year + "<br>" +
+                "Alder: " + age + "<br>" +
                 "Køn: " + sex;} else {
                     return "<span style='color: red;'><center>CPR-nummer mangler</center></span>"}
                 
