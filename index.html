@@ -1,93 +1,10 @@
----
-layout: stats
-title: "Home"
----
-<h1>Introduktion</h1>
-<p>I flere af eksemplerne bruges et test datasæt med navnet "strokedata". Datasættet kan hentes med koden:
-  <p class="rcode">strokedata <- read.csv("<a href="https://jacobliljehult.github.io/research/strokedata.csv" >https://jacobliljehult.github.io/&shy;research/&shy;strokedata.csv</a>",
-             sep=",", header=T, stringsAsFactors = TRUE)
-</p>
-<p>Datasættet indeholder 25 variable med hver 1031 observationer:<br>
-  <table style="text-align: left; 
-                font-weight: normal; 
-                font-size: 14px;
-                padding-left: 30px;font-family: arial;">
-    <tr><th style="width: 150px;">diagnosis:</th><th>Diagnosen angivet på niveauer ICH (hjerneblødning) og IS (blodprop i hjernen)</th></tr>
-    <tr><th>gender:</th><th>Køn</th></tr>
-    <tr><th>age:</th><th>Alder ved indlæggelsestidspunktet</th></tr>
-    <tr><th>daystomors:</th><th>Antal dage fra indlæggelsesdagen til dødsfald (eller frafald fra kohorten)</th></tr>
-    <tr><th>inhospdead:</th><th>Dødsfald under indlæggelsen</th></tr>
-    <tr><th>mors1y:</th><th>Dødsfald indenfor et år fra indlæggelsesdagen</th></tr>
-    <tr><th>alcohol:</th><th>Alkoholindtag over eller under anbefalede grænse (7/14 genstande for henholdsvis kvinder og mænd)</th></tr>
-    <tr><th>smoking:</th><th>Rygning angivet som <i>Nuværende</i>, <i>Tidligere</i> og <i>Aldrig</i></th></tr>
-    <tr><th>prevapo:</th><th>Tidligere apopleksi (Ja/nej)</th></tr>
-    <tr><th>prevapo:</th><th>Tidligere apopleksi (Ja/nej)</th></tr>
-    <tr><th>weight:</th><th>Vægt ved indlæggelsen</th></tr>
-    <tr><th>height:</th><th>Højde ved indlæggelsen</th></tr>
-    <tr><th>prevapo:</th><th>Tidligere apopleksi (Ja/nej)</th></tr>
-    <tr><th>sss_consc:</th><th>Bevidsthed ved indlæggelsen</th></tr>
-    <tr><th>sss_orient:</th><th>Orientering i tid, sted og egne data ved indlæggelsen</th></tr>
-    <tr><th>sss:</th><th>Scandinavian Stroke Scale (Sværhedsgrad målt i symptombyrde)</th></tr>
-    <tr><th>dysphagia:</th><th>Dysfagi (None, Mild, Severe)</th></tr>
-    <tr><th>SBT:</th><th>Systolisk blodtryk ved indlæggelsen</th></tr>
-    <tr><th>DBT:</th><th>Diastolisk blodtryk ved indlæggelsen</th></tr>
-    <tr><th>CNS:</th><th>Bevidsthed ved indlæggelsen (<i>Alert</i>/<i>Verbal</i>/<i>Pain</i>/<i>Unresponsive</i>)</th></tr>
-    <tr><th>EWS:</th><th>Early Warning Score ved indlæggelsen</th></tr>
-    <tr><th>recurrence:</th><th>Recurrence af apopleksi op til 1595 dage efter den oprindelige indlæggelse</th></tr>
-    <tr><th>daystorecurrence:</th><th>Antal dage til recurrence af apopleksi (eller frafald fra kohorten)</th></tr>
-    <tr><th>MRS:</th><th>Modified Rankin Scale ved udskrivelsen</th></tr>
-    <tr><th>p.dead:</th><th>Antal døde i den køn og alders matchede baggrundsbefolkning</th></tr>
-    <tr><th>p.population:</th><th>Befolkningsstørrelse i den køn og alders matchede baggrundsbefolkning</th></tr>
-</table>
-</p>
-<hr>
-<center><h2>Deskriptiv statistik</h2></center>
-<div class="index">
-    <a href="/research/descriptive_quant.html">
-      <div class="indexbox"><h3>Kvantitative variable</h3>
-        <p>Beskrivende statistik af kvantitative variable</p></div></a>
-
-    <a href="/research/descriptive_categ.html"><div class="indexbox">
-      <h3>Kategoriske variable</h3>
-      <p>Beskivende statistik af kategoriske variable</p></div></a>
-<a href="/research/intervals.html"><div class="indexbox">
-  <h3>Intervaller</h3>
-    <p>Konfidensintervaller for både kvantitative og kategoriske variable, referenceintervaller for normalfordelte data</p></div> </a>
-</div>
-  <hr>
-<br>
-<center><h2>Analytisk statistik</h2></center>
-<div class="index"> 
-  <a href="/research/probabilities.html"><div class="indexbox">
-    <h3>Sandsynlig&shy;heder</h3>
-    <p>Funktioner der kan regne henholdsvis til og fra sandsynligheder og Z- og T-fordelinger</p></div></a>
-  <a href="/research/linear.html"><div class="indexbox">
-    <h3>Linær regression</h3>
-    <p>Linær regression mellem to kontinuerte variable - inklusiv justering for kovariate og kontrol af modelantagelser</p></div></a>
-  <a href="/research/stat_categorical.html"><div class="indexbox">
-    <h3>Kategoriske variable</h3>
-    <p>Funktioner til at analysere data hvor både eksponering og udfald er kategorisk.
-      Chi<sup>2</sup>-test, fisher's Exact-test</p></div></a>
-  <a href="/research/cate_quant.html"><div class="indexbox">
-    <h3>Kvantitative data i grupper</h3>
-    <p>Funktioner til at analysere data hvor udfaldet er kontinuert, men eksponeringen er kategorisk (en, to eller flere grupper)</p></div></a>
-  <a href="/research/survival.html"><div class="indexbox">
-    <h3>Overlevelses&shy;analyse</h3>
-    <p>Funktioner til at analysere og visualisere data hvor udfaldet er intensitet (risiko-tid) -
-      Cox Proportional Hazard Regression, Log-rank test, Kaplan-Meier plot</p></div></a>
-  <a href="/research/correlation.html"><div class="indexbox">
-    <h3>Korrelation</h3>
-    <p>Både parametriske og non-parametriske funktioner til korrelationsanalyse</p></div></a>
-  <a href="/research/logisticreg.html"><div class="indexbox">
-    <h3>Logistisk regression</h3>
-    <p>Simple og justeret logistisk regression, samt sammenligning af nestede modeller</p></div></a>
-</div>
-<hr>
-<h3>Meta-analyses</h3>
-      <p>Example of how to do <a href="https://jacobliljehult.github.io/research/Metaanalysis.nb.html">meta-analyses</a> in R-Studio: 
-      <a href="https://jacobliljehult.github.io/research/Metaanalysis.nb.html">https://jacobliljehult.github.io/research/Metaanalysis.nb.html</a></p>
-  
-
-
-  <hr class="solid"> 
-
+<DOCTYPE html>
+  <html>
+    <head>
+    <title>HTML Meta Tag</title>
+      <meta http-equiv = "refresh" content = "0; url = https://jacobliljehult.github.io/neuro/" />
+    </head>
+    <body>
+      <h1 style="text-align:center">Burde redirecte</h1>
+    </body>
+  </html>
