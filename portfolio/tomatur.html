@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+h1 { text-align: center; font-size: 60px; margin: 0px;}
+p {
+  text-align: center;
+  font-size: 60px;
+  margin: 0px;
+}
+</style>
+</head>
+<body>
+<h1>Tomatur</h1>
+<input style="height:30px; 
+            width: 210px; 
+            display: block;
+            margin-inline:auto;
+            font-size:20px;"  
+        type="text" id="promptText" name="promptText" placeholder="Indtast minutter"><br>
+
+
+<p id="demo">00:00</p>
+<button style="height:30px; width: 
+                220px;display: block;
+                margin-inline:auto;
+                font-size:20px;" 
+            type="button" 
+            class="button"
+            id = "startbtn"
+            onclick = getTimeClick()>
+        START
+</button>
+<script>
+// Set the date we're counting down to
+function getTimeClick(){
+	var t = document.getElementById("promptText").value || 25;
+    var c = new Date().getTime();
+    var a = eval(t*1000*60);
+    var b = c + a;
+    
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = b - now;
+    
+  // Time calculations for minutes and seconds
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = minutes + ":" + seconds;
+  document.getElementById('startbtn').style.display = "none";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "00:00";
+    document.getElementById('startbtn').style.display = "block";
+  }
+}, 1000);}
+</script>
+
+</body>
+</html>
