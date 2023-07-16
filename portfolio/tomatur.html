@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { background-color: tomato }
+.red { background-color: red }
+h1 { text-align: center; font-size: 60px; margin: 0px; color: white;}
+p {
+  color: white; 	
+  text-align: center;
+  font-size: 60px;
+  margin: 0px;
+}
+input {
+	height:30px; 
+    width: 210px; 
+    display: block;
+    margin-inline:auto;
+	font-size:20px; 
+	border-radius: 10pt; 
+	padding: 5pt;}	
+button {
+	height:30px; 
+	width: 220px;
+	display: block;
+    margin-inline:auto;
+    font-size:20px;}	
+</style>
+</head>
+<body id="body">
+<h1>Tomatur</h1>
+<input type="text" id="promptText" name="promptText" placeholder="Indtast minutter"><br>
+
+<p id="demo">00:00</p>
+<button type="button" class="button" id = "startbtn"
+        onclick = getTimeClick()>START</button>
+<script>
+// Set the date we're counting down to
+function getTimeClick(){
+	// Get wanted time in minutes and recalc to msec
+	var time = document.getElementById("promptText").value || 25;
+    var timeRecalc = eval(time*1000*60);
+	
+	// Get today's date and time
+	var now = new Date().getTime();
+	// Calc futuretime to count down to
+	var futureTime = now + timeRecalc;
+    
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Find the distance between now and the count down date
+  var now = new Date().getTime();
+  var distance = futureTime - now;
+    
+  // Time calculations for minutes and seconds
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	
+  var minutes1 = Math.floor(minutes / 10);
+  var minutes2 = Math.floor(minutes % 10);
+
+  var seconds1 = Math.floor(seconds / 10);
+  var seconds2 = Math.floor(seconds % 10);
+	
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = minutes1 + "" + minutes2 + ":" + seconds1 + seconds2;
+  document.getElementById('startbtn').style.display = "none";
+  document.getElementById('body').className = "tomato";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "00:00";
+    document.getElementById('body').className = "red";
+    document.getElementById('startbtn').style.display = "block";
+  }
+}, 1000);}
+</script>
+
+</body>
+</html>
