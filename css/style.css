@@ -472,3 +472,28 @@
     }
     .footer_small {display: none; }
   }
+
+/* CSS styling til sider Ordliste og neurologiske begreber*/ 
+/* Standarden er mobilvisning, med en media query, til landscape*/
+.word-indexword { font-weight: bold;
+                  padding: 12px 4px 0px 4px;}
+.word-description { font-weight: normal;
+                    padding: 0px 4px 8px 4px;}                
+.word-grid {display: grid;
+            grid-template-columns: 1fr;
+            border-top: 0px solid black;
+            border-right: 0px solid black;}
+.word-grid > span { 
+            border-bottom: 0px solid black;
+            border-left: 0px solid black;}
+
+@media (orientation: landscape) {
+main {width: 80%; margin: auto;}
+.word-grid {display: grid;
+            grid-template-columns: 1fr 4fr;
+            border-top: 0px solid black;
+            border-right: 0px solid black;}
+.word-grid > span { padding: 8px 4px;
+            border-bottom: 0px solid black;
+            border-left: 0px solid black;}
+                                }
