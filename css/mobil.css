@@ -38,7 +38,7 @@
           display: block; 
           float: left;
               }
-  .mobilnav a { font-size: 18px; text-align: center; color: white; text-decoration: none; }
+  .mobilnav a { font-size: 40px; text-align: center; color: white; text-decoration: none; }
   .navbar { padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
   .mobilnav h2 { color: white; text-align: center; padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
   .navbar:hover { background-color:white; color: gray; }.topnav a {
