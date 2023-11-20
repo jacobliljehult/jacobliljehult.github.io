@@ -476,10 +476,10 @@
 /* CSS styling til sider Ordliste og neurologiske begreber*/ 
 /* Standarden er mobilvisning, med en media query, til landscape*/
 .word-indexword { font-weight: bold;
-                  font-size: 8vw;
+                  font-size: 5vw;
                   padding: 12px 4px 0px 4px;}
 .word-description { font-weight: normal;
-                    font-size: 8vw;
+                    font-size: 5vw;
                     padding: 0px 4px 8px 4px;}                
 .word-grid {display: grid;
             grid-template-columns: 1fr;
