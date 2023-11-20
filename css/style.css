@@ -451,7 +451,7 @@
   }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-  @media (orientation : portrait) {
+  @media screen and (orientation : portrait) {
     .mobilnav { width: 100%; 
     			background-color: gray; display: block; float: left;
                 }
@@ -466,7 +466,7 @@
     }
     
   }
-  @media (orientation : landscape) {
+  @media screen and (orientation : landscape) {
     .mobilnav {
       display: none;
     }
@@ -476,10 +476,10 @@
 /* CSS styling til sider Ordliste og neurologiske begreber*/ 
 /* Standarden er mobilvisning, med en media query, til landscape*/
 .word-indexword { font-weight: bold;
-                  font-size: min(5vw, 40px);
+                  font-size: 8vw;
                   padding: 12px 4px 0px 4px;}
 .word-description { font-weight: normal;
-                    font-size: min(5vw, 40px);
+                    font-size: 8vw;
                     padding: 0px 4px 8px 4px;}                
 .word-grid {display: grid;
             grid-template-columns: 1fr;
@@ -489,7 +489,7 @@
             border-bottom: 0px solid black;
             border-left: 0px solid black;}
 
-@media (orientation: landscape) {
+@media screen and (orientation: landscape) {
 main {width: 80%; margin: auto;}
 .word-grid {display: grid;
             grid-template-columns: 1fr 4fr;

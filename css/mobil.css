@@ -1,4 +1,4 @@
-@media (orientation : portrait) {
+@media only screen and (orientation : portrait) {
     body { padding: 0; }
     .card {
         background-color: white;
@@ -6,7 +6,7 @@
         margin: 0 ;
           }
     .headerstroke { display: block; 
-        	height: 15vh; 
+        	height: 10vh; 
         	width: 100%; 
         	background-size: 260vw;
         	background-image: url(https://jacobliljehult.github.io/neuro/images/headerhjerne.png);
@@ -55,12 +55,12 @@
     .footer_small p { color: whitesmoke; }
     .footer_small a { color: cyan; }
     .footer_small img {
-        width: 40%; height: 40% 
+        width: 20%; height: 20%; 
         display: block; 
         margin-left: auto;
         margin-right: auto; 
         border-radius: 50%;
-        border: 0px solid darkgray;"}
+        border: 0px solid darkgray;}
     .footer_small_rights p { font-size: 3vw; }
     .footer_small_name { font-size: 6vw; }
     .gridbox  {   
