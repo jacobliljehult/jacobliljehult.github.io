@@ -115,17 +115,13 @@
     }
 
 /* ===== Maintexts ================================================= */
-  
+@media screen and (orientation: landscape) {
   .maintext {	
     color: black;    
     font-size: 18px;
     margin-inline: auto;
     width: min(800px,90%);  
     }
-    @media (orientation: portrait) {
-      .maintext {margin-inline: 0%;
-	    width: 100%}
-      }
   .maintext p, ul, li {font-family: times;}
   .maintext h1 {
     text-align: center; 
@@ -135,7 +131,7 @@
   .maintext h3 {font-size: 24px;}
   .maintext h4 {font-size: 20px;}
   .maintext h5 {font-size: 18px;} 
-
+  }
 /* ~~~~~ Indholdsfortegnelse ~~~~~ */
   .indhold {outline: 0px solid lightgray; 
 	  border-radius: 10px;
@@ -451,21 +447,6 @@
   }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-  @media screen and (orientation : portrait) {
-    .mobilnav { width: 100%; 
-    			background-color: gray; display: block; float: left;
-                }
-    
-    .mobilnav a { font-size: 45px; text-align: center; color: white; text-decoration: none; }
-    .navbar { padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
-    .mobilnav h2 { color: white; text-align: center; padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
-    .navbar:hover { background-color:white; color: gray; }
-    .topnav a {
-      float: none;
-      width: 100%;
-    }
-    
-  }
   @media screen and (orientation : landscape) {
     .mobilnav {
       display: none;
@@ -475,19 +456,7 @@
 
 /* CSS styling til sider Ordliste og neurologiske begreber*/ 
 /* Standarden er mobilvisning, med en media query, til landscape*/
-.word-indexword { font-weight: bold;
-                  font-size: 5vw;
-                  padding: 12px 4px 0px 4px;}
-.word-description { font-weight: normal;
-                    font-size: 5vw;
-                    padding: 0px 4px 8px 4px;}                
-.word-grid {display: grid;
-            grid-template-columns: 1fr;
-            border-top: 0px solid black;
-            border-right: 0px solid black;}
-.word-grid > span { 
-            border-bottom: 0px solid black;
-            border-left: 0px solid black;}
+
 
 @media screen and (orientation: landscape) {
 main {width: 80%; margin: auto;}

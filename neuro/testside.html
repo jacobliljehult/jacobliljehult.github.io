@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="icon" href="/neuro/images/brainicon.png">
-	<link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://jacobliljehult.github.io/css/style.css">
+    <link rel="stylesheet" href="https://jacobliljehult.github.io/css/mobil.css">
 
     <style>
     
@@ -10,10 +10,68 @@
 
 </head>
 <body>
-  
+    <div class="headerstroke">
+  			<h1 style="margin-bottom: 0px;">Apopleksi</h1>
+  			<h2 style="margin-top: 0px;">og andre cerebrovaskulære sygdomme</h2>
+		</div>
+
+		<div class="topnav">
+  			<a href="http://jacobliljehult.github.io/neuro/">Apopleksi</a>
+			<a href="http://jacobliljehult.github.io/neuroanatomy/">Neuroanatomi</a>
+  			<a href="http://jacobliljehult.github.io/research/">Statistik</a>
+            
+  			<a href="http://jacobliljehult.github.io/neuro/" style="float:right">Home</a> 
+		</div>
+    <script>
+        function showMenu() {
+           document.getElementById("menu").style.display = "block";
+           document.getElementById("menuBottom").style.display = "none";
+                          }
+                        function hideMenu() {
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("menuBottom").style.display = "block";
+                          }
+        
+        </script>
+        <div class="mobilnav">
+                            <div id="menuBottom" onclick="showMenu()"><h2 class="menuBottom">Menu</h2></div>
+                          <div id="menu" style="display: none">
+                          <div onclick="hideMenu()"><h2 class="menuBottom">Menu</h2></div>
+                            <a href="/neuro/content/neuroanatomi_overordnet.html"><div class="navbar">Neuroanatomi</div></a><br>
+                              <a href="/neuro/content/apopleksi.html"><div class="navbar">Introduktion</div></a><br>
+                              <a href="/neuro/content/apo_epidemiologi.html"><div class="navbar">Epidemiologi</div></a><br>
+                              <a href="/neuro/content/klinik.html"></a>
+                            
+                        
+                              <a href="/neuro/content/dysfagi.html"><div class="navbar">Dysfagi</div></a><br>
+                            
+                              <a href="/neuro/content/sip.html"><div class="navbar">SIP score</div></a><br>    
+                              <a href="/neuro/content/gcs.html"><div class="navbar">Glasgow Coma Scale</div></a><br>
+                              <a href="/neuro/content/dysfagi.html#guss"><div class="navbar">GUSS (dysfagi screening)</div></a><br>   
+                            
+                                <a href="/neuro/slides/"><div class="navbar">Slides</div></a><br>
+                              <a href="/neuro/ord/index.html"><div class="navbar">Ordliste</div></a><br>
+                <a href="/neuro/content/references.html"><div class="navbar">Litteratur</div></a><br>
+              </div>
+        </div>
+          
 <div class="card">
     <main class="maintext">
-  	
+        <h1 class="mobilh1">Ordliste og forkortelser</h1>
+<p style="font-family: Arial;">Liste over de ord, begreber og forkortelser, der anvendes indenfor det neurologiske speciale</p>
+<div class='word-grid'>
+    <span id='abdominalrefleks' class='word-indexword'>Abdominalrefleks</span>
+    <span class='word-description'>Sammentrækning af mavemusklerne ved irritation af huden</span>
+    
+    <span id='absces' class='word-indexword'>Absces</span>
+    <span class='word-description'>Byld</span>
+    
+    <span id='absence' class='word-indexword'>Absence</span>
+    <span class='word-description'>Kortvarig åndsfraværelse (ofte ca. 1 minut)</span>
+    
+    <span id='abstinens' class='word-indexword'>Abstinens</span>
+    <span class='word-description'>Afholdenhed, fx fra alkohol; bruges også om symptomer der opstår ved fravær af vanligt rusmiddel</span>
+</div>
         <div style="
             margin-inline: auto;
             width: 100%;
