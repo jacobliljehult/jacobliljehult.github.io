@@ -13,15 +13,15 @@
               margin-inline: auto;
               width: min(800px,90%);  
               }
-            .maintext p, ul, li {font-family: times;}
+            .maintext p, ul, li {font-family: times; font-size: 4vw;}
             .maintext h1 {
               text-align: center; 
               letter-spacing: 1px;
               font-size: 5vw;}
-            .maintext h2 {font-size: 30px;}
-            .maintext h3 {font-size: 24px;}
-            .maintext h4 {font-size: 20px;}
-            .maintext h5 {font-size: 18px;} 
+            .maintext h2 {font-size: 4.8vw;}
+            .maintext h3 {font-size: 4.6vw;}
+            .maintext h4 {font-size: 4.4vw;}
+            .maintext h5 {font-size: 4.2vw;} 
             
     .headerstroke { display: block; 
         	height: 10vh; 
@@ -93,10 +93,10 @@
     .gridbox img {width: min(100%, 600px) }   }  
 
     .word-indexword { font-weight: bold; 
-                      font-size: 1vw;
+                      font-size: 5vw;
                       padding: 12px 4px 0px 4px;}
     .word-description { font-weight: normal;
-        /*font-size: 5vw;*/
+        font-size: 5vw;
         padding: 0px 4px 8px 4px;}                
     .word-grid {display: grid;
             grid-template-columns: 1fr;
