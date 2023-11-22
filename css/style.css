@@ -460,6 +460,7 @@
 
 @media screen and (orientation: landscape) {
 main {width: 80%; margin: auto;}
+.word-indexword { font-weight: bold; }	
 .word-grid {display: grid;
             grid-template-columns: 1fr 4fr;
             border-top: 0px solid black;
