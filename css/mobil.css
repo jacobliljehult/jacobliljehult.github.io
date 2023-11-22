@@ -90,7 +90,6 @@
                 margin-right: auto; 
                 margin-top: 10px; margin-bottom: 30px;
                 width: min(100%, 600px);	}
-    .gridbox img {width: min(100%, 600px) }   }  
 
     .word-indexword { font-weight: bold; 
                       font-size: 5vw;
@@ -105,3 +104,5 @@
     .word-grid > span { 
             border-bottom: 0px solid black;
             border-left: 0px solid black;}
+
+}  
