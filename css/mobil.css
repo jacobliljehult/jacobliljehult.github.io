@@ -22,52 +22,70 @@
             .maintext h3 {font-size: 4.6vw;}
             .maintext h4 {font-size: 4.4vw;}
             .maintext h5 {font-size: 4.2vw;} 
-            
+    .indhold { display: none; }        
     .headerstroke { display: block; 
-        	height: 10vh; 
-        	width: 100%; 
-        	background-size: 260vw;
-        	background-image: url(https://jacobliljehult.github.io/neuro/images/headerhjerne.png);
+        	  height: 10vh; 
+        	  width: 100%; 
+        	  background-size: 260vw;
+        	  background-image: url(https://jacobliljehult.github.io/neuro/images/headerhjerne.png);
                         }
     .headerstroke h1, h2 { display: none; }
     .headerstat { display: block; 
-      height: 15vh; 
-      width: 100%; 
-      background-size: 260vw;
-      background-image: url(https://jacobliljehult.github.io/research/randomheader.png);
+            height: 15vh; 
+            width: 100%; 
+            background-size: 260vw;
+            background-image: url(https://jacobliljehult.github.io/research/randomheader.png);
                     }
     .headerstat h1, h2 { display: none; }
+
+    /* Top navigator */
     .topnav {
-        display: grid;
-        grid-template-columns: auto auto auto auto; }
-  .topnav a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 4vw;
-    }	
-    .rightcolumn { width: 100% }
-    .maintext { width: 100%; padding: 0; }
-    /* Mobil nav menu */
-    /*.menuBottom { font-size: 40px; }*/
+            display: grid;
+            grid-template-columns: auto auto auto auto; }
+    .topnav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 4vw;
+            }	
+
+    /* Mobil navigations-menu: Menu der kan foldes ned */    
     .mobilnav { width: 100%; 
-          background-color: gray; 
-          display: block; 
-          float: left; font-size: 40px; 
-              }
-  .mobilnav a { text-align: center; color: white; text-decoration: none; }
-  .navbar { padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
-  .mobilnav h2 { color: white; text-align: center; padding: 10px; margin: 0; border: 0px solid red; text-decoration: none; display: inline-block; width: 100%}
-  .navbar:hover { background-color:white; color: gray; }.topnav a {
-    float: none;
-    width: 100%;
-  } 
-  .leftcolumn { 
-    display: none;
-    width: 100%; }
+            background-color: gray; 
+            display: block; 
+            float: left; font-size: 40px; 
+            }
+    .navbar { width: 100%;
+            padding: 10px; margin: 0; 
+            border: 0px solid red; 
+            text-decoration: none; 
+            display: inline-block; }
+    .mobilnav a { text-align: center; 
+            color: white; 
+            text-decoration: none; }
+    .mobilnav h2 { width: 100%;
+            color: white; 
+            text-align: center; 
+            padding: 10px; 
+            margin: 0; 
+            border: 0px solid red; 
+            text-decoration: none; 
+            display: inline-block; }
+    .navbar:hover { background-color:white; 
+            color: gray; }.topnav a {
+            float: none;
+            width: 100%;
+            } 
+
+    /* Text vindue: I den mobile visning skal textvinduet fylde hele skærmen, mens
+    menuen til venstre skal blindes */
+    .rightcolumn { width: 100%; margin-inline: auto;}
+    .maintext { width: 98%; margin-inline: auto; padding: 0; }
+    
+    .leftcolumn { display: none; width: 100%; }          
 
     /* Mobil footer */
     .footer_large { display: none; }
@@ -75,28 +93,32 @@
     .footer_small p { color: whitesmoke; }
     .footer_small a { color: cyan; }
     .footer_small img {
-        width: 20%; height: 20%; 
-        display: block; 
-        margin-left: auto;
-        margin-right: auto; 
-        border-radius: 50%;
-        border: 0px solid darkgray;}
+            width: 20%; height: 20%; 
+            display: block; 
+            margin-left: auto;
+            margin-right: auto; 
+            border-radius: 50%;
+            border: 0px solid darkgray;}
     .footer_small_rights p { font-size: 3vw; }
-    .footer_small_name { font-size: 6vw; }
-    .gridbox  {   
-      display:grid; gap: 20px;
-      grid-template-columns: 1fr ;
-                margin-left:auto; 
-                margin-right: auto; 
-                margin-top: 10px; margin-bottom: 30px;
-                width: min(100%, 600px);	}
-
-    .word-indexword { font-weight: bold; 
-                      font-size: 5vw;
-                      padding: 12px 4px 0px 4px;}
+    .footer_small_name { font-size: 5vw; }
+    
+    /* Hvad bruges gridbox til i mobilvisning?? */
+    .gridbox  { width: min(100%, 600px);  
+            display:grid; gap: 20px;
+            grid-template-columns: 1fr ;
+            margin: 10px auto 10px auto;
+              }
+    .gridbox img {width: min(100%, 600px) } 
+    .imgbox { width: 98%;}
+    .illustration { width: 98%; }
+    /* Bruges til tabelvisning i ordlisten */            
+    .word-indexword { 
+            font-weight: bold; 
+            font-size: 5vw;
+            padding: 12px 4px 0px 4px;}
     .word-description { font-weight: normal;
-        font-size: 5vw;
-        padding: 0px 4px 8px 4px;}                
+            font-size: 5vw;
+            padding: 0px 4px 8px 4px;}                
     .word-grid {display: grid;
             grid-template-columns: 1fr;
             border-top: 0px solid black;
@@ -105,4 +127,4 @@
             border-bottom: 0px solid black;
             border-left: 0px solid black;}
 
-}  
+/* Slutning på media query for mobilvisning - MUST BE THE LAST LINE */ }   
