@@ -22,6 +22,7 @@
             .maintext h3 {font-size: 4.6vw;}
             .maintext h4 {font-size: 4.4vw;}
             .maintext h5 {font-size: 4.2vw;} 
+    .rmaintext {margin-inline: auto; width: 100%}        
     .indhold { display: none; }        
     .headerstroke { display: block; 
         	  height: 10vh; 
