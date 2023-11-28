@@ -1,6 +1,7 @@
 @media only screen and (orientation : portrait) {
     body { padding: 0; font-size: 5vw; }
-    
+    img { max-width: 100%; display: block;}
+
     .card {
         background-color: white;
         padding: 10px;
@@ -38,6 +39,7 @@
             background-image: url(https://jacobliljehult.github.io/research/randomheader.png);
                     }
     .headerstat h1, h2 { display: none; }
+    .ref { font-size: 4vw; }
 
     /* Top navigator */
     .topnav {
@@ -104,13 +106,15 @@
     .footer_small_name { font-size: 5vw; }
     
     /* Hvad bruges gridbox til i mobilvisning?? */
-    .gridbox  { width: min(100%, 600px);  
+    .gridbox  { width: 98%;   
             display:grid; gap: 20px;
             grid-template-columns: 1fr ;
             margin: 10px auto 10px auto;
               }
-    .gridbox img {width: min(100%, 600px) } 
+    .gridbox section, article {width: 100%;}          
+    .gridbox img { max-width: 100%; display: block;}
     .imgbox { width: 98%;}
+    .textbox {width: 98%; margin: auto;}
     .illustration { width: 98%; }
     /* Bruges til tabelvisning i ordlisten */            
     .word-indexword { 
@@ -127,5 +131,10 @@
     .word-grid > span { 
             border-bottom: 0px solid black;
             border-left: 0px solid black;}
+  /*Tabel til GUSS test*/
+    .guss--grid { width: 100%; font-size: 4vw;  }
+    .guss--heading { font-weight: bold; writing-mode: vertical-rl; padding: auto;}
+    .guss--sign { font-size: 10vw ; }
+
 
 /* Slutning på media query for mobilvisning - MUST BE THE LAST LINE */ }   

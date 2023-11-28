@@ -15,39 +15,35 @@
                 <meta name="twitter:site" content="jacobliljehult.github.io/phd/">
                 <meta name="twitter:image" content="https://jacobliljehult.github.io/neuro/images/JacobLiljehult.jpg"> 
   <style>
-	  .redfont {color: red; font-weight: bold; text-transform: uppercase; font-family: arial;}	  
-       .headings {text-align: center;}
-	  #slides {width: 100%;}
-       .gridbox article {border: 0 solid gray;
+	    .headings {text-align: center;}
+      .redfont {color: red; font-weight: bold; text-transform: uppercase; font-family: arial;}	   
+	    #slides {width: 100%;}
+      .gridbox article {border: 0 solid gray;
                 padding: 10px;}
-       .gridbox article:hover {background: rgb(255,255,255); border: 0px solid black;
+      .gridbox article:hover {background: rgb(255,255,255); border: 0px solid black;
 		                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);} 
-       .gridbox {display:grid; gap: 20px;
+      .gridbox {display:grid; gap: 20px;
 					          grid-template-columns: 1fr 1fr;
-                    margin-left:auto; 
-                    margin-right: auto; 
-                    margin-top: 10px; margin-bottom: 15px;
+                    margin: 10px auto 15px auto;
                     width:90%;}
-        .gridbox h2 {text-align: center;
+      .gridbox h2 {text-align: center;
                     font-size: min(28px, 5vw);} 
-        .gridbox p {text-align: justify;
+      .gridbox p {text-align: justify;
                     font-size: min(16px, 4vw);}                       
-        .gridbox img {width: min(100%, 600px)} 
-        .gridbox a {text-decoration: none;
+      .gridbox img {width: min(100%, 600px)} 
+      .gridbox a {text-decoration: none;
                     color: black}
-	.footer p {font-size: 10px;}
+	  .footer p {font-size: 10px;}
                                  
-    @media (orientation: portrait) {
-  			.gridbox  {   
-    				display:grid; gap: 20px;
-				    grid-template-columns: 1fr ;
-                    		margin-left:auto; 
-                    		margin-right: auto; 
-                    		margin-top: 10px; margin-bottom: 30px;
-                    		width: min(100%, 600px);	}
-                        .gridbox img {width: min(100%, 600px)}                 
-			  .bottom {width:100%}
-					} 
+  @media (orientation: portrait) { /* Mobil tilpasning */
+  		.gridbox  { width: min(100%, 600px);  
+    			display:grid; gap: 20px;
+				  grid-template-columns: 1fr ;
+          margin: 10px auto 30px auto;
+        }
+      .gridbox img {width: min(100%, 600px)}                 
+			.bottom {width:100%}
+		/* Slut på media query */} 
 
   </style>
   </head>
@@ -242,7 +238,7 @@
 </div>
 </div>
 <div class="footer">
-	<p>Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san<br>
+	<p>Tekst og illustrationer af Jacob Liljehult, Klinisk sygeplejespecialist, cand.scient.san, PhD<br>
     Kontakt: email <a href="mailto:jacob.mesot.liljehult@regionh.dk">jacob.mesot.liljehult@regionh.dk </a> - <a href="https://www.researchgate.net/profile/Jacob-Liljehult">ResearchGate</a> - <a href="https://orcid.org/0000-0002-9928-1097">OCID</a></p> 
 	<p>Tekst og illustrationer er tilgængelig under Creative Commons <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)</a>; yderligere betingelser kan være gældende.
 	</p>
