@@ -154,6 +154,10 @@
         margin-inline: auto;
       }
   
+  /**/
+  .dysfagi {} 
+  .dysfagi > p { text-align: justify; }
+  
   /* Tabel til GUSS test*/    
   .guss--grid { display: grid; margin: auto;
           width: min(800px, 80%); text-align: center;
@@ -283,7 +287,7 @@
     .imgbox img { width: 100%; height: auto;}
               
 /* ::::: Tekst box :::::::::::::::::::::::::::::::::::::::::::::::::::::: */
-    div.textbox {
+    .textbox {
         width: min(90%, 700px);
         display:block; 
         margin: 20px auto;
@@ -293,24 +297,32 @@
         background-color: rgb(235,247,253);
         box-shadow: 0px 7px 15px 1px rgba(0,0,0,0.26);	
       }
-    div.textbox h2 { text-align: center; 
+    .textbox h2 { text-align: center; 
         margin-bottom: 10px;
         margin-top: 0px;} 
-    div.textbox h3 {  text-align: center; 
+    .textbox h3 {  text-align: center; 
         margin-bottom: 10px;
         margin-top: 0px;}   
-    div.textbox p { 
+    .textbox p { 
         margin-bottom: 5px;
         margin-top: 0px;
         font-size: 18px; }
-    div.textbox ul {
+    .textbox ul {
         margin-bottom: 0px;
         margin-top: 0px;
         font-size: 18px;}   
-    div.textbox ol {
+    .textbox ol {
         margin-bottom: 0px;
         margin-top: 0px;
         font-size: 18px; }   
+    .box--pre { 
+			  outline: 0px solid black; 
+			  max-width: 700px; 
+			  margin: auto; 
+			  margin-top: 20px;
+			  display:grid; gap: 0px;
+			  grid-template-columns: 1fr 1fr; }
+    .p--small { font-size: 15px; }
 /* ---- Illustration med billedlegend ---- */
     .illustration {  display: block;
         max-width: 500px; 
