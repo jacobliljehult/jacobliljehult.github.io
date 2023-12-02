@@ -11,6 +11,85 @@ preview: 'https://jacobliljehult.github.io/neuro/images/brainicon.png'
 
 <h1>Ordliste og forkortelser</h1>
 <p style="font-family: Arial;">Liste over de ord, begreber og forkortelser, der anvendes indenfor det neurologiske speciale</p>
+
+<!-- ## Search field #################################### -->
+<style>
+    #search-container { margin-bottom: 20px;}
+    #searchInput { transition: background-color 0.3s ease; }
+    #searchInput.error { background-color: #FFDDDD; }
+    #error-message { color: red; margin-top: 10px; }
+    
+    .box--search {position: sticky; top: 10px; display: grid; 
+margin: 10px auto 0 auto; border: 0px solid gray; background-color: white; }
+.word--searchfield { border: 0; padding-inline: 10px; background-color: transparent; }
+.word--searchfield2 { border: 1px solid gray; border-radius: 10px; }
+.word--deletebuttom { background-color: lightgray; border: 0; border-radius: 50%; font-weight: bold; color: gray;}
+.word--searchbuttom { border-radius: 10px; }
+
+@media only screen and (orientation : portrait) { 
+.box--search {width: 100%; gap: 1vw; grid-template-columns: 1fr 12vw;}
+.word--searchfield { width: calc(100% - 9vw); height: 8vw; font-size: 4vw; }
+.word--searchfield2 { }
+.word--deletebuttom { font-size: 4vw; }
+.word--searchbuttom { height: 8vw; font-size: 4vw; } } 
+@media only screen and (orientation : landscape) {
+.box--search {width: min(80%, 400px ); gap: 10px; grid-template-columns: 1fr 50px;}
+.word--searchfield { width: calc(100% - 40px); height: 40px; font-size: 18px; }
+.word--searchfield2 { }
+.word--deletebuttom { font-size: 18px; }
+.word--searchbuttom { height: 40px; font-size: 18px; }} 
+    </style>
+    
+    <div class="box--search">
+    <div class="word--searchfield2">
+    <input type="text" id="searchInput" name="searchInput" class="word--searchfield" placeholder="Søg efter et ord eller forkortelse">
+    <button type="button" class="word--deletebuttom" onclick="resetSearch()">X</button>
+    </div>
+    <button type="button" id="searchButtom" class="word--searchbuttom" onclick="clickSearch()">Søg</button>
+                        
+                        
+    </div>    
+     <div id="error-message"></div>
+    <script>
+       function clickSearch() {
+            // Get the search term from the input field
+            var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            var inputField = document.getElementById('searchInput');
+            var errorMessage = document.getElementById('error-message');
+    
+            // Find the element with the corresponding id
+            var element = document.getElementById(searchTerm);
+    
+            if (element) {
+                // Scroll to the middle of the element
+                var elementRect = element.getBoundingClientRect();
+                var absoluteElementTop = elementRect.top + window.pageYOffset;
+                var middle = absoluteElementTop - (window.innerHeight / 5);
+                window.scrollTo({ top: middle, behavior: 'smooth' });
+                
+                // Clear any previous error message and reset input field style
+                errorMessage.textContent = '';
+                inputField.classList.remove('error');
+            } else {
+                // Display error message and set input field style
+                errorMessage.textContent = 'Element not found';
+                inputField.classList.add('error');
+            }
+        }
+        
+            function resetSearch() {
+            var inputField = document.getElementById('searchInput');
+            var errorMessage = document.getElementById('error-message');
+    
+            // Clear input field and reset styles
+            inputField.value = '';
+            inputField.classList.remove('error');
+            errorMessage.textContent = '';
+        }
+    </script>
+                        
+    <!-- ############################################# -->
+
 <div class='word-grid'>
     <span id='abdominalrefleks' class='word-indexword'>Abdominalrefleks</span>
     <span class='word-description'>Sammentrækning af mavemusklerne ved irritation af huden</span>
@@ -207,7 +286,7 @@ preview: 'https://jacobliljehult.github.io/neuro/images/brainicon.png'
     <span id='cta' class='word-indexword'>CTA</span>
     <span class='word-description'>CT angiografi; CT-scanning hvor der gives kontrastvæske så der kan laves billeder af hjernens kar</span>
     
-    <span id='ct-skanning' class='word-indexword'>CT-skanning</span>
+    <span id='ct' class='word-indexword'>CT-skanning</span>
     <span class='word-description'>Computer tomografi; Billeddiagnostisk undersøgelse hvor der laves snitbilleder igennem væv ved brug af røntgen</span>
     
     <span id='ct-tab' class='word-indexword'>CT-tab</span>
@@ -561,7 +640,7 @@ preview: 'https://jacobliljehult.github.io/neuro/images/brainicon.png'
     <span id='mrsa' class='word-indexword'>MRSA</span>
     <span class='word-description'>Methicillin-resistent Staphylococcus aureus</span>
     
-    <span id='mr-scanning' class='word-indexword'>MR-scanning</span>
+    <span id='mr' class='word-indexword'>MR-scanning</span>
     <span class='word-description'>Magnetisk resonans scanning, billeddiagnostisk undersøgelse der laver billeder af væv ved hjælp af magnetisk påvirkning og radiobølger</span>
     
     <span id='ms' class='word-indexword'>MS</span>
