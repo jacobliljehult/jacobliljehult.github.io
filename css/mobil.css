@@ -60,7 +60,7 @@
     .mobilnav { width: 100%; 
             background-color: gray; 
             display: block; 
-            float: left; font-size: 40px; 
+            float: left; font-size: 4vw; 
             }
     .navbar { width: 100%;
             padding: 10px; margin: 0; 
@@ -70,20 +70,20 @@
     .mobilnav a { text-align: center; 
             color: white; 
             text-decoration: none; }
-    .mobilnav h2 { width: 100%;
-            color: white; 
-            text-align: center; 
-            padding: 10px; 
-            margin: 0; 
-            border: 0px solid red; 
-            text-decoration: none; 
-            display: inline-block; }
     .navbar:hover { background-color:white; 
             color: gray; }.topnav a {
             float: none;
             width: 100%;
             } 
-
+    .menu--button { font-size: 5vw;
+        width: 100%;
+        color: white; 
+        text-align: center; 
+        padding: 10px; 
+        margin: 0; 
+        border: 0px solid red; 
+        text-decoration: none; 
+        display: inline-block;}
     /* Text vindue: I den mobile visning skal textvinduet fylde hele skærmen, mens
     menuen til venstre skal blindes */
     .rightcolumn { width: 100%; margin-inline: auto;}

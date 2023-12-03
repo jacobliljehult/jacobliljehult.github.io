@@ -19,37 +19,39 @@ preview: 'https://jacobliljehult.github.io/neuro/images/brainicon.png'
     #searchInput.error { background-color: #FFDDDD; }
     #error-message { color: red; margin-top: 10px; }
     
-    .box--search {position: sticky; top: 10px; display: grid; 
-margin: 10px auto 0 auto; border: 0px solid gray; background-color: white; }
-.word--searchfield { border: 0; padding-inline: 10px; background-color: transparent; }
-.word--searchfield2 { border: 1px solid gray; border-radius: 10px; }
-.word--deletebuttom { background-color: lightgray; border: 0; border-radius: 50%; font-weight: bold; color: gray;}
-.word--searchbuttom { border-radius: 10px; }
+    .box--search {position: sticky; top: 10px; display: grid;
+                margin: 10px auto 0 auto; border: 0px solid gray;  }
+    .word--searchfield { border: 0; padding-inline: 10px; border-radius: 10px; background-color: transparent; }
+    .word--searchfield:focus {outline:none !important}
+    .word--searchfield2 { border: 1px solid gray; border-radius: 10px; background-color: white;}
+    .word--deletebuttom { background-color: #e6e6e6; border: 0; border-radius: 50%; font-weight: bold; color: gray;}
+    .word--searchbuttom { border-radius: 10px; background-color: #e6e6e6; border: 1px solid #808080;}
 
-@media only screen and (orientation : portrait) { 
-.box--search {width: 100%; gap: 1vw; grid-template-columns: 1fr 12vw;}
-.word--searchfield { width: calc(100% - 9vw); height: 8vw; font-size: 4vw; }
-.word--searchfield2 { }
-.word--deletebuttom { font-size: 4vw; }
-.word--searchbuttom { height: 8vw; font-size: 4vw; } } 
-@media only screen and (orientation : landscape) {
-.box--search {width: min(80%, 400px ); gap: 10px; grid-template-columns: 1fr 50px;}
-.word--searchfield { width: calc(100% - 40px); height: 40px; font-size: 18px; }
-.word--searchfield2 { }
-.word--deletebuttom { font-size: 18px; }
-.word--searchbuttom { height: 40px; font-size: 18px; }} 
+    @media only screen and (orientation : portrait) { 
+    .box--search {width: 100%; gap: 1vw; grid-template-columns: 1fr 12vw;}
+    .word--searchfield { width: calc(100% - 9vw); height: 8vw; font-size: 4vw; }
+    .word--searchfield2 { }
+    .word--deletebuttom { font-size: 4vw; width: 7vw; height: 7vw;}
+    .word--searchbuttom { height: 8vw; font-size: 4vw; } } 
+    @media only screen and (orientation : landscape) {
+    .box--search {width: min(80%, 400px ); gap: 10px; grid-template-columns: 1fr 50px;}
+    .word--searchfield { width: calc(100% - 40px); height: 40px; font-size: 18px; }
+    .word--searchfield2 { }
+    .word--deletebuttom { font-size: 18px; }
+    .word--searchbuttom { height: 40px; font-size: 18px; }
+    }  
     </style>
     
     <div class="box--search">
-    <div class="word--searchfield2">
-    <input type="text" id="searchInput" name="searchInput" class="word--searchfield" placeholder="Søg efter et ord eller forkortelse">
-    <button type="button" class="word--deletebuttom" onclick="resetSearch()">X</button>
-    </div>
-    <button type="button" id="searchButtom" class="word--searchbuttom" onclick="clickSearch()">Søg</button>
-                        
-                        
+        <div class="word--searchfield2">
+            <input type="text" id="searchInput" name="searchInput" class="word--searchfield" 
+                placeholder="Søg efter et ord eller forkortelse">
+            <button type="button" class="word--deletebuttom" onclick="resetSearch()">X</button>
+        </div>
+            <button type="button" id="searchButtom" class="word--searchbuttom" onclick="clickSearch()">Søg</button>
     </div>    
-     <div id="error-message"></div>
+    <div id="error-message"></div>
+    
     <script>
        function clickSearch() {
             // Get the search term from the input field
@@ -72,7 +74,7 @@ margin: 10px auto 0 auto; border: 0px solid gray; background-color: white; }
                 inputField.classList.remove('error');
             } else {
                 // Display error message and set input field style
-                errorMessage.textContent = 'Element not found';
+                errorMessage.textContent = ''; // Her kan tilføjes en fejlbesked
                 inputField.classList.add('error');
             }
         }
@@ -475,6 +477,11 @@ margin: 10px auto 0 auto; border: 0px solid gray; background-color: white; }
     <span id='horners syndrom' class='word-indexword'>Horners syndrom</span>
     <span class='word-description'>Syndrom der skyldes påvirkning af de sympatiske nerver til øjet og ansigtet; hyppige symptomer er kontraheret pupil og ptose på det samsidige øje</span>
     
+    <span id='hsv' class='word-indexword'>HSV</span>
+    <span class='word-description'>Herpes Simplex Virus. Almindelig gruppe af virusser, der normal giver banale symptomer, fx sår 
+        ved munden eller genitalerne, men som i sjældne tilfælde kan give infektion i hjernen (Encephalitis)
+    </span>
+    
     <span id='hvp' class='word-indexword'>HVP</span>
     <span class='word-description'>Hovedpine</span>
     
@@ -873,7 +880,10 @@ margin: 10px auto 0 auto; border: 0px solid gray; background-color: white; }
     
     <span id='synkope' class='word-indexword'>Synkope</span>
     <span class='word-description'>Pludselig besvimelse</span>
-    
+ 
+    <span id='tbe' class='word-indexword'>TBE</span>
+    <span class='word-description'>Tick Borne Encephalitis; virus sygdom i hjernen og rygmarven, der overføres til mennesker ved flåtbid</span>
+       
     <span id='tci' class='word-indexword'>TCI</span>
     <span class='word-description'>Transitorisk cerebral Jskærni; forbigående iltmangel i hjernen</span>
     
@@ -930,7 +940,13 @@ margin: 10px auto 0 auto; border: 0px solid gray; background-color: white; }
     
     <span id='vre' class='word-indexword'>VRE</span>
     <span class='word-description'>Vancomycin-resistente enterokokker</span>
-    
+
+    <span id='vzv' class='word-indexword'>VZV</span>
+    <span class='word-description'>Varicella Zoster Virus. Giver skoldkopper på børn og kan ligge i dvale i kroppen indtil 
+        voksenalderen, hvor den kan blusse op i form af <i>helvedsild</i>. I sjældne tilfælde kan helvedsild give infektion
+        i hjernen (Encephalitis) 
+    </span>
+
     <span id='wernicke afasi' class='word-indexword'>Wernicke afasi</span>
     <span class='word-description'>Type af flydende afasi</span>
     

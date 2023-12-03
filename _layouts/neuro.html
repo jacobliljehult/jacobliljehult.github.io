@@ -87,18 +87,18 @@
   <script>
   function showMenu() {
      document.getElementById("menu").style.display = "block";
-     document.getElementById("menuBottom").style.display = "none";
+     document.getElementById("menuButton").style.display = "none";
                     }
                   function hideMenu() {
     document.getElementById("menu").style.display = "none";
-    document.getElementById("menuBottom").style.display = "block";
+    document.getElementById("menuButton").style.display = "block";
                     }
   
   </script>
   <div class="mobilnav">
-      				<div id="menuBottom" onclick="showMenu()"><h2>Menu</h2></div>
+      				<div id="menuButton" onclick="showMenu()"><h2 class="menu--button">Menu</h2></div>
                     <div id="menu" style="display: none">
-                    <div onclick="hideMenu()"><h2>Menu</h2></div>
+                    <div onclick="hideMenu()"><h2 class="menu--button">Menu</h2></div>
       				<a href="/neuro/content/neuroanatomi_overordnet.html"><div class="navbar">Neuroanatomi</div></a><br>
 						<a href="/neuro/content/apopleksi.html"><div class="navbar">Introduktion</div></a><br>
 						<a href="/neuro/content/apo_epidemiologi.html"><div class="navbar">Epidemiologi</div></a><br>
