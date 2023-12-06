@@ -40,6 +40,11 @@ preview: 'https://jacobliljehult.github.io/neuro/images/brainicon.png'
     .word--deletebuttom { font-size: 18px; }
     .word--searchbuttom { height: 40px; font-size: 18px; }
     }  
+    @media print {
+        .box--search {display: none; }
+        .word-grid {display: grid;
+            grid-template-columns: 1fr 5fr;}
+    }
     </style>
     
     <div class="box--search">
@@ -66,7 +71,7 @@ preview: 'https://jacobliljehult.github.io/neuro/images/brainicon.png'
                 // Scroll to the middle of the element
                 var elementRect = element.getBoundingClientRect();
                 var absoluteElementTop = elementRect.top + window.pageYOffset;
-                var middle = absoluteElementTop - (window.innerHeight / 5);
+                var middle = absoluteElementTop - (window.innerHeight / 8);
                 window.scrollTo({ top: middle, behavior: 'smooth' });
                 
                 // Clear any previous error message and reset input field style
