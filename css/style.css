@@ -433,6 +433,8 @@
     .leftcolumn { display: none; } 
     .topnav a { display: none; }
     .rightcolumn { width: 100%; padding: 0; }
+    .footer { display: none; }
+    .menu--button { display: none; }
 	  .newpage { page-break-before: always } /* Add <div class="newpage"></div> to make a page break in print */
     }
   
