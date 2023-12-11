@@ -10,7 +10,18 @@
     #btn--calc { position: fixed; margin-inline: auto;
   bottom: 1vh; right: 4%; width:92%; font-size: 4vw; text-align: center; 
                 padding: 2vw; border-radius: 1vw; margin-bottom: 1vw;}
-    form { display: grid; grid-template-columns: 1fr 3fr 1fr 3fr; gap: 1vw;}            
+    .form-1 { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw;}
+    .div--weight {display: grid; grid-template-columns: 28% 47% 25%; gap: 1vw;
+                    border: 1px solid #222222; padding: 2vw; 
+                    border-radius: 2vw;}
+    .div--height {display: grid; grid-template-columns: 28% 47% 25%; gap: 1vw;
+                    border: 1px solid #222222; border-radius: 2vw;
+                    padding: 2vw; }
+
+    .form-2 { margin-top: 2%; }
+    .div--restriction { display: grid; grid-template-columns: 35% 20% 10% 25%; gap: 1vw;
+                    border: 1px solid #222222; border-radius: 2vw;
+                    padding: 2vw; }            
               
 .input--field { margin: 0; font-size: 4vw; width: 95%; padding: 2px; } 
 .output { width: 96%; height: 60vh; background-color: #f6f6f6; 
@@ -23,10 +34,12 @@ function calcFun(){
     let height = document.getElementById("height").value || 175;
     let bmi = (weight/((height/100)*(height/100))).toFixed(2);
     let liquidNeed = weight*30;
+    let restriction = document.getElementById("restriction").value || 0;
+    if(restriction > 0){ liquidNeed = restriction}
     let nutrision = 0;
 
     let nutriWeight = "";
-    if (bmi >= 30){ nutriWeight = ((height - 100)+((weight-(height-100))/3)); }
+    if (bmi >= 30){ nutriWeight = Math.round((height - 100)+((weight-(height-100))/3)); }
     
     if(bmi >= 30){ 
         nutrision = ((nutriWeight*27)/1.5)/5;
@@ -42,7 +55,7 @@ function calcFun(){
     let liquidInProduct = Math.round(5 * nutrision * 0.78);
     let liquidExtra = Math.round(((liquidNeed - liquidInProduct)/5)/10)*10;
 
-    let output = "Vægt: " + weight + " kg [Ernæringsvægt: " + nutriWeight + "]<br>" + 
+    let output = "Vægt: " + weight + " kg [Ernæringsvægt: " + nutriWeight + " kg]<br>" + 
                 "BMI: " + bmi + 
                 "<br><br><b>Sondeplan</b>:<br>5 x <u>" + 
                 nutrision + "</u> ml PPEMF <br>" +
@@ -59,14 +72,26 @@ function calcFun(){
 <body>
     <main><section class="section">
         <h1 class="heading--h1">Sondeudregning</h1>
-        <form>
-        
+        <form class="form-1">
+        <div class="div--weight">
             <label for="weight">Vægt:</label>
             <input type="text" placeholder="kg" id="weight" class="input--field input--weight">
+            <span>kg</span>
+        </div>
+        <div class="div--height">
             <label for="height">Højde:</label>
             <input type="text" placeholder="cm" id="height" class="input--field input--height">
-                
-            
+            <span>cm</span>
+        </div> 
+        </form>
+        <form class="form-2">       
+        <div class="div--restriction">
+            <label for="restriction">Væskerestriktion:</label>
+            <input type="text" placeholder="ml" id="restriction" class="input--field input--height">
+            <span> ml</span>
+            <span style="font-size: 2vw;">
+                Udfyldes kun hvis der er ordineret væskerestriktion</span>
+        </div>    
         </form>
         
         
