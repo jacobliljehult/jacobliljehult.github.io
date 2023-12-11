@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    html { background-color: #f6f6f6 }
+    main { background-color: white; padding: 1vw; font-size: 4vw; 
+        font-family: Arial, Helvetica, sans-serif; height: 98%;}
+    h1 {text-align: center; font-size: 8vw; margin: 1% auto 3% auto;}
+    .section { width: 98%; margin: auto; }
+    #btn--calc { position: fixed; margin-inline: auto;
+  bottom: 1vh; right: 4%; width:92%; font-size: 4vw; text-align: center; 
+                padding: 2vw; border-radius: 1vw; margin-bottom: 1vw;}
+    form { display: grid; grid-template-columns: 1fr 3fr 1fr 3fr; gap: 1vw;}            
+              
+.input--field { margin: 0; font-size: 4vw; width: 95%; padding: 2px; } 
+.output { width: 96%; height: 60vh; background-color: #f6f6f6; 
+        border: 1px solid #222222; margin: 5% auto ; padding: 1%; 
+        border-radius: 5px;}
+</style>
+<script>
+function calcFun(){
+	let weight = document.getElementById("weight").value || 80;
+    let height = document.getElementById("height").value || 175;
+    let bmi = (weight/((height/100)*(height/100))).toFixed(2);
+    let liquidNeed = weight*30;
+    let nutrision = 0;
+
+    let nutriWeight = "";
+    if (bmi >= 30){ nutriWeight = ((height - 100)+((weight-(height-100))/3)); }
+    
+    if(bmi >= 30){ 
+        nutrision = ((nutriWeight*27)/1.5)/5;
+    } else
+    {
+    if(weight < 45){ nutrision = 160 } else 
+    if(weight >= 45 & weight < 60) { nutrision = 200 } else
+    if(weight >= 60 & weight < 75) { nutrision = 220 } else
+    if(weight >= 75 & weight < 85) { nutrision = 260 } else
+    if(weight >= 85 & weight < 100) { nutrision = 280 } else
+    if(weight >= 100 & weight < 115) { nutrision = 320 } }
+
+    let liquidInProduct = Math.round(5 * nutrision * 0.78);
+    let liquidExtra = Math.round(((liquidNeed - liquidInProduct)/5)/10)*10;
+
+    let output = "Vægt: " + weight + " kg [Ernæringsvægt: " + nutriWeight + "]<br>" + 
+                "BMI: " + bmi + 
+                "<br><br><b>Sondeplan</b>:<br>5 x <u>" + 
+                nutrision + "</u> ml PPEMF <br>" +
+                "<br><b>Væskeberegning</b>: <br>" + 
+                "Væskebehov: " + liquidNeed + " ml<br>" +
+                "Væske i sondemaden:" + liquidInProduct +
+                " ml<br>Skyllevæske: 5 x <u>" + liquidExtra + "</u> ml" +
+                "<br>";
+
+    return output;
+}
+</script>
+</head>
+<body>
+    <main><section class="section">
+        <h1 class="heading--h1">Sondeudregning</h1>
+        <form>
+        
+            <label for="weight">Vægt:</label>
+            <input type="text" placeholder="kg" id="weight" class="input--field input--weight">
+            <label for="height">Højde:</label>
+            <input type="text" placeholder="cm" id="height" class="input--field input--height">
+                
+            
+        </form>
+        
+        
+        <div class="output" id="output"> </div>
+        <button id="btn--calc" 
+                onclick="document.getElementById('output').innerHTML = calcFun()">
+            Beregn</button>
+    </section>
+    </main>
+</body>
+</html>
