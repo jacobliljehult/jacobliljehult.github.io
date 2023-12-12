@@ -30,19 +30,28 @@
 </style>
 <script>
 function calcFun(){
-	let weight = document.getElementById("weight").value || 80;
-    let height = document.getElementById("height").value || 175;
-    let bmi = (weight/((height/100)*(height/100))).toFixed(2);
-    let liquidNeed = weight*30;
-    let restriction = document.getElementById("restriction").value || 0;
-    if(restriction > 0){ liquidNeed = restriction}
-    let nutrision = 0;
+	let weight = document.getElementById("weight").value || 80; /* Definerer Vægt */
+    let height = document.getElementById("height").value || 175; /* Definerer Højde */
+    let bmi = (weight/((height/100)*(height/100))).toFixed(2); /* Udregner BMI */
+    let liquidDemand = weight*30; /* Udregner væskebehov */
+	let energyDemand = 0; /* Deklarer variabel for Energibehov -> udregnes senere */
+    let restriction = document.getElementById("restriction").value || 0; /* Definerer væskerestriktion */
+    /* Hvis der er ordineret væskerestriktion sættes væskebehovet til den ordinerede mængde */
+	if(restriction > 0){ liquidNeed = restriction} 
+    let nutrision = 0; /* Denne variabel bruges til at sætte mængden af sondeernæring */
 
-    let nutriWeight = "";
-    if (bmi >= 30){ nutriWeight = Math.round((height - 100)+((weight-(height-100))/3)); }
-    
+	/* Hvis patienten har et BMI >= 30 skal ernæringsbehovet udregnes udfra ernæringsvægten
+ 	   Når BMI er under 30 skal variablen være udefineret */
+    let nutriWeight = ""; 
+    if(bmi >= 30){ nutriWeight = Math.round((height - 100)+((weight-(height-100))/3)); 
+		  energyDemand = nutriWeight*27;} else
+    		{ energyDemand = weight*27 } /* Udregning af energibehov */
+/* Energi og væskemængde i sondeproduktet - !! kan senere bruges til at varierer efter produktvalg!! */
+	let productKcal = 1.5;
+	let productWater = 0.76;
+    /* Udregning af sondemængde ved BMI >= 30 ud fra ernæringsvægt */
     if(bmi >= 30){ 
-        nutrision = ((nutriWeight*27)/1.5)/5;
+        nutrision = Math.round((((nutriWeight*27)/productKcal)/5)/10)*10;
     } else
     {
     if(weight < 45){ nutrision = 160 } else 
@@ -52,8 +61,8 @@ function calcFun(){
     if(weight >= 85 & weight < 100) { nutrision = 280 } else
     if(weight >= 100 & weight < 115) { nutrision = 320 } }
 
-    let liquidInProduct = Math.round(5 * nutrision * 0.78);
-    let liquidExtra = Math.round(((liquidNeed - liquidInProduct)/5)/10)*10;
+    let liquidInProduct = Math.round(5 * nutrision * productWater); /* Udregner væskemængden i sondeernæringen */
+    let liquidExtra = Math.round(((liquidDemand - liquidInProduct)/5)/10)*10;
 
     let output = "Vægt: " + weight + " kg [Ernæringsvægt: " + nutriWeight + " kg]<br>" + 
                 "BMI: " + bmi + 
@@ -91,7 +100,21 @@ function calcFun(){
             <span> ml</span>
             <span style="font-size: 2vw;">
                 Udfyldes kun hvis der er ordineret væskerestriktion</span>
-        </div>    
+        </div> 
+		<!-- HER INDSÆTTES STRUKTUR FOR PRODUKTVALG
+		## Drop-down menu med mulige produkter
+		## - Nutrison Protein Plus Energy Multi Fibre (Standard)
+		## - 2 kcal
+		## - Low Sodium
+		## - Soya
+<div class="div--product">
+		<select name="product" id="product">
+  			<option value="ppeml">Nutrison Protein Plus Energy Multi Fibre</option>
+  			<option value="HP2kcal">Saab</option>
+  			<option value="lowsodium">Mercedes</option>
+		</select>
+	</div>
+		-->
         </form>
         
         
