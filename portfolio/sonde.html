@@ -2,31 +2,35 @@
 <html>
 <head>
 <style>
-    html { background-color: #f6f6f6 } /* Mørk blå: #006AB3 | Lys blå: #C2CDEB | Helt lys: #ebf7fd */
-    main { background-color: white; padding: 1vw; font-size: 4vw; 
+    html { background-color: white; } /* Mørk blå: #006AB3 | Lys blå: #C2CDEB | Helt lys: #ebf7fd */
+    main { background-color: #ebf7fd; padding: 1vw; font-size: 4vw; 
         font-family: Arial; height: 98%; color: }
-    h1 {text-align: center; font-size: 8vw; margin: 1% auto 3% auto;}
+    h1 {text-align: center; font-size: 10vw; margin: 1% auto 3% auto;}
     .section { width: 98%; margin: auto; }
     #btn--calc { position: fixed; margin-inline: auto;
-  bottom: 1vh; right: 4%; width:92%; font-size: 5vw; text-align: center; 
+  bottom: 1vh; right: 4%; width:92%; font-size: 7vw; text-align: center; 
                 padding: 2vw; border-radius: 1vw; margin-bottom: 1vw; 
 	       background-color: #006AB3; color: white; border: 0; }
     .form-1 { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw;}
-    .div--weight {display: grid; grid-template-columns: 28% 47% 25%; gap: 1vw;
+    .div--weight {display: grid; grid-template-columns: 35% 40% 25%; gap: 1vw;
                     border: 1px solid #006AB3; padding: 2vw; 
-                    border-radius: 2vw;}
-    .div--height {display: grid; grid-template-columns: 28% 47% 25%; gap: 1vw;
+                    border-radius: 2vw; background-color: white; 
+                    font-size: 5vw;}
+    .div--height {display: grid; grid-template-columns: 35% 40% 25%; gap: 1vw;
                     border: 1px solid #006AB3; border-radius: 2vw;
-                    padding: 2vw; }
+                    padding: 2vw; background-color: white; 
+                    font-size: 5vw;}
 
     .form-2 { margin-top: 2%; }
-    .div--restriction { display: grid; grid-template-columns: 35% 20% 10% 25%; gap: 1vw;
+    .div--restriction { display: grid; grid-template-columns: 45% 17% 8% 30%; gap: 1vw;
                     border: 1px solid #006AB3; border-radius: 2vw;
-                    padding: 2vw; }            
+                    padding: 2vw; background-color: white; 
+                    font-size: 5vw;}            
               
-.input--field { margin: 0; font-size: 4vw; width: 95%; padding: 2px; text-align: right; 
-	      border: 1px solid white;} 
-.output { width: 96%; height: 60vh; background-color: #f6f6f6; 
+    .input--field { margin: 0; font-size: 5vw; width: 95%; padding: 0px; text-align: right; 
+	      border: 1px solid white; border-bottom: 1px solid #006AB3;} 
+    .input--field:focus { border-bottom: 1px solid #006AB3; outline: none;} 
+    .output { width: 96%; height: 60vh; background-color: #f6f6f6; 
         border: 1px solid #222222; margin: 2% auto ; padding: 1%; 
         border-radius: 5px;}
 </style>
@@ -70,11 +74,11 @@ function calcFun(){
                 "BMI: " + bmi + 
 	    	"<br>Energibehov: " + energyDemand + " kcal" +
 	    	"<br>Væskebehov: " + liquidDemand + " ml" +
-                "<br><br><b>Sondeplan</b>:<br>5 x <u>" + 
-	    	"1. døgn: 5 x 100 ml Nutrison 1 kcal<br>" +
-	    	"2. døgn: 5 x 150 ml Nutrison 1 kcal<br>" +
-	    	"3. døgn: 5 x 200 ml Nutrison 1 kcal<br>" +
-                "Følgende døgn: 5 x " + nutrision + "</u> ml PPEMF <br>" +
+                "<br><br><b>Sondeplan</b>:<br>" + 
+	    	"1. døgn: 5 x <u>100</u> ml Nutrison 1 kcal<br>" +
+	    	"2. døgn: 5 x <u>150</u> ml Nutrison 1 kcal<br>" +
+	    	"3. døgn: 5 x <u>200</u> ml Nutrison 1 kcal<br>" +
+                "Følgende døgn: 5 x <u>" + nutrision + "</u> ml PPEMF <br>" +
                 "<br><b>Væskeberegning</b>: <br>" + 
                 "Væske i sondemaden:" + liquidInProduct +
                 " ml<br>Skyllevæske: 5 x <u>" + liquidExtra + "</u> ml" +
@@ -90,22 +94,23 @@ function calcFun(){
         <form class="form-1">
         <div class="div--weight">
             <label for="weight">Vægt:</label>
-            <input type="text" placeholder="kg" id="weight" class="input--field input--weight">
+            <input type="text" placeholder="80" id="weight" class="input--field input--weight">
             <span>kg</span>
         </div>
         <div class="div--height">
             <label for="height">Højde:</label>
-            <input type="text" placeholder="cm" id="height" class="input--field input--height">
+            <input type="text" placeholder="175" id="height" class="input--field input--height">
             <span>cm</span>
         </div> 
         </form>
         <form class="form-2">       
         <div class="div--restriction">
             <label for="restriction">Væskerestriktion:</label>
-            <input type="text" placeholder="ml" id="restriction" class="input--field input--height">
+            <input type="text" placeholder="0" id="restriction" class="input--field input--height">
             <span> ml</span>
-            <span style="font-size: 2vw;">
-                Udfyldes kun hvis der er ordineret væskerestriktion</span>
+            <span style="font-size: 2.5vw;">
+                Udfyldes kun hvis der er 
+                væskerestriktion</span>
         </div> 
 		<!-- HER INDSÆTTES STRUKTUR FOR PRODUKTVALG
 		## Drop-down menu med mulige produkter
