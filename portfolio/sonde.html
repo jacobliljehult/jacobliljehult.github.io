@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-    html { background-color: #f6f6f6 }
+    html { background-color: #f6f6f6 } /* Mørk blå: #006AB3 | Lys blå: #C2CDEB | Helt lys: #ebf7fd */
     main { background-color: white; padding: 1vw; font-size: 4vw; 
         font-family: Arial; height: 98%; color: }
     h1 {text-align: center; font-size: 8vw; margin: 1% auto 3% auto;}
@@ -34,7 +34,7 @@ function calcFun(){
     let height = document.getElementById("height").value || 175; /* Definerer Højde */
     let bmi = (weight/((height/100)*(height/100))).toFixed(2); /* Udregner BMI */
     let liquidDemand = weight*30; /* Udregner væskebehov */
-	let energyDemand = 0; /* Deklarer variabel for Energibehov -> udregnes senere */
+	let energyDemand = 0; /* Deklarer variabel for Energibehov - udregnes senere */
     let restriction = document.getElementById("restriction").value || 0; /* Definerer væskerestriktion */
     /* Hvis der er ordineret væskerestriktion sættes væskebehovet til den ordinerede mængde */
 	if(restriction > 0){ liquidNeed = restriction} 
@@ -44,8 +44,8 @@ function calcFun(){
  	   Når BMI er under 30 skal variablen være udefineret */
     let nutriWeight = ""; 
     if(bmi >= 30){ nutriWeight = Math.round((height - 100)+((weight-(height-100))/3)); 
-		  energyDemand = nutriWeight*27;} else
-    		{ energyDemand = weight*27 } /* Udregning af energibehov */
+		  energyDemand = nutriWeight*27} else
+    		{ energyDemand = weight*27 }; /* Udregning af energibehov */
 /* Energi og væskemængde i sondeproduktet - !! kan senere bruges til at varierer efter produktvalg!! */
 	let productKcal = 1.5;
 	let productWater = 0.76;
