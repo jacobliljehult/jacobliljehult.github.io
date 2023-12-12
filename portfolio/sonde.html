@@ -66,10 +66,14 @@ function calcFun(){
 
     let output = "Vægt: " + weight + " kg [Ernæringsvægt: " + nutriWeight + " kg]<br>" + 
                 "BMI: " + bmi + 
+	    	"<br>Energibehov: " + energyDemand + " kcal" +
+	    	"<br>Væskebehov: " + liquidDemand + " ml" +
                 "<br><br><b>Sondeplan</b>:<br>5 x <u>" + 
-                nutrision + "</u> ml PPEMF <br>" +
+	    	"1. døgn: 5 x 100 ml Nutrison 1 kcal<br>" +
+	    	"2. døgn: 5 x 150 ml Nutrison 1 kcal<br>" +
+	    	"3. døgn: 5 x 200 ml Nutrison 1 kcal<br>" +
+                "Følgende døgn: 5 x " + nutrision + "</u> ml PPEMF <br>" +
                 "<br><b>Væskeberegning</b>: <br>" + 
-                "Væskebehov: " + liquidNeed + " ml<br>" +
                 "Væske i sondemaden:" + liquidInProduct +
                 " ml<br>Skyllevæske: 5 x <u>" + liquidExtra + "</u> ml" +
                 "<br>";
