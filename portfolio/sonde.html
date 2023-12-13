@@ -4,7 +4,7 @@
 <style>
     html { background-color: white; } /* Mørk blå: #006AB3 | Lys blå: #C2CDEB | Helt lys: #ebf7fd */
     main { background-color: #ebf7fd; padding: 1vw; font-size: 4vw; 
-        font-family: Arial; height: 97vh; color: }
+        font-family: Arial; height: 97vh;  }
     h1 {text-align: center; font-size: 10vw; margin: 1% auto 3% auto;}
     .section { width: 98%; margin: auto; }
     #btn--calc { position: fixed; margin-inline: auto;
@@ -38,6 +38,8 @@
     .output {  height: 60vh; background-color: white; 
         border: 0px solid #222222; margin: 2% auto ; padding: 3vw; 
         border-radius: 5px;}
+    .product--output { background-color: #C2CDEB; color: #222222; 
+                        font-size: 2vw; margin-top: 2%; padding: 1%; }    
 </style>
 <script>
 function calcFun(){
@@ -57,43 +59,100 @@ function calcFun(){
     if(bmi >= 30){ nutriWeight = Math.round((height - 100)+((weight-(height-100))/3)); 
 		  energyDemand = nutriWeight*27} else
     		{ energyDemand = weight*27 }; /* Udregning af energibehov */
-/* Energi og væskemængde i sondeproduktet - !! kan senere bruges til at varierer efter produktvalg!! 
+    let nutriWeightOutput = "";
+    if(bmi >= 30){nutriWeightOutput = " [Ernæringsvægt: " + nutriWeight + " kg]"};
+
+            /* Energi og væskemængde i sondeproduktet - !! kan senere bruges til at varierer efter produktvalg!! 
    prod--ppeml : Nutrison Protein Plus Energy Multi Fibre 1.53 | 0.075 | 0.04
    prod--ppe : Nutrison Protein Plus Energy 1.5 kcal | 1.5 | 0.77 | 0.075
    prod--1kcal : Nutrison 1.0 kcal | 1 | 0.85 | 0.04
    prod--hp2 : Fresubin 2 kcal HP | 2 | 0.72 | 0.1
    prod--lowsodium : Nutrison Low Sodium | 1 | 0.85 | 0.04
    prod--soya: Nutrison Soya | 1 | 0.85 | 0.04 */
-	let productKcal = 1.5;
-	let productWater = 0.76;
+   let product = document.getElementById("product").value;
+   
+        let productKcal = 1.5;
+	    let productWater = 0.76;
+        let productProtien = 0.075;
+        let productName = "Nutrison Protein Plus Energy Multi Fibre" ;
+        let productStart = "Nutrison 1.0 kcal";
+    
+    if(product == "prod--ppe"){
+        productKcal = 1.5;
+	    productWater = 0.77;
+        productProtien = 0.075;
+        productName = "Nutrison Protein Plus Energy" ;
+    } else
+    if(product == "prod--1kcal"){
+        productKcal = 1;
+	    productWater = 0.85;
+        productProtien = 0.04;
+        productName = "Nutrison 1.0 kcal" ;
+    } else
+    if(product == "prod--hp2"){
+        productKcal = 2;
+	    productWater = 0.72;
+        productProtien = 0.1;
+        productName = "Fresubin 2 kcal HP" ;
+        productStart = productName;
+    } else
+    if(product == "prod--lowsodium"){
+        productKcal = 1;
+	    productWater = 0.85;
+        productProtien = 0.04;
+        productName = "Nutrison Low Sodium" ;
+        productStart = productName;
+    } else
+    if(product == "prod--soya"){
+        productKcal = 1;
+	    productWater = 0.85;
+        productProtien = 0.04;
+        productName = "Nutrison Soya" ;
+        productStart = productName;
+    };
+
     /* Udregning af sondemængde ved BMI >= 30 ud fra ernæringsvægt */
     if(bmi >= 30){ 
         nutrision = Math.round((((nutriWeight*27)/productKcal)/5)/10)*10;
-    } else
-    {
+    } else {
+        if(product == "prod--ppeml"){
     if(weight < 45){ nutrision = 160 } else 
     if(weight >= 45 & weight < 60) { nutrision = 200 } else
     if(weight >= 60 & weight < 75) { nutrision = 220 } else
     if(weight >= 75 & weight < 85) { nutrision = 260 } else
     if(weight >= 85 & weight < 100) { nutrision = 280 } else
-    if(weight >= 100 & weight < 115) { nutrision = 320 } }
-
+    if(weight >= 100 & weight < 115) { nutrision = 320 } } else {
+        nutrision = Math.round((((weight*27)/productKcal)/5)/10)*10;
+    }
+            }
+    /* Udregning af væskeregnskab */
     let liquidInProduct = Math.round(5 * nutrision * productWater); /* Udregner væskemængden i sondeernæringen */
     let liquidExtra = Math.round(((liquidDemand - liquidInProduct)/5)/10)*10;
 
-    let output = "Vægt: " + weight + " kg [Ernæringsvægt: " + nutriWeight + " kg]<br>" + 
+    let liquidExtra1 = Math.round((liquidDemand - (100*0.85))/100)*100;
+    let liquidExtra2 = Math.round((liquidDemand - (150*0.85))/100)*100;
+    let liquidExtra3 = Math.round((liquidDemand - (200*0.85))/100)*100;;
+    
+    // Output
+    let output = "Vægt: " + weight + " kg" + nutriWeightOutput + "<br>" + 
                 "BMI: " + bmi + 
 	    	"<br>Energibehov: " + energyDemand + " kcal" +
 	    	"<br>Væskebehov: " + liquidDemand + " ml" +
                 "<br><br><b>Sondeplan</b>:<br>" + 
-	    	"1. døgn: 5 x <u>100</u> ml Nutrison 1 kcal<br>" +
-	    	"2. døgn: 5 x <u>150</u> ml Nutrison 1 kcal<br>" +
-	    	"3. døgn: 5 x <u>200</u> ml Nutrison 1 kcal<br>" +
-                "Følgende døgn: 5 x <u>" + nutrision + "</u> ml PPEMF <br>" +
-                "<br><b>Væskeberegning</b>: <br>" + 
-                "Væske i sondemaden:" + liquidInProduct +
+	    	"1. døgn: 5 x <u>100</u> ml " + productStart + "<br>" +
+	    	"2. døgn: 5 x <u>150</u> ml " + productStart + "<br>" +
+	    	"3. døgn: 5 x <u>200</u> ml " + productStart + "<br>" +
+                "Følgende døgn: 5 x <u>" + nutrision + "</u> ml " + productName +
+                "<br><br><b>Væskeberegning</b>: <br>" + 
+                "1. døgn: Suppleres med " + liquidExtra1 + " ml væske<br>" +
+                "2. døgn: Suppleres med " + liquidExtra2 + " ml væske<br>" +
+                "3. døgn: Suppleres med " + liquidExtra3 + " ml væske<br>" +
+                "Følgende døgn: <br>Væske i sondemaden:" + liquidInProduct +
                 " ml<br>Skyllevæske: 5 x <u>" + liquidExtra + "</u> ml" +
-                "<br>";
+                "<div class='product--output'>Produktinformation<br>" + 
+                productName + "<br>Energi: " + productKcal + 
+                "<br>Protein: " + productProtien + 
+                "<br>Væske: " + productWater + "</div>";
 
     return output;
 }
@@ -128,10 +187,10 @@ function calcFun(){
 		## - Nutrison Protein Plus Energy Multi Fibre (Standard)
 		## - 2 kcal
 		## - Low Sodium
-		## - Soya
+		## - Soya-->
 <div class="div--product">
 		<select name="product" id="product">
-  			<option value="prod--ppeml">Nutrison Protein Plus Energy Multi Fibre 1.5 kcal</option>
+  			<option value="prod--ppeml">Nutrison Protein Plus Energy Multi Fibre</option>
             <option value="prod--ppe">Nutrison Protein Plus Energy 1.5 kcal</option>
             <option value="prod--1kcal">Nutrison 1.0 kcal</option>
   			<option value="prod--hp2">Fresubin 2 kcal HP</option>
@@ -140,7 +199,7 @@ function calcFun(){
 		</select>
 
 	</div>
-		-->
+		
         </form>
         
         
