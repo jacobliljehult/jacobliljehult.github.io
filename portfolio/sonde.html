@@ -30,6 +30,11 @@
     .input--field { margin: 0; font-size: 5vw; width: 95%; padding: 0px; text-align: right; 
 	      border: 1px solid white; border-bottom: 1px solid #006AB3;} 
     .input--field:focus { border-bottom: 1px solid #006AB3; outline: none;} 
+	    .div--product { margin-top: 2%; }
+    #product { font-size: 4vw; outline: none; border: 1px solid #006AB3; border-radius: 2vw;
+                    padding: 2vw; background-color: white; 
+                    font-size: 4vw; width: 100%}    
+               
     .output {  height: 60vh; background-color: white; 
         border: 0px solid #222222; margin: 2% auto ; padding: 3vw; 
         border-radius: 5px;}
@@ -52,7 +57,13 @@ function calcFun(){
     if(bmi >= 30){ nutriWeight = Math.round((height - 100)+((weight-(height-100))/3)); 
 		  energyDemand = nutriWeight*27} else
     		{ energyDemand = weight*27 }; /* Udregning af energibehov */
-/* Energi og væskemængde i sondeproduktet - !! kan senere bruges til at varierer efter produktvalg!! */
+/* Energi og væskemængde i sondeproduktet - !! kan senere bruges til at varierer efter produktvalg!! 
+   prod--ppeml : Nutrison Protein Plus Energy Multi Fibre 1.53 | 0.075 | 0.04
+   prod--ppe : Nutrison Protein Plus Energy 1.5 kcal | 1.5 | 0.77 | 0.075
+   prod--1kcal : Nutrison 1.0 kcal | 1 | 0.85 | 0.04
+   prod--hp2 : Fresubin 2 kcal HP | 2 | 0.72 | 0.1
+   prod--lowsodium : Nutrison Low Sodium | 1 | 0.85 | 0.04
+   prod--soya: Nutrison Soya | 1 | 0.85 | 0.04 */
 	let productKcal = 1.5;
 	let productWater = 0.76;
     /* Udregning af sondemængde ved BMI >= 30 ud fra ernæringsvægt */
@@ -120,10 +131,14 @@ function calcFun(){
 		## - Soya
 <div class="div--product">
 		<select name="product" id="product">
-  			<option value="ppeml">Nutrison Protein Plus Energy Multi Fibre</option>
-  			<option value="HP2kcal">Saab</option>
-  			<option value="lowsodium">Mercedes</option>
+  			<option value="prod--ppeml">Nutrison Protein Plus Energy Multi Fibre 1.5 kcal</option>
+            <option value="prod--ppe">Nutrison Protein Plus Energy 1.5 kcal</option>
+            <option value="prod--1kcal">Nutrison 1.0 kcal</option>
+  			<option value="prod--hp2">Fresubin 2 kcal HP</option>
+  			<option value="prod--lowsodium">Nutrison Low Sodium</option>
+            <option value="prod--soya">Nutrison Soya</option>
 		</select>
+
 	</div>
 		-->
         </form>
