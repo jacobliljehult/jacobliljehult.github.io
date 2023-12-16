@@ -3,43 +3,122 @@
 <head>
 <style>
     html { background-color: white; } /* Mørk blå: #006AB3 | Lys blå: #C2CDEB | Helt lys: #ebf7fd */
-    main { background-color: #ebf7fd; padding: 1vw; font-size: 4vw; 
-        font-family: Arial; height: 97vh;  }
-    h1 {text-align: center; font-size: 10vw; margin: 1% auto 3% auto;}
+    main { background-color: #ebf7fd; 
+            padding: 1vw; 
+            font-size: 4vw; 
+            font-family: Arial; 
+            height: 97vh;  }
+    h1 { text-align: center; 
+            margin: 1% auto 3% auto;
+            font-size: 10vw; 
+            }
     .section { width: 98%; margin: auto; }
-    #btn--calc { position: fixed; margin-inline: auto;
-  bottom: 1vh; right: 4%; width:92%; font-size: 7vw; text-align: center; 
-                padding: 2vw; border-radius: 1vw; margin-bottom: 1vw; 
-	       background-color: #006AB3; color: white; border: 0; }
+    #btn--calc { position: fixed; 
+                bottom: 1vh; right: 4%; 
+                width:92%;
+                margin-inline: auto;
+                margin-bottom: 1vw; 
+                padding: 2vw; 
+                border-radius: 1vw; border: 0; 
+                font-size: 7vw; 
+                text-align: center; 
+                background-color: #006AB3; 
+                color: white; 
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);}
+    #btn--calc:active { box-shadow: none;}
     .form-1 { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw;}
     .div--weight {display: grid; grid-template-columns: 35% 40% 25%; gap: 1vw;
-                    border: 1px solid #006AB3; padding: 2vw; 
-                    border-radius: 2vw; background-color: white; 
-                    font-size: 5vw;}
+                border: 1px solid #006AB3; 
+                padding: 2vw; 
+                border-radius: 2vw; 
+                background-color: white; 
+                font-size: 5vw;}
     .div--height {display: grid; grid-template-columns: 35% 40% 25%; gap: 1vw;
-                    border: 1px solid #006AB3; border-radius: 2vw;
-                    padding: 2vw; background-color: white; 
-                    font-size: 5vw;}
-
+                border: 1px solid #006AB3; 
+                border-radius: 2vw;
+                padding: 2vw; 
+                background-color: white; 
+                font-size: 5vw;}
     .form-2 { margin-top: 2%; }
     .div--restriction { display: grid; grid-template-columns: 45% 16% 7% 30%; gap: 1%;
-                    border: 1px solid #006AB3; border-radius: 2vw;
-                    padding: 2vw; background-color: white; 
-                    font-size: 5vw;}            
-              
-    .input--field { margin: 0; font-size: 5vw; width: 95%; padding: 0px; text-align: right; 
-	      border: 1px solid white; border-bottom: 1px solid #006AB3;} 
-    .input--field:focus { border-bottom: 1px solid #006AB3; outline: none;} 
-	    .div--product { margin-top: 2%; }
-    #product { font-size: 4vw; outline: none; border: 1px solid #006AB3; border-radius: 2vw;
-                    padding: 2vw; background-color: white; 
-                    font-size: 4vw; width: 100%}    
+                border: 1px solid #006AB3; 
+                border-radius: 2vw;
+                padding: 2vw; 
+                background-color: white; 
+                font-size: 5vw;}                          
+    .input--field { width: 95%; 
+                margin: 0; 
+                padding: 0px; 
+                font-size: 5vw; 
+                text-align: right; 
+	            border: 1px solid white; 
+                border-bottom: 1px solid #006AB3;} 
+    .input--field:focus { border-bottom: 1px solid #006AB3; outline: none;}
+    .restrict--commment { font-size: 2.5vw; }
+	.div--product { margin-top: 2%; }
+    #product { width: 100%;
+                padding: 2vw; 
+                font-size: 4vw; 
+                outline: none; 
+                border: 1px solid #006AB3; 
+                border-radius: 2vw;
+                background-color: white; }    
                
-    .output {  height: 60vh; background-color: white; 
-        border: 0px solid #222222; margin: 2% auto ; padding: 3vw; 
-        border-radius: 5px;}
-    .product--output { background-color: #C2CDEB; color: #222222; 
-                        font-size: 2vw; margin-top: 2%; padding: 1%; }    
+    .output {  height: 60vh; 
+                margin: 2% auto ; 
+                padding: 3vw;     
+                background-color: white; 
+                border: 0px solid #222222;  
+                border-radius: 5px;}
+    .product--output { margin-top: 2%; padding: 1%; 
+                background-color: #C2CDEB; 
+                color: #222222; 
+                font-size: 3vw; }
+                        
+    @media screen and (orientation:landscape){
+    main { width: 400px; 
+                min-height: 700px;
+                margin: auto; 
+                padding: 4px; 
+                font-size: 14px;}
+    h1 {font-size: 40px; 
+            margin: 3px auto 10px auto;}
+    .section { width: 98%; 
+                margin: auto; }
+    #btn--calc { position: fixed; bottom: 5px; right: auto;
+                width:390px; height: 50px;        
+                margin-inline: auto; margin-bottom: 10px;
+                padding: 8px; 
+                border: 0; border-radius: 1vw;  
+	            background-color: #006AB3; 
+                color: white; 
+                font-size: 30px; text-align: center; }
+    .form-1 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .div--weight {display: grid; grid-template-columns: 35% 40% 25%; gap: 1%;
+                padding: 10px 20px; 
+                border-radius: 15px; 
+                font-size: 22px;}
+    .div--height {display: grid; grid-template-columns: 35% 40% 25%; gap: 1%;
+                border-radius: 15px;
+                padding: 10px 15px; 
+                font-size: 22px;}
+    .div--restriction { display: grid; grid-template-columns: 45% 16% 7% 27%; gap: 1.5%;
+                    border-radius: 15px;
+                    padding: 10px;
+                    font-size: 22px; }                        
+    .input--field { font-size: 22px; } 
+    .input--field:focus { border-bottom: 1px solid #006AB3; outline: none;} 
+	.div--product { margin-top: 1%; }
+    .restrict--commment { font-size: 10px; }
+    .form-2 { margin-top: 1%; }
+    #product { font-size: 20px; 
+                border-radius: 15px;
+                padding: 10px; }    
+    .output {   background-color: white; min-height: 400px;
+            margin: 2% auto ; padding: 10px; 
+            border-radius: 5px;}
+    .product--output { font-size: 12px; margin-top: 2%; padding: 1%; }
+        }                    
 </style>
 <script>
 function calcFun(){
@@ -136,12 +215,12 @@ function calcFun(){
     // Output
     let output = "Vægt: " + weight + " kg" + nutriWeightOutput + "<br>" + 
                 "BMI: " + bmi + 
-	    	"<br>Energibehov: " + energyDemand + " kcal" +
-	    	"<br>Væskebehov: " + liquidDemand + " ml" +
+	    	    "<br>Energibehov: " + energyDemand + " kcal" +
+	    	    "<br>Væskebehov: " + liquidDemand + " ml" +
                 "<br><br><b>Sondeplan</b>:<br>" + 
-	    	"1. døgn: 5 x <u>100</u> ml " + productStart + "<br>" +
-	    	"2. døgn: 5 x <u>150</u> ml " + productStart + "<br>" +
-	    	"3. døgn: 5 x <u>200</u> ml " + productStart + "<br>" +
+	    	    "1. døgn: 5 x <u>100</u> ml " + productStart + "<br>" +
+	    	    "2. døgn: 5 x <u>150</u> ml " + productStart + "<br>" +
+	    	    "3. døgn: 5 x <u>200</u> ml " + productStart + "<br>" +
                 "Følgende døgn: 5 x <u>" + nutrision + "</u> ml " + productName +
                 "<br><br><b>Væskeberegning</b>: <br>" + 
                 "1. døgn: Suppleres med " + liquidExtra1 + " ml væske<br>" +
@@ -149,10 +228,10 @@ function calcFun(){
                 "3. døgn: Suppleres med " + liquidExtra3 + " ml væske<br>" +
                 "Følgende døgn: <br>Væske i sondemaden:" + liquidInProduct +
                 " ml<br>Skyllevæske: 5 x <u>" + liquidExtra + "</u> ml" +
-                "<div class='product--output'>Produktinformation<br>" + 
-                productName + "<br>Energi: " + productKcal + 
-                "<br>Protein: " + productProtien + 
-                "<br>Væske: " + productWater + "</div>";
+                "<div class='product--output'><b>Produktinformation</b> (per ml)<br>" + 
+                productName + "<br>Energi: " + productKcal + " Kcal<br>" + 
+                "Protein: " + productProtien + " g<br>" + 
+                "Væske: " + productWater + " ml </div>";
 
     return output;
 }
@@ -178,16 +257,11 @@ function calcFun(){
             <label for="restriction">Væskerestriktion:</label>
             <input type="text" placeholder="0" id="restriction" class="input--field input--height">
             <span> ml</span>
-            <span style="font-size: 2.5vw;">
+            <span class="restrict--commment" >
                 Udfyldes kun hvis der er 
                 væskerestriktion</span>
         </div> 
-		<!-- HER INDSÆTTES STRUKTUR FOR PRODUKTVALG
-		## Drop-down menu med mulige produkter
-		## - Nutrison Protein Plus Energy Multi Fibre (Standard)
-		## - 2 kcal
-		## - Low Sodium
-		## - Soya-->
+		<!-- HER INDSÆTTES STRUKTUR FOR PRODUKTVALG -->
 <div class="div--product">
 		<select name="product" id="product">
   			<option value="prod--ppeml">Nutrison Protein Plus Energy Multi Fibre</option>
@@ -211,3 +285,4 @@ function calcFun(){
     </main>
 </body>
 </html>
+
