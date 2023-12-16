@@ -7,7 +7,7 @@
             padding: 1vw; 
             font-size: 4vw; 
             font-family: Arial; 
-            height: 97vh;  }
+            min-height: 900px;  }
     h1 { text-align: center; 
             margin: 1% auto 3% auto;
             font-size: 10vw; 
@@ -26,6 +26,10 @@
                 color: white; 
                 box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);}
     #btn--calc:active { box-shadow: none;}
+    #btn--mobile { background-color: #006AB3; color: white; border: 0; 
+                font-size: 4vw; text-align: center; width: 8.5vw; height: 8.5vw; margin-top: 2vw;
+                padding: 0vw; border-radius: 50%; text-align:center;
+                }
     .form-1 { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw;}
     .div--weight {display: grid; grid-template-columns: 35% 40% 25%; gap: 1vw;
                 border: 1px solid #006AB3; 
@@ -40,6 +44,8 @@
                 background-color: white; 
                 font-size: 5vw;}
     .form-2 { margin-top: 2%; }
+    .form-3 { margin-top: 0%;}
+    .line--3 {display: grid; grid-template-columns: 88% 12%; gap: 1%; width: 100%;}
     .div--restriction { display: grid; grid-template-columns: 45% 16% 7% 30%; gap: 1%;
                 border: 1px solid #006AB3; 
                 border-radius: 2vw;
@@ -64,7 +70,7 @@
                 border-radius: 2vw;
                 background-color: white; }    
                
-    .output {  height: 60vh; 
+    .output {  min-height: 60vh; 
                 margin: 2% auto ; 
                 padding: 3vw;     
                 background-color: white; 
@@ -93,6 +99,7 @@
 	            background-color: #006AB3; 
                 color: white; 
                 font-size: 30px; text-align: center; }
+    #btn--mobile { display: none; }
     .form-1 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .div--weight {display: grid; grid-template-columns: 35% 40% 25%; gap: 1%;
                 padding: 10px 20px; 
@@ -111,6 +118,8 @@
 	.div--product { margin-top: 1%; }
     .restrict--commment { font-size: 10px; }
     .form-2 { margin-top: 1%; }
+    .form-3 { width: 100%; }
+    .line--3 {display: grid; grid-template-columns: 100% 0%; gap: 1%; width: 100%;}
     #product { font-size: 20px; 
                 border-radius: 15px;
                 padding: 10px; }    
@@ -260,21 +269,26 @@ function calcFun(){
             <span class="restrict--commment" >
                 Udfyldes kun hvis der er 
                 væskerestriktion</span>
-        </div> 
+        </div>
+        </form> 
 		<!-- HER INDSÆTTES STRUKTUR FOR PRODUKTVALG -->
-<div class="div--product">
-		<select name="product" id="product">
-  			<option value="prod--ppeml">Nutrison Protein Plus Energy Multi Fibre</option>
-            <option value="prod--ppe">Nutrison Protein Plus Energy 1.5 kcal</option>
-            <option value="prod--1kcal">Nutrison 1.0 kcal</option>
-  			<option value="prod--hp2">Fresubin 2 kcal HP</option>
-  			<option value="prod--lowsodium">Nutrison Low Sodium</option>
-            <option value="prod--soya">Nutrison Soya</option>
-		</select>
-
-	</div>
-		
-        </form>
+        <div class="line--3" >
+            <form class="form-3">
+            <div class="div--product">
+                    <select name="product" id="product">
+                          <option value="prod--ppeml">Nutrison Protein Plus Energy Multi Fibre</option>
+                        <option value="prod--ppe">Nutrison Protein Plus Energy 1.5 kcal</option>
+                        <option value="prod--1kcal">Nutrison 1.0 kcal</option>
+                          <option value="prod--hp2">Fresubin 2 kcal HP</option>
+                          <option value="prod--lowsodium">Nutrison Low Sodium</option>
+                        <option value="prod--soya">Nutrison Soya</option>
+                    </select>
+            </div>
+            </form>
+            <button id="btn--mobile" 
+                    onclick="document.getElementById('output').innerHTML = calcFun()">
+                OK</button>
+        </div>
         
         
         <div class="output" id="output"> </div>
