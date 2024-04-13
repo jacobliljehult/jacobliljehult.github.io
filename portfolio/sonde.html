@@ -142,7 +142,7 @@
     .output {   background-color: white; min-height: 400px;
             margin: 2% auto ; padding: 10px; 
             border-radius: 5px;}
-    .product--output { font-size: 12px; margin-top: 2%; padding: 1%; }
+    .product--output { font-size: 12px; margin-top: 2%; margin-bottom: 25px; padding: 1%; }
         }                    
 </style>
 <script>
@@ -168,7 +168,8 @@ function calcFun(){
     
     let bmi = (weight/((height/100)*(height/100))).toFixed(2); /* Udregner BMI */
     let liquidDemand = weight*30; /* Udregner væskebehov */
-	let energyDemand = 0; /* Deklarer variabel for Energibehov - udregnes senere */    
+	let energyDemand = 0; /* Deklarer variabel for Energibehov - udregnes senere */  
+	let proteinDemand = weight*1.3; /* Udregner væskebehov */	    
     /* Hvis der er ordineret væskerestriktion sættes væskebehovet til den ordinerede mængde */
 	if(restriction > 0){ liquidDemand = restriction} 
     let nutrision = 0; /* Denne variabel bruges til at sætte mængden af sondeernæring */
@@ -257,6 +258,7 @@ function calcFun(){
         output = "Vægt: " + weight + " kg" + nutriWeightOutput + "<br>" + 
                 "BMI: " + bmi + 
 	    	    "<br>Energibehov: " + energyDemand + " kcal" +
+		    "<br>Proteinbehov: " + proteinDemand + " g (1.3g pr kg)" +
 	    	    "<br>Væskebehov: " + liquidDemand + " ml" +
                 "<br><br><b>Sondeplan</b>:<br>" + 
 	    	    "1. døgn: 5 x <u>100</u> ml " + productStart + "<br>" +
@@ -272,7 +274,7 @@ function calcFun(){
                 "<div class='product--output'><b>Produktinformation</b> (per ml)<br>" + 
                 productName + "<br>Energi: " + productKcal + " Kcal<br>" + 
                 "Protein: " + productProtien + " g<br>" + 
-                "Væske: " + productWater + " ml </div>";
+                "Væske: " + productWater + " ml </div><br><br>";
 }
     return output;
 }
