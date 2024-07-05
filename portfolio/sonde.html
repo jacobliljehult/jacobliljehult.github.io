@@ -83,7 +83,7 @@
                 box-shadow: inset 3px 3px 3px -2px rgba(0, 0, 0, 0.25);
 }    
                
-    .output {  min-height: 60vh; 
+    .output {  min-height: 60vh; font-size: 2vh;
                 margin: 2% auto ; 
                 padding: 3vw;     
                 background-color: white; 
@@ -95,7 +95,7 @@
     .product--output { margin-top: 2%; padding: 1%; 
                 background-color: #C2CDEB; 
                 color: #222222; 
-                font-size: 3vw; }
+                font-size: 1.5vh; }
                         
     @media screen and (orientation:landscape){
     main { width: 400px; 
@@ -250,9 +250,9 @@ function calcFun(){
     let liquidInProduct = Math.round(5 * nutrision * productWater); /* Udregner væskemængden i sondeernæringen */
     let liquidExtra = Math.round(((liquidDemand - liquidInProduct)/5)/10)*10;
 
-    let liquidExtra1 = Math.round((liquidDemand - (100*0.85))/100)*100;
-    let liquidExtra2 = Math.round((liquidDemand - (150*0.85))/100)*100;
-    let liquidExtra3 = Math.round((liquidDemand - (200*0.85))/100)*100;;
+    let liquidExtra1 = Math.round((liquidDemand - (5*100*0.85))/100)*100;
+    let liquidExtra2 = Math.round((liquidDemand - (5*150*0.85))/100)*100;
+    let liquidExtra3 = Math.round((liquidDemand - (5*200*0.85))/100)*100;;
     
     
         output = "Vægt: " + weight + " kg" + nutriWeightOutput + "<br>" + 
@@ -264,13 +264,13 @@ function calcFun(){
 	    	    "1. døgn: 5 x <u>100</u> ml " + productStart + "<br>" +
 	    	    "2. døgn: 5 x <u>150</u> ml " + productStart + "<br>" +
 	    	    "3. døgn: 5 x <u>200</u> ml " + productStart + "<br>" +
-                "Følgende døgn: 5 x <u>" + nutrision + "</u> ml " + productName +
+                "Følgende døgn: <b><span style='background-color:yellow;'>5 x <u>" + nutrision + "</u> ml</span></b> " + productName +
                 "<br><br><b>Væskeberegning</b>: <br>" + 
                 "1. døgn: Suppleres med " + liquidExtra1 + " ml væske<br>" +
                 "2. døgn: Suppleres med " + liquidExtra2 + " ml væske<br>" +
                 "3. døgn: Suppleres med " + liquidExtra3 + " ml væske<br>" +
-                "Følgende døgn: <br>Væske i sondemaden:" + liquidInProduct +
-                " ml<br>Skyllevæske: 5 x <u>" + liquidExtra + "</u> ml" +
+                "Følgende døgn: <br>Væske i sondemaden: " + liquidInProduct +
+                " ml<br>Skyllevæske: <b><span style='background-color:yellow;'>5 x <u>" + liquidExtra + "</u> ml</span></b>" +
                 "<div class='product--output'><b>Produktinformation</b> (per ml)<br>" + 
                 productName + "<br>Energi: " + productKcal + " Kcal<br>" + 
                 "Protein: " + productProtien + " g<br>" + 
