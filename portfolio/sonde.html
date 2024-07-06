@@ -3,7 +3,7 @@
 <head>
 <style>
     html { background-color: white; } /* Mørk blå: #006AB3 | Lys blå: #C2CDEB | Helt lys: #ebf7fd */
-    main { background-color: #68c5ff; 
+    main { background-color: #b3e2ff; 
             padding: 1vw; 
             font-size: 4vw; 
             font-family: Arial; 
@@ -83,7 +83,7 @@
                 box-shadow: inset 3px 3px 3px -2px rgba(0, 0, 0, 0.25);
 }    
                
-    .output {  min-height: 60vh; font-size: 2vh;
+    .output {  min-height: 60vh; font-size: 0.875em;
                 margin: 2% auto ; 
                 padding: 3vw;     
                 background-color: white; 
@@ -92,10 +92,11 @@
                 -moz-box-shadow: inset 3px 3px 3px -2px rgba(0, 0, 0, 0.25);
                 box-shadow: inset 3px 3px 3px -2px rgba(0, 0, 0, 0.25);
 }
-    .product--output { margin-top: 2%; padding: 1%; 
-                background-color: #C2CDEB; 
+    .output--blue {color: hsl(235, 100%, 25%); font-weight: bold; line-height: 1.8; font-size: 120%;}
+    .product--output { margin-top: 2%; padding: 1%; font-size: 0.7em;
+                background-color: hsl(217, 75%, 90%); 
                 color: #222222; 
-                font-size: 1.5vh; }
+                 }
                         
     @media screen and (orientation:landscape){
     main { width: 400px; 
@@ -260,12 +261,12 @@ function calcFun(){
 	    	    "<br>Energibehov: " + energyDemand + " kcal" +
 		    "<br>Proteinbehov: " + proteinDemand + " g (1.3g pr kg)" +
 	    	    "<br>Væskebehov: " + liquidDemand + " ml" +
-                "<br><br><b>Sondeplan</b>:<br>" + 
+                "<br><br><span class='output--blue'>Sondeplan</span><br>" + 
 	    	    "1. døgn: 5 x <u>100</u> ml " + productStart + "<br>" +
 	    	    "2. døgn: 5 x <u>150</u> ml " + productStart + "<br>" +
 	    	    "3. døgn: 5 x <u>200</u> ml " + productStart + "<br>" +
                 "Følgende døgn: <b><span style='background-color:yellow;'>5 x <u>" + nutrision + "</u> ml</span></b> " + productName +
-                "<br><br><b>Væskeberegning</b>: <br>" + 
+                "<br><br><span class='output--blue'>Væskeberegning</span>: <br>" + 
                 "1. døgn: Suppleres med " + liquidExtra1 + " ml væske<br>" +
                 "2. døgn: Suppleres med " + liquidExtra2 + " ml væske<br>" +
                 "3. døgn: Suppleres med " + liquidExtra3 + " ml væske<br>" +
