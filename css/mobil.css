@@ -40,7 +40,7 @@
             background-size: 260vw;
             background-image: url(https://jacobliljehult.github.io/research/randomheader.png);
                     }
-    .headerstat h1, h2 { display: none; }
+    .headerstat h1 { display: none; }
     .ref { font-size: 4vw; }
 
     /* Top navigator */
