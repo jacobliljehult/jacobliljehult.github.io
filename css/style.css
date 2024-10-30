@@ -118,11 +118,12 @@
         width: min(800px,90%);  
       }
     .maintext p, ul, li {font-family: times;}
+    .maintext p {margin-top: 5px; }		
     .maintext h1 {
         text-align: center; 
         letter-spacing: 1px;
         font-size: 40px;}
-    .maintext h2 {font-size: 30px;}
+    .maintext h2 {font-size: 30px; margin-bottom: 5px;}
     .maintext h3 {font-size: 24px;}
     .maintext h4 {font-size: 20px;}
     .maintext h5 {font-size: 18px;} 
