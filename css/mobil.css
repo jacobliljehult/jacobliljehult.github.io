@@ -8,7 +8,24 @@
         margin: 0 ;
           }
     .mobilh1 { font-size: 5vw; }      
-
+    .maintext {	
+              color: black;    
+              font-size: 5vw;
+              margin-inline: auto;
+              width: min(800px,90%); 
+              
+              }
+            .maintext p, ul, li {font-family: times; font-size: 4vw;}
+            .maintext h1 {
+              text-align: center; 
+              letter-spacing: 1px;
+              font-size: 5vw;}
+            .maintext h2 {font-size: 4.8vw;}
+            .maintext h3 {font-size: 4.6vw;}
+            .maintext h4 {font-size: 4.4vw;}
+            .maintext h5 {font-size: 4.2vw;} 
+            .p--small { font-size: 3.5vw; }
+    .rmaintext {margin-inline: auto; width: 100%}            
     .indhold { display: none; }        
     .headerstroke { display: block; 
         	  height: 10vh; 
@@ -16,7 +33,7 @@
         	  background-size: 260vw;
         	  background-image: url(https://jacobliljehult.github.io/neuro/images/headerhjerne.png);
                         }
-    .headerstroke h1, h2 { display: none; }
+    .headerstroke h1 { display: none; }
     .headerstat { display: block; 
             height: 15vh; 
             width: 100%; 
@@ -128,22 +145,5 @@
           display:grid; gap: 0px;
           grid-template-columns: 1fr; }
 
-    .maintext {	
-              color: black;    
-              font-size: 5vw;
-              margin-inline: auto;
-              width: min(800px,90%); 
-              display: block;
-              }
-            .maintext p, ul, li {font-family: times; font-size: 4vw;}
-            .maintext h1 {
-              text-align: center; 
-              letter-spacing: 1px;
-              font-size: 5vw;}
-            .maintext h2 {font-size: 4.8vw;}
-            .maintext h3 {font-size: 4.6vw;}
-            .maintext h4 {font-size: 4.4vw;}
-            .maintext h5 {font-size: 4.2vw;} 
-            .p--small { font-size: 3.5vw; }
-    .rmaintext {margin-inline: auto; width: 100%}            
+
     /* Slutning på media query for mobilvisning - MUST BE THE LAST LINE */ }   
