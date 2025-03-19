@@ -170,7 +170,7 @@ function calcFun(){
     let bmi = (weight/((height/100)*(height/100))).toFixed(2); /* Udregner BMI */
     let liquidDemand = weight*30; /* Udregner væskebehov */
 	let energyDemand = 0; /* Deklarer variabel for Energibehov - udregnes senere */  
-	let proteinDemand = weight*1.3; /* Udregner væskebehov */	    
+	let proteinDemand = Math.round(weight*1.3*10)/10; /* Udregner væskebehov */	    
     /* Hvis der er ordineret væskerestriktion sættes væskebehovet til den ordinerede mængde */
 	if(restriction > 0){ liquidDemand = restriction} 
     let nutrision = 0; /* Denne variabel bruges til at sætte mængden af sondeernæring */
@@ -230,6 +230,13 @@ function calcFun(){
 	    productWater = 0.85;
         productProtien = 0.04;
         productName = "Nutrison Soya" ;
+        productStart = productName;
+    } else
+    if(product == "prod--iso"){
+        productKcal = 1.09;
+	    productWater = 0.84;
+        productProtien = 0.044;
+        productName = "IsoSource Mix" ;
         productStart = productName;
     };
 
@@ -314,9 +321,10 @@ function calcFun(){
                           <option value="prod--ppeml">Nutrison Protein Plus Energy Multi Fibre</option>
                         <option value="prod--ppe">Nutrison Protein Plus Energy 1.5 kcal</option>
                         <option value="prod--1kcal">Nutrison 1.0 kcal</option>
-                          <option value="prod--hp2">Fresubin 2 kcal HP</option>
-                          <option value="prod--lowsodium">Nutrison Low Sodium</option>
+                        <option value="prod--hp2">Fresubin 2 kcal HP</option>
+                        <option value="prod--lowsodium">Nutrison Low Sodium</option>
                         <option value="prod--soya">Nutrison Soya</option>
+			<option value="prod--iso">IsoSource Mix</option>
                     </select>
             </div>
             </form>
