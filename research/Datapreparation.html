@@ -1733,19 +1733,19 @@ en liste med funktionen <code>str()</code>.</p>
 ##  $ hospital      : num  2 4 3 1 4 3 3 3 5 2 ...
 ##  $ admission_date: chr  &quot;2024-01-04&quot; &quot;2024-01-18&quot; &quot;2024-01-20&quot; &quot;2024-01-22&quot; ...
 ##  $ admission_time: chr  &quot;15:02&quot; &quot;13:50&quot; &quot;13:56&quot; &quot;14:17&quot; ...
-##  $ discharge_date: chr  &quot;2024-01-12&quot; &quot;2024-01-26&quot; &quot;2024-01-28&quot; &quot;2024-01-30&quot; ...
-##  $ discharge_time: chr  &quot;16:35&quot; &quot;15:44&quot; &quot;11:02&quot; &quot;16:38&quot; ...
-##  $ gender        : chr  &quot;M&quot; &quot;M&quot; &quot;F&quot; &quot;F&quot; ...
-##  $ age           : num  66 65 60 53 88 55 68 69 59 72 ...
-##  $ height        : num  183 169 173 184 177 191 162 162 163 155 ...
-##  $ weight        : num  86.6 72.5 34.7 53.2 76 ...
-##  $ allocation    : chr  &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; &quot;Treatment&quot; ...
-##  $ sbp_pre       : num  151 127 146 137 141 152 148 122 144 137 ...
-##  $ sbp_post      : num  144 120 144 128 137 151 151 119 146 135 ...
-##  $ gender_err    : num  1 0 0 0 0 1 1 1 2 1 ...
-##  $ age_err       : num  66 65 999 53 88 55 68 69 59 72 ...
-##  $ weight_err    : chr  &quot;86,65&quot; &quot;72,5&quot; &quot;34,69&quot; &quot;53,17&quot; ...
-##  $ height_err    : chr  &quot;183&quot; &quot;169&quot; &quot;173&quot; &quot;184&quot; ...</code></pre>
+##  $ discharge_date: chr  &quot;2024-01-12&quot; &quot;2024-01-25&quot; &quot;2024-01-24&quot; &quot;2024-01-31&quot; ...
+##  $ discharge_time: chr  &quot;14:23&quot; &quot;09:31&quot; &quot;19:24&quot; &quot;14:10&quot; ...
+##  $ gender        : chr  &quot;F&quot; &quot;M&quot; &quot;M&quot; &quot;F&quot; ...
+##  $ age           : num  85 72 61 65 54 72 72 79 72 77 ...
+##  $ height        : num  163 162 176 166 167 180 174 175 183 170 ...
+##  $ weight        : num  62 55.2 44 65.8 39.9 ...
+##  $ allocation    : chr  &quot;Control&quot; &quot;Control&quot; &quot;Control&quot; &quot;Control&quot; ...
+##  $ sbp_pre       : num  139 114 138 151 152 152 147 140 132 135 ...
+##  $ sbp_post      : num  138 109 138 149 151 148 148 136 130 136 ...
+##  $ gender_err    : num  0 1 1 1 1 0 1 1 2 1 ...
+##  $ age_err       : num  85 72 61 65 54 72 72 79 72 77 ...
+##  $ weight_err    : chr  &quot;62,04&quot; &quot;55,23&quot; &quot;44,03&quot; &quot;65,76&quot; ...
+##  $ height_err    : chr  &quot;163&quot; &quot;162&quot; &quot;176&quot; &quot;166&quot; ...</code></pre>
 <div id="formattering-af-numeriske-værdier" class="section level2">
 <h2>Formattering af numeriske værdier</h2>
 <p>Talvariable bliver kun sjældent indlæst forkert. Men der kan være
@@ -1794,9 +1794,9 @@ værdier blive lavet til en kategori og automatisk blive tildelt en
 tilsvarende label.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># Formattering af factor fra tekstvariabel</span></span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>testData<span class="sc">$</span>gender <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(testDataRaw<span class="sc">$</span>gender)</span></code></pre></div>
-<pre><code>##   [1] M M F F M M F F F F F F F F F F M F F F M M M M M M M M F F M M F M F F F
-##  [38] F F F M M F F M M F F F M F F M M M F F M M M F F M M F F F M M F F M F F
-##  [75] M F M F F M M F M M M M M M M F F M F M M F F M F M
+<pre><code>##   [1] F M M F F M F M M M F F F M M M F M M F F F F F F F M M M M M F F M M M F
+##  [38] M F M M M M M F F F M M M F F F M F M F F M M F F M M F F F M F F F F M F
+##  [75] M F M F M M F M M F F F F M M F F F F M F M M M F M
 ## Levels: F M</code></pre>
 <p>Hvis variablen i csv-filen er indtastet som tal vil den blive indlæst
 som numeric eller integer. Disse kan sagtens formatteres som factor,
@@ -1847,7 +1847,8 @@ og labels definerer navnene på niveauerne i samme rækkefølge:</p>
 ##  [86] &quot;2024-10-30&quot; &quot;2024-11-02&quot; &quot;2024-11-03&quot; &quot;2024-11-05&quot; &quot;2024-11-11&quot;
 ##  [91] &quot;2024-11-15&quot; &quot;2024-11-17&quot; &quot;2024-11-25&quot; &quot;2024-11-29&quot; &quot;2024-11-30&quot;
 ##  [96] &quot;2024-12-01&quot; &quot;2024-12-08&quot; &quot;2024-12-16&quot; &quot;2024-12-17&quot; &quot;2024-12-25&quot;</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>testData<span class="sc">$</span>admission_date <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(testDataRaw<span class="sc">$</span>admission_date, <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>testData<span class="sc">$</span>admission_date <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(testDataRaw<span class="sc">$</span>admission_date, </span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>                                      <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d&quot;</span>)</span></code></pre></div>
 <pre><code>##   [1] &quot;2024-01-04 CET&quot;  &quot;2024-01-18 CET&quot;  &quot;2024-01-20 CET&quot;  &quot;2024-01-22 CET&quot; 
 ##   [5] &quot;2024-01-28 CET&quot;  &quot;2024-02-10 CET&quot;  &quot;2024-02-25 CET&quot;  &quot;2024-02-25 CET&quot; 
 ##   [9] &quot;2024-03-03 CET&quot;  &quot;2024-03-03 CET&quot;  &quot;2024-03-08 CET&quot;  &quot;2024-03-08 CET&quot; 
@@ -1873,7 +1874,10 @@ og labels definerer navnene på niveauerne i samme rækkefølge:</p>
 ##  [89] &quot;2024-11-05 CET&quot;  &quot;2024-11-11 CET&quot;  &quot;2024-11-15 CET&quot;  &quot;2024-11-17 CET&quot; 
 ##  [93] &quot;2024-11-25 CET&quot;  &quot;2024-11-29 CET&quot;  &quot;2024-11-30 CET&quot;  &quot;2024-12-01 CET&quot; 
 ##  [97] &quot;2024-12-08 CET&quot;  &quot;2024-12-16 CET&quot;  &quot;2024-12-17 CET&quot;  &quot;2024-12-25 CET&quot;</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>testData<span class="sc">$</span>admission <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>( <span class="fu">paste</span>(testDataRaw<span class="sc">$</span>admission_date, testDataRaw<span class="sc">$</span>admission_time), <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>testData<span class="sc">$</span>admission <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>( <span class="fu">paste</span>( </span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>                          testDataRaw<span class="sc">$</span>admission_date, </span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>                          testDataRaw<span class="sc">$</span>admission_time), </span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>                          <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d %H:%M&quot;</span>)</span></code></pre></div>
 <pre><code>##   [1] &quot;2024-01-04 15:02:00 CET&quot;  &quot;2024-01-18 13:50:00 CET&quot; 
 ##   [3] &quot;2024-01-20 13:56:00 CET&quot;  &quot;2024-01-22 14:17:00 CET&quot; 
 ##   [5] &quot;2024-01-28 20:31:00 CET&quot;  &quot;2024-02-10 14:16:00 CET&quot; 
@@ -2001,14 +2005,14 @@ og labels definerer navnene på niveauerne i samme rækkefølge:</p>
 ##  $ id        : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ hospital  : Factor w/ 5 levels &quot;NOH&quot;,&quot;BBH&quot;,&quot;HGH&quot;,..: 2 4 3 1 4 3 3 3 5 2 ...
 ##  $ admission : POSIXct, format: &quot;2024-01-04 15:02:00&quot; &quot;2024-01-18 13:50:00&quot; ...
-##  $ discharge : POSIXct, format: &quot;2024-01-12 16:35:00&quot; &quot;2024-01-26 15:44:00&quot; ...
-##  $ gender    : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 2 2 1 1 2 2 1 1 1 1 ...
-##  $ age       : num  66 65 60 53 88 55 68 69 59 72 ...
-##  $ height    : num  183 169 173 184 177 191 162 162 163 155 ...
-##  $ weight    : num  86.6 72.5 34.7 53.2 76 ...
-##  $ allocation: Factor w/ 2 levels &quot;Control&quot;,&quot;Treatment&quot;: 2 2 2 2 2 1 1 2 1 1 ...
-##  $ sbp_pre   : num  151 127 146 137 141 152 148 122 144 137 ...
-##  $ sbp_post  : num  144 120 144 128 137 151 151 119 146 135 ...</code></pre>
+##  $ discharge : POSIXct, format: &quot;2024-01-12 14:23:00&quot; &quot;2024-01-25 09:31:00&quot; ...
+##  $ gender    : Factor w/ 2 levels &quot;F&quot;,&quot;M&quot;: 1 2 2 1 1 2 1 2 2 2 ...
+##  $ age       : num  85 72 61 65 54 72 72 79 72 77 ...
+##  $ height    : num  163 162 176 166 167 180 174 175 183 170 ...
+##  $ weight    : num  62 55.2 44 65.8 39.9 ...
+##  $ allocation: Factor w/ 2 levels &quot;Control&quot;,&quot;Treatment&quot;: 1 1 1 1 1 2 1 2 1 1 ...
+##  $ sbp_pre   : num  139 114 138 151 152 152 147 140 132 135 ...
+##  $ sbp_post  : num  138 109 138 149 151 148 148 136 130 136 ...</code></pre>
 </div>
 </div>
 <div id="undersøgelse-og-rettelse-af-fejl" class="section level1">
@@ -2043,7 +2047,7 @@ værdier som en talværdier uden for det mulige spektrum - ofte enten 9,
 estimater:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">summary</span>(testDataRaw<span class="sc">$</span>age_err)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   45.00   64.00   69.00   96.43   74.50  999.00</code></pre>
+##   40.00   64.00   71.00   97.99   77.00  999.00</code></pre>
 <p>Her kan vi både se at den maksimale værdi i variablen ‘age’ er 999,
 samt at gennemsnittet er betydeligt højere end medianen.</p>
 </div>
@@ -2052,7 +2056,7 @@ samt at gennemsnittet er betydeligt højere end medianen.</p>
 <p>En anden måde man kan undersøge for ekstreme værdier er at tegne et
 plot:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">plot</span>(testDataRaw<span class="sc">$</span>age_err)</span></code></pre></div>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAwAAAAJACAMAAAANcPFkAAAA4VBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZmYAZrY6AAA6AGY6OgA6Ojo6OmY6ZmY6ZpA6ZrY6kJA6kLY6kNtmAABmADpmOgBmOjpmOmZmZjpmZmZmZpBmkJBmkLZmkNtmtrZmtttmtv+QOgCQZgCQZjqQZmaQkDqQkGaQkJCQkLaQtraQttuQ2/+2ZgC2Zjq2kDq2kGa2kJC2tpC2tra2ttu225C227a229u22/+2///bkDrbkGbbtmbbtpDbtrbb25Db27bb29vb2//b/7bb////tmb/25D/27b/29v//7b//9v///+LaPScAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAeJElEQVR4nO2d/WPUNpqAnRKuc4SGOzi4pssucOntLuykOdI7utPAki5D0vH//wed5U/JlidjW5I/3uf5ASbzIdmyHlu29EpRDCCYaOwNABgTBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEA0CgGgQAESDACAaBADRIACIBgFANAgAokEAEI1FgIvjd8E3A2AcmgLs3kRHfxthSwBGoCnA78+ib/4+wpYAjID1CoAAIAXLPcAmir4NvyEAY2B7CnS9io7f3gTfFIDwWJpAP559H+nQIILlYr0JjhAAhGAR4MWJyWMEgMVCTzCIBgFANAyFANEwFAJEw1AIEA1DIUA0DIUA0TAUAkTDUAgQDUMhQDQMhQDR0BMMokEAEA0CgGjaBLi7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" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="data:image/png;base64,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" width="336" style="display: block; margin: auto;" /></p>
 <p>Her bliver det tydeligt at der er tre værdier på 999 - og som altså
 afviger betydeligt fra resten af data.</p>
 </div>
@@ -2070,10 +2074,12 @@ testes om værdier <em>ikke</em> er 999 (<code>!=</code> betyder ‘ikke
 lig med’); og hvis betingelsen er sand bevares værdien, men hvis
 betingelsen er falsk indsættes <code>NA</code>:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a>testData<span class="sc">$</span>age_err <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(testDataRaw<span class="sc">$</span>age_err <span class="sc">!=</span> <span class="dv">999</span>, testDataRaw<span class="sc">$</span>age_err, <span class="cn">NA</span>)</span></code></pre></div>
-<pre><code>##   [1] 66 65 NA 53 88 55 68 69 59 72 58 69 53 64 74 45 68 76 73 77 60 68 62 67 80
-##  [26] 67 58 72 81 69 65 69 66 70 78 74 64 78 67 65 69 71 71 59 71 71 69 NA 71 56
-##  [51] 48 94 79 71 64 63 76 61 67 76 59 72 80 78 73 51 66 61 68 64 51 70 56 59 77
-##  [76] 73 62 76 77 71 85 74 79 67 63 85 72 61 NA 54 72 72 79 72 77 64 64 68 87 68</code></pre>
+<pre><code>##   [1]  85  72  61  65  54  72  72  79  72  77  64  64  68  87  68  73  59  73
+##  [19]  84  67  81  62  62  63  55  64  89  68  NA  71  67  73  62  81  59  78
+##  [37]  72  71  77  61  58  67  82  76  93  60  71 101  70  79  78  86  71  82
+##  [55]  53  62  71  64  72  53  NA  65  65  68  64  53  76  70  40  81  63  72
+##  [73]  73  59  55  85  89  76  72  71  73  NA  80  77  64  71  70  71  80  65
+##  [91]  76  72  70  80  71  59  57  67  63  58</code></pre>
 </div>
 </div>
 <div id="fejl-i-kategorier" class="section level2">
@@ -2087,14 +2093,14 @@ muligheder, men i så fald vil der være meget få af dem. Hvis man skal
 undersøge hvilke unikke værdier variablen har bruger man funktionen
 <code>unique()</code>:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">unique</span>(testDataRaw<span class="sc">$</span>gender_err)</span></code></pre></div>
-<pre><code>## [1] 1 0 2</code></pre>
+<pre><code>## [1] 0 1 2</code></pre>
 <p>Her kan man se at der er tre unikke værdier.</p>
 <p>Derefter kan man bruge funktionen <code>table()</code> til at
 undersøge antallet af hver værdi:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="fu">table</span>(testDataRaw<span class="sc">$</span>gender_err)</span></code></pre></div>
 <pre><code>## 
 ##  0  1  2 
-## 39 53  8</code></pre>
+## 29 63  8</code></pre>
 <p>Her kan vi se at der er en lidt påfaldende fordeling af værdier. Selv
 hvis der var en mulighed, som hed ‘Andet’ ville man kun forvente få
 besvarelser i denne værdi. En anden mulighed kunne være, at data ikke er
@@ -2105,8 +2111,8 @@ rekrutteres deltagere fra forskellige behandlingssteder).</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="fu">table</span>(testDataRaw<span class="sc">$</span>gender_err, testDataRaw<span class="sc">$</span>hospital)</span></code></pre></div>
 <pre><code>##    
 ##      1  2  3  4  5
-##   0  8 11  7 13  0
-##   1 12  9 13  7 12
+##   0  8  8  5  8  0
+##   1 12 12 15 12 12
 ##   2  0  0  0  0  8</code></pre>
 <p>Her kan man se at fire af behandlingsstederne har kodet køn som 0/1,
 mens et enkelt behandlingssted tilsyneladende har kodet variablen som
@@ -2119,8 +2125,8 @@ bruges yderligere en ifelse() til at rette påvirkede værdier:</p>
 <span id="cb38-4"><a href="#cb38-4" tabindex="-1"></a><span class="fu">table</span>(testDataRaw<span class="sc">$</span>gender_err2, testDataRaw<span class="sc">$</span>hospital)</span></code></pre></div>
 <pre><code>##    
 ##      1  2  3  4  5
-##   0  8 11  7 13 12
-##   1 12  9 13  7  8</code></pre>
+##   0  8  8  5  8 12
+##   1 12 12 15 12  8</code></pre>
 </div>
 </div>
 <div id="fejl-i-decimaltegn" class="section level2">
@@ -2130,19 +2136,19 @@ variabel, hvor der er brugt kommer som decimal-tegn. R forventer i per
 default at der bruges punktum - så hvis det ikke specificeres at der er
 komma - vil R fortolke variablen som en tekst variabel.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>testDataRaw<span class="sc">$</span> weight_err</span></code></pre></div>
-<pre><code>##   [1] &quot;86,65&quot;  &quot;72,5&quot;   &quot;34,69&quot;  &quot;53,17&quot;  &quot;76,03&quot;  &quot;100,65&quot; &quot;64,01&quot;  &quot;53,79&quot; 
-##   [9] &quot;63,5&quot;   &quot;53,99&quot;  &quot;67,98&quot;  &quot;74,47&quot;  &quot;59,06&quot;  &quot;86,45&quot;  &quot;80,99&quot;  &quot;83,72&quot; 
-##  [17] &quot;85,47&quot;  &quot;60,59&quot;  &quot;60,58&quot;  &quot;53,08&quot;  &quot;100,11&quot; &quot;71,8&quot;   &quot;85,64&quot;  &quot;81,54&quot; 
-##  [25] &quot;80,22&quot;  &quot;68,24&quot;  &quot;68,01&quot;  &quot;79,7&quot;   &quot;75,79&quot;  &quot;100,37&quot; &quot;86,35&quot;  &quot;97,87&quot; 
-##  [33] &quot;118,16&quot; &quot;66,54&quot;  &quot;85,4&quot;   &quot;71,69&quot;  &quot;79,19&quot;  &quot;73,78&quot;  &quot;97,65&quot;  &quot;44,95&quot; 
-##  [41] &quot;92,91&quot;  &quot;78,27&quot;  &quot;60,49&quot;  &quot;81,12&quot;  &quot;62,07&quot;  &quot;96,55&quot;  &quot;67,1&quot;   &quot;69,49&quot; 
-##  [49] &quot;69,09&quot;  &quot;81,44&quot;  &quot;56,08&quot;  &quot;68,56&quot;  &quot;86,55&quot;  &quot;44,17&quot;  &quot;99,93&quot;  &quot;70,67&quot; 
-##  [57] &quot;58,23&quot;  &quot;89,87&quot;  &quot;60,04&quot;  &quot;76,89&quot;  &quot;68,76&quot;  &quot;86,27&quot;  &quot;62,68&quot;  &quot;77,86&quot; 
-##  [65] &quot;77,79&quot;  &quot;103,45&quot; &quot;77,41&quot;  &quot;70,49&quot;  &quot;96,44&quot;  &quot;46,66&quot;  &quot;69,4&quot;   &quot;90,04&quot; 
-##  [73] &quot;40,4&quot;   &quot;87,57&quot;  &quot;84,39&quot;  &quot;65,64&quot;  &quot;79,2&quot;   &quot;91,68&quot;  &quot;70,04&quot;  &quot;81,94&quot; 
-##  [81] &quot;68,18&quot;  &quot;62,56&quot;  &quot;94,42&quot;  &quot;64,38&quot;  &quot;67,01&quot;  &quot;69,88&quot;  &quot;55,23&quot;  &quot;44,03&quot; 
-##  [89] &quot;73,92&quot;  &quot;39,85&quot;  &quot;68,57&quot;  &quot;72,68&quot;  &quot;71,6&quot;   &quot;79,32&quot;  &quot;63,22&quot;  &quot;67,78&quot; 
-##  [97] &quot;70,99&quot;  &quot;86,87&quot;  &quot;66,37&quot;  &quot;86,23&quot;</code></pre>
+<pre><code>##   [1] &quot;62,04&quot;  &quot;55,23&quot;  &quot;44,03&quot;  &quot;65,76&quot;  &quot;39,85&quot;  &quot;76,87&quot;  &quot;65&quot;     &quot;80,54&quot; 
+##   [9] &quot;79,32&quot;  &quot;63,22&quot;  &quot;67,78&quot;  &quot;70,99&quot;  &quot;77,44&quot;  &quot;74,76&quot;  &quot;86,23&quot;  &quot;80,57&quot; 
+##  [17] &quot;91,48&quot;  &quot;44,81&quot;  &quot;60,17&quot;  &quot;64,82&quot;  &quot;71,47&quot;  &quot;92,29&quot;  &quot;57,92&quot;  &quot;60,64&quot; 
+##  [25] &quot;56,2&quot;   &quot;85,14&quot;  &quot;82,63&quot;  &quot;46,6&quot;   &quot;77,45&quot;  &quot;95,8&quot;   &quot;92,66&quot;  &quot;73,26&quot; 
+##  [33] &quot;51,66&quot;  &quot;53,28&quot;  &quot;75,04&quot;  &quot;85,57&quot;  &quot;61,17&quot;  &quot;97,88&quot;  &quot;70,68&quot;  &quot;65,34&quot; 
+##  [41] &quot;66,76&quot;  &quot;67,09&quot;  &quot;59,32&quot;  &quot;89,62&quot;  &quot;53,94&quot;  &quot;68,81&quot;  &quot;83,77&quot;  &quot;100,32&quot;
+##  [49] &quot;91,84&quot;  &quot;81,23&quot;  &quot;62,58&quot;  &quot;59,52&quot;  &quot;46,18&quot;  &quot;102,72&quot; &quot;69,16&quot;  &quot;84,74&quot; 
+##  [57] &quot;81,02&quot;  &quot;66,79&quot;  &quot;91,59&quot;  &quot;89,86&quot;  &quot;71,99&quot;  &quot;79,13&quot;  &quot;92,99&quot;  &quot;96,42&quot; 
+##  [65] &quot;92,92&quot;  &quot;81,12&quot;  &quot;51,67&quot;  &quot;91,93&quot;  &quot;58,35&quot;  &quot;78,23&quot;  &quot;88,5&quot;   &quot;67,98&quot; 
+##  [73] &quot;58,39&quot;  &quot;66,87&quot;  &quot;85,9&quot;   &quot;59,29&quot;  &quot;71,54&quot;  &quot;60,14&quot;  &quot;83,99&quot;  &quot;89,72&quot; 
+##  [81] &quot;105,98&quot; &quot;79,69&quot;  &quot;70,14&quot;  &quot;73,08&quot;  &quot;38,79&quot;  &quot;71,63&quot;  &quot;97,26&quot;  &quot;46,18&quot; 
+##  [89] &quot;99,33&quot;  &quot;89,55&quot;  &quot;67,96&quot;  &quot;59,24&quot;  &quot;69,99&quot;  &quot;88,47&quot;  &quot;77,52&quot;  &quot;80,35&quot; 
+##  [97] &quot;84,63&quot;  &quot;70,03&quot;  &quot;74,5&quot;   &quot;94,45&quot;</code></pre>
 <p>Hvis man prøver at lave den om til tal med funktionen
 <code>as.numeric()</code> vil den returnere NA værdier:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a>testData<span class="sc">$</span> weight_err <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(testDataRaw<span class="sc">$</span> weight_err)</span></code></pre></div>
@@ -2166,77 +2172,290 @@ bruger <code>as.numeric()</code>.</p>
 andet end NA - fx med et punktum eller teksten “Missing value”. Her vil
 R i første omgang importere data som character variabel.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="fu">unique</span>(testDataRaw<span class="sc">$</span> height_err)</span></code></pre></div>
-<pre><code>##  [1] &quot;183&quot; &quot;169&quot; &quot;173&quot; &quot;184&quot; &quot;177&quot; &quot;191&quot; &quot;162&quot; &quot;.&quot;   &quot;163&quot; &quot;155&quot; &quot;164&quot; &quot;189&quot;
-## [13] &quot;168&quot; &quot;171&quot; &quot;167&quot; &quot;181&quot; &quot;159&quot; &quot;188&quot; &quot;182&quot; &quot;187&quot; &quot;176&quot; &quot;193&quot; &quot;201&quot; &quot;180&quot;
-## [25] &quot;179&quot; &quot;178&quot; &quot;186&quot; &quot;153&quot; &quot;172&quot; &quot;185&quot; &quot;165&quot; &quot;174&quot; &quot;150&quot; &quot;190&quot; &quot;170&quot; &quot;157&quot;
-## [37] &quot;197&quot;</code></pre>
+<pre><code>##  [1] &quot;163&quot; &quot;162&quot; &quot;176&quot; &quot;166&quot; &quot;167&quot; &quot;180&quot; &quot;.&quot;   &quot;175&quot; &quot;183&quot; &quot;170&quot; &quot;173&quot; &quot;197&quot;
+## [13] &quot;184&quot; &quot;172&quot; &quot;154&quot; &quot;169&quot; &quot;179&quot; &quot;168&quot; &quot;171&quot; &quot;189&quot; &quot;191&quot; &quot;185&quot; &quot;188&quot; &quot;177&quot;
+## [25] &quot;186&quot; &quot;194&quot; &quot;165&quot; &quot;195&quot; &quot;157&quot; &quot;201&quot; &quot;181&quot; &quot;161&quot; &quot;159&quot; &quot;203&quot; &quot;153&quot; &quot;193&quot;
+## [37] &quot;178&quot; &quot;182&quot;</code></pre>
 <p>I de fleste tilfælde kan man tvinge variablen til at blive tal med
 <code>as.numeric()</code> - og så vil R automatisk lave alle værdier,
 som ikke er tal, om til <code>NA</code>:</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a>testData<span class="sc">$</span> height_err <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(testDataRaw<span class="sc">$</span> height_err)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
-<pre><code>##   [1] 183 169 173 184 177 191 162  NA 163 155 164 189 168 184 171 167 183 162
-##  [19] 181 159 188 182  NA 187 171 168 177  NA 176 193  NA 181 201 180 179 178
-##  [37] 186 171 182 153 172 181 164  NA 163 185 165 165  NA 174  NA 176 180 150
-##  [55] 191 163 172 183 169  NA  NA  NA 186 182 171 173  NA 190 187 164 171 180
-##  [73] 171 180  NA 176  NA 170  NA 181 169 157  NA 173 168 173 162  NA  NA 167
-##  [91]  NA  NA 165 183  NA 177 171 179 163 197</code></pre>
+<pre><code>##   [1] 163 162 176 166 167 180  NA 175 183 170  NA  NA  NA 173 197 184 172 154
+##  [19]  NA 169 179 170  NA 168  NA 172 171 171 183 189 197 173 166 166 171 191
+##  [37] 163 185 167 188 179 173 173 180 177 186 186 194 170 186 165 166 172 195
+##  [55] 157 201 168 165 188 177 181  NA 183 180 177 169  NA 186  NA  NA  NA  NA
+##  [73]  NA 161 191 159 179  NA  NA  NA 203 189 168 179 153 168 180 157  NA  NA
+##  [91] 162 168 193 173 171 178 182 197 162  NA</code></pre>
 </div>
 </div>
 <div id="data" class="section level1">
 <h1>Test data</h1>
-<p>Her kan man se hvordan test datasættet er blevet lavet:</p>
+<p>Eksemplerne i denne guide er baseret på et simuleret datasæt med
+tilfældige værdier.</p>
+<p>Herunder kan man se koden der er brugt til at lave datasættet.</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a><span class="co"># Generering af test datasæt</span></span>
-<span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb51-3"><a href="#cb51-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb51-4"><a href="#cb51-4" tabindex="-1"></a>testDataRaw <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n)</span>
-<span id="cb51-5"><a href="#cb51-5" tabindex="-1"></a>testDataRaw<span class="sc">$</span> hospital <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,n<span class="sc">/</span><span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">2</span>,n<span class="sc">/</span><span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">3</span>,n<span class="sc">/</span><span class="dv">5</span>),</span>
-<span id="cb51-6"><a href="#cb51-6" tabindex="-1"></a>                                  <span class="fu">rep</span>(<span class="dv">4</span>,n<span class="sc">/</span><span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">5</span>,n<span class="sc">/</span><span class="dv">5</span>)), n, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb51-7"><a href="#cb51-7" tabindex="-1"></a>testDataRaw<span class="sc">$</span> admission_date <span class="ot">&lt;-</span> <span class="fu">sort</span>( <span class="fu">as.Date</span>(</span>
-<span id="cb51-8"><a href="#cb51-8" tabindex="-1"></a>        <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="fu">as.numeric</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2024-01-01&quot;</span>)), </span>
-<span id="cb51-9"><a href="#cb51-9" tabindex="-1"></a>        <span class="at">max =</span> <span class="fu">as.numeric</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2024-12-31&quot;</span>))), </span>
-<span id="cb51-10"><a href="#cb51-10" tabindex="-1"></a>        <span class="at">origin =</span> <span class="st">&quot;1970-01-01&quot;</span>))</span>
-<span id="cb51-11"><a href="#cb51-11" tabindex="-1"></a>testDataRaw<span class="sc">$</span> admission_time <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(</span>
-<span id="cb51-12"><a href="#cb51-12" tabindex="-1"></a>  <span class="fu">paste0</span>((<span class="fu">round</span>( <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">11</span>, <span class="at">sd =</span> <span class="dv">5</span>)) <span class="sc">%%</span> <span class="dv">24</span>),<span class="st">&quot;:&quot;</span>,</span>
-<span id="cb51-13"><a href="#cb51-13" tabindex="-1"></a>         <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">59</span>,n,<span class="at">replace =</span> <span class="cn">TRUE</span>)), <span class="at">format=</span><span class="st">&quot;%H:%M&quot;</span>), <span class="st">&quot;%H:%M&quot;</span>)</span>
-<span id="cb51-14"><a href="#cb51-14" tabindex="-1"></a>testDataRaw<span class="sc">$</span> discharge_date <span class="ot">&lt;-</span> testDataRaw<span class="sc">$</span> admission_date <span class="sc">+</span> </span>
-<span id="cb51-15"><a href="#cb51-15" tabindex="-1"></a>                                <span class="fu">sample</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb51-16"><a href="#cb51-16" tabindex="-1"></a>testDataRaw<span class="sc">$</span> admission_date <span class="ot">&lt;-</span> <span class="fu">as.character</span>(testDataRaw<span class="sc">$</span> admission_date)</span>
-<span id="cb51-17"><a href="#cb51-17" tabindex="-1"></a>testDataRaw<span class="sc">$</span> discharge_date <span class="ot">&lt;-</span> <span class="fu">as.character</span>(testDataRaw<span class="sc">$</span> discharge_date)</span>
-<span id="cb51-18"><a href="#cb51-18" tabindex="-1"></a>testDataRaw<span class="sc">$</span> discharge_time <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(</span>
-<span id="cb51-19"><a href="#cb51-19" tabindex="-1"></a>  <span class="fu">paste0</span>((<span class="fu">round</span>( <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">14</span>, <span class="at">sd =</span> <span class="dv">2</span>)) <span class="sc">%%</span> <span class="dv">24</span>),<span class="st">&quot;:&quot;</span>,</span>
-<span id="cb51-20"><a href="#cb51-20" tabindex="-1"></a>         <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">59</span>,n,<span class="at">replace =</span> <span class="cn">TRUE</span>)), <span class="at">format=</span><span class="st">&quot;%H:%M&quot;</span>), <span class="st">&quot;%H:%M&quot;</span>)</span>
-<span id="cb51-21"><a href="#cb51-21" tabindex="-1"></a>testDataRaw<span class="sc">$</span> gender <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb51-22"><a href="#cb51-22" tabindex="-1"></a>testDataRaw<span class="sc">$</span> age <span class="ot">&lt;-</span> <span class="fu">round</span>( <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>) )</span>
-<span id="cb51-23"><a href="#cb51-23" tabindex="-1"></a>testDataRaw<span class="sc">$</span> height <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(testDataRaw<span class="sc">$</span> gender, </span>
-<span id="cb51-24"><a href="#cb51-24" tabindex="-1"></a>                          <span class="cf">function</span>(x){<span class="cf">if</span>(x <span class="sc">==</span> <span class="st">&quot;M&quot;</span>){</span>
-<span id="cb51-25"><a href="#cb51-25" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">180</span>, <span class="at">sd =</span> <span class="dv">10</span>) ))} </span>
-<span id="cb51-26"><a href="#cb51-26" tabindex="-1"></a>                          <span class="cf">else</span> {</span>
-<span id="cb51-27"><a href="#cb51-27" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">170</span>, <span class="at">sd =</span> <span class="dv">10</span>) ))} </span>
-<span id="cb51-28"><a href="#cb51-28" tabindex="-1"></a>                            }))</span>
-<span id="cb51-29"><a href="#cb51-29" tabindex="-1"></a>testDataRaw<span class="sc">$</span> weight <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">600</span>, <span class="at">sd =</span> <span class="dv">180</span>)</span>
-<span id="cb51-30"><a href="#cb51-30" tabindex="-1"></a>                            )<span class="sc">*</span>(testDataRaw<span class="sc">$</span> height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb51-31"><a href="#cb51-31" tabindex="-1"></a>testDataRaw<span class="sc">$</span> allocation <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Treatment&quot;</span>,<span class="st">&quot;Control&quot;</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb51-32"><a href="#cb51-32" tabindex="-1"></a>testDataRaw<span class="sc">$</span> sbp_pre <span class="ot">&lt;-</span> <span class="fu">round</span>( <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">140</span>, <span class="at">sd =</span> <span class="dv">10</span>) )</span>
-<span id="cb51-33"><a href="#cb51-33" tabindex="-1"></a>testDataRaw<span class="sc">$</span> sbp_post <span class="ot">&lt;-</span> testDataRaw<span class="sc">$</span> sbp_pre<span class="sc">+</span><span class="fu">unlist</span>(</span>
-<span id="cb51-34"><a href="#cb51-34" tabindex="-1"></a>                          <span class="fu">lapply</span>(testDataRaw<span class="sc">$</span> allocation, </span>
-<span id="cb51-35"><a href="#cb51-35" tabindex="-1"></a>                          <span class="cf">function</span>(x){<span class="cf">if</span>(x <span class="sc">==</span> <span class="st">&quot;Treatment&quot;</span>){</span>
-<span id="cb51-36"><a href="#cb51-36" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="sc">-</span><span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">3</span>) ))} </span>
-<span id="cb51-37"><a href="#cb51-37" tabindex="-1"></a>                          <span class="cf">else</span> {</span>
-<span id="cb51-38"><a href="#cb51-38" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>) ))} }))</span>
-<span id="cb51-39"><a href="#cb51-39" tabindex="-1"></a>testDataRaw<span class="sc">$</span> gender_err <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(testDataRaw<span class="sc">$</span> hospital, </span>
-<span id="cb51-40"><a href="#cb51-40" tabindex="-1"></a>                          <span class="cf">function</span>(x){<span class="cf">if</span>(x <span class="sc">==</span> <span class="dv">5</span>){</span>
-<span id="cb51-41"><a href="#cb51-41" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))} </span>
-<span id="cb51-42"><a href="#cb51-42" tabindex="-1"></a>                          <span class="cf">else</span> {</span>
-<span id="cb51-43"><a href="#cb51-43" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))} }))</span>
-<span id="cb51-44"><a href="#cb51-44" tabindex="-1"></a>testDataRaw<span class="sc">$</span> age_err <span class="ot">&lt;-</span> testDataRaw<span class="sc">$</span>age</span>
-<span id="cb51-45"><a href="#cb51-45" tabindex="-1"></a>testDataRaw<span class="sc">$</span> age_err[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="dv">3</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)] <span class="ot">=</span> <span class="dv">999</span></span>
-<span id="cb51-46"><a href="#cb51-46" tabindex="-1"></a>testDataRaw<span class="sc">$</span> weight_err <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_replace</span>(<span class="fu">as.character</span>(</span>
-<span id="cb51-47"><a href="#cb51-47" tabindex="-1"></a>                            <span class="fu">round</span>(testDataRaw<span class="sc">$</span> weight,<span class="dv">2</span>)),<span class="st">&quot;[.]&quot;</span>, <span class="st">&quot;,&quot;</span>)</span>
-<span id="cb51-48"><a href="#cb51-48" tabindex="-1"></a>testDataRaw<span class="sc">$</span> height_err <span class="ot">&lt;-</span> <span class="fu">as.character</span>(testDataRaw<span class="sc">$</span> height)</span>
-<span id="cb51-49"><a href="#cb51-49" tabindex="-1"></a>testDataRaw<span class="sc">$</span> height_err[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)] <span class="ot">=</span> <span class="st">&quot;.&quot;</span></span></code></pre></div>
+<span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># Seed for randomisering</span></span>
+<span id="cb51-3"><a href="#cb51-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># Antal observationer</span></span>
+<span id="cb51-4"><a href="#cb51-4" tabindex="-1"></a>testDataRaw <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n) <span class="co"># Observations id</span></span>
+<span id="cb51-5"><a href="#cb51-5" tabindex="-1"></a><span class="co"># Tilfældig trækning af 1 til 5; replace = FALSE sikre at der er lige mange </span></span>
+<span id="cb51-6"><a href="#cb51-6" tabindex="-1"></a><span class="co"># hver gruppe</span></span>
+<span id="cb51-7"><a href="#cb51-7" tabindex="-1"></a>testDataRaw<span class="sc">$</span> hospital <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,n<span class="sc">/</span><span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">2</span>,n<span class="sc">/</span><span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">3</span>,n<span class="sc">/</span><span class="dv">5</span>),</span>
+<span id="cb51-8"><a href="#cb51-8" tabindex="-1"></a>                                  <span class="fu">rep</span>(<span class="dv">4</span>,n<span class="sc">/</span><span class="dv">5</span>),<span class="fu">rep</span>(<span class="dv">5</span>,n<span class="sc">/</span><span class="dv">5</span>)), n, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb51-9"><a href="#cb51-9" tabindex="-1"></a><span class="co"># Tilfælde datoer i 2024; sort() gør at datoer er kontinuerlige</span></span>
+<span id="cb51-10"><a href="#cb51-10" tabindex="-1"></a>testDataRaw<span class="sc">$</span> admission_date <span class="ot">&lt;-</span> <span class="fu">sort</span>( <span class="fu">as.Date</span>(</span>
+<span id="cb51-11"><a href="#cb51-11" tabindex="-1"></a>        <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="fu">as.numeric</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2024-01-01&quot;</span>)), </span>
+<span id="cb51-12"><a href="#cb51-12" tabindex="-1"></a>        <span class="at">max =</span> <span class="fu">as.numeric</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2024-12-31&quot;</span>))), </span>
+<span id="cb51-13"><a href="#cb51-13" tabindex="-1"></a>        <span class="at">origin =</span> <span class="st">&quot;1970-01-01&quot;</span>))</span>
+<span id="cb51-14"><a href="#cb51-14" tabindex="-1"></a><span class="co"># Tilfældigt indlæggelsestidspunkt </span></span>
+<span id="cb51-15"><a href="#cb51-15" tabindex="-1"></a><span class="co"># Timerne er normalfordelt omkring kl 11</span></span>
+<span id="cb51-16"><a href="#cb51-16" tabindex="-1"></a>testDataRaw<span class="sc">$</span> admission_time <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(</span>
+<span id="cb51-17"><a href="#cb51-17" tabindex="-1"></a>  <span class="fu">paste0</span>((<span class="fu">round</span>( <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">11</span>, <span class="at">sd =</span> <span class="dv">5</span>)) <span class="sc">%%</span> <span class="dv">24</span>),<span class="st">&quot;:&quot;</span>,</span>
+<span id="cb51-18"><a href="#cb51-18" tabindex="-1"></a>         <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">59</span>,n,<span class="at">replace =</span> <span class="cn">TRUE</span>)), <span class="at">format=</span><span class="st">&quot;%H:%M&quot;</span>), <span class="st">&quot;%H:%M&quot;</span>)</span>
+<span id="cb51-19"><a href="#cb51-19" tabindex="-1"></a><span class="co"># Udskrivelsesdatoen er indlæggelsesdatoen plus et tilfældigt antal dage</span></span>
+<span id="cb51-20"><a href="#cb51-20" tabindex="-1"></a>testDataRaw<span class="sc">$</span> discharge_date <span class="ot">&lt;-</span> testDataRaw<span class="sc">$</span> admission_date <span class="sc">+</span> </span>
+<span id="cb51-21"><a href="#cb51-21" tabindex="-1"></a>                                <span class="fu">sample</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb51-22"><a href="#cb51-22" tabindex="-1"></a><span class="co"># Datoerne formateres som character i stedet for posix</span></span>
+<span id="cb51-23"><a href="#cb51-23" tabindex="-1"></a>testDataRaw<span class="sc">$</span> admission_date <span class="ot">&lt;-</span> <span class="fu">as.character</span>(testDataRaw<span class="sc">$</span> admission_date)</span>
+<span id="cb51-24"><a href="#cb51-24" tabindex="-1"></a>testDataRaw<span class="sc">$</span> discharge_date <span class="ot">&lt;-</span> <span class="fu">as.character</span>(testDataRaw<span class="sc">$</span> discharge_date)</span>
+<span id="cb51-25"><a href="#cb51-25" tabindex="-1"></a><span class="co"># Udskrivelses tidspunktet er tilfældigt efter en normalfordeling omkring kl 14</span></span>
+<span id="cb51-26"><a href="#cb51-26" tabindex="-1"></a>testDataRaw<span class="sc">$</span> discharge_time <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="fu">as.POSIXct</span>(</span>
+<span id="cb51-27"><a href="#cb51-27" tabindex="-1"></a>  <span class="fu">paste0</span>((<span class="fu">round</span>( <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">14</span>, <span class="at">sd =</span> <span class="dv">2</span>)) <span class="sc">%%</span> <span class="dv">24</span>),<span class="st">&quot;:&quot;</span>,</span>
+<span id="cb51-28"><a href="#cb51-28" tabindex="-1"></a>         <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">59</span>, n, <span class="at">replace =</span> <span class="cn">TRUE</span>)), <span class="at">format=</span><span class="st">&quot;%H:%M&quot;</span>), <span class="st">&quot;%H:%M&quot;</span>)</span>
+<span id="cb51-29"><a href="#cb51-29" tabindex="-1"></a><span class="co"># Tilfældigt køn</span></span>
+<span id="cb51-30"><a href="#cb51-30" tabindex="-1"></a>testDataRaw<span class="sc">$</span> gender <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb51-31"><a href="#cb51-31" tabindex="-1"></a><span class="co"># Tilfældig alder | normalfordelt omkring 70 år</span></span>
+<span id="cb51-32"><a href="#cb51-32" tabindex="-1"></a>testDataRaw<span class="sc">$</span> age <span class="ot">&lt;-</span> <span class="fu">round</span>( <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>) )</span>
+<span id="cb51-33"><a href="#cb51-33" tabindex="-1"></a><span class="co"># Tilfældig højde betinget af køn, så mændene har en gennemsnitshøjde på 180 cm </span></span>
+<span id="cb51-34"><a href="#cb51-34" tabindex="-1"></a><span class="co"># og kvinder en gennemsnitshøjde på 170 cm</span></span>
+<span id="cb51-35"><a href="#cb51-35" tabindex="-1"></a>testDataRaw<span class="sc">$</span> height <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(testDataRaw<span class="sc">$</span> gender, </span>
+<span id="cb51-36"><a href="#cb51-36" tabindex="-1"></a>                          <span class="cf">function</span>(x){<span class="cf">if</span>(x <span class="sc">==</span> <span class="st">&quot;M&quot;</span>){</span>
+<span id="cb51-37"><a href="#cb51-37" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">180</span>, <span class="at">sd =</span> <span class="dv">10</span>) ))} </span>
+<span id="cb51-38"><a href="#cb51-38" tabindex="-1"></a>                          <span class="cf">else</span> {</span>
+<span id="cb51-39"><a href="#cb51-39" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">170</span>, <span class="at">sd =</span> <span class="dv">10</span>) ))} </span>
+<span id="cb51-40"><a href="#cb51-40" tabindex="-1"></a>                            }))</span>
+<span id="cb51-41"><a href="#cb51-41" tabindex="-1"></a><span class="co"># Vægt udregnes ud fra højde med et tilfældigt BMI; BMI er udregnet som en</span></span>
+<span id="cb51-42"><a href="#cb51-42" tabindex="-1"></a><span class="co"># kvadradisk funktion af en normalfordeling med mean 600 (BMI = ca 24.5)</span></span>
+<span id="cb51-43"><a href="#cb51-43" tabindex="-1"></a>testDataRaw<span class="sc">$</span> weight <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">600</span>, <span class="at">sd =</span> <span class="dv">180</span>)</span>
+<span id="cb51-44"><a href="#cb51-44" tabindex="-1"></a>                            )<span class="sc">*</span>(testDataRaw<span class="sc">$</span> height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb51-45"><a href="#cb51-45" tabindex="-1"></a><span class="co"># Tilfældig allokering til behandling eller kontrol</span></span>
+<span id="cb51-46"><a href="#cb51-46" tabindex="-1"></a>testDataRaw<span class="sc">$</span> allocation <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Treatment&quot;</span>,<span class="st">&quot;Control&quot;</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb51-47"><a href="#cb51-47" tabindex="-1"></a><span class="co"># Tilfældigt normalfordelt blodtryk før behandling</span></span>
+<span id="cb51-48"><a href="#cb51-48" tabindex="-1"></a>testDataRaw<span class="sc">$</span> sbp_pre <span class="ot">&lt;-</span> <span class="fu">round</span>( <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">140</span>, <span class="at">sd =</span> <span class="dv">10</span>) )</span>
+<span id="cb51-49"><a href="#cb51-49" tabindex="-1"></a><span class="co"># Tilfældigt normalfordelt blodtryk efter behandling hvor en betingelse gør at</span></span>
+<span id="cb51-50"><a href="#cb51-50" tabindex="-1"></a><span class="co"># &quot;Treatment&quot; har et gennemsnitligt fald i blodtryk og &quot;Control&quot; er uændret</span></span>
+<span id="cb51-51"><a href="#cb51-51" tabindex="-1"></a>testDataRaw<span class="sc">$</span> sbp_post <span class="ot">&lt;-</span> testDataRaw<span class="sc">$</span> sbp_pre<span class="sc">+</span><span class="fu">unlist</span>(</span>
+<span id="cb51-52"><a href="#cb51-52" tabindex="-1"></a>                          <span class="fu">lapply</span>(testDataRaw<span class="sc">$</span> allocation, </span>
+<span id="cb51-53"><a href="#cb51-53" tabindex="-1"></a>                          <span class="cf">function</span>(x){<span class="cf">if</span>(x <span class="sc">==</span> <span class="st">&quot;Treatment&quot;</span>){</span>
+<span id="cb51-54"><a href="#cb51-54" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="sc">-</span><span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">3</span>) ))} </span>
+<span id="cb51-55"><a href="#cb51-55" tabindex="-1"></a>                          <span class="cf">else</span> {</span>
+<span id="cb51-56"><a href="#cb51-56" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">2</span>) ))} }))</span>
+<span id="cb51-57"><a href="#cb51-57" tabindex="-1"></a><span class="co"># Køns-variabel hvor en betingelse laver en anden indtastning hvis &quot;hospital&quot; </span></span>
+<span id="cb51-58"><a href="#cb51-58" tabindex="-1"></a><span class="co"># er lig med 5</span></span>
+<span id="cb51-59"><a href="#cb51-59" tabindex="-1"></a>testDataRaw<span class="sc">$</span> gender_err <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(testDataRaw<span class="sc">$</span> hospital, </span>
+<span id="cb51-60"><a href="#cb51-60" tabindex="-1"></a>                          <span class="cf">function</span>(x){<span class="cf">if</span>(x <span class="sc">==</span> <span class="dv">5</span>){</span>
+<span id="cb51-61"><a href="#cb51-61" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))} </span>
+<span id="cb51-62"><a href="#cb51-62" tabindex="-1"></a>                          <span class="cf">else</span> {</span>
+<span id="cb51-63"><a href="#cb51-63" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))} }))</span>
+<span id="cb51-64"><a href="#cb51-64" tabindex="-1"></a><span class="co"># Alders-variabel hvor 3 tilfældige værdier udskiftes med værdien 999</span></span>
+<span id="cb51-65"><a href="#cb51-65" tabindex="-1"></a>testDataRaw<span class="sc">$</span> age_err <span class="ot">&lt;-</span> testDataRaw<span class="sc">$</span>age</span>
+<span id="cb51-66"><a href="#cb51-66" tabindex="-1"></a>testDataRaw<span class="sc">$</span> age_err[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="dv">3</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)] <span class="ot">=</span> <span class="dv">999</span></span>
+<span id="cb51-67"><a href="#cb51-67" tabindex="-1"></a><span class="co"># Vægt-variabel hvor decimal-tegnet udskiftes med komma pg formateres til tekst</span></span>
+<span id="cb51-68"><a href="#cb51-68" tabindex="-1"></a>testDataRaw<span class="sc">$</span> weight_err <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_replace</span>(<span class="fu">as.character</span>(</span>
+<span id="cb51-69"><a href="#cb51-69" tabindex="-1"></a>                            <span class="fu">round</span>(testDataRaw<span class="sc">$</span> weight,<span class="dv">2</span>)),<span class="st">&quot;[.]&quot;</span>, <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb51-70"><a href="#cb51-70" tabindex="-1"></a><span class="co"># Højde-variabel hvor 20 tilfældige værdier udskiftes med punktum og formateres</span></span>
+<span id="cb51-71"><a href="#cb51-71" tabindex="-1"></a><span class="co"># som tekst</span></span>
+<span id="cb51-72"><a href="#cb51-72" tabindex="-1"></a>testDataRaw<span class="sc">$</span> height_err <span class="ot">&lt;-</span> <span class="fu">as.character</span>(testDataRaw<span class="sc">$</span> height)</span>
+<span id="cb51-73"><a href="#cb51-73" tabindex="-1"></a>testDataRaw<span class="sc">$</span> height_err[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)] <span class="ot">=</span> <span class="st">&quot;.&quot;</span></span></code></pre></div>
+<div id="forklaring-på-de-anvendte-funktioner" class="section level2">
+<h2>Forklaring på de anvendte funktioner</h2>
+<p><strong>Sekvenser</strong> af tal kan laves på to måder enten ved
+angive starttaller og sluttallet, adskilt af et enkelt kolon, fx vil
+koden <code>1:10</code> give en vektor fra 1 til 10:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Funktionen <code>seq(min, max)</code> giver samme output:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Hvis man vil have en sekvens med større spring, fx 10, bruges koden
+<code>seq(min, max, by)</code>, hvor argumentet <code>by</code> angiver
+størrelsen på springet:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1]  10  20  30  40  50  60  70  80  90 100</code></pre>
+<p>Funktionen <code>rep(x, n)</code> (replicate) bruges til at lave en
+vektor med en bestemt værdi et antal gange (<strong>x</strong> angiver
+værdien og <strong>n</strong> angiver antallet af gentagelser):</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1</code></pre>
+<p>Funktionen <code>sample(x, n, replace)</code> bruges til at lave
+tilfældige trækninger af en vektor (<strong>x</strong>),
+<strong>n</strong> antal gange, enten med eller uden tilbagelægning
+(<code>replace</code> defineres som entel <code>TRUE</code> eller
+<code>FALSE</code>, hvor default er <code>FALSE</code>). Hvis
+<code>replace</code> defineres som <code>FALSE</code> skal vektoren være
+mindst samme længde som <strong>n</strong>.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Treatment&quot;</span>,<span class="st">&quot;Control&quot;</span>), <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;Treatment&quot; &quot;Treatment&quot; &quot;Control&quot;   &quot;Treatment&quot; &quot;Control&quot;   &quot;Treatment&quot;
+##  [7] &quot;Treatment&quot; &quot;Control&quot;   &quot;Treatment&quot; &quot;Treatment&quot;</code></pre>
+<p>Funktionen <code>rnorm(n, mean, sd)</code> bruges til at lave en
+vektor med tilfældige værdier efter en normalfordeling, hvor
+<strong>n</strong> angiver antallet af trækninger, <strong>mean</strong>
+angiver gennemsnittet for normalfordelingen og <strong>sd</strong>
+angiver standarddeviationen for normalfordelingen:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1] 68.04207 75.64337 82.57325 63.65407 74.24233 71.80031 67.70405 69.26792
+##  [9] 63.17828 69.15111</code></pre>
+<p>Funktionen runif(n, min, max) bruges til at lave en vektor med
+tilfældige værdier mellem to værdier, hvor <strong>n</strong> angiver
+antallet af trækninger, <strong>min</strong> angiver den laveste værdi
+og <strong>max</strong> angiver den højeste værdi. Trækningen har ingen
+fordeling og alle værdier har derfor samme sandsynlighed:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">10</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##  [1] 94.3224738 37.4545655  0.8041536 98.0524503 37.7540056 98.5867555
+##  [7] 13.9616391 56.2218103 79.4360194 19.3901369</code></pre>
+<p>Funktionen <code>lapply(x, FUN)</code> bruges til at anvende en
+funktion på en liste af værdier, hvor <strong>x</strong> angiver listen
+og <strong>FUN</strong> angiver funktionen, der skal anvendes (Bruges på
+samme måde som et for-loop). I eksemplet er x en sekvens fra 1 til 10 og
+FUN er en funktion, som returnerer kvadrattallet af x:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" tabindex="-1"></a><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x){x<span class="sc">^</span><span class="dv">2</span>})</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 4
+## 
+## [[3]]
+## [1] 9
+## 
+## [[4]]
+## [1] 16
+## 
+## [[5]]
+## [1] 25
+## 
+## [[6]]
+## [1] 36
+## 
+## [[7]]
+## [1] 49
+## 
+## [[8]]
+## [1] 64
+## 
+## [[9]]
+## [1] 81
+## 
+## [[10]]
+## [1] 100</code></pre>
+<p>Selvom <code>lapply()</code> tager en vektor som input vil den
+returnere en liste af resultater, som ikke har den samme datastruktur
+som inputtet. Hvis man skal bruge <code>lapply()</code> på en variabel i
+en data.frame til at transformere til en ny variabel, skal man bruge
+funktionen <code>unlist()</code> til at lave outputtet til en
+vektor:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" tabindex="-1"></a><span class="fu">unlist</span>( <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x){x<span class="sc">^</span><span class="dv">2</span>}) )</span></code></pre></div>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<p>I datasimulationen bruges <code>lapply()</code> til at lave variabel
+med højde, som er betinget af køn. Mænd <code>(gender == &quot;M&quot;)</code>
+gives en højde en gennemsnit på 180 cm og en standarddeviation på 10 cm,
+mens kvinder gives en højde med et gennemsnit på 170 cm og en
+standarddeviation på 10 cm:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a>testDataRaw<span class="sc">$</span> height <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(testDataRaw<span class="sc">$</span> gender, </span>
+<span id="cb70-2"><a href="#cb70-2" tabindex="-1"></a>                          <span class="cf">function</span>(x){<span class="cf">if</span>(x <span class="sc">==</span> <span class="st">&quot;M&quot;</span>){</span>
+<span id="cb70-3"><a href="#cb70-3" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">180</span>, <span class="at">sd =</span> <span class="dv">10</span>) ))} </span>
+<span id="cb70-4"><a href="#cb70-4" tabindex="-1"></a>                          <span class="cf">else</span> {</span>
+<span id="cb70-5"><a href="#cb70-5" tabindex="-1"></a>                            <span class="fu">return</span>(<span class="fu">round</span>( <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">170</span>, <span class="at">sd =</span> <span class="dv">10</span>) ))} </span>
+<span id="cb70-6"><a href="#cb70-6" tabindex="-1"></a>                            }))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="center">id</th>
+<th align="center">gender</th>
+<th align="center">height</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">F</td>
+<td align="center">176</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">M</td>
+<td align="center">157</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">M</td>
+<td align="center">179</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">F</td>
+<td align="center">196</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">F</td>
+<td align="center">171</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">M</td>
+<td align="center">193</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">F</td>
+<td align="center">173</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">M</td>
+<td align="center">194</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">M</td>
+<td align="center">175</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">M</td>
+<td align="center">184</td>
+</tr>
+<tr class="odd">
+<td align="center">11</td>
+<td align="center">F</td>
+<td align="center">169</td>
+</tr>
+<tr class="even">
+<td align="center">12</td>
+<td align="center">F</td>
+<td align="center">175</td>
+</tr>
+<tr class="odd">
+<td align="center">13</td>
+<td align="center">F</td>
+<td align="center">147</td>
+</tr>
+<tr class="even">
+<td align="center">14</td>
+<td align="center">M</td>
+<td align="center">167</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="center">M</td>
+<td align="center">178</td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 <hr />
+</div>
 </div>
 <div id="kontaktoplysninger" class="section level1">
 <h1>Kontaktoplysninger</h1>
