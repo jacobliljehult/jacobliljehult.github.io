@@ -261,9 +261,12 @@ function calcFun(){
     let liquidExtra = Math.round(((liquidDemand - liquidInProduct)/5)/10)*10; /* Supplerende vand per måltid */
 	let liquidExtraTotal = Math.round(5 * liquidExtra); /* Supplerende vand per døgn */
 
-	let liquidInProduct1 = Math.round(((5*100*0.85))/100)*100;
-	let liquidInProduct2 = Math.round(((5*150*0.85))/100)*100;
-	let liquidInProduct3 = Math.round(((5*200*0.85))/100)*100;
+	let productWaterStart = 0.85;
+		if(product == "prod--hp2"){ productWaterStart = productWater }
+		
+	let liquidInProduct1 = Math.round(((5*100*productWaterStart))/100)*100;
+	let liquidInProduct2 = Math.round(((5*150*productWaterStart))/100)*100;
+	let liquidInProduct3 = Math.round(((5*200*productWaterStart))/100)*100;
 		
     let liquidExtra1 = Math.round((liquidDemand - (5*100*0.85))/100)*100;
     let liquidExtra2 = Math.round((liquidDemand - (5*150*0.85))/100)*100;
